@@ -11,26 +11,8 @@ class ProgressionsController < ApplicationController
 
   private
   def progression_params
-    params.require(:progression).permit(:name)
+    # :videos_attributes => [:title, :channelTitle, :date, :description, :thumbnailUrl, :videoId])
+    # params.require(:progression).permit(:name, {videos_attributes: [:title, :videoId, :channelTitle, :date, :description, :thumbnailUrl]})
+    params.require(:progression).permit(:name, :videos_attributes => [:title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
   end
 end
-
-
-# def create
-#   @klass = Klass.new(klass_params)
-#   if @klass.save
-#     current_user.klasses << @klass
-#     render json: @klass, status: 201
-#   else
-#     render json: @klass.errors.full_messages, status: 422
-#   end
-# end
-#
-# def index
-#   @klasses = current_user.klasses.sorted_by_period
-#   respond_to do |format|
-#     format.html
-#     format.json {render json: @klasses.to_json(only: [:id, :name, :subject, :grade, :period],
-#                                                include: [teachers: {only: [:name, :id, :picture_url]}])}
-#   end
-# end

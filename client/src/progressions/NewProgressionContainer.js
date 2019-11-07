@@ -16,10 +16,17 @@ class NewProgressionContainer extends Component {
 
   handleFormSubmit = (event, formData) => {
     event.preventDefault()
-    console.log(formData)
+    const params = {
+      progression: {
+        ...formData,
+        videos_attributes: [...this.state.currProgression]
+      }
+    }
+    // videos: [...this.state.currProgression]
+    console.log(params)
     fetch('/progressions.json', {
       method: 'post',
-      body: JSON.stringify(formData),
+      body: JSON.stringify(params),
       headers: {
         'Content-Type': 'application/json'
       }

@@ -2,17 +2,12 @@ import React, { Component } from 'react'
 
 export default class NewProgressionForm extends Component {
   state = {
-    progression: {
-      name: ""
-    }
+    name: ""
   }
 
   onNameInputChange = event => {
     this.setState({
-      progression: {
-        ...this.state.progression,
-        name: event.target.value
-      }
+      name: event.target.value
     })
   }
 
@@ -24,7 +19,6 @@ export default class NewProgressionForm extends Component {
           value={this.state.name}
           onChange={this.onNameInputChange}/>
         <input type="submit" value="save progression" />
-        <h1>{this.state.name}</h1>
       </form>
 
     )
