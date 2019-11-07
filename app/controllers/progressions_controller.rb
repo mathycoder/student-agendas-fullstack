@@ -1,4 +1,10 @@
 class ProgressionsController < ApplicationController
+
+  def index
+    @progressions = Progression.all
+    render json: @progressions.to_json(include: [:videos])
+  end
+
   def create
     @progression = Progression.new(progression_params)
     if @progression.save
