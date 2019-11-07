@@ -1,0 +1,123 @@
+.new-progression-container {
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 30px 170px 50px 400px;
+}
+
+.create-progression-form input[type=text] {
+  width: 300px;
+  height: 20px;
+  font-size: 16px;
+}
+
+.create-progression-form input[type=submit] {
+  margin-left: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 5px;
+}
+
+.create-progression-form input[type=submit]:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+.progression {
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.progression-item {
+  width: 200px;
+  min-width: 200px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+  margin-left: 10px;
+  margin-top: -15px;
+  background-color: white;
+  box-shadow: 2px 5px 9px #888888;
+}
+
+.progression .progression-item:hover {
+  border: 1px gray solid;
+  cursor: pointer;
+}
+
+.progression .progression-item .progression-item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  height: 35px;
+  overflow: hidden;
+}
+
+.progression-item img {
+  width: 150px;
+}
+
+.x-out {
+  display: inline;
+  position: relative;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 0px 4px;
+  color: white;
+  background-color: rgb(234, 130, 120);
+  border-radius: 3px;
+  left: 5px;
+  bottom: 5px;
+}
+
+.x-out:hover {
+  background-color: rgb(235, 81, 66);
+  cursor: pointer;
+}
+
+.progression .progression-item h4 {
+  display: inline;
+}
+
+.progression-menu-bar ul {
+  display: flex;
+  list-style-type: none;
+  margin-left: -40px;
+}
+
+.progression-menu-bar ul li {
+  padding: 2px 10px;
+  margin-right: 5px;
+  border: 1px black solid;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.progression-menu-bar ul li:hover {
+  background-color: gray;
+}
+
+.progression-menu-bar .selected {
+  background-color: gray;
+}
+
+.drag-over-progression {
+  border: 3px gray solid;
+  padding: 8px;
+}
+
+.item-dragging {
+  border: 3px solid gray;
+  padding: 8px;
+}
