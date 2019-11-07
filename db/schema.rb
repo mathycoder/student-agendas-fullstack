@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 2019_11_07_135250) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string "channel_title"
+    t.string "channelTitle"
     t.string "title"
     t.string "date"
     t.string "description"
-    t.string "thumbnail_url"
-    t.string "video_id"
+    t.string "thumbnailUrl"
+    t.string "videoId"
     t.integer "progression_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

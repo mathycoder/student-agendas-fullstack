@@ -3,15 +3,18 @@ class Progression < ApplicationRecord
 
   def videos_attributes=(data_array)
     data_array.each do |video|
-      self.videos.build(
-        title: video[:title],
-        channel_title: video[:channelTitle],
-        title: video[:title],
-        date: video[:date],
-        description: video[:description],
-        thumbnail_url: video[:thumbnailUrl],
-        video_id: video[:videoId]
-      )
+      self.videos.build(video)
     end
   end
 end
+
+# data_array.each do |video|
+#   self.videos.build(
+#     title: video[:title],
+#     channel_title: video[:channelTitle],
+#     title: video[:title],
+#     date: video[:date],
+#     description: video[:description],
+#     thumbnail_url: video[:thumbnailUrl],
+#     video_id: video[:videoId]
+#   )

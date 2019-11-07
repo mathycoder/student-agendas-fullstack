@@ -827,3 +827,577 @@ Processing by ProgressionsController#index as */*
 Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:48:18 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.7ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.8ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 78ms (Views: 0.1ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:51:26 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:52:00 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:52:43 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:56:17 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:58:20 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:58:48 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:58:57 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:59:11 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 14:59:45 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:00:09 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:00:29 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:01:32 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:02:08 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:02:55 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:04:39 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:05:33 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:05:44 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:05:55 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateVideos (20191107135250)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "videos"[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20191107135250"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateProgressions (20191107135240)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "progressions"[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20191107135240"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateProgressions (20191107135240)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20191107135240_create_progressions.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "progressions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191107135240_create_progressions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191107135240"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateVideos (20191107135250)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "videos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "channelTitle" varchar, "title" varchar, "date" varchar, "description" varchar, "thumbnailUrl" varchar, "videoId" varchar, "progressionId" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191107135250_create_videos.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191107135250"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:09:34 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:09:37 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 15:09:54 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"Math Progression #1", "videos_attributes"=>[{"title"=>"Math. Subtraction & Addition. 1st & 2nd grade. Flashcards.", "videoId"=>"ybEr-s9SPIg", "channelTitle"=>"LUCKYTURIST", "description"=>"MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com.", "date"=>"Nov 7, 2013", "thumbnailUrl"=>"https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/ybEr-s9SPIg"}, {"title"=>"Pencilmate's a Mathematical Mess!", "videoId"=>"Lu9RBvK8jks", "channelTitle"=>"Pencilmation", "description"=>"Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ...", "date"=>"May 12, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/Lu9RBvK8jks"}, {"title"=>"9 Math Riddles That'll Stump Even Your Smartest Friends", "videoId"=>"r5P-f5arPXE", "channelTitle"=>"BRIGHT SIDE", "description"=>"Math puzzles and maths games continue to become more and more popular. They seem very easy at first, but many people end up getting them all wrong.", "date"=>"Mar 2, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/r5P-f5arPXE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/r5P-f5arPXE"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 1.9ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'progression_id' for Video.):
+  
+app/models/progression.rb:6:in `block in videos_attributes='
+app/models/progression.rb:5:in `each'
+app/models/progression.rb:5:in `videos_attributes='
+app/controllers/progressions_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateVideos (20191107135250)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "videos"[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20191107135250"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateProgressions (20191107135240)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "progressions"[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20191107135240"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateProgressions (20191107135240)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20191107135240_create_progressions.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "progressions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191107135240_create_progressions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191107135240"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateVideos (20191107135250)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "videos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "channelTitle" varchar, "title" varchar, "date" varchar, "description" varchar, "thumbnailUrl" varchar, "videoId" varchar, "progression_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191107135250_create_videos.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191107135250"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 15:11:32 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"Math Progression #1", "videos_attributes"=>[{"title"=>"Math. Subtraction & Addition. 1st & 2nd grade. Flashcards.", "videoId"=>"ybEr-s9SPIg", "channelTitle"=>"LUCKYTURIST", "description"=>"MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com.", "date"=>"Nov 7, 2013", "thumbnailUrl"=>"https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/ybEr-s9SPIg"}, {"title"=>"9 Math Riddles That'll Stump Even Your Smartest Friends", "videoId"=>"r5P-f5arPXE", "channelTitle"=>"BRIGHT SIDE", "description"=>"Math puzzles and maths games continue to become more and more popular. They seem very easy at first, but many people end up getting them all wrong.", "date"=>"Mar 2, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/r5P-f5arPXE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/r5P-f5arPXE"}, {"title"=>"Pencilmate's a Mathematical Mess!", "videoId"=>"Lu9RBvK8jks", "channelTitle"=>"Pencilmation", "description"=>"Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ...", "date"=>"May 12, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/Lu9RBvK8jks"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (0.8ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Math Progression #1"], ["created_at", "2019-11-07 20:11:32.865870"], ["updated_at", "2019-11-07 20:11:32.865870"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.4ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "LUCKYTURIST"], ["title", "Math. Subtraction & Addition. 1st & 2nd grade. Flashcards."], ["date", "Nov 7, 2013"], ["description", "MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com."], ["thumbnailUrl", "https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg"], ["videoId", "ybEr-s9SPIg"], ["progression_id", 1], ["created_at", "2019-11-07 20:11:32.868693"], ["updated_at", "2019-11-07 20:11:32.868693"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.2ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "BRIGHT SIDE"], ["title", "9 Math Riddles That'll Stump Even Your Smartest Friends"], ["date", "Mar 2, 2018"], ["description", "Math puzzles and maths games continue to become more and more popular. They seem very easy at first, but many people end up getting them all wrong."], ["thumbnailUrl", "https://i.ytimg.com/vi/r5P-f5arPXE/mqdefault.jpg"], ["videoId", "r5P-f5arPXE"], ["progression_id", 1], ["created_at", "2019-11-07 20:11:32.870797"], ["updated_at", "2019-11-07 20:11:32.870797"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Pencilmation"], ["title", "Pencilmate's a Mathematical Mess!"], ["date", "May 12, 2019"], ["description", "Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg"], ["videoId", "Lu9RBvK8jks"], ["progression_id", 1], ["created_at", "2019-11-07 20:11:32.872307"], ["updated_at", "2019-11-07 20:11:32.872307"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 77ms (Views: 0.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:11:35 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 15:12:09 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"Math Progression #2", "videos_attributes"=>[{"title"=>"Adding and Subtracting Integers Using a Simple Method", "videoId"=>"jVvvUiExjes", "channelTitle"=>"The Organic Chemistry Tutor", "description"=>"This Pre-Algebra video tutorial explains the process of adding and subtracting integers on a number line. it includes plenty of examples with adding negative ...", "date"=>"Jun 28, 2017", "thumbnailUrl"=>"https://i.ytimg.com/vi/jVvvUiExjes/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/jVvvUiExjes"}, {"title"=>"Integer Multiplication Music Video -- Remikarli", "videoId"=>"n9u-T9w6MWw", "channelTitle"=>"Remikarli", "description"=>"Multiply and divide positive and negative integers with this catchy hook. :)", "date"=>"Jun 27, 2015", "thumbnailUrl"=>"https://i.ytimg.com/vi/n9u-T9w6MWw/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/n9u-T9w6MWw"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (0.7ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Math Progression #2"], ["created_at", "2019-11-07 20:12:09.800599"], ["updated_at", "2019-11-07 20:12:09.800599"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.3ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "The Organic Chemistry Tutor"], ["title", "Adding and Subtracting Integers Using a Simple Method"], ["date", "Jun 28, 2017"], ["description", "This Pre-Algebra video tutorial explains the process of adding and subtracting integers on a number line. it includes plenty of examples with adding negative ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/jVvvUiExjes/mqdefault.jpg"], ["videoId", "jVvvUiExjes"], ["progression_id", 2], ["created_at", "2019-11-07 20:12:09.803049"], ["updated_at", "2019-11-07 20:12:09.803049"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.2ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Remikarli"], ["title", "Integer Multiplication Music Video -- Remikarli"], ["date", "Jun 27, 2015"], ["description", "Multiply and divide positive and negative integers with this catchy hook. :)"], ["thumbnailUrl", "https://i.ytimg.com/vi/n9u-T9w6MWw/mqdefault.jpg"], ["videoId", "n9u-T9w6MWw"], ["progression_id", 2], ["created_at", "2019-11-07 20:12:09.806032"], ["updated_at", "2019-11-07 20:12:09.806032"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 26ms (Views: 0.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:12:15 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:13:14 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:13:32 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:13:48 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:18:37 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 15:18:54 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"testing", "videos_attributes"=>[{"title"=>"When You STILL Find More Powerups Than Ever Before in UnderMine", "videoId"=>"F7ItBW__vlE", "channelTitle"=>"DangerouslyFunny", "description"=>"Today we have a new pet, and that new pet helps us find ALL of the secret rooms both in the walls and floors. That means we find a LOT of stuff through the ...", "date"=>"Nov 6, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/F7ItBW__vlE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/F7ItBW__vlE"}, {"title"=>"Grinded So Hard I Actually Became A God in Super Life RPG", "videoId"=>"dCKVK3lnkU4", "channelTitle"=>"DangerouslyFunny", "description"=>"Right away I but the farm for an insane $10000000. After realizing that had little effect I move on to other ventures. I decide to grind away leveling to open some ...", "date"=>"Nov 2, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/dCKVK3lnkU4/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/dCKVK3lnkU4"}, {"title"=>"My Worst Idea Ever BY FAR - Stardew Valley", "videoId"=>"MMKaw4QIZa0", "channelTitle"=>"DangerouslyFunny", "description"=>"For some reason I wondered what the world of Stardew Valley would be worth if every space was a diamond. With that in mind I set out to place a crystalarium ...", "date"=>"Dec 21, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/MMKaw4QIZa0/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/MMKaw4QIZa0"}, {"title"=>"Committing As Many Felonies As Possible in Untitled Goose Game", "videoId"=>"lmEVOmoPfDk", "channelTitle"=>"DangerouslyFunny", "description"=>"The goal is simple, cause as much chaos and destruction as possible. We must do this as a goose that has incredible powers. It can move items around and ...", "date"=>"Sept 23, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/lmEVOmoPfDk/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/lmEVOmoPfDk"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (0.5ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "testing"], ["created_at", "2019-11-07 20:18:54.221263"], ["updated_at", "2019-11-07 20:18:54.221263"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.2ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "DangerouslyFunny"], ["title", "When You STILL Find More Powerups Than Ever Before in UnderMine"], ["date", "Nov 6, 2019"], ["description", "Today we have a new pet, and that new pet helps us find ALL of the secret rooms both in the walls and floors. That means we find a LOT of stuff through the ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/F7ItBW__vlE/mqdefault.jpg"], ["videoId", "F7ItBW__vlE"], ["progression_id", 3], ["created_at", "2019-11-07 20:18:54.222830"], ["updated_at", "2019-11-07 20:18:54.222830"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "DangerouslyFunny"], ["title", "Grinded So Hard I Actually Became A God in Super Life RPG"], ["date", "Nov 2, 2019"], ["description", "Right away I but the farm for an insane $10000000. After realizing that had little effect I move on to other ventures. I decide to grind away leveling to open some ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/dCKVK3lnkU4/mqdefault.jpg"], ["videoId", "dCKVK3lnkU4"], ["progression_id", 3], ["created_at", "2019-11-07 20:18:54.224403"], ["updated_at", "2019-11-07 20:18:54.224403"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "DangerouslyFunny"], ["title", "My Worst Idea Ever BY FAR - Stardew Valley"], ["date", "Dec 21, 2018"], ["description", "For some reason I wondered what the world of Stardew Valley would be worth if every space was a diamond. With that in mind I set out to place a crystalarium ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/MMKaw4QIZa0/mqdefault.jpg"], ["videoId", "MMKaw4QIZa0"], ["progression_id", 3], ["created_at", "2019-11-07 20:18:54.225797"], ["updated_at", "2019-11-07 20:18:54.225797"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "DangerouslyFunny"], ["title", "Committing As Many Felonies As Possible in Untitled Goose Game"], ["date", "Sept 23, 2019"], ["description", "The goal is simple, cause as much chaos and destruction as possible. We must do this as a goose that has incredible powers. It can move items around and ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/lmEVOmoPfDk/mqdefault.jpg"], ["videoId", "lmEVOmoPfDk"], ["progression_id", 3], ["created_at", "2019-11-07 20:18:54.226910"], ["updated_at", "2019-11-07 20:18:54.226910"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 18ms (Views: 0.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:19:02 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:23:06 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:23:13 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 15:23:22 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"testing", "videos_attributes"=>[{"title"=>"Armin van Buuren - Blah Blah Blah (Official Lyric Video)", "videoId"=>"mfJhMfOPWdE", "channelTitle"=>"Armin van Buuren", "description"=>"Armin van Buuren's new album 'BALANCE' is OUT NOW: https://AvB.lnk.to/BalanceYA Subscribe to Armin van Buuren's YouTube channel via ...", "date"=>"May 18, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/mfJhMfOPWdE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/mfJhMfOPWdE"}]}}
+Unpermitted parameter: :url
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (0.7ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "testing"], ["created_at", "2019-11-07 20:23:22.701074"], ["updated_at", "2019-11-07 20:23:22.701074"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.3ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Armin van Buuren"], ["title", "Armin van Buuren - Blah Blah Blah (Official Lyric Video)"], ["date", "May 18, 2018"], ["description", "Armin van Buuren's new album 'BALANCE' is OUT NOW: https://AvB.lnk.to/BalanceYA Subscribe to Armin van Buuren's YouTube channel via ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/mfJhMfOPWdE/mqdefault.jpg"], ["videoId", "mfJhMfOPWdE"], ["progression_id", 4], ["created_at", "2019-11-07 20:23:22.703507"], ["updated_at", "2019-11-07 20:23:22.703507"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 13ms (Views: 0.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:23:22 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 15:23:36 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"testing", "videos_attributes"=>[{"title"=>"Armin van Buuren - Blah Blah Blah (Official Lyric Video)", "videoId"=>"mfJhMfOPWdE", "channelTitle"=>"Armin van Buuren", "description"=>"Armin van Buuren's new album 'BALANCE' is OUT NOW: https://AvB.lnk.to/BalanceYA Subscribe to Armin van Buuren's YouTube channel via ...", "date"=>"May 18, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/mfJhMfOPWdE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/mfJhMfOPWdE"}, {"title"=>"Armin van Buuren - Blah Blah Blah (+ Brennan Heart & Toneshifterz Remix) [Live at Tomorrowland 2018]", "videoId"=>"45_MVtE5xsI", "channelTitle"=>"A State Of Trance", "description"=>"Armin van Buuren's new album 'BALANCE' is OUT NOW: https://AvB.lnk.to/BalanceYA Subscribe to Armin van Buuren's YouTube channel via ...", "date"=>"Jul 24, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/45_MVtE5xsI/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/45_MVtE5xsI"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (0.5ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "testing"], ["created_at", "2019-11-07 20:23:36.591159"], ["updated_at", "2019-11-07 20:23:36.591159"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.5ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Armin van Buuren"], ["title", "Armin van Buuren - Blah Blah Blah (Official Lyric Video)"], ["date", "May 18, 2018"], ["description", "Armin van Buuren's new album 'BALANCE' is OUT NOW: https://AvB.lnk.to/BalanceYA Subscribe to Armin van Buuren's YouTube channel via ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/mfJhMfOPWdE/mqdefault.jpg"], ["videoId", "mfJhMfOPWdE"], ["progression_id", 5], ["created_at", "2019-11-07 20:23:36.593267"], ["updated_at", "2019-11-07 20:23:36.593267"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.8ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "A State Of Trance"], ["title", "Armin van Buuren - Blah Blah Blah (+ Brennan Heart & Toneshifterz Remix) [Live at Tomorrowland 2018]"], ["date", "Jul 24, 2018"], ["description", "Armin van Buuren's new album 'BALANCE' is OUT NOW: https://AvB.lnk.to/BalanceYA Subscribe to Armin van Buuren's YouTube channel via ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/45_MVtE5xsI/mqdefault.jpg"], ["videoId", "45_MVtE5xsI"], ["progression_id", 5], ["created_at", "2019-11-07 20:23:36.596024"], ["updated_at", "2019-11-07 20:23:36.596024"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 12ms (Views: 0.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:23:36 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.4ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+

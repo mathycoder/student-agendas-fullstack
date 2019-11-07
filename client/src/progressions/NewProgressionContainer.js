@@ -6,6 +6,9 @@ import DisplayPreview from '../videos/DisplayPreview'
 import './Progression.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import NewProgressionForm from './NewProgressionForm'
+import {
+  Redirect
+} from "react-router-dom";
 
 class NewProgressionContainer extends Component {
   state = {
@@ -22,8 +25,6 @@ class NewProgressionContainer extends Component {
         videos_attributes: [...this.state.currProgression]
       }
     }
-    // videos: [...this.state.currProgression]
-    console.log(params)
     fetch('/progressions.json', {
       method: 'post',
       body: JSON.stringify(params),
@@ -32,7 +33,9 @@ class NewProgressionContainer extends Component {
       }
     })
       .then(resp => resp.json())
-      .then(json => console.log("woohoo!"))
+      .then(json => {
+        this.props.history.push('/progressions');
+      })
   }
 
   handleDragOver = event => {
