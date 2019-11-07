@@ -612,3 +612,137 @@ Unpermitted parameter: :url
 Completed 201 Created in 49257ms (Views: 0.5ms | ActiveRecord: 4.2ms)
 
 
+  [1m[36mMovie Load (1.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 13:17:17 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"testing", "videos_attributes"=>[{"title"=>"Math. Subtraction & Addition. 1st & 2nd grade. Flashcards.", "videoId"=>"ybEr-s9SPIg", "channelTitle"=>"LUCKYTURIST", "description"=>"MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com.", "date"=>"Nov 7, 2013", "thumbnailUrl"=>"https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/ybEr-s9SPIg"}, {"title"=>"9 Math Riddles That'll Stump Even Your Smartest Friends", "videoId"=>"r5P-f5arPXE", "channelTitle"=>"BRIGHT SIDE", "description"=>"Math puzzles and maths games continue to become more and more popular. They seem very easy at first, but many people end up getting them all wrong.", "date"=>"Mar 2, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/r5P-f5arPXE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/r5P-f5arPXE"}, {"title"=>"Pencilmate's a Mathematical Mess!", "videoId"=>"Lu9RBvK8jks", "channelTitle"=>"Pencilmation", "description"=>"Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ...", "date"=>"May 12, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/Lu9RBvK8jks"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Completed 500 Internal Server Error in 168935ms (ActiveRecord: 1.4ms)
+
+
+  
+NoMethodError (undefined method `videos' for #<Progression:0x00007fb8b7b91488>):
+  
+app/models/progression.rb:7:in `block in videos_attributes='
+app/models/progression.rb:5:in `each'
+app/models/progression.rb:5:in `videos_attributes='
+app/controllers/progressions_controller.rb:4:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateVideos (20191107135250)
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateProgressions (20191107135240)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "progressions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191107135240_create_progressions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191107135240"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateVideos (20191107135250)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateVideos (20191107135250)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20191107135250_create_videos.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "videos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "channel_title" varchar, "title" varchar, "date" varchar, "description" varchar, "thumbnail_url" varchar, "video_id" varchar, "progression_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191107135250_create_videos.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191107135250"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-11-07 18:21:55.562629"], ["updated_at", "2019-11-07 18:21:55.562629"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 13:23:18 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"math test 1", "videos_attributes"=>[{"title"=>"Math. Subtraction & Addition. 1st & 2nd grade. Flashcards.", "videoId"=>"ybEr-s9SPIg", "channelTitle"=>"LUCKYTURIST", "description"=>"MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com.", "date"=>"Nov 7, 2013", "thumbnailUrl"=>"https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/ybEr-s9SPIg"}, {"title"=>"9 Math Riddles That'll Stump Even Your Smartest Friends", "videoId"=>"r5P-f5arPXE", "channelTitle"=>"BRIGHT SIDE", "description"=>"Math puzzles and maths games continue to become more and more popular. They seem very easy at first, but many people end up getting them all wrong.", "date"=>"Mar 2, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/r5P-f5arPXE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/r5P-f5arPXE"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Completed 500 Internal Server Error in 247308ms (ActiveRecord: 2.4ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'videoId' for Video.):
+  
+app/models/progression.rb:7:in `block in videos_attributes='
+app/models/progression.rb:5:in `each'
+app/models/progression.rb:5:in `videos_attributes='
+app/controllers/progressions_controller.rb:3:in `create'
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 13:28:06 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"math test 2", "videos_attributes"=>[{"title"=>"9 Math Riddles That'll Stump Even Your Smartest Friends", "videoId"=>"r5P-f5arPXE", "channelTitle"=>"BRIGHT SIDE", "description"=>"Math puzzles and maths games continue to become more and more popular. They seem very easy at first, but many people end up getting them all wrong.", "date"=>"Mar 2, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/r5P-f5arPXE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/r5P-f5arPXE"}, {"title"=>"Pencilmate's a Mathematical Mess!", "videoId"=>"Lu9RBvK8jks", "channelTitle"=>"Pencilmation", "description"=>"Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ...", "date"=>"May 12, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/Lu9RBvK8jks"}, {"title"=>"The Pencil teaches Pencilmate a lesson -in- THE GRAPES OF MATH", "videoId"=>"J4FcwnssTdo", "channelTitle"=>"Pencilmation", "description"=>"For our greatest pleasure, Pencilmate rarely learns from his mistakes... 0:00 - THE GRAPES OF MATH Pencilmate grapples with Plus and Minus 2:57 - A STEAK ...", "date"=>"Dec 26, 2017", "thumbnailUrl"=>"https://i.ytimg.com/vi/J4FcwnssTdo/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/J4FcwnssTdo"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Completed 500 Internal Server Error in 225787ms (ActiveRecord: 2.3ms)
+
+
+  
+NoMethodError (undefined method `channelTitle' for #<ActiveSupport::HashWithIndifferentAccess:0x00007fb76bec68d0>):
+  
+app/models/progression.rb:8:in `block in videos_attributes='
+app/models/progression.rb:5:in `each'
+app/models/progression.rb:5:in `videos_attributes='
+app/controllers/progressions_controller.rb:3:in `create'
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 13:32:38 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"math test 3", "videos_attributes"=>[{"title"=>"Math. Subtraction & Addition. 1st & 2nd grade. Flashcards.", "videoId"=>"ybEr-s9SPIg", "channelTitle"=>"LUCKYTURIST", "description"=>"MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com.", "date"=>"Nov 7, 2013", "thumbnailUrl"=>"https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/ybEr-s9SPIg"}, {"title"=>"9 Math Riddles That'll Stump Even Your Smartest Friends", "videoId"=>"r5P-f5arPXE", "channelTitle"=>"BRIGHT SIDE", "description"=>"Math puzzles and maths games continue to become more and more popular. They seem very easy at first, but many people end up getting them all wrong.", "date"=>"Mar 2, 2018", "thumbnailUrl"=>"https://i.ytimg.com/vi/r5P-f5arPXE/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/r5P-f5arPXE"}, {"title"=>"Pencilmate's a Mathematical Mess!", "videoId"=>"Lu9RBvK8jks", "channelTitle"=>"Pencilmation", "description"=>"Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ...", "date"=>"May 12, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/Lu9RBvK8jks"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:4
+  [1m[36mProgression Create (0.7ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "math test 3"], ["created_at", "2019-11-07 18:32:39.055746"], ["updated_at", "2019-11-07 18:32:39.055746"]]
+  ↳ app/controllers/progressions_controller.rb:4
+  [1m[36mVideo Create (0.3ms)[0m  [1m[32mINSERT INTO "videos" ("channel_title", "title", "date", "description", "thumbnail_url", "video_id", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channel_title", "LUCKYTURIST"], ["title", "Math. Subtraction & Addition. 1st & 2nd grade. Flashcards."], ["date", "Nov 7, 2013"], ["description", "MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com."], ["thumbnail_url", "https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg"], ["video_id", "ybEr-s9SPIg"], ["progression_id", 1], ["created_at", "2019-11-07 18:32:39.058540"], ["updated_at", "2019-11-07 18:32:39.058540"]]
+  ↳ app/controllers/progressions_controller.rb:4
+  [1m[36mVideo Create (0.2ms)[0m  [1m[32mINSERT INTO "videos" ("channel_title", "title", "date", "description", "thumbnail_url", "video_id", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channel_title", "BRIGHT SIDE"], ["title", "9 Math Riddles That'll Stump Even Your Smartest Friends"], ["date", "Mar 2, 2018"], ["description", "Math puzzles and maths games continue to become more and more popular. They seem very easy at first, but many people end up getting them all wrong."], ["thumbnail_url", "https://i.ytimg.com/vi/r5P-f5arPXE/mqdefault.jpg"], ["video_id", "r5P-f5arPXE"], ["progression_id", 1], ["created_at", "2019-11-07 18:32:39.060758"], ["updated_at", "2019-11-07 18:32:39.060758"]]
+  ↳ app/controllers/progressions_controller.rb:4
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("channel_title", "title", "date", "description", "thumbnail_url", "video_id", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channel_title", "Pencilmation"], ["title", "Pencilmate's a Mathematical Mess!"], ["date", "May 12, 2019"], ["description", "Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ..."], ["thumbnail_url", "https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg"], ["video_id", "Lu9RBvK8jks"], ["progression_id", 1], ["created_at", "2019-11-07 18:32:39.062245"], ["updated_at", "2019-11-07 18:32:39.062245"]]
+  ↳ app/controllers/progressions_controller.rb:4
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:4
+Completed 201 Created in 67ms (Views: 0.8ms | ActiveRecord: 4.5ms)
+
+
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProgression Load (0.7ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProgression Load (0.4ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" ORDER BY "progressions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" ORDER BY "progressions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."progression_id" = ? LIMIT ?[0m  [["progression_id", 1], ["LIMIT", 11]]
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" ORDER BY "videos"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mProgression Load (0.4ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]

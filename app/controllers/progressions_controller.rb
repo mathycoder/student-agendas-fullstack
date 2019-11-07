@@ -1,6 +1,5 @@
 class ProgressionsController < ApplicationController
   def create
-    binding.pry
     @progression = Progression.new(progression_params)
     if @progression.save
       render json: @progression, status: 201

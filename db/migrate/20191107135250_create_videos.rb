@@ -1,7 +1,8 @@
-class CreateMovies < ActiveRecord::Migration[5.2]
+class CreateVideos < ActiveRecord::Migration[5.2]
   def change
-    create_table :movies do |t|
+    create_table :videos do |t|
       t.string :channel_title
+      t.string :title
       t.string :date
       t.string :description
       t.string :thumbnail_url
