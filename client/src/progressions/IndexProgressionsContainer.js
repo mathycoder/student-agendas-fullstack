@@ -16,11 +16,23 @@ class IndexProgressionsContainer extends Component {
       })
   }
 
+  deleteProgression = (progression) => {
+    fetch(`/progressions/${progression.id}`, {
+      method: 'DELETE'
+    })
+      .then(resp => resp.json())
+      .then(json => {
+        this.setState({
+          progressions: this.state.progressions.filter(prog => prog.id !== json.id)
+        })
+      })
+  }
+
   render(){
     return (
       <div className="progressions-index-container">
         {this.state.progressions.map((progression, index) => {
-          return <IndexProgression key={index} progression={progression} />
+          return <IndexProgression key={index} progression={progression} deleteProgression={this.deleteProgression}/>
         })}
       </div>
     )

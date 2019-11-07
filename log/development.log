@@ -1740,3 +1740,637 @@ Processing by ProgressionsController#index as */*
 Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:53:29 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 96ms (Views: 0.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:54:03 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:54:29 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (2.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 164ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:55:25 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.4ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.8ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.8ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:56:40 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:56:59 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:57:06 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:57:44 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (1.9ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 41ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 15:57:54 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 124ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:02:58 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:07:38 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.8ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:07:45 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:13:35 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.4ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:13:51 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:19:56 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (1.0ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 102ms (Views: 0.2ms | ActiveRecord: 5.4ms)
+
+
+Started DELETE "/progressions/4" for 127.0.0.1 at 2019-11-07 16:19:59 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"4"}
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:20:11 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.4ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 29ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:20:26 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/progressions/4" for 127.0.0.1 at 2019-11-07 16:20:35 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"4"}
+Completed 204 No Content in 9484ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/progressions/4" for 127.0.0.1 at 2019-11-07 16:20:50 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mProgression Load (0.4ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ (pry):3
+Started DELETE "/progressions/4" for 127.0.0.1 at 2019-11-07 16:22:59 -0500
+Completed 204 No Content in 136162ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:24:27 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (1.5ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 256ms (Views: 0.2ms | ActiveRecord: 5.4ms)
+
+
+Started DELETE "/progressions/4" for 127.0.0.1 at 2019-11-07 16:24:32 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[36mProgression Destroy (0.5ms)[0m  [1m[31mDELETE FROM "progressions" WHERE "progressions"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+Completed 201 Created in 7ms (Views: 0.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:24:36 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:25:01 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:25:10 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/progressions/5" for 127.0.0.1 at 2019-11-07 16:25:11 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[36mProgression Destroy (0.4ms)[0m  [1m[31mDELETE FROM "progressions" WHERE "progressions"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+Completed 201 Created in 5ms (Views: 0.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:29:02 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:30:55 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/progressions/6" for 127.0.0.1 at 2019-11-07 16:30:57 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[36mProgression Destroy (0.5ms)[0m  [1m[31mDELETE FROM "progressions" WHERE "progressions"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:31:41 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:32:15 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:32:52 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:34:53 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/progressions/3" for 127.0.0.1 at 2019-11-07 16:35:44 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[36mProgression Destroy (0.3ms)[0m  [1m[31mDELETE FROM "progressions" WHERE "progressions"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+Completed 201 Created in 6ms (Views: 0.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:35:47 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 16:35:59 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"Remikarli", "videos_attributes"=>[]}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (0.6ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Remikarli"], ["created_at", "2019-11-07 21:35:59.213862"], ["updated_at", "2019-11-07 21:35:59.213862"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:35:59 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/progressions/7" for 127.0.0.1 at 2019-11-07 16:36:03 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[36mProgression Destroy (0.4ms)[0m  [1m[31mDELETE FROM "progressions" WHERE "progressions"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/progressions_controller.rb:20
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:20
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-07 16:36:36 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"Week 10 HW", "videos_attributes"=>[{"title"=>"Week 10 - Part A", "videoId"=>"A6lZZKA2J48", "channelTitle"=>"Remikarli", "description"=>"", "date"=>"Nov 4, 2017", "thumbnailUrl"=>"https://i.ytimg.com/vi/A6lZZKA2J48/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/A6lZZKA2J48"}, {"title"=>"Week 10 - Part B", "videoId"=>"E95s79TLxcA", "channelTitle"=>"Remikarli", "description"=>"", "date"=>"Nov 4, 2017", "thumbnailUrl"=>"https://i.ytimg.com/vi/E95s79TLxcA/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/E95s79TLxcA"}]}}
+Unpermitted parameter: :url
+Unpermitted parameter: :url
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (0.5ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Week 10 HW"], ["created_at", "2019-11-07 21:36:36.120440"], ["updated_at", "2019-11-07 21:36:36.120440"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.3ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Remikarli"], ["title", "Week 10 - Part A"], ["date", "Nov 4, 2017"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/A6lZZKA2J48/mqdefault.jpg"], ["videoId", "A6lZZKA2J48"], ["progression_id", 8], ["created_at", "2019-11-07 21:36:36.122083"], ["updated_at", "2019-11-07 21:36:36.122083"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.2ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "progression_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Remikarli"], ["title", "Week 10 - Part B"], ["date", "Nov 4, 2017"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/E95s79TLxcA/mqdefault.jpg"], ["videoId", "E95s79TLxcA"], ["progression_id", 8], ["created_at", "2019-11-07 21:36:36.123662"], ["updated_at", "2019-11-07 21:36:36.123662"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 24ms (Views: 0.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-07 16:36:36 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 2]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 8]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
