@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ProgressionDisplay from './ProgressionDisplay'
+import IndexProgression from './IndexProgression'
 
 class IndexProgressionsContainer extends Component {
   state = {
@@ -20,7 +20,7 @@ class IndexProgressionsContainer extends Component {
     return (
       <div className="progressions-index-container">
         {this.state.progressions.map((progression, index) => {
-          return <ProgressionDisplay key={index} progression={progression} />
+          return <IndexProgression key={index} progression={progression} />
         })}
       </div>
     )

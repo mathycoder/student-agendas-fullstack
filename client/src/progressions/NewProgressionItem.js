@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProgressionItem = ({video, removeFromProgression, handleProgressionItemClick, index, innerRef}) => {
+const NewProgressionItem = ({video, removeFromProgression, handleProgressionItemClick, index, innerRef}) => {
   return (
     <div ref={node => innerRef(node)} className="progression-item-container">
       <div className="x-out" onClick={(event) => removeFromProgression(video)}>x</div>
@@ -13,4 +13,4 @@ const ProgressionItem = ({video, removeFromProgression, handleProgressionItemCli
   )
 }
 
-export default ProgressionItem
+export default NewProgressionItem

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import VideoSearchContainer from '../videos/VideoSearchContainer'
 import NewProgressionMenuBar from './NewProgressionMenuBar'
-import Progression from './Progression'
+import NewProgression from './NewProgression'
 import DisplayPreview from '../videos/DisplayPreview'
 import './Progression.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
@@ -137,7 +137,7 @@ class NewProgressionContainer extends Component {
           >
           <Droppable droppableId="droppable-1" direction="horizontal">
             {(provided) => (
-              <Progression
+              <NewProgression
                 innerRef={provided.innerRef}
                 {...provided.droppableProps}
                 removeFromProgression={this.removeFromProgression}
@@ -147,7 +147,7 @@ class NewProgressionContainer extends Component {
                 handleDragLeave={this.handleDragLeave}
                 handleOnDrop={this.handleOnDrop}>
                   {provided.placeholder}
-              </Progression>
+              </NewProgression>
             )}
           </Droppable>
         </DragDropContext>

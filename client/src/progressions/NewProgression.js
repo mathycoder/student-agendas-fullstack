@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Progression.css';
-import ProgressionItem from './ProgressionItem'
+import NewProgressionItem from './NewProgressionItem'
 import { Draggable } from 'react-beautiful-dnd'
 
-class Progression extends Component {
+class NewProgression extends Component {
   displayProgression = () => {
     return (
       this.props.currProgression.map((video, index) => {
@@ -15,7 +15,7 @@ class Progression extends Component {
                   {...provided.dragHandleProps}
                   {...provided.draggableProps}
                   >
-                  <ProgressionItem
+                  <NewProgressionItem
                     innerRef={provided.innerRef}
                     video={video}
                     index={index}
@@ -39,4 +39,4 @@ class Progression extends Component {
   }
 }
 
-export default Progression
+export default NewProgression

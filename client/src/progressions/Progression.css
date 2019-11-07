@@ -121,3 +121,49 @@
   border: 3px solid gray;
   padding: 8px;
 }
+
+
+/* index progressions page */
+
+.progressions-index-container {
+  padding: 10px 20px;
+}
+
+.index-progression {
+  display: grid;
+  margin: 20px 0;
+  grid-template-columns: 150px 1fr;
+}
+
+.index-progression-items {
+  display: flex;
+  border: 1px black dashed;
+  padding: 5px;
+  padding-right: 15px;
+  width: min-content;
+  border-radius: 5px;
+}
+
+.index-progression-item {
+  width: 80px;
+  min-width: 80px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+  margin-left: 10px;
+  background-color: white;
+  box-shadow: 2px 3px 3px #888888;
+}
+
+.index-progression-item img {
+  width: 80px;
+}
+
+.index-progression-item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 10px;
+  height: 25px;
+  overflow: hidden;
+}
