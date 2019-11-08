@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DisplaySearchResults from './DisplaySearchResults'
 import DisplayPreview from './DisplayPreview'
 
-const YOUTUBE_API_KEY = 'AIzaSyB5XRdK1vbRRW-XUG7yKe1V5GH86KAOuJ4'
+const YOUTUBE_API_KEY = ''
 const URL1 = 'https://www.googleapis.com/youtube/v3/search'
 const URL2 = `?key=${YOUTUBE_API_KEY}&part=snippet&safeSearch=strict&type=video&videoEmbeddable=true&maxResults=50`
 
@@ -25,6 +25,7 @@ class VideoSearchContainer extends Component {
     fetch(URL1 + URL2 + `&q=${this.state.searchTerm}`)
       .then(resp => resp.json())
       .then(json => {
+        debugger
         this.setState({
           videos: this.createVideoObjects(json.items),
           searchTerm: ""

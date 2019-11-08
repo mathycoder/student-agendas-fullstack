@@ -6,22 +6,44 @@ import DisplayPreview from '../videos/DisplayPreview'
 import './Progression.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import NewProgressionForm from './NewProgressionForm'
-import {
-  Redirect
-} from "react-router-dom";
 
 class NewProgressionContainer extends Component {
   state = {
+    name: "",
     currProgression: [],
     menuSelect: "Add YouTube Video",
     selectedIndex: ""
   }
 
-  handleFormSubmit = (event, formData) => {
+  componentDidMount(){
+    const progId = this.props.match.params.id
+    if (progId && progId !== "new") {
+      fetch(`/progressions/${progId}`)
+        .then(resp => resp.json())
+        .then(json => {
+          this.setState({
+            ...this.state,
+            currProgression: [...json.videos],
+            name: json.name
+          })
+        })
+    }
+
+  }
+
+  onNameInputChange = event => {
+    this.setState({
+      ...this.state,
+      name: event.target.value,
+      currProgression: [...this.state.currProgression]
+    })
+  }
+
+  handleFormSubmit = (event) => {
     event.preventDefault()
     const params = {
       progression: {
-        ...formData,
+        name: this.state.name,
         videos_attributes: [...this.state.currProgression]
       }
     }
@@ -127,10 +149,22 @@ class NewProgressionContainer extends Component {
 
   }
 
+  renderForm = () => {
+    return (
+      <form className="create-progression-form" onSubmit={this.handleFormSubmit}>
+        <input type="text"
+          placeholder="Enter a title for this progression"
+          value={this.state.name}
+          onChange={this.onNameInputChange}/>
+        <input type="submit" value="save progression" />
+      </form>
+    )
+  }
+
   render(){
     return (
       <div className="new-progression-container">
-        <NewProgressionForm handleFormSubmit={this.handleFormSubmit}/>
+        {this.renderForm()}
         <DragDropContext
           onDragEnd={this.handleDNDDragEnd}
           onDragStart={this.handleDNDDragStart}

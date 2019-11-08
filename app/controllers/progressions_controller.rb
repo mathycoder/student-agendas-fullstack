@@ -14,6 +14,11 @@ class ProgressionsController < ApplicationController
     end
   end
 
+  def show
+    @progression = Progression.find_by(id: params[:id])
+    render json: @progression.to_json(include: [:videos])
+  end
+
   def destroy
     @progression = Progression.find_by(id: params[:id])
     # @progression.videos.destroy_all

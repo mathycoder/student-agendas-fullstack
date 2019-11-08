@@ -1,12 +1,12 @@
 import React from 'react'
 
-const IndexProgression = ({progression, deleteProgression}) => {
+const IndexProgression = (props) => {
   return (
     <div className="index-progression">
-      <h3>{progression.name}</h3>
-      <div className="index-progression-x-out" onClick={(event) => deleteProgression(progression)}>x</div>
-      <div className="index-progression-items">
-        {progression.videos.map((video, index) => (
+      <h3>{props.progression.name}</h3>
+      <div className="index-progression-x-out" onClick={(event) => props.deleteProgression(props.progression)}>x</div>
+      <div className="index-progression-items" onClick={(event) => {props.history.push(`/progressions/${props.progression.id}`)}}>
+        {props.progression.videos.map((video, index) => (
           <div key={index} className="index-progression-item">
             <img src={video.thumbnailUrl} alt="learning video" />
             <br/>

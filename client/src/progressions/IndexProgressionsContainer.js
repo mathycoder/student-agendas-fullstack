@@ -32,7 +32,7 @@ class IndexProgressionsContainer extends Component {
     return (
       <div className="progressions-index-container">
         {this.state.progressions.map((progression, index) => {
-          return <IndexProgression key={index} progression={progression} deleteProgression={this.deleteProgression}/>
+          return <IndexProgression key={index} progression={progression} history={this.props.history} deleteProgression={this.deleteProgression}/>
         })}
       </div>
     )

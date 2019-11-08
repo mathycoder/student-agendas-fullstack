@@ -22,8 +22,9 @@ class App extends Component {
           </header>
           <main>
             <Route exact path="/" component={Home} />
-            <Route exact path="/progressions/new" component={NewProgressionContainer} />
             <Route exact path="/progressions" component={IndexProgressionsContainer} />
+            <Route exact path="/progressions/new" component={NewProgressionContainer} />
+            <Route exact path="/progressions/:id" component={NewProgressionContainer} />
           </main>
         </div>
       </Router>
