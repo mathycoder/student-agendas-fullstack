@@ -25,7 +25,6 @@ class VideoSearchContainer extends Component {
     fetch(URL1 + URL2 + `&q=${this.state.searchTerm}`)
       .then(resp => resp.json())
       .then(json => {
-        debugger
         this.setState({
           videos: this.createVideoObjects(json.items),
           searchTerm: ""

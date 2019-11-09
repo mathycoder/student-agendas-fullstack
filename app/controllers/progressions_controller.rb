@@ -19,6 +19,15 @@ class ProgressionsController < ApplicationController
     render json: @progression.to_json(include: [:videos])
   end
 
+  def update
+    @progression = Progression.find_by(id: params[:id])
+    if @progression.update(progression_params)
+      render json: @progression, status: 201
+    else
+      render json: @progression.errors.full_messages, status: 422
+    end
+  end
+
   def destroy
     @progression = Progression.find_by(id: params[:id])
     # @progression.videos.destroy_all
@@ -28,6 +37,6 @@ class ProgressionsController < ApplicationController
 
   private
   def progression_params
-    params.require(:progression).permit(:name, :id, :videos_attributes => [:title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
+    params.require(:progression).permit(:name, :id, :videos_attributes => [:id, :progression_id, :url, :title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
   end
 end

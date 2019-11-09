@@ -9,6 +9,7 @@ import NewProgressionForm from './NewProgressionForm'
 
 class NewProgressionContainer extends Component {
   state = {
+    id: undefined,
     name: "",
     currProgression: [],
     menuSelect: "Add YouTube Video",
@@ -21,14 +22,17 @@ class NewProgressionContainer extends Component {
       fetch(`/progressions/${progId}`)
         .then(resp => resp.json())
         .then(json => {
+          const jsonSorted = json.videos.sort((a,b) => {
+            return a.progression_index - b.progression_index
+          })
           this.setState({
             ...this.state,
-            currProgression: [...json.videos],
-            name: json.name
+            currProgression: [...jsonSorted],
+            name: json.name,
+            id: json.id
           })
         })
     }
-
   }
 
   onNameInputChange = event => {
@@ -47,17 +51,31 @@ class NewProgressionContainer extends Component {
         videos_attributes: [...this.state.currProgression]
       }
     }
-    fetch('/progressions.json', {
-      method: 'post',
-      body: JSON.stringify(params),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(resp => resp.json())
-      .then(json => {
-        this.props.history.push('/progressions');
+    if (!this.state.id) {
+      fetch('/progressions.json', {
+        method: 'post',
+        body: JSON.stringify(params),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
+        .then(resp => resp.json())
+        .then(json => {
+          this.props.history.push('/progressions');
+        })
+    } else {
+      fetch(`/progressions/${this.state.id}.json`, {
+        method: 'PATCH',
+        body: JSON.stringify(params),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(resp => resp.json())
+        .then(json => {
+          this.props.history.push('/progressions');
+        })
+    }
   }
 
   handleDragOver = event => {
