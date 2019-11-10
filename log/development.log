@@ -8675,3 +8675,609 @@ Processing by ProgressionsController#index as */*
 Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/progressions" for 127.0.0.1 at 2019-11-08 19:26:59 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.4ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 79ms (Views: 0.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 09:22:05 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.6ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 58ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-10 09:22:50 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"Week 10 HW", "videos_attributes"=>[{"title"=>"Week 10 - Part A", "videoId"=>"A6lZZKA2J48", "channelTitle"=>"Remikarli", "description"=>"", "date"=>"Nov 4, 2017", "thumbnailUrl"=>"https://i.ytimg.com/vi/A6lZZKA2J48/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/A6lZZKA2J48"}, {"title"=>"Week 10 - Part B", "videoId"=>"E95s79TLxcA", "channelTitle"=>"Remikarli", "description"=>"", "date"=>"Nov 4, 2017", "thumbnailUrl"=>"https://i.ytimg.com/vi/E95s79TLxcA/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/E95s79TLxcA"}]}}
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" IS NULL AND "videos"."progression_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mCACHE Video Load (0.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" IS NULL AND "videos"."progression_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (1.1ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Week 10 HW"], ["created_at", "2019-11-10 14:22:50.357292"], ["updated_at", "2019-11-10 14:22:50.357292"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.4ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Remikarli"], ["title", "Week 10 - Part A"], ["date", "Nov 4, 2017"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/A6lZZKA2J48/mqdefault.jpg"], ["videoId", "A6lZZKA2J48"], ["url", "http://www.youtube.com/embed/A6lZZKA2J48"], ["progression_id", 4], ["progression_index", 0], ["created_at", "2019-11-10 14:22:50.359778"], ["updated_at", "2019-11-10 14:22:50.359778"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.3ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Remikarli"], ["title", "Week 10 - Part B"], ["date", "Nov 4, 2017"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/E95s79TLxcA/mqdefault.jpg"], ["videoId", "E95s79TLxcA"], ["url", "http://www.youtube.com/embed/E95s79TLxcA"], ["progression_id", 4], ["progression_index", 1], ["created_at", "2019-11-10 14:22:50.362061"], ["updated_at", "2019-11-10 14:22:50.362061"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 27ms (Views: 0.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 09:22:50 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/progressions/4" for 127.0.0.1 at 2019-11-10 09:22:52 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/progressions/4.json" for 127.0.0.1 at 2019-11-10 09:22:54 -0500
+Processing by ProgressionsController#update as JSON
+  Parameters: {"progression"=>{"name"=>"Week 10 HW", "videos_attributes"=>[{"id"=>8, "channelTitle"=>"Remikarli", "title"=>"Week 10 - Part B", "date"=>"Nov 4, 2017", "description"=>"", "thumbnailUrl"=>"https://i.ytimg.com/vi/E95s79TLxcA/mqdefault.jpg", "videoId"=>"E95s79TLxcA", "url"=>"http://www.youtube.com/embed/E95s79TLxcA", "progression_id"=>4, "progression_index"=>1, "created_at"=>"2019-11-10T14:22:50.362Z", "updated_at"=>"2019-11-10T14:22:50.362Z"}, {"id"=>7, "channelTitle"=>"Remikarli", "title"=>"Week 10 - Part A", "date"=>"Nov 4, 2017", "description"=>"", "thumbnailUrl"=>"https://i.ytimg.com/vi/A6lZZKA2J48/mqdefault.jpg", "videoId"=>"A6lZZKA2J48", "url"=>"http://www.youtube.com/embed/A6lZZKA2J48", "progression_id"=>4, "progression_index"=>0, "created_at"=>"2019-11-10T14:22:50.359Z", "updated_at"=>"2019-11-10T14:22:50.359Z"}]}, "id"=>"4"}
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:23
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/models/progression.rb:6
+  [1m[36mVideo Destroy (0.7ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 7]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.2ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 8]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 8], ["progression_id", 4], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 7], ["progression_id", 4], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["channelTitle", "Remikarli"], ["title", "Week 10 - Part B"], ["date", "Nov 4, 2017"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/E95s79TLxcA/mqdefault.jpg"], ["videoId", "E95s79TLxcA"], ["url", "http://www.youtube.com/embed/E95s79TLxcA"], ["progression_id", 4], ["progression_index", 0], ["created_at", "2019-11-10 14:22:54.631310"], ["updated_at", "2019-11-10 14:22:54.631310"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["channelTitle", "Remikarli"], ["title", "Week 10 - Part A"], ["date", "Nov 4, 2017"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/A6lZZKA2J48/mqdefault.jpg"], ["videoId", "A6lZZKA2J48"], ["url", "http://www.youtube.com/embed/A6lZZKA2J48"], ["progression_id", 4], ["progression_index", 1], ["created_at", "2019-11-10 14:22:54.632463"], ["updated_at", "2019-11-10 14:22:54.632463"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+Completed 201 Created in 18ms (Views: 0.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 09:22:54 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/progressions/4" for 127.0.0.1 at 2019-11-10 09:22:55 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/progressions/4.json" for 127.0.0.1 at 2019-11-10 09:22:57 -0500
+Processing by ProgressionsController#update as JSON
+  Parameters: {"progression"=>{"name"=>"Week 10 HW", "videos_attributes"=>[{"id"=>7, "channelTitle"=>"Remikarli", "title"=>"Week 10 - Part A", "date"=>"Nov 4, 2017", "description"=>"", "thumbnailUrl"=>"https://i.ytimg.com/vi/A6lZZKA2J48/mqdefault.jpg", "videoId"=>"A6lZZKA2J48", "url"=>"http://www.youtube.com/embed/A6lZZKA2J48", "progression_id"=>4, "progression_index"=>1, "created_at"=>"2019-11-10T14:22:54.632Z", "updated_at"=>"2019-11-10T14:22:54.632Z"}, {"id"=>8, "channelTitle"=>"Remikarli", "title"=>"Week 10 - Part B", "date"=>"Nov 4, 2017", "description"=>"", "thumbnailUrl"=>"https://i.ytimg.com/vi/E95s79TLxcA/mqdefault.jpg", "videoId"=>"E95s79TLxcA", "url"=>"http://www.youtube.com/embed/E95s79TLxcA", "progression_id"=>4, "progression_index"=>0, "created_at"=>"2019-11-10T14:22:54.631Z", "updated_at"=>"2019-11-10T14:22:54.631Z"}]}, "id"=>"4"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:23
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/models/progression.rb:6
+  [1m[36mVideo Destroy (0.4ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 7]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 8]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 7], ["progression_id", 4], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 8], ["progression_id", 4], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Create (0.2ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 7], ["channelTitle", "Remikarli"], ["title", "Week 10 - Part A"], ["date", "Nov 4, 2017"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/A6lZZKA2J48/mqdefault.jpg"], ["videoId", "A6lZZKA2J48"], ["url", "http://www.youtube.com/embed/A6lZZKA2J48"], ["progression_id", 4], ["progression_index", 0], ["created_at", "2019-11-10 14:22:57.705698"], ["updated_at", "2019-11-10 14:22:57.705698"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["channelTitle", "Remikarli"], ["title", "Week 10 - Part B"], ["date", "Nov 4, 2017"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/E95s79TLxcA/mqdefault.jpg"], ["videoId", "E95s79TLxcA"], ["url", "http://www.youtube.com/embed/E95s79TLxcA"], ["progression_id", 4], ["progression_index", 1], ["created_at", "2019-11-10 14:22:57.707116"], ["updated_at", "2019-11-10 14:22:57.707116"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+Completed 201 Created in 16ms (Views: 0.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 09:22:57 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/progressions.json" for 127.0.0.1 at 2019-11-10 16:16:50 -0500
+Processing by ProgressionsController#create as JSON
+  Parameters: {"progression"=>{"name"=>"Cathy's Playlist", "videos_attributes"=>[{"title"=>"How To Solve Insanely HARD Viral Math Problem", "videoId"=>"cPNdvdYn05c", "channelTitle"=>"MindYourDecisions", "description"=>"This popular problem is stumping everyone, and many, many people emailed it to me. I give extra thanks Chaitanya from India who was the first person who sent ...", "date"=>"Jan 10, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/cPNdvdYn05c/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/cPNdvdYn05c"}, {"title"=>"Math's  Money Learn Dollar and cents kids Learning Video Animation", "videoId"=>"d0nbnoagh10", "channelTitle"=>"Mt. Tvister", "description"=>"", "date"=>"May 7, 2015", "thumbnailUrl"=>"https://i.ytimg.com/vi/d0nbnoagh10/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/d0nbnoagh10"}, {"title"=>"Multiplication and Division Relationships - Fun Math Videos for Kids 3rd Grade", "videoId"=>"i31rRt5m1-4", "channelTitle"=>"Math & Learning Videos 4 Kids", "description"=>"Check out the NEW Math Game we made at https://www.MageMath.com/ It is a full video game called Mage Math that helps kids build confidence in math while ...", "date"=>"Aug 4, 2016", "thumbnailUrl"=>"https://i.ytimg.com/vi/i31rRt5m1-4/mqdefault.jpg", "url"=>"http://www.youtube.com/embed/i31rRt5m1-4"}]}}
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" IS NULL AND "videos"."progression_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mCACHE Video Load (0.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" IS NULL AND "videos"."progression_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mCACHE Video Load (0.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" IS NULL AND "videos"."progression_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mProgression Create (2.6ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cathy's Playlist"], ["created_at", "2019-11-10 21:16:50.161946"], ["updated_at", "2019-11-10 21:16:50.161946"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.2ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "MindYourDecisions"], ["title", "How To Solve Insanely HARD Viral Math Problem"], ["date", "Jan 10, 2019"], ["description", "This popular problem is stumping everyone, and many, many people emailed it to me. I give extra thanks Chaitanya from India who was the first person who sent ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/cPNdvdYn05c/mqdefault.jpg"], ["videoId", "cPNdvdYn05c"], ["url", "http://www.youtube.com/embed/cPNdvdYn05c"], ["progression_id", 5], ["progression_index", 0], ["created_at", "2019-11-10 21:16:50.165610"], ["updated_at", "2019-11-10 21:16:50.165610"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Mt. Tvister"], ["title", "Math's  Money Learn Dollar and cents kids Learning Video Animation"], ["date", "May 7, 2015"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/d0nbnoagh10/mqdefault.jpg"], ["videoId", "d0nbnoagh10"], ["url", "http://www.youtube.com/embed/d0nbnoagh10"], ["progression_id", 5], ["progression_index", 1], ["created_at", "2019-11-10 21:16:50.166874"], ["updated_at", "2019-11-10 21:16:50.166874"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["channelTitle", "Math & Learning Videos 4 Kids"], ["title", "Multiplication and Division Relationships - Fun Math Videos for Kids 3rd Grade"], ["date", "Aug 4, 2016"], ["description", "Check out the NEW Math Game we made at https://www.MageMath.com/ It is a full video game called Mage Math that helps kids build confidence in math while ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/i31rRt5m1-4/mqdefault.jpg"], ["videoId", "i31rRt5m1-4"], ["url", "http://www.youtube.com/embed/i31rRt5m1-4"], ["progression_id", 5], ["progression_index", 2], ["created_at", "2019-11-10 21:16:50.167920"], ["updated_at", "2019-11-10 21:16:50.167920"]]
+  ↳ app/controllers/progressions_controller.rb:10
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:10
+Completed 201 Created in 19ms (Views: 0.7ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:16:50 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/progressions/3" for 127.0.0.1 at 2019-11-10 16:17:02 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProgression Load (0.5ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/progressions/3.json" for 127.0.0.1 at 2019-11-10 16:17:06 -0500
+Processing by ProgressionsController#update as JSON
+  Parameters: {"progression"=>{"name"=>"Remikarli10", "videos_attributes"=>[{"id"=>3, "channelTitle"=>"Remikarli", "title"=>"GCF and LCM Music Video -- Remikarli", "date"=>"Jun 27, 2015", "description"=>"Factors, they break a number down! Multiples, go on and on and on!", "thumbnailUrl"=>"https://i.ytimg.com/vi/D8yKtlcP-ww/mqdefault.jpg", "videoId"=>"D8yKtlcP-ww", "url"=>"http://www.youtube.com/embed/D8yKtlcP-ww", "progression_id"=>3, "progression_index"=>0, "created_at"=>"2019-11-09T00:25:13.214Z", "updated_at"=>"2019-11-09T00:25:13.214Z"}, {"id"=>6, "channelTitle"=>"Remikarli", "title"=>"MS331 Student-Created Music Videos -- 6th grade 2015", "date"=>"Jun 24, 2015", "description"=>"15 Bronx middle schoolers used hip hop beats to write original lyrics and melodies while learning the structure of songs. They rehearsed and recorded their ...", "thumbnailUrl"=>"https://i.ytimg.com/vi/yjxFdDxodSk/mqdefault.jpg", "videoId"=>"yjxFdDxodSk", "url"=>"http://www.youtube.com/embed/yjxFdDxodSk", "progression_id"=>3, "progression_index"=>1, "created_at"=>"2019-11-09T00:25:13.216Z", "updated_at"=>"2019-11-09T00:25:13.216Z"}, {"id"=>4, "channelTitle"=>"Remikarli", "title"=>"\"Surface Area and Volume\" Music Video -- Remikarli", "date"=>"Jun 27, 2015", "description"=>"Compare the concepts of Surface Area and Volume using a music video!", "thumbnailUrl"=>"https://i.ytimg.com/vi/OXS41yW4hvA/mqdefault.jpg", "videoId"=>"OXS41yW4hvA", "url"=>"http://www.youtube.com/embed/OXS41yW4hvA", "progression_id"=>3, "progression_index"=>2, "created_at"=>"2019-11-09T00:25:13.218Z", "updated_at"=>"2019-11-09T00:25:13.218Z"}]}, "id"=>"3"}
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:23
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/models/progression.rb:6
+  [1m[36mVideo Destroy (0.7ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 3]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 4]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 6]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 3], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 6], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 4], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mProgression Update (0.2ms)[0m  [1m[33mUPDATE "progressions" SET "name" = ?, "updated_at" = ? WHERE "progressions"."id" = ?[0m  [["name", "Remikarli10"], ["updated_at", "2019-11-10 21:17:06.314567"], ["id", 3]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["channelTitle", "Remikarli"], ["title", "GCF and LCM Music Video -- Remikarli"], ["date", "Jun 27, 2015"], ["description", "Factors, they break a number down! Multiples, go on and on and on!"], ["thumbnailUrl", "https://i.ytimg.com/vi/D8yKtlcP-ww/mqdefault.jpg"], ["videoId", "D8yKtlcP-ww"], ["url", "http://www.youtube.com/embed/D8yKtlcP-ww"], ["progression_id", 3], ["progression_index", 0], ["created_at", "2019-11-10 21:17:06.316086"], ["updated_at", "2019-11-10 21:17:06.316086"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["channelTitle", "Remikarli"], ["title", "MS331 Student-Created Music Videos -- 6th grade 2015"], ["date", "Jun 24, 2015"], ["description", "15 Bronx middle schoolers used hip hop beats to write original lyrics and melodies while learning the structure of songs. They rehearsed and recorded their ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/yjxFdDxodSk/mqdefault.jpg"], ["videoId", "yjxFdDxodSk"], ["url", "http://www.youtube.com/embed/yjxFdDxodSk"], ["progression_id", 3], ["progression_index", 1], ["created_at", "2019-11-10 21:17:06.317206"], ["updated_at", "2019-11-10 21:17:06.317206"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["channelTitle", "Remikarli"], ["title", "\"Surface Area and Volume\" Music Video -- Remikarli"], ["date", "Jun 27, 2015"], ["description", "Compare the concepts of Surface Area and Volume using a music video!"], ["thumbnailUrl", "https://i.ytimg.com/vi/OXS41yW4hvA/mqdefault.jpg"], ["videoId", "OXS41yW4hvA"], ["url", "http://www.youtube.com/embed/OXS41yW4hvA"], ["progression_id", 3], ["progression_index", 2], ["created_at", "2019-11-10 21:17:06.318317"], ["updated_at", "2019-11-10 21:17:06.318317"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+Completed 201 Created in 20ms (Views: 0.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:17:06 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/progressions/3" for 127.0.0.1 at 2019-11-10 16:17:07 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/progressions/3.json" for 127.0.0.1 at 2019-11-10 16:17:10 -0500
+Processing by ProgressionsController#update as JSON
+  Parameters: {"progression"=>{"name"=>"Remikarli10", "videos_attributes"=>[{"id"=>4, "channelTitle"=>"Remikarli", "title"=>"\"Surface Area and Volume\" Music Video -- Remikarli", "date"=>"Jun 27, 2015", "description"=>"Compare the concepts of Surface Area and Volume using a music video!", "thumbnailUrl"=>"https://i.ytimg.com/vi/OXS41yW4hvA/mqdefault.jpg", "videoId"=>"OXS41yW4hvA", "url"=>"http://www.youtube.com/embed/OXS41yW4hvA", "progression_id"=>3, "progression_index"=>2, "created_at"=>"2019-11-10T21:17:06.318Z", "updated_at"=>"2019-11-10T21:17:06.318Z"}, {"id"=>3, "channelTitle"=>"Remikarli", "title"=>"GCF and LCM Music Video -- Remikarli", "date"=>"Jun 27, 2015", "description"=>"Factors, they break a number down! Multiples, go on and on and on!", "thumbnailUrl"=>"https://i.ytimg.com/vi/D8yKtlcP-ww/mqdefault.jpg", "videoId"=>"D8yKtlcP-ww", "url"=>"http://www.youtube.com/embed/D8yKtlcP-ww", "progression_id"=>3, "progression_index"=>0, "created_at"=>"2019-11-10T21:17:06.316Z", "updated_at"=>"2019-11-10T21:17:06.316Z"}, {"id"=>6, "channelTitle"=>"Remikarli", "title"=>"MS331 Student-Created Music Videos -- 6th grade 2015", "date"=>"Jun 24, 2015", "description"=>"15 Bronx middle schoolers used hip hop beats to write original lyrics and melodies while learning the structure of songs. They rehearsed and recorded their ...", "thumbnailUrl"=>"https://i.ytimg.com/vi/yjxFdDxodSk/mqdefault.jpg", "videoId"=>"yjxFdDxodSk", "url"=>"http://www.youtube.com/embed/yjxFdDxodSk", "progression_id"=>3, "progression_index"=>1, "created_at"=>"2019-11-10T21:17:06.317Z", "updated_at"=>"2019-11-10T21:17:06.317Z"}]}, "id"=>"3"}
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:23
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/models/progression.rb:6
+  [1m[36mVideo Destroy (0.4ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 3]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 4]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 6]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 4], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 3], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 6], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["channelTitle", "Remikarli"], ["title", "\"Surface Area and Volume\" Music Video -- Remikarli"], ["date", "Jun 27, 2015"], ["description", "Compare the concepts of Surface Area and Volume using a music video!"], ["thumbnailUrl", "https://i.ytimg.com/vi/OXS41yW4hvA/mqdefault.jpg"], ["videoId", "OXS41yW4hvA"], ["url", "http://www.youtube.com/embed/OXS41yW4hvA"], ["progression_id", 3], ["progression_index", 0], ["created_at", "2019-11-10 21:17:10.685757"], ["updated_at", "2019-11-10 21:17:10.685757"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.3ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["channelTitle", "Remikarli"], ["title", "GCF and LCM Music Video -- Remikarli"], ["date", "Jun 27, 2015"], ["description", "Factors, they break a number down! Multiples, go on and on and on!"], ["thumbnailUrl", "https://i.ytimg.com/vi/D8yKtlcP-ww/mqdefault.jpg"], ["videoId", "D8yKtlcP-ww"], ["url", "http://www.youtube.com/embed/D8yKtlcP-ww"], ["progression_id", 3], ["progression_index", 1], ["created_at", "2019-11-10 21:17:10.687139"], ["updated_at", "2019-11-10 21:17:10.687139"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.4ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["channelTitle", "Remikarli"], ["title", "MS331 Student-Created Music Videos -- 6th grade 2015"], ["date", "Jun 24, 2015"], ["description", "15 Bronx middle schoolers used hip hop beats to write original lyrics and melodies while learning the structure of songs. They rehearsed and recorded their ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/yjxFdDxodSk/mqdefault.jpg"], ["videoId", "yjxFdDxodSk"], ["url", "http://www.youtube.com/embed/yjxFdDxodSk"], ["progression_id", 3], ["progression_index", 2], ["created_at", "2019-11-10 21:17:10.689401"], ["updated_at", "2019-11-10 21:17:10.689401"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+Completed 201 Created in 19ms (Views: 0.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:17:10 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:18:31 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/progressions/4" for 127.0.0.1 at 2019-11-10 16:18:32 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:18:36 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/progressions/1" for 127.0.0.1 at 2019-11-10 16:20:40 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/progressions/1.json" for 127.0.0.1 at 2019-11-10 16:20:46 -0500
+Processing by ProgressionsController#update as JSON
+  Parameters: {"progression"=>{"name"=>"Honors", "videos_attributes"=>[{"id"=>1, "channelTitle"=>"LUCKYTURIST", "title"=>"Math. Subtraction & Addition. 1st & 2nd grade. Flashcards.", "date"=>"Nov 7, 2013", "description"=>"MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com.", "thumbnailUrl"=>"https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg", "videoId"=>"ybEr-s9SPIg", "url"=>"http://www.youtube.com/embed/ybEr-s9SPIg", "progression_id"=>1, "progression_index"=>0, "created_at"=>"2019-11-09T00:24:42.931Z", "updated_at"=>"2019-11-09T00:24:42.931Z"}, {"id"=>2, "channelTitle"=>"Pencilmation", "title"=>"Pencilmate's a Mathematical Mess!", "date"=>"May 12, 2019", "description"=>"Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ...", "thumbnailUrl"=>"https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg", "videoId"=>"Lu9RBvK8jks", "url"=>"http://www.youtube.com/embed/Lu9RBvK8jks", "progression_id"=>1, "progression_index"=>1, "created_at"=>"2019-11-09T00:24:42.933Z", "updated_at"=>"2019-11-09T00:24:42.933Z"}]}, "id"=>"1"}
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:23
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/models/progression.rb:6
+  [1m[36mVideo Destroy (0.7ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 1]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.2ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 2]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 1], ["progression_id", 1], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 2], ["progression_id", 1], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mProgression Update (0.2ms)[0m  [1m[33mUPDATE "progressions" SET "name" = ?, "updated_at" = ? WHERE "progressions"."id" = ?[0m  [["name", "Honors"], ["updated_at", "2019-11-10 21:20:46.251175"], ["id", 1]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["channelTitle", "LUCKYTURIST"], ["title", "Math. Subtraction & Addition. 1st & 2nd grade. Flashcards."], ["date", "Nov 7, 2013"], ["description", "MATH. MIXED SUBTRACTION AND ADDITION. FIRST AND SECOND GRADE. Math flashcards. http://www.planet12sun.com."], ["thumbnailUrl", "https://i.ytimg.com/vi/ybEr-s9SPIg/mqdefault.jpg"], ["videoId", "ybEr-s9SPIg"], ["url", "http://www.youtube.com/embed/ybEr-s9SPIg"], ["progression_id", 1], ["progression_index", 0], ["created_at", "2019-11-10 21:20:46.252374"], ["updated_at", "2019-11-10 21:20:46.252374"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["channelTitle", "Pencilmation"], ["title", "Pencilmate's a Mathematical Mess!"], ["date", "May 12, 2019"], ["description", "Pencilmate grapples with Plus and Minus! Turn on the Notification Bell Subscribe: https://goo.gl/8EAkGm Pencilmation Merchandise: ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/Lu9RBvK8jks/mqdefault.jpg"], ["videoId", "Lu9RBvK8jks"], ["url", "http://www.youtube.com/embed/Lu9RBvK8jks"], ["progression_id", 1], ["progression_index", 1], ["created_at", "2019-11-10 21:20:46.253418"], ["updated_at", "2019-11-10 21:20:46.253418"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+Completed 201 Created in 15ms (Views: 0.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:20:46 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/progressions/3" for 127.0.0.1 at 2019-11-10 16:20:49 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/progressions/3.json" for 127.0.0.1 at 2019-11-10 16:20:55 -0500
+Processing by ProgressionsController#update as JSON
+  Parameters: {"progression"=>{"name"=>"Integers Remediation", "videos_attributes"=>[{"id"=>4, "channelTitle"=>"Remikarli", "title"=>"\"Surface Area and Volume\" Music Video -- Remikarli", "date"=>"Jun 27, 2015", "description"=>"Compare the concepts of Surface Area and Volume using a music video!", "thumbnailUrl"=>"https://i.ytimg.com/vi/OXS41yW4hvA/mqdefault.jpg", "videoId"=>"OXS41yW4hvA", "url"=>"http://www.youtube.com/embed/OXS41yW4hvA", "progression_id"=>3, "progression_index"=>0, "created_at"=>"2019-11-10T21:17:10.685Z", "updated_at"=>"2019-11-10T21:17:10.685Z"}, {"id"=>3, "channelTitle"=>"Remikarli", "title"=>"GCF and LCM Music Video -- Remikarli", "date"=>"Jun 27, 2015", "description"=>"Factors, they break a number down! Multiples, go on and on and on!", "thumbnailUrl"=>"https://i.ytimg.com/vi/D8yKtlcP-ww/mqdefault.jpg", "videoId"=>"D8yKtlcP-ww", "url"=>"http://www.youtube.com/embed/D8yKtlcP-ww", "progression_id"=>3, "progression_index"=>1, "created_at"=>"2019-11-10T21:17:10.687Z", "updated_at"=>"2019-11-10T21:17:10.687Z"}, {"id"=>6, "channelTitle"=>"Remikarli", "title"=>"MS331 Student-Created Music Videos -- 6th grade 2015", "date"=>"Jun 24, 2015", "description"=>"15 Bronx middle schoolers used hip hop beats to write original lyrics and melodies while learning the structure of songs. They rehearsed and recorded their ...", "thumbnailUrl"=>"https://i.ytimg.com/vi/yjxFdDxodSk/mqdefault.jpg", "videoId"=>"yjxFdDxodSk", "url"=>"http://www.youtube.com/embed/yjxFdDxodSk", "progression_id"=>3, "progression_index"=>2, "created_at"=>"2019-11-10T21:17:10.689Z", "updated_at"=>"2019-11-10T21:17:10.689Z"}]}, "id"=>"3"}
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:23
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/models/progression.rb:6
+  [1m[36mVideo Destroy (0.3ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 3]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 4]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 6]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Load (0.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 4], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 3], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 6], ["progression_id", 3], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mProgression Update (0.2ms)[0m  [1m[33mUPDATE "progressions" SET "name" = ?, "updated_at" = ? WHERE "progressions"."id" = ?[0m  [["name", "Integers Remediation"], ["updated_at", "2019-11-10 21:20:55.052179"], ["id", 3]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["channelTitle", "Remikarli"], ["title", "\"Surface Area and Volume\" Music Video -- Remikarli"], ["date", "Jun 27, 2015"], ["description", "Compare the concepts of Surface Area and Volume using a music video!"], ["thumbnailUrl", "https://i.ytimg.com/vi/OXS41yW4hvA/mqdefault.jpg"], ["videoId", "OXS41yW4hvA"], ["url", "http://www.youtube.com/embed/OXS41yW4hvA"], ["progression_id", 3], ["progression_index", 0], ["created_at", "2019-11-10 21:20:55.053282"], ["updated_at", "2019-11-10 21:20:55.053282"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 3], ["channelTitle", "Remikarli"], ["title", "GCF and LCM Music Video -- Remikarli"], ["date", "Jun 27, 2015"], ["description", "Factors, they break a number down! Multiples, go on and on and on!"], ["thumbnailUrl", "https://i.ytimg.com/vi/D8yKtlcP-ww/mqdefault.jpg"], ["videoId", "D8yKtlcP-ww"], ["url", "http://www.youtube.com/embed/D8yKtlcP-ww"], ["progression_id", 3], ["progression_index", 1], ["created_at", "2019-11-10 21:20:55.054321"], ["updated_at", "2019-11-10 21:20:55.054321"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 6], ["channelTitle", "Remikarli"], ["title", "MS331 Student-Created Music Videos -- 6th grade 2015"], ["date", "Jun 24, 2015"], ["description", "15 Bronx middle schoolers used hip hop beats to write original lyrics and melodies while learning the structure of songs. They rehearsed and recorded their ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/yjxFdDxodSk/mqdefault.jpg"], ["videoId", "yjxFdDxodSk"], ["url", "http://www.youtube.com/embed/yjxFdDxodSk"], ["progression_id", 3], ["progression_index", 2], ["created_at", "2019-11-10 21:20:55.055301"], ["updated_at", "2019-11-10 21:20:55.055301"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+Completed 201 Created in 17ms (Views: 0.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:20:55 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/progressions/5" for 127.0.0.1 at 2019-11-10 16:20:57 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/progressions/5.json" for 127.0.0.1 at 2019-11-10 16:21:05 -0500
+Processing by ProgressionsController#update as JSON
+  Parameters: {"progression"=>{"name"=>"Extra Credit", "videos_attributes"=>[{"id"=>9, "channelTitle"=>"MindYourDecisions", "title"=>"How To Solve Insanely HARD Viral Math Problem", "date"=>"Jan 10, 2019", "description"=>"This popular problem is stumping everyone, and many, many people emailed it to me. I give extra thanks Chaitanya from India who was the first person who sent ...", "thumbnailUrl"=>"https://i.ytimg.com/vi/cPNdvdYn05c/mqdefault.jpg", "videoId"=>"cPNdvdYn05c", "url"=>"http://www.youtube.com/embed/cPNdvdYn05c", "progression_id"=>5, "progression_index"=>0, "created_at"=>"2019-11-10T21:16:50.165Z", "updated_at"=>"2019-11-10T21:16:50.165Z"}, {"id"=>10, "channelTitle"=>"Mt. Tvister", "title"=>"Math's  Money Learn Dollar and cents kids Learning Video Animation", "date"=>"May 7, 2015", "description"=>"", "thumbnailUrl"=>"https://i.ytimg.com/vi/d0nbnoagh10/mqdefault.jpg", "videoId"=>"d0nbnoagh10", "url"=>"http://www.youtube.com/embed/d0nbnoagh10", "progression_id"=>5, "progression_index"=>1, "created_at"=>"2019-11-10T21:16:50.166Z", "updated_at"=>"2019-11-10T21:16:50.166Z"}, {"id"=>11, "channelTitle"=>"Math & Learning Videos 4 Kids", "title"=>"Multiplication and Division Relationships - Fun Math Videos for Kids 3rd Grade", "date"=>"Aug 4, 2016", "description"=>"Check out the NEW Math Game we made at https://www.MageMath.com/ It is a full video game called Mage Math that helps kids build confidence in math while ...", "thumbnailUrl"=>"https://i.ytimg.com/vi/i31rRt5m1-4/mqdefault.jpg", "videoId"=>"i31rRt5m1-4", "url"=>"http://www.youtube.com/embed/i31rRt5m1-4", "progression_id"=>5, "progression_index"=>2, "created_at"=>"2019-11-10T21:16:50.167Z", "updated_at"=>"2019-11-10T21:16:50.167Z"}]}, "id"=>"5"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:23
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+Unpermitted parameters: :progression_index, :created_at, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/models/progression.rb:6
+  [1m[36mVideo Destroy (0.4ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 9]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 10]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Destroy (0.1ms)[0m  [1m[31mDELETE FROM "videos" WHERE "videos"."id" = ?[0m  [["id", 11]]
+  ↳ app/models/progression.rb:10
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 9], ["progression_id", 5], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 10], ["progression_id", 5], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mVideo Load (0.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = ? AND "videos"."progression_id" = ? LIMIT ?[0m  [["id", 11], ["progression_id", 5], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:13
+  [1m[36mProgression Update (0.2ms)[0m  [1m[33mUPDATE "progressions" SET "name" = ?, "updated_at" = ? WHERE "progressions"."id" = ?[0m  [["name", "Extra Credit"], ["updated_at", "2019-11-10 21:21:05.050409"], ["id", 5]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 9], ["channelTitle", "MindYourDecisions"], ["title", "How To Solve Insanely HARD Viral Math Problem"], ["date", "Jan 10, 2019"], ["description", "This popular problem is stumping everyone, and many, many people emailed it to me. I give extra thanks Chaitanya from India who was the first person who sent ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/cPNdvdYn05c/mqdefault.jpg"], ["videoId", "cPNdvdYn05c"], ["url", "http://www.youtube.com/embed/cPNdvdYn05c"], ["progression_id", 5], ["progression_index", 0], ["created_at", "2019-11-10 21:21:05.051800"], ["updated_at", "2019-11-10 21:21:05.051800"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 10], ["channelTitle", "Mt. Tvister"], ["title", "Math's  Money Learn Dollar and cents kids Learning Video Animation"], ["date", "May 7, 2015"], ["description", ""], ["thumbnailUrl", "https://i.ytimg.com/vi/d0nbnoagh10/mqdefault.jpg"], ["videoId", "d0nbnoagh10"], ["url", "http://www.youtube.com/embed/d0nbnoagh10"], ["progression_id", 5], ["progression_index", 1], ["created_at", "2019-11-10 21:21:05.053187"], ["updated_at", "2019-11-10 21:21:05.053187"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[36mVideo Create (0.1ms)[0m  [1m[32mINSERT INTO "videos" ("id", "channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "progression_id", "progression_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 11], ["channelTitle", "Math & Learning Videos 4 Kids"], ["title", "Multiplication and Division Relationships - Fun Math Videos for Kids 3rd Grade"], ["date", "Aug 4, 2016"], ["description", "Check out the NEW Math Game we made at https://www.MageMath.com/ It is a full video game called Mage Math that helps kids build confidence in math while ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/i31rRt5m1-4/mqdefault.jpg"], ["videoId", "i31rRt5m1-4"], ["url", "http://www.youtube.com/embed/i31rRt5m1-4"], ["progression_id", 5], ["progression_index", 2], ["created_at", "2019-11-10 21:21:05.054307"], ["updated_at", "2019-11-10 21:21:05.054307"]]
+  ↳ app/controllers/progressions_controller.rb:24
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/progressions_controller.rb:24
+Completed 201 Created in 19ms (Views: 0.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:21:05 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/progressions/3" for 127.0.0.1 at 2019-11-10 16:22:23 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/progressions" for 127.0.0.1 at 2019-11-10 16:22:30 -0500
+Processing by ProgressionsController#index as */*
+  [1m[36mProgression Load (0.1ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions"[0m
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 4]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mVideo Load (0.2ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/progressions/3" for 127.0.0.1 at 2019-11-10 16:24:15 -0500
+Processing by ProgressionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mProgression Load (0.2ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:18
+  [1m[36mVideo Load (0.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" WHERE "videos"."progression_id" = ?[0m  [["progression_id", 3]]
+  ↳ app/controllers/progressions_controller.rb:19
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateKlasses (20191110225153)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20191110225153_create_klasses.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "klasses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191110225153_create_klasses.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191110225153"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to CreateStudents (20191110225159)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "klass_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191110225159_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191110225159"]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (15.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/bin/rake:23
