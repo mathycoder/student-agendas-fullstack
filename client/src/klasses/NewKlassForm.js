@@ -28,6 +28,7 @@ class KlassesContainer extends Component {
     })
       .then(resp => resp.json())
       .then(json => {
+        this.props.addKlass(json)
         this.props.history.push(`/classes/${json.id}`)
       })
   }
