@@ -5,8 +5,7 @@ import NewKlassForm from './NewKlassForm'
 
 class KlassesContainer extends Component {
   state = {
-    klasses: [],
-    klassId: undefined
+    klasses: []
   }
 
   componentDidMount(){
@@ -43,6 +42,19 @@ class KlassesContainer extends Component {
     })
   }
 
+  addStudentToKlass = (student) => {
+    const newKlasses = [...this.state.klasses]
+    const index = newKlasses.findIndex(klass => klass.id === student.klass_id)
+    newKlasses[index].students.push(student)
+
+    this.setState({
+      ...this.state,
+      klasses: [
+        ...newKlasses,
+      ]
+    })
+  }
+
   klassSelectDropdown = () => {
     return (
       <div className="progression-menu-bar">
@@ -65,7 +77,7 @@ class KlassesContainer extends Component {
         {this.klassSelectDropdown()}
         <Switch>
           <Route exact path={`${this.props.match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={this.addKlass} />} />
-          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} updateKlassId={this.updateKlassId} removeKlass={this.removeKlass} klasses={this.state.klasses} />} key={Math.random()} />
+          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} addStudentToKlass={this.addStudentToKlass} updateKlassId={this.updateKlassId} removeKlass={this.removeKlass} klasses={this.state.klasses} />} key={Math.random()} />
         </Switch>
       </div>
     )

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import CreateStudentForm from '../students/CreateStudentForm'
+import StudentsContainer from '../students/StudentsContainer'
 
 class ShowKlassContainer extends Component {
-
   state = {
     addingStudent: false
   }
@@ -37,6 +37,7 @@ class ShowKlassContainer extends Component {
           ...this.state,
           addingStudent: false
         })
+        this.props.addStudentToKlass(json)
       })
   }
 
@@ -61,7 +62,8 @@ class ShowKlassContainer extends Component {
         <h1>{klass.name}</h1>
         <button onClick={this.handleDeleteKlass}>Delete Class</button>
         <button onClick={this.handleAddStudent}>Add Student</button>
-        {this.state.addingStudent ? <CreateStudentForm handleStudentSubmit={this.handleStudentSubmit}/> : ''}
+        {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={this.props.addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
+        <StudentsContainer students={klass.students}  />
       </div>
     )
   }
