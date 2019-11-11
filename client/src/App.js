@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import NewProgressionContainer from './progressions/NewProgressionContainer'
 import IndexProgressionsContainer from './progressions/IndexProgressionsContainer'
-import NewKlassContainer from './klasses/NewKlassContainer'
+import KlassesContainer from './klasses/KlassesContainer'
 import ShowKlassContainer from './klasses/ShowKlassContainer'
 import NavBar from './navbar/NavBar'
 import Home from './Home'
@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path="/progressions" component={IndexProgressionsContainer} />
             <Route exact path="/progressions/new" component={NewProgressionContainer} />
             <Route exact path="/progressions/:id" component={NewProgressionContainer} />
-            <Route path="/classes" component={NewKlassContainer} />
+            <Route path="/classes" component={KlassesContainer} />
           </main>
         </div>
       </Router>

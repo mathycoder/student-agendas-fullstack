@@ -1,4 +1,10 @@
 class KlassesController < ApplicationController
+
+  def index
+    @klasses = Klass.all
+    render json: @klasses
+  end
+
   def create
     @klass = Klass.new(klass_params)
     if @klass.save

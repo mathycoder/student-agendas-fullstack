@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Route } from "react-router-dom";
-import ShowKlassContainer from './ShowKlassContainer'
 
-class NewKlassContainer extends Component {
+class KlassesContainer extends Component {
   state = {
     klass: {
       name: ""
@@ -37,23 +35,18 @@ class NewKlassContainer extends Component {
   render() {
     return (
       <div>
-        <Route exact path={`${this.props.match.url}`} render={() => (
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              value={this.state.klass.name}
-              onChange={this.handleNameChange}
-              placeholder="Enter a Class Name"/>
-            <input type="submit" value="Create Class" />
-          </form>
-        )} />
-
-        <Route path={`${this.props.match.url}/:id`} component={ShowKlassContainer} />
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.klass.name}
+            onChange={this.handleNameChange}
+            placeholder="Enter a Class Name"/>
+          <input type="submit" value="Create Class" />
+        </form>
       </div>
-
     )
   }
 
 }
 
-export default NewKlassContainer
+export default KlassesContainer
