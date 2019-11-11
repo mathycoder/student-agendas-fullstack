@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Route } from "react-router-dom";
+import ShowKlassContainer from './ShowKlassContainer'
 
 class NewKlassContainer extends Component {
   state = {
@@ -27,21 +29,28 @@ class NewKlassContainer extends Component {
       }
     })
       .then(resp => resp.json())
-      .then(json => console.log("Submitted!"))
+      .then(json => {
+        this.props.history.push(`/classes/${json.id}`)
+      })
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.klass.name}
-            onChange={this.handleNameChange}
-            placeholder="Enter a Class Name"/>
-          <input type="submit" value="Create Class" />
-        </form>
+        <Route exact path={`${this.props.match.url}`} render={() => (
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              value={this.state.klass.name}
+              onChange={this.handleNameChange}
+              placeholder="Enter a Class Name"/>
+            <input type="submit" value="Create Class" />
+          </form>
+        )} />
+
+        <Route path={`${this.props.match.url}/:id`} component={ShowKlassContainer} />
       </div>
+
     )
   }
 

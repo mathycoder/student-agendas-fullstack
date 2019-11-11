@@ -6,7 +6,12 @@ class KlassesController < ApplicationController
     else
       render json: @klass.errors.full_messages, status: 422
     end
+  end
 
+  def show
+    @klass = Klass.find_by(id: params[:id])
+    render json: @klass
+    # render json: @progression.to_json(include: [:videos])
   end
 
   private
