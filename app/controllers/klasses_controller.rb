@@ -20,6 +20,12 @@ class KlassesController < ApplicationController
     # render json: @progression.to_json(include: [:videos])
   end
 
+  def destroy
+    @klass = Klass.find_by(id: params[:id])
+    @klass.destroy
+    render json: @klass
+  end
+
   private
     def klass_params
       params.require(:klass).permit(:name)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Switch } from "react-router-dom";
 import ShowKlassContainer from './ShowKlassContainer'
 import NewKlassForm from './NewKlassForm'
 
@@ -36,6 +36,13 @@ class KlassesContainer extends Component {
     })
   }
 
+  removeKlass = (klass) => {
+    this.setState({
+      ...this.state,
+      klasses: this.state.klasses.filter(kl => kl.id !== klass.id)
+    })
+  }
+
   klassSelectDropdown = () => {
     return (
       <div className="progression-menu-bar">
@@ -56,8 +63,10 @@ class KlassesContainer extends Component {
     return (
       <div>
         {this.klassSelectDropdown()}
-        <Route exact path={`${this.props.match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={this.addKlass} />} />
-        <Route path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} updateKlassId={this.updateKlassId} klasses={this.state.klasses} />} key={Math.random()} />
+        <Switch>
+          <Route exact path={`${this.props.match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={this.addKlass} />} />
+          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} updateKlassId={this.updateKlassId} removeKlass={this.removeKlass} klasses={this.state.klasses} />} key={Math.random()} />
+        </Switch>
       </div>
     )
   }
