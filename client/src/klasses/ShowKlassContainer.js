@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CreateStudentForm from '../students/CreateStudentForm'
 import StudentsContainer from '../students/StudentsContainer'
+import { connect } from 'react-redux'
+import { addStudentToKlass } from '../actions/studentActions'
 
 class ShowKlassContainer extends Component {
   state = {
@@ -16,29 +18,8 @@ class ShowKlassContainer extends Component {
 
   handleStudentSubmit = (event, studentData) => {
     event.preventDefault()
-    const params = {
-      student: {
-        ...studentData
-      }
-    }
-
     const klassId = parseInt(this.props.match.params.id)
-
-    fetch(`/klasses/${klassId}/students`, {
-      method: 'post',
-      body: JSON.stringify(params),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(resp => resp.json())
-      .then(json => {
-        this.setState({
-          ...this.state,
-          addingStudent: false
-        })
-        this.props.addStudentToKlass(json)
-      })
+    this.props.addStudentToKlass(klassId, studentData)
   }
 
   handleDeleteKlass = (event) => {
@@ -60,4 +41,18 @@ class ShowKlassContainer extends Component {
   }
 }
 
-export default ShowKlassContainer
+
+function mapDispatchToProps(dispatch){
+  return {
+    addStudentToKlass: (klass, student) => dispatch(addStudentToKlass(klass, student))
+    // fetchKlasses: () => dispatch(fetchKlasses()),
+    // addKlass: (klass) => dispatch(addKlass(klass)),
+    // removeKlass: (klass) => dispatch(removeKlass(klass))
+  }
+}
+
+function mapStateToProps(state){
+  return {klasses: state.klasses}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShowKlassContainer)

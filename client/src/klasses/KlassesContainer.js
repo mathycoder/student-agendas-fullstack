@@ -11,19 +11,6 @@ class KlassesContainer extends Component {
     this.props.fetchKlasses()
   }
 
-  addStudentToKlass = (student) => {
-    const newKlasses = [...this.state.klasses]
-    const index = newKlasses.findIndex(klass => klass.id === student.klass_id)
-    newKlasses[index].students.push(student)
-
-    this.setState({
-      ...this.state,
-      klasses: [
-        ...newKlasses,
-      ]
-    })
-  }
-
   removeStudentFromKlass = (student) => {
     fetch(`/klasses/${student.klass_id}/students/${student.id}`, {
       method: 'DELETE',
@@ -68,7 +55,7 @@ class KlassesContainer extends Component {
         {this.klassSelectDropdown()}
         <Switch>
           <Route exact path={`${this.props.match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={this.props.addKlass} />} />
-          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} addStudentToKlass={this.addStudentToKlass} removeStudentFromKlass={this.removeStudentFromKlass} removeKlass={this.props.removeKlass} klasses={this.props.klasses} />} key={Math.random()} />
+          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} removeStudentFromKlass={this.removeStudentFromKlass} removeKlass={this.props.removeKlass} />} key={Math.random()} />
         </Switch>
       </div>
     )

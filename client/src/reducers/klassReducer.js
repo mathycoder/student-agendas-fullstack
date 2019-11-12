@@ -44,6 +44,27 @@ export default function klassReducer(
         requesting: false
       }
 
+    case 'START_ADDING_STUDENT_TO_KLASS_REQUEST':
+      return {
+        ...state,
+        klasses: [...state.klasses],
+        requesting: true
+      }
+
+    case 'ADD_STUDENT_TO_KLASS':
+      return {
+        ...state,
+        klasses: state.klasses.map(klass => {
+          if (klass.id === action.student.klass_id) {
+            const klassCopy = {...klass}
+            klassCopy.students.push(action.student)
+            return klassCopy
+          }
+          return klass
+        }),
+        requesting: true
+      }
+
     default:
       return state;
   }
