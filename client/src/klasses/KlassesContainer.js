@@ -2,20 +2,13 @@ import React, { Component } from 'react'
 import { Route, NavLink, Switch } from "react-router-dom";
 import ShowKlassContainer from './ShowKlassContainer'
 import NewKlassForm from './NewKlassForm'
+import { connect } from 'react-redux'
+import { fetchKlasses } from '../actions/fetchKlasses'
 
 class KlassesContainer extends Component {
-  state = {
-    klasses: []
-  }
 
   componentDidMount(){
-    fetch(`/klasses`)
-      .then(resp => resp.json())
-      .then(json => {
-        this.setState({
-          klasses: [...json]
-        })
-      })
+    this.props.fetchKlasses()
   }
 
   updateKlassId = (id) => {
@@ -82,7 +75,7 @@ class KlassesContainer extends Component {
     return (
       <div className="progression-menu-bar">
         <ul>
-          {this.state.klasses.map((klass, index) => (
+          {this.props.klasses.map((klass, index) => (
             <li key={index}>
               {<NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>}
             </li>
@@ -106,4 +99,12 @@ class KlassesContainer extends Component {
   }
 }
 
-export default KlassesContainer
+function mapDispatchToProps(dispatch){
+  return { fetchKlasses: () => dispatch(fetchKlasses())}
+}
+
+function mapStateToProps(state){
+  return {klasses: state.klasses}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(KlassesContainer)
