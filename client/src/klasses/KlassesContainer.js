@@ -29,10 +29,6 @@ class KlassesContainer extends Component {
     )
   }
 
-  componentDidUpdate(){
-    console.log(this.props.klasses)
-  }
-
   render() {
 
     return (

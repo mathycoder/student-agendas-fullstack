@@ -29,16 +29,21 @@ class ShowKlassContainer extends Component {
   }
 
   render(){
-    const klass = this.props.klasses.find(klass => klass.id === parseInt(this.props.match.params.id)) || ""
-    return (
-      <div>
-        <h1>{klass.name}</h1>
-        <button onClick={this.handleDeleteKlass}>Delete Class</button>
-        <button onClick={this.handleAddStudent}>Add Student</button>
-        {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={this.props.addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
-        <StudentsContainer students={klass.students} removeStudentFromKlass={this.props.removeStudentFromKlass} />
-      </div>
-    )
+    const klassId = this.props.klasses.allIds.find(klassId => klassId === `klass${this.props.match.params.id}`) || ""
+    const klass = this.props.klasses.byId[klassId]
+    if (klass) {
+      return (
+        <div>
+          <h1>{klass.name}</h1>
+          <button onClick={this.handleDeleteKlass}>Delete Class</button>
+          <button onClick={this.handleAddStudent}>Add Student</button>
+          {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={this.props.addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
+          <StudentsContainer students={klass.students} removeStudentFromKlass={this.props.removeStudentFromKlass} />
+        </div>
+      )
+    } else {
+      return (<div></div>)
+    }
   }
 }
 
@@ -51,7 +56,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return {klasses: state.klasses}
+  return {...state}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowKlassContainer)

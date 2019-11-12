@@ -37,6 +37,16 @@ function klassesById(state = {}, action) {
         [klassId]: action.klass
       }
 
+    case 'START_REMOVING_KLASS_REQUEST':
+      return {
+        ...state
+      }
+
+    case 'REMOVE_KLASS':
+      const deleteKlassId = `klass${action.klassId}`
+      const { [deleteKlassId]: value, ...withoutKlass } = state
+      return { ...withoutKlass }
+
     default:
       return state;
   }
@@ -53,6 +63,10 @@ function allKlasses(state = [], action) {
     case 'ADD_KLASS':
       const klassId = `klass${action.klass.id}`
       return [...state, klassId]
+
+    case 'REMOVE_KLASS':
+      const deleteKlassId = `klass${action.klassId}`
+      return state.filter(klId => klId !== deleteKlassId)
 
     default:
       return state;
