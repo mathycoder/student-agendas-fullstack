@@ -15,18 +15,26 @@ class KlassesContainer extends Component {
     return (
       <div className="progression-menu-bar">
         <ul>
-          {this.props.klasses.map((klass, index) => (
-            <li key={index}>
-              {<NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>}
-            </li>
-          ))}
+          {this.props.klasses.allIds.map((klassId, index) => {
+            const klass = this.props.klasses.byId[klassId]
+            return (
+              <li key={index}>
+                {<NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>}
+              </li>
+            )
+          })}
             <li>{<NavLink to={`/classes/new`}>New Class</NavLink>}</li>
         </ul>
       </div>
     )
   }
 
+  componentDidUpdate(){
+    console.log(this.props.klasses)
+  }
+
   render() {
+
     return (
       <div>
         {this.klassSelectDropdown()}

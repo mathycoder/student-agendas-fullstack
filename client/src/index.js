@@ -7,8 +7,13 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import klassReducer from './reducers/klassReducer.js'
+import { combineReducers } from 'redux'
 
-const store = createStore(klassReducer, applyMiddleware(thunk))
+const rootReducer = combineReducers({
+  klasses: klassReducer
+})
+
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
