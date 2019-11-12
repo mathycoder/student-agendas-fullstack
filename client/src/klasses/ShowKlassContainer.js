@@ -42,7 +42,6 @@ class ShowKlassContainer extends Component {
   }
 }
 
-
 function mapDispatchToProps(dispatch){
   return {
     addStudentToKlass: (klass, student) => dispatch(addStudentToKlass(klass, student)),

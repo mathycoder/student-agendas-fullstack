@@ -31,15 +31,3 @@ export function removeStudentFromKlass(studentData){
       })
   }
 }
-
-// const newKlasses = [...this.state.klasses]
-// const klassIndex = newKlasses.findIndex(klass => klass.id === json.klass_id)
-// const studentIndex = newKlasses[klassIndex].students.findIndex(st => st.id === json.id)
-// newKlasses[klassIndex].students.splice(studentIndex, 1)
-//
-// this.setState({
-//   ...this.state,
-//   klasses: [
-//     ...newKlasses,
-//   ]
-// })
