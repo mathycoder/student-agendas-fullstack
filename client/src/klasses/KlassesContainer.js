@@ -4,35 +4,11 @@ import ShowKlassContainer from './ShowKlassContainer'
 import NewKlassForm from './NewKlassForm'
 import { connect } from 'react-redux'
 import { fetchKlasses } from '../actions/fetchKlasses'
+import { addKlass, removeKlass } from '../actions/klassActions'
 
 class KlassesContainer extends Component {
-
   componentDidMount(){
     this.props.fetchKlasses()
-  }
-
-  updateKlassId = (id) => {
-    this.setState({
-      klasses: [...this.state.klasses],
-      klassId: id
-    })
-  }
-
-  addKlass = (klass) => {
-    this.setState({
-      ...this.state,
-      klasses: [
-        ...this.state.klasses,
-        klass
-      ]
-    })
-  }
-
-  removeKlass = (klass) => {
-    this.setState({
-      ...this.state,
-      klasses: this.state.klasses.filter(kl => kl.id !== klass.id)
-    })
   }
 
   addStudentToKlass = (student) => {
@@ -91,8 +67,8 @@ class KlassesContainer extends Component {
       <div>
         {this.klassSelectDropdown()}
         <Switch>
-          <Route exact path={`${this.props.match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={this.addKlass} />} />
-          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} addStudentToKlass={this.addStudentToKlass} removeStudentFromKlass={this.removeStudentFromKlass} removeKlass={this.removeKlass} klasses={this.state.klasses} />} key={Math.random()} />
+          <Route exact path={`${this.props.match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={this.props.addKlass} />} />
+          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} addStudentToKlass={this.addStudentToKlass} removeStudentFromKlass={this.removeStudentFromKlass} removeKlass={this.props.removeKlass} klasses={this.props.klasses} />} key={Math.random()} />
         </Switch>
       </div>
     )
@@ -100,7 +76,11 @@ class KlassesContainer extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return { fetchKlasses: () => dispatch(fetchKlasses())}
+  return {
+    fetchKlasses: () => dispatch(fetchKlasses()),
+    addKlass: (klass) => dispatch(addKlass(klass)),
+    removeKlass: (klass) => dispatch(removeKlass(klass))
+  }
 }
 
 function mapStateToProps(state){

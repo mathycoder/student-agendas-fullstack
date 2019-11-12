@@ -43,16 +43,7 @@ class ShowKlassContainer extends Component {
 
   handleDeleteKlass = (event) => {
     const klassId = parseInt(this.props.match.params.id)
-    fetch(`/klasses/${klassId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(resp => resp.json())
-      .then(json => {
-        this.props.removeKlass(json)
-      })
+    this.props.removeKlass(klassId)
   }
 
   render(){

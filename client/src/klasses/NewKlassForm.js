@@ -19,18 +19,8 @@ class KlassesContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    fetch('/klasses', {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(resp => resp.json())
-      .then(json => {
-        this.props.addKlass(json)
-        this.props.history.push(`/classes/${json.id}`)
-      })
+    this.props.addKlass(this.state)
+    // this.props.history.push(`/classes/${klass.id}`)
   }
 
   render() {
