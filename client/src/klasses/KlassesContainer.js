@@ -4,34 +4,11 @@ import ShowKlassContainer from './ShowKlassContainer'
 import NewKlassForm from './NewKlassForm'
 import { connect } from 'react-redux'
 import { fetchKlasses } from '../actions/fetchKlasses'
-import { addKlass, removeKlass } from '../actions/klassActions'
+import { addKlass } from '../actions/klassActions'
 
 class KlassesContainer extends Component {
   componentDidMount(){
     this.props.fetchKlasses()
-  }
-
-  removeStudentFromKlass = (student) => {
-    fetch(`/klasses/${student.klass_id}/students/${student.id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(resp => resp.json())
-      .then(json => {
-        const newKlasses = [...this.state.klasses]
-        const klassIndex = newKlasses.findIndex(klass => klass.id === json.klass_id)
-        const studentIndex = newKlasses[klassIndex].students.findIndex(st => st.id === json.id)
-        newKlasses[klassIndex].students.splice(studentIndex, 1)
-
-        this.setState({
-          ...this.state,
-          klasses: [
-            ...newKlasses,
-          ]
-        })
-      })
   }
 
   klassSelectDropdown = () => {
@@ -55,7 +32,7 @@ class KlassesContainer extends Component {
         {this.klassSelectDropdown()}
         <Switch>
           <Route exact path={`${this.props.match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={this.props.addKlass} />} />
-          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} removeStudentFromKlass={this.removeStudentFromKlass} removeKlass={this.props.removeKlass} />} key={Math.random()} />
+          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} />} key={Math.random()} />
         </Switch>
       </div>
     )
@@ -65,8 +42,7 @@ class KlassesContainer extends Component {
 function mapDispatchToProps(dispatch){
   return {
     fetchKlasses: () => dispatch(fetchKlasses()),
-    addKlass: (klass) => dispatch(addKlass(klass)),
-    removeKlass: (klass) => dispatch(removeKlass(klass))
+    addKlass: (klass) => dispatch(addKlass(klass))
   }
 }
 

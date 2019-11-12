@@ -24,9 +24,11 @@ export default function klassReducer(
       }
 
     case 'ADD_KLASS':
+      const klassCopy = {...action.klass}
+      klassCopy.students = []
       return {
         ...state,
-        klasses: state.klasses.concat(action.klass),
+        klasses: state.klasses.concat(klassCopy),
         requesting: false
       }
 
@@ -62,7 +64,26 @@ export default function klassReducer(
           }
           return klass
         }),
+        requesting: false
+      }
+
+    case 'START_REMOVING_STUDENT_FROM_KLASS_REQUEST':
+      return {
+        ...state,
+        klasses: [...state.klasses],
         requesting: true
+      }
+
+    case 'REMOVE_STUDENT_FROM_KLASS':
+      const newKlasses = [...state.klasses]
+      const klassIndex = newKlasses.findIndex(klass => klass.id === action.student.klass_id)
+      const studentIndex = newKlasses[klassIndex].students.findIndex(st => st.id === action.student.id)
+      newKlasses[klassIndex].students.splice(studentIndex, 1)
+
+      return {
+        ...state,
+        klasses: [...newKlasses],
+        requesting: false
       }
 
     default:
