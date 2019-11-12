@@ -5,7 +5,6 @@ import NewProgression from './NewProgression'
 import DisplayPreview from '../videos/DisplayPreview'
 import './Progression.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import NewProgressionForm from './NewProgressionForm'
 
 class NewProgressionContainer extends Component {
   state = {
@@ -144,7 +143,7 @@ class NewProgressionContainer extends Component {
   }
 
   handleDNDDragStart = attributes => {
-    const {draggableId, source} = attributes
+    const {draggableId} = attributes
     document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
   }
 

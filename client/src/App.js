@@ -3,14 +3,11 @@ import './App.css';
 import NewProgressionContainer from './progressions/NewProgressionContainer'
 import IndexProgressionsContainer from './progressions/IndexProgressionsContainer'
 import KlassesContainer from './klasses/KlassesContainer'
-import ShowKlassContainer from './klasses/ShowKlassContainer'
 import NavBar from './navbar/NavBar'
 import Home from './Home'
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 class App extends Component {

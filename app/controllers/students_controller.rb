@@ -9,6 +9,12 @@ class StudentsController < ApplicationController
     end
   end
 
+  def destroy
+    @student = Student.find_by(id: params[:id])
+    @student.destroy
+    render json: @student, status: 201
+  end
+
   private
     def student_params
       params.require(:student).permit(:firstName, :lastName)

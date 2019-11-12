@@ -55,12 +55,39 @@ class KlassesContainer extends Component {
     })
   }
 
+  removeStudentFromKlass = (student) => {
+
+    fetch(`/klasses/${student.klass_id}/students/${student.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(json => {
+        const newKlasses = [...this.state.klasses]
+        const klassIndex = newKlasses.findIndex(klass => klass.id === json.klass_id)
+        const studentIndex = newKlasses[klassIndex].students.findIndex(st => st.id === json.id)
+        newKlasses[klassIndex].students.splice(studentIndex, 1)
+
+        this.setState({
+          ...this.state,
+          klasses: [
+            ...newKlasses,
+          ]
+        })
+      })
+
+
+
+  }
+
   klassSelectDropdown = () => {
     return (
       <div className="progression-menu-bar">
         <ul>
           {this.state.klasses.map((klass, index) => (
-            <li key={index} onClick={this.handleKlassClick} className={this.state.selectedKlassId == klass.id ? 'selected' : ''}>
+            <li key={index} onClick={this.handleKlassClick}>
               {<NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>}
             </li>
           ))}
@@ -77,7 +104,7 @@ class KlassesContainer extends Component {
         {this.klassSelectDropdown()}
         <Switch>
           <Route exact path={`${this.props.match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={this.addKlass} />} />
-          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} addStudentToKlass={this.addStudentToKlass} updateKlassId={this.updateKlassId} removeKlass={this.removeKlass} klasses={this.state.klasses} />} key={Math.random()} />
+          <Route exact path={`${this.props.match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} addStudentToKlass={this.addStudentToKlass} removeStudentFromKlass={this.removeStudentFromKlass} removeKlass={this.removeKlass} klasses={this.state.klasses} />} key={Math.random()} />
         </Switch>
       </div>
     )
