@@ -196,7 +196,7 @@ class NewProgressionContainer extends Component {
                 handleProgressionItemClick={this.handleProgressionItemClick}
                 handleDragOver={this.handleDragOver}
                 handleDragLeave={this.handleDragLeave}
-                handleOnDrop={this.handleOnDrop}>
+                handleOnDrop={this.handleOnDrop} >
                   {provided.placeholder}
               </NewProgression>
             )}

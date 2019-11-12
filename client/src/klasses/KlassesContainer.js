@@ -56,7 +56,6 @@ class KlassesContainer extends Component {
   }
 
   removeStudentFromKlass = (student) => {
-
     fetch(`/klasses/${student.klass_id}/students/${student.id}`, {
       method: 'DELETE',
       headers: {
@@ -77,9 +76,6 @@ class KlassesContainer extends Component {
           ]
         })
       })
-
-
-
   }
 
   klassSelectDropdown = () => {
@@ -87,7 +83,7 @@ class KlassesContainer extends Component {
       <div className="progression-menu-bar">
         <ul>
           {this.state.klasses.map((klass, index) => (
-            <li key={index} onClick={this.handleKlassClick}>
+            <li key={index}>
               {<NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>}
             </li>
           ))}
@@ -95,7 +91,6 @@ class KlassesContainer extends Component {
         </ul>
       </div>
     )
-
   }
 
   render() {
@@ -109,7 +104,6 @@ class KlassesContainer extends Component {
       </div>
     )
   }
-
 }
 
 export default KlassesContainer
