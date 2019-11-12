@@ -25,6 +25,18 @@ function klassesById(state = {}, action) {
         ...normalizedObject
       }
 
+    case 'START_ADDING_KLASS_REQUEST':
+      return {
+        ...state
+      }
+
+    case 'ADD_KLASS':
+      const klassId = `klass${action.klass.id}`
+      return {
+        ...state,
+        [klassId]: action.klass
+      }
+
     default:
       return state;
   }
@@ -37,6 +49,10 @@ function allKlasses(state = [], action) {
       return [
         ...action.klasses.map(klass => `klass${klass.id}`)
       ]
+
+    case 'ADD_KLASS':
+      const klassId = `klass${action.klass.id}`
+      return [...state, klassId]
 
     default:
       return state;
