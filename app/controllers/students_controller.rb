@@ -1,4 +1,9 @@
 class StudentsController < ApplicationController
+  def index
+    @klass = Klass.find_by(id: params[:klass_id])
+    render json: @klass.students, status: 201
+  end
+
   def create
     @klass = Klass.find_by(id: params[:klass_id])
     @student = @klass.students.build(student_params)

@@ -3,11 +3,20 @@ import CreateStudentForm from '../students/CreateStudentForm'
 import StudentsContainer from '../students/StudentsContainer'
 import { connect } from 'react-redux'
 import { removeKlass } from '../actions/klassActions'
-import { addStudentToKlass, removeStudentFromKlass } from '../actions/studentActions'
+import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../actions/studentActions'
 
 class ShowKlassContainer extends Component {
   state = {
     addingStudent: false
+  }
+
+  componentDidMount(){
+    const klassId = this.props.match.params.id
+    this.props.fetchStudents(klassId)
+  }
+
+  componentDidUpdate(){
+    console.log(this.props.students)
   }
 
   handleAddStudent = () => {
@@ -49,6 +58,7 @@ class ShowKlassContainer extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
+    fetchStudents: (klassId) => dispatch(addStudents(klassId)),
     addStudentToKlass: (klass, student) => dispatch(addStudentToKlass(klass, student)),
     removeStudentFromKlass: (student) => dispatch(removeStudentFromKlass(student)),
     removeKlass: (klass) => dispatch(removeKlass(klass))
@@ -56,7 +66,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return {...state}
+  return {klasses: state.klasses, students: state.students}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowKlassContainer)
