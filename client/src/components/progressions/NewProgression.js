@@ -5,10 +5,12 @@ import { Draggable } from 'react-beautiful-dnd'
 
 class NewProgression extends Component {
   displayProgression = () => {
+    const { currProgression, removeFromProgression, handleProgressionItemClick } = this.props
     return (
-      this.props.currProgression.map((video, index) => {
+      currProgression.map((video, index) => {
+        const videoId = video.videoId
         return (
-          <Draggable draggableId={video.videoId} index={index} key={video.videoId}>
+          <Draggable draggableId={videoId} index={index} key={videoId}>
             {(provided) => {
               return (
                 <div
@@ -19,8 +21,8 @@ class NewProgression extends Component {
                     innerRef={provided.innerRef}
                     video={video}
                     index={index}
-                    removeFromProgression={this.props.removeFromProgression}
-                    handleProgressionItemClick={this.props.handleProgressionItemClick}
+                    removeFromProgression={removeFromProgression}
+                    handleProgressionItemClick={handleProgressionItemClick}
                   />
                 </div>
             )}}

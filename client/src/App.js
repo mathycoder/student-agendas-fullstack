@@ -3,7 +3,7 @@ import './App.css';
 import NewProgressionContainer from './components/progressions/NewProgressionContainer'
 import IndexProgressionsContainer from './components/progressions/IndexProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
-import NavBar from './navbar/NavBar'
+import NavBar from './components/navbar/NavBar'
 import Home from './Home'
 import {
   BrowserRouter as Router,

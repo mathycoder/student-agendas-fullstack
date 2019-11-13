@@ -1,13 +1,14 @@
 import React from 'react'
 
 const IndexProgression = (props) => {
+  const { progression, videos } = props
   return (
     <div className="index-progression">
-      <h3>{props.progression.name}</h3>
-      <div className="index-progression-x-out" onClick={(event) => props.deleteProgression(props.progression)}>x</div>
-      <div className="index-progression-items" onClick={(event) => {props.history.push(`/progressions/${props.progression.id}`)}}>
-        {props.progression.videos.map((videoId, index) => {
-          const video = props.videos.byId[videoId]
+      <h3>{progression.name}</h3>
+      <div className="index-progression-x-out" onClick={(event) => props.deleteProgression(progression)}>x</div>
+      <div className="index-progression-items" onClick={(event) => {props.history.push(`/progressions/${progression.id}`)}}>
+        {progression.videos.map((videoId, index) => {
+          const video = videos.byId[videoId]
           return (
           <div key={index} className="index-progression-item">
             <img src={video.thumbnailUrl} alt="learning video" />

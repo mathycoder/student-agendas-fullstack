@@ -23,17 +23,19 @@ class CreateStudentForm extends Component {
 
 
   render() {
+    const { handleStudentSubmit } = this.props
+    const { firstName, lastName } = this.state
     return (
       <div>
-        <form onSubmit={event => this.props.handleStudentSubmit(event, this.state)}>
+        <form onSubmit={event => handleStudentSubmit(event, this.state)}>
           <input type="text"
             placeholder="First Name"
             onChange={this.handleFirstNameChange}
-            value={this.state.firstName} />
+            value={firstName} />
           <input type="text"
             placeholder="Last Name"
             onChange={this.handleLastNameChange}
-            value={this.state.lastName} />
+            value={lastName} />
           <input type="submit" placeholder="Add to class" />
         </form>
       </div>

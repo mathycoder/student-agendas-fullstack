@@ -29,7 +29,6 @@ class VideoSearchContainer extends Component {
           videos: this.createVideoObjects(json.items),
           searchTerm: ""
         })
-        console.log(this.createVideoObjects(json.items))
       })
   }
 
