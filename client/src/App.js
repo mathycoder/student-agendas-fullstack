@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import NewProgressionContainer from './progressions/NewProgressionContainer'
-import IndexProgressionsContainer from './progressions/IndexProgressionsContainer'
-import KlassesContainer from './klasses/KlassesContainer'
+import NewProgressionContainer from './components/progressions/NewProgressionContainer'
+import IndexProgressionsContainer from './components/progressions/IndexProgressionsContainer'
+import KlassesContainer from './components/klasses/KlassesContainer'
 import NavBar from './navbar/NavBar'
 import Home from './Home'
 import {
