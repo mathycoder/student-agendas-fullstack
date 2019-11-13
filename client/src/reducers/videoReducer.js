@@ -11,7 +11,6 @@ function videosById(state = {}, action) {
   switch(action.type) {
 
     case 'START_ADDING_VIDEOS_REQUEST':
-      console.log('START_ADDING_VIDEOS_REQUEST')
       return {
         ...state
       }
