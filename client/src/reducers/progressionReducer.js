@@ -20,9 +20,23 @@ function progressionsById(state = {}, action) {
       action.progressions.forEach(progression => {
         normalizedObject[`progression${progression.id}`] = progression
       })
+
      return {
        ...normalizedObject
      }
+
+    case 'START_DELETING_PROGRESSION_REQUEST':
+      return {
+        ...state
+      }
+
+    case 'DELETE_PROGRESSION':
+      const deleteProgressionId = `progression${action.progression.id}`
+      const { [deleteProgressionId]: value, ...newState  } = state
+
+      return {
+        ...newState
+      }
 
     default:
       return state
@@ -38,6 +52,10 @@ function allProgressions(state = [], action) {
       return [
         ...action.progressions.map(progression => `progression${progression.id}`)
       ]
+
+    case 'DELETE_PROGRESSION':
+      const progressionIdToDelete = `progression${action.progression.id}`
+      return state.filter(pId => pId !== progressionIdToDelete)
 
     default:
       return state
