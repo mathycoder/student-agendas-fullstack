@@ -24,6 +24,32 @@ function studentsById(state = {}, action) {
         ...normalizedObject
       }
 
+    case 'START_ADDING_STUDENT_TO_KLASS_REQUEST':
+      return {
+        ...state
+      }
+
+    case 'ADD_STUDENT_TO_KLASS':
+      const newStudentId = `student${action.student.id}`
+
+      return {
+        ...state,
+        [newStudentId]: action.student
+      }
+
+    case 'START_REMOVING_STUDENT_FROM_KLASS_REQUEST':
+      return {
+        ...state
+      }
+
+    case 'REMOVE_STUDENT_FROM_KLASS':
+      const deleteStudentId = `student${action.student.id}`
+      const { [deleteStudentId]: value, ...newState  } = state
+
+      return {
+        ...newState
+      }
+
     default:
       return state
   }
@@ -37,6 +63,14 @@ function allStudents(state = [], action) {
       return [
         ...action.students.map(student => `student${student.id}`)
       ]
+
+    case 'ADD_STUDENT_TO_KLASS':
+      const studentId = `student${action.student.id}`
+      return [...state, studentId]
+
+    case 'REMOVE_STUDENT_FROM_KLASS':
+      const studentIdToDelete = `student${action.student.id}`
+      return state.filter(stId => stId !== studentIdToDelete)
 
     default:
       return state

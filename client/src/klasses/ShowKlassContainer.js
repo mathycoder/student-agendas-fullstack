@@ -30,6 +30,7 @@ class ShowKlassContainer extends Component {
     event.preventDefault()
     const klassId = parseInt(this.props.match.params.id)
     this.props.addStudentToKlass(klassId, studentData)
+    this.setState({...this.state, addingStudent: false})
   }
 
   handleDeleteKlass = (event) => {
