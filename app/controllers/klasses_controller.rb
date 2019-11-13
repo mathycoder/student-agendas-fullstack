@@ -2,7 +2,7 @@ class KlassesController < ApplicationController
 
   def index
     @klasses = Klass.all
-    render json: @klasses.to_json(include: [:students])
+    render json: @klasses
   end
 
   def create
@@ -16,8 +16,7 @@ class KlassesController < ApplicationController
 
   def show
     @klass = Klass.find_by(id: params[:id])
-    render json: @klass.to_json(include: [:students])
-    # render json: @progression.to_json(include: [:videos])
+    render json: @klass
   end
 
   def destroy

@@ -47,7 +47,7 @@ class ShowKlassContainer extends Component {
           <button onClick={this.handleDeleteKlass}>Delete Class</button>
           <button onClick={this.handleAddStudent}>Add Student</button>
           {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={this.props.addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
-          <StudentsContainer students={klass.students} removeStudentFromKlass={this.props.removeStudentFromKlass} />
+          <StudentsContainer students={this.props.students} removeStudentFromKlass={this.props.removeStudentFromKlass} />
         </div>
       )
     } else {
