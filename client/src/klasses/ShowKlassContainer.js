@@ -15,15 +15,8 @@ class ShowKlassContainer extends Component {
     this.props.fetchStudents(klassId)
   }
 
-  componentDidUpdate(){
-    console.log(this.props.students)
-  }
-
   handleAddStudent = () => {
-    this.setState({
-      ...this.state,
-      addingStudent: true
-    })
+    this.setState({...this.state, addingStudent: true})
   }
 
   handleStudentSubmit = (event, studentData) => {

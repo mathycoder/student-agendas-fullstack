@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import IndexProgression from './IndexProgression'
+import { connect } from 'react-redux'
+import { fetchProgressions } from '../actions/progressionActions'
 
 class IndexProgressionsContainer extends Component {
   state = {
@@ -7,13 +9,11 @@ class IndexProgressionsContainer extends Component {
   }
 
   componentDidMount(){
-    fetch('/progressions')
-      .then(resp => resp.json())
-      .then(json => {
-        this.setState({
-          progressions: [...json]
-        })
-      })
+    this.props.fetchProgressions()
+  }
+
+  componentDidUpdate(){
+    console.log(this.props.progressions)
   }
 
   deleteProgression = (progression) => {
@@ -28,10 +28,13 @@ class IndexProgressionsContainer extends Component {
       })
   }
 
+
+
   render(){
     return (
       <div className="progressions-index-container">
-        {this.state.progressions.map((progression, index) => {
+        {this.props.progressions.allIds.map((progressionId, index) => {
+          const progression = this.props.progressions.byId[progressionId]
           return <IndexProgression key={index} progression={progression} history={this.props.history} deleteProgression={this.deleteProgression}/>
         })}
       </div>
@@ -40,4 +43,14 @@ class IndexProgressionsContainer extends Component {
 
 }
 
-export default IndexProgressionsContainer
+function mapDispatchToProps(dispatch){
+  return {
+    fetchProgressions: () => dispatch(fetchProgressions())
+  }
+}
+
+function mapStateToProps(state){
+  return {progressions: state.progressions}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexProgressionsContainer)

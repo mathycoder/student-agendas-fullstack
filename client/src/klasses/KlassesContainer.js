@@ -3,8 +3,7 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import ShowKlassContainer from './ShowKlassContainer'
 import NewKlassForm from './NewKlassForm'
 import { connect } from 'react-redux'
-import { fetchKlasses } from '../actions/fetchKlasses'
-import { addKlass } from '../actions/klassActions'
+import { fetchKlasses, addKlass } from '../actions/klassActions'
 
 class KlassesContainer extends Component {
   componentDidMount(){

@@ -8,11 +8,13 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import klassReducer from './reducers/klassReducer.js'
 import studentReducer from './reducers/studentReducer.js'
+import progressionReducer from './reducers/progressionReducer.js'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
   klasses: klassReducer,
-  students: studentReducer
+  students: studentReducer,
+  progressions: progressionReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
