@@ -14,20 +14,12 @@ class IndexProgressionsContainer extends Component {
     console.log(this.props.progressions)
   }
 
-  sortedVideos = (videoIds) => {
-    return videoIds.sort((a,b) => {
-      const videoA = this.props.videos.byId[a]
-      const videoB = this.props.videos.byId[b]
-      return videoA.progression_index - videoB.progression_index
-    })
-  }
-
   render(){
     return (
       <div className="progressions-index-container">
         {this.props.progressions.allIds.map((progressionId, index) => {
           const progression = this.props.progressions.byId[progressionId]
-          return <IndexProgression key={index} progression={progression} videos={this.props.videos} sortedVideos={this.sortedVideos} history={this.props.history} deleteProgression={this.props.deleteProgression}/>
+          return <IndexProgression key={index} progression={progression} videos={this.props.videos} history={this.props.history} deleteProgression={this.props.deleteProgression}/>
         })}
       </div>
     )

@@ -2,7 +2,7 @@ class ProgressionsController < ApplicationController
 
   def index
     @progressions = Progression.all
-    render json: @progressions.to_json(only: [:id, :name], include: [videos: { only: [:id]}])
+    render json: @progressions.to_json(only: [:id, :name], include: [videos: { only: [:id, :progression_index]}])
   end
 
   def create
