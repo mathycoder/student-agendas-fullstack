@@ -2,14 +2,16 @@ import React, { Component } from 'react'
 import IndexProgression from './IndexProgression'
 import { connect } from 'react-redux'
 import { fetchProgressions, deleteProgression } from '../actions/progressionActions'
+import { fetchVideos } from '../actions/videoActions'
 
 class IndexProgressionsContainer extends Component {
   componentDidMount(){
     this.props.fetchProgressions()
+    this.props.fetchVideos()
   }
 
   componentDidUpdate(){
-    console.log(this.props.progressions)
+    console.log(this.props.videos)
   }
 
   render(){
@@ -27,12 +29,16 @@ class IndexProgressionsContainer extends Component {
 function mapDispatchToProps(dispatch){
   return {
     fetchProgressions: () => dispatch(fetchProgressions()),
-    deleteProgression: (progression) => dispatch(deleteProgression(progression))
+    deleteProgression: (progression) => dispatch(deleteProgression(progression)),
+    fetchVideos: () => dispatch(fetchVideos())
   }
 }
 
 function mapStateToProps(state){
-  return {progressions: state.progressions}
+  return {
+    progressions: state.progressions,
+    videos: state.videos
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IndexProgressionsContainer)
