@@ -24,6 +24,17 @@ function videosById(state = {}, action) {
         ...normalizedObject
       }
 
+    case 'ADD_PROGRESSION':
+      const normalizedObj = {}
+      action.progression.videos.forEach(video => {
+        normalizedObj[`video${video.id}`] = video
+      })
+
+      return {
+        ...state,
+        ...normalizedObj
+      }
+
     default:
       return state
   }
@@ -37,6 +48,12 @@ function allVideos(state = [], action) {
     case 'ADD_VIDEOS':
       return [
         ...action.videos.map(video => `video${video.id}`)
+      ]
+
+    case 'ADD_PROGRESSION':
+
+      return [
+        ...state, ...action.progression.videos.map(video => `video${video.id}`)
       ]
 
     default:

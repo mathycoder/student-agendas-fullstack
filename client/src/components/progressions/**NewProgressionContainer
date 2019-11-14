@@ -1,0 +1,36 @@
+componentDidMount(){
+  const progId = this.props.match.params.id
+  if (progId && progId !== "new" && this.props.progressions.allIds.length > 0) {
+    const progression = this.props.progressions.byId[`progression${progId}`]
+    progression.videos = progression.videos.map(vidId => this.props.videos.byId[vidId])
+
+    this.setState({
+      ...this.state,
+      currProgression: progression.videos,
+      name: progression.name,
+      id: progression.id
+    })
+
+  }
+}
+
+
+// old way
+componentDidMount(){
+  const progId = this.props.match.params.id
+  if (progId && progId !== "new") {
+    fetch(`/progressions/${progId}`)
+      .then(resp => resp.json())
+      .then(json => {
+        const jsonSorted = json.videos.sort((a,b) => {
+          return a.progression_index - b.progression_index
+        })
+        this.setState({
+          ...this.state,
+          currProgression: [...jsonSorted],
+          name: json.name,
+          id: json.id
+        })
+      })
+  }
+}

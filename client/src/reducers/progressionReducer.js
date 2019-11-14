@@ -29,6 +29,23 @@ function progressionsById(state = {}, action) {
        ...normalizedObject
      }
 
+    case 'START_ADDING_PROGRESSION_REQUEST':
+      return {
+        ...state
+      }
+
+    case 'ADD_PROGRESSION':
+      const newProgression = {...action.progression}
+      newProgression.videos = newProgression.videos.sort((a,b) => {
+        return a.progression_index - b.progression_index
+      })
+      newProgression.videos = newProgression.videos.map(video => `video${video.id}`)
+      const progressionId = `progression${newProgression.id}`
+      return {
+        ...state,
+        [progressionId]: newProgression
+      }
+
     case 'START_DELETING_PROGRESSION_REQUEST':
       return {
         ...state
@@ -47,7 +64,6 @@ function progressionsById(state = {}, action) {
   }
 }
 
-
 function allProgressions(state = [], action) {
 
   switch(action.type) {
@@ -56,6 +72,10 @@ function allProgressions(state = [], action) {
       return [
         ...action.progressions.map(progression => `progression${progression.id}`)
       ]
+
+    case 'ADD_PROGRESSION':
+      const progressionId = `progression${action.progression.id}`
+      return [...state, progressionId]
 
     case 'DELETE_PROGRESSION':
       const progressionIdToDelete = `progression${action.progression.id}`

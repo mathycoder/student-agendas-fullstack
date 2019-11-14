@@ -8,7 +8,7 @@ class ProgressionsController < ApplicationController
   def create
     @progression = Progression.new(progression_params)
     if @progression.save
-      render json: @progression, status: 201
+      render json: @progression.to_json(only: [:id, :name], include: [:videos]), status: 201
     else
       render json: @progression.errors.full_messages, status: 422
     end

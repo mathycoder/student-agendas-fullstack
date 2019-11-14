@@ -5,6 +5,8 @@ import NewProgression from './NewProgression'
 import DisplayPreview from '../videos/DisplayPreview'
 import './Progression.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { connect } from 'react-redux'
+import { addProgression } from '../../actions/progressionActions'
 
 class NewProgressionContainer extends Component {
   state = {
@@ -16,7 +18,13 @@ class NewProgressionContainer extends Component {
   }
 
   componentDidMount(){
+    // first time mounts, props might not come through.
+    // first check if this.props.progressions &&
+
+    // use progId in the render normally
+    // HEre since you want to put it in a local state, use componentDidUpdate with if statement
     const progId = this.props.match.params.id
+
     if (progId && progId !== "new") {
       fetch(`/progressions/${progId}`)
         .then(resp => resp.json())
@@ -34,6 +42,10 @@ class NewProgressionContainer extends Component {
     }
   }
 
+  componentDidUpdate(){
+
+  }
+
   onNameInputChange = event => {
     this.setState({
       ...this.state,
@@ -44,28 +56,19 @@ class NewProgressionContainer extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault()
-    const params = {
+    const progression = {
       progression: {
         name: this.state.name,
         videos_attributes: [...this.state.currProgression]
       }
     }
     if (!this.state.id) {
-      fetch('/progressions.json', {
-        method: 'post',
-        body: JSON.stringify(params),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(resp => resp.json())
-        .then(json => {
-          this.props.history.push('/progressions');
-        })
+      this.props.addProgression(progression)
+      this.props.history.push('/progressions');
     } else {
       fetch(`/progressions/${this.state.id}.json`, {
         method: 'PATCH',
-        body: JSON.stringify(params),
+        body: JSON.stringify(progression),
         headers: {
           'Content-Type': 'application/json'
         }
@@ -179,6 +182,7 @@ class NewProgressionContainer extends Component {
   }
 
   render(){
+    console.log(this.props.progressions)
     return (
       <div className="new-progression-container">
         {this.renderForm()}
@@ -211,4 +215,19 @@ class NewProgressionContainer extends Component {
   }
 }
 
-export default NewProgressionContainer
+function mapStateToProps(state){
+  return {
+    progressions: state.progressions,
+    videos: state.videos
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    addProgression: (progression) => dispatch(addProgression(progression))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewProgressionContainer)
+
+// export default NewProgressionContainer
