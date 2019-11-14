@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DisplaySearchResults from './DisplaySearchResults'
 import DisplayPreview from './DisplayPreview'
 
-const YOUTUBE_API_KEY = 'AIzaSyAXgMTr5TpSumrOySZDrornFzWyy5iiLRc'
+const YOUTUBE_API_KEY = ''
 const URL1 = 'https://www.googleapis.com/youtube/v3/search'
 const URL2 = `?key=${YOUTUBE_API_KEY}&part=snippet&safeSearch=strict&type=video&videoEmbeddable=true&maxResults=50`
 

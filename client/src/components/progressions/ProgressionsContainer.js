@@ -12,16 +12,13 @@ class ProgressionsContainer extends Component {
     this.props.fetchVideos()
   }
 
-  componentDidUpdate(){
-    console.log(this.props.progressions)
-  }
 
   render(){
     return (
       <Switch>
         <Route exact path="/progressions" render={(routerProps) => <IndexProgressionsContainer {...routerProps}/>} />
         <Route exact path="/progressions/new" component={NewProgressionContainer} />
-        <Route exact path="/progressions/:id" render={(routerProps) => <NewProgressionContainer {...routerProps} progressions={this.props.progressions} videos={this.props.videos}/>} />
+        <Route exact path="/progressions/:id" component={NewProgressionContainer} />
       </Switch>
     )
   }

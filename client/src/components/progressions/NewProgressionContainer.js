@@ -17,33 +17,28 @@ class NewProgressionContainer extends Component {
     selectedIndex: ""
   }
 
-  componentDidMount(){
-    // first time mounts, props might not come through.
-    // first check if this.props.progressions &&
-
-    // use progId in the render normally
-    // HEre since you want to put it in a local state, use componentDidUpdate with if statement
+  loadProgressionIntoState = () => {
     const progId = this.props.match.params.id
+    if (progId && progId !== "new" && !this.state.id && this.props.videos.allIds.length > 0) {
+      const progression = this.props.progressions.byId[`progression${progId}`]
+      const progressionVideos = progression.videos.map(vidId => this.props.videos.byId[vidId])
 
-    if (progId && progId !== "new") {
-      fetch(`/progressions/${progId}`)
-        .then(resp => resp.json())
-        .then(json => {
-          const jsonSorted = json.videos.sort((a,b) => {
-            return a.progression_index - b.progression_index
-          })
-          this.setState({
-            ...this.state,
-            currProgression: [...jsonSorted],
-            name: json.name,
-            id: json.id
-          })
-        })
+      this.setState({
+        ...this.state,
+        currProgression: [...progressionVideos],
+        name: progression.name,
+        id: progression.id
+      })
+
     }
   }
 
-  componentDidUpdate(){
+  componentDidMount(){
+    this.loadProgressionIntoState()
+  }
 
+  componentDidUpdate(){
+    this.loadProgressionIntoState()
   }
 
   onNameInputChange = event => {
@@ -182,7 +177,6 @@ class NewProgressionContainer extends Component {
   }
 
   render(){
-    console.log(this.props.progressions)
     return (
       <div className="new-progression-container">
         {this.renderForm()}
