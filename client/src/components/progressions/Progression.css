@@ -66,6 +66,8 @@
 
 .progression-item img {
   width: 150px;
+  height: 80px;
+  object-fit: cover;
 }
 
 .x-out {
@@ -160,7 +162,9 @@
 }
 
 .index-progression-item img {
-  width: 80px;
+  width: 70px;
+  height: 40px;
+  object-fit: cover;
 }
 
 .index-progression-item-title {
