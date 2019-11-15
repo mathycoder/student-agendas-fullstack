@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/videos/getVimeoVideoMetadata', to: 'videos#vimeo_request'
+
   resources :progressions
   resources :videos
   resources :klasses
@@ -6,4 +8,6 @@ Rails.application.routes.draw do
   resources :klasses do
     resources :students
   end
+
+
 end

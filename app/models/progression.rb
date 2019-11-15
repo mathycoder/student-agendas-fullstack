@@ -16,8 +16,3 @@ class Progression < ApplicationRecord
     end
   end
 end
-
-
-# So self.videos has an existing set of videos
-# data_array may come back with one of them missing
-#

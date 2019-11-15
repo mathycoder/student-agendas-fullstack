@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VideoSearchContainer from '../videos/VideoSearchContainer'
+import VimeoSearchContainer from '../videos/vimeo/VimeoSearchContainer'
 import NewProgressionMenuBar from './NewProgressionMenuBar'
 import NewProgression from './NewProgression'
 import DisplayPreview from '../videos/DisplayPreview'
@@ -196,6 +197,7 @@ class NewProgressionContainer extends Component {
         <NewProgressionMenuBar handleMenuClick={this.handleMenuClick} menuSelect={this.state.menuSelect} progressionEmpty={this.progressionEmpty}/>
         {this.state.menuSelect === "Edit Progression" && this.state.selectedIndex !== '' ? <DisplayPreview video={this.state.currProgression[this.state.selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
         {this.state.menuSelect === "Add YouTube Video" ? <VideoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
+        {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
       </div>
     )
   }
