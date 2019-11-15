@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DisplaySearchResults from '../DisplaySearchResults'
+import DisplayPreview from '../DisplayPreview'
 
 
 class VimeoSearchContainer extends Component {
@@ -26,6 +27,14 @@ class VimeoSearchContainer extends Component {
           searchTerm: ""
         })
       })
+  }
+
+  handleVideoClick = (index) => {
+    this.setState({
+      ...this.state,
+      videos: [...this.state.videos],
+      videoIndex: index
+    })
   }
 
   formatDate = (publishedAt) => {
@@ -65,6 +74,7 @@ class VimeoSearchContainer extends Component {
         </form>
         <div className="search-videos-container">
           <DisplaySearchResults handleDragStart={this.props.handleDragStart} handleVideoClick={this.handleVideoClick} videos={this.state.videos}/>
+          {this.state.videoIndex !== "" ? <DisplayPreview addToProgression={this.props.addToProgression} video={this.state.videos[this.state.videoIndex]}/> : ''}
         </div>
       </div>
     )

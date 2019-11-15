@@ -9,7 +9,17 @@ const DisplayPreview = ({video, addToProgression, removeFromProgression}) => {
         Created by {video.channelTitle} on {video.date}
       </h6>
       <br/>
-      <iframe title="video preview" id="player" type="text/html" width="360" height="220" src={video.url} frameBorder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div>
+      </div>
+      <iframe
+        title="video preview"
+        id="video" type="text/html"
+        width="360" height="220"
+        src={video.url}
+        frameBorder="0"
+        allowFullScreen
+        >
+      </iframe>
       <p>{video.description}</p>
       {addToProgression ? <button onClick={(event) => addToProgression(video)}>Add to Progression</button> : ''}
       {removeFromProgression ? <button onClick={(event) => removeFromProgression(video)}>Remove from Progression</button> : ''}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VideoSearchContainer from '../videos/VideoSearchContainer'
+import VideoSearchContainer from '../videos/youtube/VideoSearchContainer'
 import VimeoSearchContainer from '../videos/vimeo/VimeoSearchContainer'
 import NewProgressionMenuBar from './NewProgressionMenuBar'
 import NewProgression from './NewProgression'
