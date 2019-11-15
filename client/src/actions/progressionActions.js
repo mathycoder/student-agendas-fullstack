@@ -25,6 +25,27 @@ export function addProgression(progression) {
   }
 }
 
+
+export function editProgression(progression) {
+  return (dispatch) => {
+    dispatch({type: 'START_EDITING_PROGRESSION_REQUEST'})
+    fetch(`/progressions/${progression.progression.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(progression),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(progression => {
+        dispatch({ type: 'EDIT_PROGRESSION', progression })
+      })
+
+  }
+}
+
+
+
 export function deleteProgression(progression) {
   return (dispatch) => {
     dispatch({type: 'START_DELETING_PROGRESSION_REQUEST'})

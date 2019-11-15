@@ -1,18 +1,13 @@
 class Progression < ApplicationRecord
   has_many :videos
-  #, -> { order(:progression_index) }
 
   def videos_attributes=(data_array)
-    videos_to_delete = self.videos.select do |video|
-      data_array.any?{|vid| vid[:id] != video[:id] }
-    end
-
-    videos_to_delete.each{|video| video.destroy}
-
+    self.videos = []
     data_array.each_with_index do |video, index|
-      current_video = Video.find_by(id: video[:id], progression_id: video[:progression_id])
+      current_video = Video.find_by(id: video[:id])
 
       if current_video
+        self.videos << current_video
         current_video.update(progression_index: index)
       else
         current_video = self.videos.build(video)

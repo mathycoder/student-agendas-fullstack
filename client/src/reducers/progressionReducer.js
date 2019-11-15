@@ -46,6 +46,22 @@ function progressionsById(state = {}, action) {
         [progressionId]: newProgression
       }
 
+    case 'START_EDITING_PROGRESSION_REQUEST':
+      return {...state}
+
+    case 'EDIT_PROGRESSION':
+      const editedProgression = {...action.progression}
+      editedProgression.videos = editedProgression.videos.sort((a,b) => {
+        return a.progression_index - b.progression_index
+      })
+      editedProgression.videos = editedProgression.videos.map(video => `video${video.id}`)
+      const progId = `progression${editedProgression.id}`
+
+
+      return {
+        ...state, [progId]: editedProgression
+      }
+
     case 'START_DELETING_PROGRESSION_REQUEST':
       return {
         ...state

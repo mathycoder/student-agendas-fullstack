@@ -12,7 +12,6 @@ class ProgressionsContainer extends Component {
     this.props.fetchVideos()
   }
 
-
   render(){
     return (
       <Switch>

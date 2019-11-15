@@ -6,7 +6,7 @@ import DisplayPreview from '../videos/DisplayPreview'
 import './Progression.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { connect } from 'react-redux'
-import { addProgression } from '../../actions/progressionActions'
+import { addProgression, editProgression } from '../../actions/progressionActions'
 
 class NewProgressionContainer extends Component {
   state = {
@@ -53,6 +53,7 @@ class NewProgressionContainer extends Component {
     event.preventDefault()
     const progression = {
       progression: {
+        id: this.state.id,
         name: this.state.name,
         videos_attributes: [...this.state.currProgression]
       }
@@ -61,17 +62,8 @@ class NewProgressionContainer extends Component {
       this.props.addProgression(progression)
       this.props.history.push('/progressions');
     } else {
-      fetch(`/progressions/${this.state.id}.json`, {
-        method: 'PATCH',
-        body: JSON.stringify(progression),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(resp => resp.json())
-        .then(json => {
-          this.props.history.push('/progressions');
-        })
+      this.props.editProgression(progression)
+      this.props.history.push('/progressions');
     }
   }
 
@@ -218,10 +210,9 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    addProgression: (progression) => dispatch(addProgression(progression))
+    addProgression: (progression) => dispatch(addProgression(progression)),
+    editProgression: (progression) => dispatch(editProgression(progression))
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewProgressionContainer)
-
-// export default NewProgressionContainer

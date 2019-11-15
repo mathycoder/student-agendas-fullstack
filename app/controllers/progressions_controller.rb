@@ -22,7 +22,7 @@ class ProgressionsController < ApplicationController
   def update
     @progression = Progression.find_by(id: params[:id])
     if @progression.update(progression_params)
-      render json: @progression, status: 201
+      render json: @progression.to_json(only: [:id, :name], include: [:videos]), status: 201
     else
       render json: @progression.errors.full_messages, status: 422
     end
