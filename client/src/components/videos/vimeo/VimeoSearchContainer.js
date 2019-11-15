@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import DisplaySearchResults from '../DisplaySearchResults'
 import DisplayPreview from '../DisplayPreview'
+import { connect } from 'react-redux'
+import { vimeoVideoSearch } from '../../../actions/videoSearchActions'
 
 
 class VimeoSearchContainer extends Component {
   state = {
-    videos: [],
     searchTerm: "",
     videoIndex: ''
   }
@@ -19,47 +20,15 @@ class VimeoSearchContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    fetch(`/videos/getVimeoVideoMetadata/?q=${this.state.searchTerm}`)
-      .then(resp => resp.json())
-      .then(json => {
-        this.setState({
-          videos: this.createVideoObjects(json.data),
-          searchTerm: ""
-        })
-      })
+    this.props.vimeoVideoSearch(this.state.searchTerm)
   }
 
   handleVideoClick = (index) => {
     this.setState({
       ...this.state,
-      videos: [...this.state.videos],
       videoIndex: index
     })
   }
-
-  formatDate = (publishedAt) => {
-    const date = new Date(publishedAt)
-    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
-    const month = MONTHS[date.getMonth()]
-    const day = date.getDate()
-    const year = date.getFullYear()
-    return `${month} ${day}, ${year}`
-  }
-
-  createVideoObjects = (videos) => {
-    return videos.map(video => {
-      return {
-        title: video.name,
-        videoId: video.uri.split('/')[2],
-        channelTitle: video.user.name,
-        description: video.description,
-        date: this.formatDate(video.created_time),
-        thumbnailUrl: video.pictures.sizes[1].link,
-        url: video.embed.html.match(/https[^\s"]+/)[0]
-      }
-    })
-  }
-
 
   render() {
     return (
@@ -73,13 +42,24 @@ class VimeoSearchContainer extends Component {
           <input type="submit" value="Search"/>
         </form>
         <div className="search-videos-container">
-          <DisplaySearchResults handleDragStart={this.props.handleDragStart} handleVideoClick={this.handleVideoClick} videos={this.state.videos}/>
-          {this.state.videoIndex !== "" ? <DisplayPreview addToProgression={this.props.addToProgression} video={this.state.videos[this.state.videoIndex]}/> : ''}
+          <DisplaySearchResults handleDragStart={this.props.handleDragStart} handleVideoClick={this.handleVideoClick} videos={this.props.videoSearch || []}/>
+          {this.state.videoIndex !== "" ? <DisplayPreview addToProgression={this.props.addToProgression} video={this.props.videoSearch[this.state.videoIndex]}/> : ''}
         </div>
       </div>
     )
   }
-
 }
 
-export default VimeoSearchContainer
+function mapStateToProps(state){
+  return {
+    videoSearch: state.videoSearch
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    vimeoVideoSearch: (query) => dispatch(vimeoVideoSearch(query))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(VimeoSearchContainer)

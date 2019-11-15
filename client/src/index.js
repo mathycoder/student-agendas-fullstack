@@ -10,13 +10,15 @@ import klassReducer from './reducers/klassReducer.js'
 import studentReducer from './reducers/studentReducer.js'
 import progressionReducer from './reducers/progressionReducer.js'
 import videoReducer from './reducers/videoReducer.js'
+import videoSearchReducer from './reducers/videoSearchReducer.js'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
   klasses: klassReducer,
   students: studentReducer,
   progressions: progressionReducer,
-  videos: videoReducer
+  videos: videoReducer,
+  videoSearch: videoSearchReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
