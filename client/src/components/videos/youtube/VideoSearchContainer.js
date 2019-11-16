@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import DisplaySearchResults from '../DisplaySearchResults'
 import DisplayPreview from '../DisplayPreview'
+import { connect } from 'react-redux'
+import { youTubeVideoSearch } from '../../../actions/videoSearchActions'
 
 class VideoSearchContainer extends Component {
   state = {
-    videos: [],
     searchTerm: "",
     videoIndex: ''
   }
@@ -18,21 +19,12 @@ class VideoSearchContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-
-    fetch(`/videos/getYouTubeVideoMetadata/?q=${this.state.searchTerm}`)
-      .then(resp => resp.json())
-      .then(json => {
-        this.setState({
-          videos: this.createVideoObjects(json.items),
-          searchTerm: ""
-        })
-      })
+    this.props.youTubeVideoSearch(this.state.searchTerm)
   }
 
   handleVideoClick = (index) => {
     this.setState({
       ...this.state,
-      videos: [...this.state.videos],
       videoIndex: index
     })
   }
@@ -49,42 +41,24 @@ class VideoSearchContainer extends Component {
           <input type="submit" value="Search"/>
         </form>
         <div className="search-videos-container">
-          <DisplaySearchResults handleDragStart={this.props.handleDragStart} handleVideoClick={this.handleVideoClick} videos={this.state.videos}/>
-          {this.state.videoIndex !== "" ? <DisplayPreview addToProgression={this.props.addToProgression} video={this.state.videos[this.state.videoIndex]}/> : ''}
+          <DisplaySearchResults handleDragStart={this.props.handleDragStart} handleVideoClick={this.handleVideoClick} videos={this.props.videoSearch}/>
+          {this.state.videoIndex !== "" ? <DisplayPreview addToProgression={this.props.addToProgression} video={this.props.videoSearch[this.state.videoIndex]}/> : ''}
         </div>
       </div>
     )
   }
+}
 
-  formatTitle = (unformattedTitle) => {
-    const parser = new DOMParser()
-    let title = parser.parseFromString('<!doctype html><body>' + unformattedTitle, 'text/html')
-    return title.body.textContent
-  }
-
-  formatDate = (publishedAt) => {
-    const date = new Date(publishedAt)
-    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
-    const month = MONTHS[date.getMonth()]
-    const day = date.getDate()
-    const year = date.getFullYear()
-    return `${month} ${day}, ${year}`
-  }
-
-  createVideoObjects = (videos) => {
-    return videos.map(video => {
-      const url = 'http://www.youtube.com/embed/' + video.id.videoId
-      return {
-        title: this.formatTitle(video.snippet.title),
-        videoId: video.id.videoId,
-        channelTitle: video.snippet.channelTitle,
-        description: video.snippet.description,
-        date: this.formatDate(video.snippet.publishedAt),
-        thumbnailUrl: video.snippet.thumbnails.medium.url,
-        url: url
-      }
-    })
+function mapStateToProps(state){
+  return {
+    videoSearch: state.videoSearch
   }
 }
 
-export default VideoSearchContainer
+function mapDispatchToProps(dispatch){
+  return {
+    youTubeVideoSearch: (query) => dispatch(youTubeVideoSearch(query))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideoSearchContainer)

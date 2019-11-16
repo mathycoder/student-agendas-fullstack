@@ -6,10 +6,19 @@ function videoSearchReducer(state = [], action) {
         ...state
       ]
 
-    case 'ADD_VIMEO_VIDEOS':
-      debugger
+    case 'START_YOUTUBE_SEARCH_REQUEST':
       return [
-        ...createVideoObjects(action.videos.data)
+        ...state
+      ]
+
+    case 'ADD_VIMEO_VIDEOS':
+      return [
+        ...createVimeoVideoObjects(action.videos.data)
+      ]
+
+    case 'ADD_YOUTUBE_VIDEOS':
+      return [
+        ...createYouTubeVideoObjects(action.videos.items)
       ]
 
     default:
@@ -18,6 +27,12 @@ function videoSearchReducer(state = [], action) {
 }
 
 export default videoSearchReducer
+
+function formatTitle(unformattedTitle){
+  const parser = new DOMParser()
+  let title = parser.parseFromString('<!doctype html><body>' + unformattedTitle, 'text/html')
+  return title.body.textContent
+}
 
 function formatDate(publishedAt){
   const date = new Date(publishedAt)
@@ -28,7 +43,7 @@ function formatDate(publishedAt){
   return `${month} ${day}, ${year}`
 }
 
-function createVideoObjects(videos){
+function createVimeoVideoObjects(videos){
   return videos.map(video => {
     return {
       title: video.name,
@@ -38,6 +53,21 @@ function createVideoObjects(videos){
       date: formatDate(video.created_time),
       thumbnailUrl: video.pictures.sizes[1].link,
       url: video.embed.html.match(/https[^\s"]+/)[0]
+    }
+  })
+}
+
+function createYouTubeVideoObjects(videos){
+  return videos.map(video => {
+    const url = 'http://www.youtube.com/embed/' + video.id.videoId
+    return {
+      title: formatTitle(video.snippet.title),
+      videoId: video.id.videoId,
+      channelTitle: video.snippet.channelTitle,
+      description: video.snippet.description,
+      date: formatDate(video.snippet.publishedAt),
+      thumbnailUrl: video.snippet.thumbnails.medium.url,
+      url: url
     }
   })
 }
