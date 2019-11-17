@@ -41,12 +41,15 @@ class VideoSearchContainer extends Component {
     return (
       <div className="searched-videos-display">
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.searchTerm}
-            onChange={this.handleChange}
-            />
-          <input type="submit" value="Search"/>
+          <div className="search-bar">
+            <div className="mag-glass"></div>
+            <input
+              type="text"
+              value={this.state.searchTerm}
+              onChange={this.handleChange}
+              />
+            <input type="submit" value="Search"/>
+          </div>
         </form>
         <div className="search-videos-container">
           {this.props.staticState.loading ? <div className="loading"></div>: ''}
