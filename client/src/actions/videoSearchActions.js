@@ -3,7 +3,9 @@ export function vimeoVideoSearch(query) {
     dispatch({type: 'START_VIMEO_SEARCH_REQUEST', query})
     fetch(`/videos/getVimeoVideoMetadata/?q=${query}`)
       .then(resp => resp.json())
-      .then(videos => dispatch({ type: 'ADD_VIMEO_VIDEOS', videos }))
+      .then(videos => {
+        dispatch({ type: 'ADD_VIMEO_VIDEOS', videos })
+      })
   }
 }
 

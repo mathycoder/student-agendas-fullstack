@@ -51,10 +51,6 @@ function videosById(state = {}, action) {
         ...allVideos
       }
 
-    return {
-      ...state
-    }
-
     default:
       return state
   }

@@ -30,17 +30,19 @@ function youTubeVideos(state = [], action) {
   }
 }
 
-function youTubeStatic(state = {searchTerm: null}, action) {
+function youTubeStatic(state = {searchTerm: null, loading: false}, action) {
   switch(action.type) {
     case 'START_YOUTUBE_SEARCH_REQUEST':
       return {
         ...state,
-        searchTerm: action.query
+        searchTerm: action.query,
+        loading: true
       }
 
     case 'ADD_YOUTUBE_VIDEOS':
       return {
-        ...state
+        ...state,
+        loading: false
       }
 
     default:
@@ -61,18 +63,20 @@ function vimeoVideos(state = [], action) {
   }
 }
 
-function vimeoStatic(state = {searchTerm: null}, action) {
+function vimeoStatic(state = {searchTerm: null, loading: false}, action) {
   switch(action.type) {
 
     case 'START_VIMEO_SEARCH_REQUEST':
       return {
         ...state,
-        searchTerm: action.query
+        searchTerm: action.query,
+        loading: true
       }
 
       case 'ADD_VIMEO_VIDEOS':
         return {
-          ...state
+          ...state,
+          loading: false
         }
 
     default:

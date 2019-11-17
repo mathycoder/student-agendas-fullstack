@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import IndexProgressionsContainer from './IndexProgressionsContainer'
 import NewProgressionContainer from './NewProgressionContainer'
 import { connect } from 'react-redux'
-import { fetchProgressions, deleteProgression } from '../../actions/progressionActions'
+import { fetchProgressions } from '../../actions/progressionActions'
 import { fetchVideos } from '../../actions/videoActions'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 class ProgressionsContainer extends Component {
   componentDidMount(){
