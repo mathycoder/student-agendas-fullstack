@@ -11,6 +11,13 @@ class VimeoSearchContainer extends Component {
     videoIndex: ''
   }
 
+  componentDidMount(){
+    const { staticState } = this.props
+    if (staticState.searchTerm) {
+      this.setState({...this.state, searchTerm: staticState.searchTerm})
+    }
+  }
+
   handleChange = (event) => {
     this.setState({
       videos: this.state.videos,
@@ -52,7 +59,8 @@ class VimeoSearchContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    videoSearch: state.videoSearch.vimeo.videos
+    videoSearch: state.videoSearch.vimeo.videos,
+    staticState: state.videoSearch.vimeo.static
   }
 }
 

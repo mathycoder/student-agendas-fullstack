@@ -30,11 +30,12 @@ function youTubeVideos(state = [], action) {
   }
 }
 
-function youTubeStatic(state = {}, action) {
+function youTubeStatic(state = {searchTerm: null}, action) {
   switch(action.type) {
     case 'START_YOUTUBE_SEARCH_REQUEST':
       return {
-        ...state
+        ...state,
+        searchTerm: action.query
       }
 
     case 'ADD_YOUTUBE_VIDEOS':
@@ -60,12 +61,13 @@ function vimeoVideos(state = [], action) {
   }
 }
 
-function vimeoStatic(state = {}, action) {
+function vimeoStatic(state = {searchTerm: null}, action) {
   switch(action.type) {
 
     case 'START_VIMEO_SEARCH_REQUEST':
       return {
-        ...state
+        ...state,
+        searchTerm: action.query
       }
 
       case 'ADD_VIMEO_VIDEOS':
