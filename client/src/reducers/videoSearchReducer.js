@@ -1,19 +1,17 @@
-function videoSearchReducer(state = [], action) {
+import { combineReducers } from 'redux'
+
+const videoSearchReducer = combineReducers({
+  youTube: youTubeVideos,
+  vimeo: vimeoVideos
+})
+
+export default videoSearchReducer
+
+function youTubeVideos(state = [], action) {
   switch(action.type) {
-
-    case 'START_ADDING_VIDEOS_REQUEST':
-      return [
-        ...state
-      ]
-
     case 'START_YOUTUBE_SEARCH_REQUEST':
       return [
         ...state
-      ]
-
-    case 'ADD_VIMEO_VIDEOS':
-      return [
-        ...createVimeoVideoObjects(action.videos.data)
       ]
 
     case 'ADD_YOUTUBE_VIDEOS':
@@ -26,7 +24,25 @@ function videoSearchReducer(state = [], action) {
   }
 }
 
-export default videoSearchReducer
+function vimeoVideos(state = [], action) {
+  switch(action.type) {
+
+    case 'START_VIMEO_SEARCH_REQUEST':
+      return [
+        ...state
+      ]
+
+    case 'ADD_VIMEO_VIDEOS':
+      return [
+        ...createVimeoVideoObjects(action.videos.data)
+      ]
+
+    default:
+      return state
+  }
+}
+
+
 
 function formatTitle(unformattedTitle){
   const parser = new DOMParser()
@@ -44,17 +60,22 @@ function formatDate(publishedAt){
 }
 
 function createVimeoVideoObjects(videos){
-  return videos.map(video => {
-    return {
-      title: video.name,
-      videoId: video.uri.split('/')[2],
-      channelTitle: video.user.name,
-      description: video.description,
-      date: formatDate(video.created_time),
-      thumbnailUrl: video.pictures.sizes[1].link,
-      url: video.embed.html.match(/https[^\s"]+/)[0]
+  const myVideos = videos.map(video => {
+    if (video.privacy.embed !== "private") {
+      return {
+        title: video.name,
+        videoId: video.uri.split('/')[2],
+        channelTitle: video.user.name,
+        description: video.description,
+        date: formatDate(video.created_time),
+        thumbnailUrl: video.pictures.sizes[1].link,
+        url: video.embed.html.match(/https[^\s"]+/)[0]
+      }
+    } else {
+      return null
     }
   })
+  return myVideos.filter(video => video !== null)
 }
 
 function createYouTubeVideoObjects(videos){
