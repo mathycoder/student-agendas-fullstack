@@ -1,13 +1,12 @@
 .loading {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background-image: url("/loading.png");
-  margin-top: 30px;
+  margin-top: 40px;
   background-size: contain;
   background-repeat: no-repeat;
   animation: rotation 3.5s infinite linear;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 200px;
 }
 
 @keyframes rotation {

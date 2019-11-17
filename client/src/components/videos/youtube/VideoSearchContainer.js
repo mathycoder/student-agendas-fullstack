@@ -26,6 +26,7 @@ class VideoSearchContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    this.setState({...this.state, videoIndex: ''})
     this.props.youTubeVideoSearch(this.state.searchTerm)
   }
 

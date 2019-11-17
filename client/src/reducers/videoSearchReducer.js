@@ -20,6 +20,9 @@ export default videoSearchReducer
 function youTubeVideos(state = [], action) {
   switch(action.type) {
 
+    case 'START_YOUTUBE_SEARCH_REQUEST':
+      return []
+
     case 'ADD_YOUTUBE_VIDEOS':
       return [
         ...createYouTubeVideoObjects(action.videos.items)
@@ -52,6 +55,9 @@ function youTubeStatic(state = {searchTerm: null, loading: false}, action) {
 
 function vimeoVideos(state = [], action) {
   switch(action.type) {
+
+    case 'START_VIMEO_SEARCH_REQUEST':
+      return []
 
     case 'ADD_VIMEO_VIDEOS':
       return [

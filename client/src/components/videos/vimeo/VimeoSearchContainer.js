@@ -27,6 +27,7 @@ class VimeoSearchContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    this.setState({...this.state, videoIndex: ''})
     this.props.vimeoVideoSearch(this.state.searchTerm)
   }
 
