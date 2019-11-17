@@ -51,7 +51,7 @@ class VideoSearchContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    videoSearch: state.videoSearch.youTube
+    videoSearch: state.videoSearch.youTube.videos
   }
 }
 

@@ -1,18 +1,24 @@
 import { combineReducers } from 'redux'
 
+const youTubeReducer = combineReducers({
+  videos: youTubeVideos,
+  static: youTubeStatic
+})
+
+const vimeoReducer = combineReducers({
+  videos: vimeoVideos,
+  static: vimeoStatic
+})
+
 const videoSearchReducer = combineReducers({
-  youTube: youTubeVideos,
-  vimeo: vimeoVideos
+  youTube: youTubeReducer,
+  vimeo: vimeoReducer
 })
 
 export default videoSearchReducer
 
 function youTubeVideos(state = [], action) {
   switch(action.type) {
-    case 'START_YOUTUBE_SEARCH_REQUEST':
-      return [
-        ...state
-      ]
 
     case 'ADD_YOUTUBE_VIDEOS':
       return [
@@ -24,18 +30,48 @@ function youTubeVideos(state = [], action) {
   }
 }
 
+function youTubeStatic(state = {}, action) {
+  switch(action.type) {
+    case 'START_YOUTUBE_SEARCH_REQUEST':
+      return {
+        ...state
+      }
+
+    case 'ADD_YOUTUBE_VIDEOS':
+      return {
+        ...state
+      }
+
+    default:
+      return state
+  }
+}
+
 function vimeoVideos(state = [], action) {
   switch(action.type) {
-
-    case 'START_VIMEO_SEARCH_REQUEST':
-      return [
-        ...state
-      ]
 
     case 'ADD_VIMEO_VIDEOS':
       return [
         ...createVimeoVideoObjects(action.videos.data)
       ]
+
+    default:
+      return state
+  }
+}
+
+function vimeoStatic(state = {}, action) {
+  switch(action.type) {
+
+    case 'START_VIMEO_SEARCH_REQUEST':
+      return {
+        ...state
+      }
+
+      case 'ADD_VIMEO_VIDEOS':
+        return {
+          ...state
+        }
 
     default:
       return state

@@ -52,7 +52,7 @@ class VimeoSearchContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    videoSearch: state.videoSearch.vimeo
+    videoSearch: state.videoSearch.vimeo.videos
   }
 }
 
