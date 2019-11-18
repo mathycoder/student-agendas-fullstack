@@ -1,0 +1,43 @@
+.klass-show-container {
+
+}
+
+.klass-show-title {
+  display: flex;
+  margin-left: 20px;
+  align-items: center;
+}
+
+.klass-show-tile button {
+  height: 20px;
+}
+
+.student-agendas {
+  padding: 0 20px;
+}
+
+.student-row {
+  display: flex;
+  margin: 10px;
+  height: 80px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.student-row div.student-name {
+  display: flex;
+  width: 150px;
+  font-size: 14px;
+}
+
+.index-progression-x-out {
+  top: 23px;
+  margin-right: 10px;
+}
+
+.student-row div.student-agenda {
+  width: 500px;
+  height: inherit;
+  background-color: rgb(221, 237, 245);
+  border: 3px solid rgb(27, 153, 234);
+}

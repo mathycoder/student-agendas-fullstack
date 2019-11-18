@@ -4,6 +4,7 @@ import StudentsContainer from '../students/StudentsContainer'
 import { connect } from 'react-redux'
 import { removeKlass } from '../../actions/klassActions'
 import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
+import '../students/student.css'
 
 class ShowKlassContainer extends Component {
   state = {
@@ -40,10 +41,12 @@ class ShowKlassContainer extends Component {
     const klass = klasses.byId[klassId]
     if (klass) {
       return (
-        <div>
-          <h1>{klass.name}</h1>
-          <button onClick={this.handleDeleteKlass}>Delete Class</button>
-          <button onClick={this.handleAddStudent}>Add Student</button>
+        <div className="klass-show-container">
+          <div className="klass-show-title">
+            <h1>{klass.name}</h1>
+            <button onClick={this.handleDeleteKlass}>Delete Class</button>
+            <button onClick={this.handleAddStudent}>Add Student</button>
+          </div>
           {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           <StudentsContainer students={students} removeStudentFromKlass={removeStudentFromKlass} />
         </div>
