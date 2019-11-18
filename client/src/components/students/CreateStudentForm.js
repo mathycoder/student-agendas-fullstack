@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './student.css'
 
 class CreateStudentForm extends Component {
 
@@ -26,7 +27,7 @@ class CreateStudentForm extends Component {
     const { handleStudentSubmit } = this.props
     const { firstName, lastName } = this.state
     return (
-      <div>
+      <div className="new-student-form">
         <form onSubmit={event => handleStudentSubmit(event, this.state)}>
           <input type="text"
             placeholder="First Name"
