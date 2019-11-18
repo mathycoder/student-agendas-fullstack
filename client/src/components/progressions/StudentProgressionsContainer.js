@@ -5,13 +5,17 @@ import { connect } from 'react-redux'
 
 class StudentProgressionsContainer extends Component {
   render(){
-    const { progressions, videos } = this.props
+    const { progressions, videos, handleDragStart } = this.props
 
     return (
       <div className="student-show-progressions-container">
         {progressions.allIds.map((progressionId, index) => {
           const progression = progressions.byId[progressionId]
-          return <StudentProgression key={index} progression={progression} videos={videos}/>
+          return <StudentProgression
+                    key={index}
+                    handleDragStart={handleDragStart}
+                    progression={progression}
+                    videos={videos}/>
         })}
       </div>
     )

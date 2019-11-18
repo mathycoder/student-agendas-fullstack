@@ -1,9 +1,12 @@
 import React from 'react'
 
 const StudentProgression = (props) => {
-  const { progression, videos } = props
+  const { progression, videos, handleDragStart } = props
   return (
-    <div className="student-show-progression">
+    <div
+      className="student-show-progression"
+      draggable onDragStart={event => handleDragStart(event, progression)}
+      >
       <div className="student-show-progression-title">{progression.name}</div>
       <div className="student-show-progression-items">
         {progression.videos.map((videoId, index) => {

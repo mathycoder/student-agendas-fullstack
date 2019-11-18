@@ -40,6 +40,28 @@ class ShowKlassContainer extends Component {
     history.push('/classes');
   }
 
+  handleDragOver = event => {
+    event.preventDefault()
+    // document.querySelector('.progression').classList.add("drag-over-progression")
+  }
+
+  handleDragLeave = event => {
+    event.preventDefault()
+    // document.querySelector('.progression').classList.remove("drag-over-progression")
+  }
+
+  handleDragStart = (event, progression) => {
+    let data = JSON.stringify(progression)
+    event.dataTransfer.setData("progression", data)
+  }
+
+  handleOnDrop = (event) => {
+    let progression = event.dataTransfer.getData("progression")
+    progression = JSON.parse(progression)
+    // this.addToStudentAgenda(progression)
+    // document.querySelector('.progression').classList.remove("drag-over-progression")
+  }
+
   render(){
     const { klasses, students, match, addStudentToKlass, removeStudentFromKlass } = this.props
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
@@ -54,7 +76,7 @@ class ShowKlassContainer extends Component {
             {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           </div>
           <StudentsContainer students={students} removeStudentFromKlass={removeStudentFromKlass} />
-          <StudentProgressionsContainer />
+          <StudentProgressionsContainer handleDragStart={this.handleDragStart}/>
         </div>
       )
     } else {
