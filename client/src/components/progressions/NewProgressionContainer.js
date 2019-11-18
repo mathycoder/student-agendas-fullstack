@@ -161,6 +161,7 @@ class NewProgressionContainer extends Component {
     return (
       <form className="create-progression-form" onSubmit={this.handleFormSubmit}>
         <input type="text"
+          required
           placeholder="Enter a title for this progression"
           value={this.state.name}
           onChange={this.onNameInputChange}/>

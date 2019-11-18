@@ -55,7 +55,7 @@ class VimeoSearchContainer extends Component {
         <div className="search-videos-container">
           {this.props.staticState.loading ? <div className="loading"></div>: ''}
           <DisplaySearchResults handleDragStart={this.props.handleDragStart} handleVideoClick={this.handleVideoClick} videos={this.props.videoSearch || []}/>
-          {this.state.videoIndex !== "" ? <DisplayPreview addToProgression={this.props.addToProgression} video={this.props.videoSearch[this.state.videoIndex]}/> : ''}
+          {this.state.videoIndex !== "" ? <DisplayPreview shiftup={true} addToProgression={this.props.addToProgression} video={this.props.videoSearch[this.state.videoIndex]}/> : ''}
         </div>
       </div>
     )

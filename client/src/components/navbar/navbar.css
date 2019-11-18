@@ -1,5 +1,5 @@
 .navbar {
-  background-color: rgb(152, 210, 205);
+  background-color: rgb(221, 237, 245);
   padding: 5px;
 }
 
@@ -7,6 +7,8 @@
   padding: 5px;
   margin-left: 20px;
   text-decoration: none;
+  color: rgb(75, 174, 196);
+  font-weight: bold;
 }
 
 .navbar a:hover {

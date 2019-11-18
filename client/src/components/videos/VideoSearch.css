@@ -57,19 +57,19 @@
 }
 
 .search-bar input[type=submit]{
+  border: 1px solid rgb(32, 188, 234);
   height: 22px;
   padding: 2px 6px;
   font-size: 13px;
   font-weight:500;
-  /* margin-right: 10px; */
   margin-top: 1px;
   margin-bottom: 0px;
-
   border-radius: 0px 25px 25px 0px;
   height: 30px;
   margin-top: -4px;
   margin-bottom: -15px;
 }
+
 
 .search-videos-container {
   display: grid;
@@ -116,6 +116,10 @@
 .search-video-preview {
   max-width: 500px;
   margin-top: 10px;
+}
+
+.shiftup {
+  margin-top: -50px;
 }
 
 .search-video-preview h4, .search-video-preview h6  {

@@ -1,9 +1,9 @@
 import React from 'react'
 import './VideoSearch.css';
 
-const DisplayPreview = ({video, addToProgression, removeFromProgression}) => {
+const DisplayPreview = ({video, addToProgression, removeFromProgression, shiftup}) => {
   return (
-    <div className="search-video-preview" >
+    <div className={shiftup ? "shiftup search-video-preview" : "search-video-preview" } >
       <h4>{video.title}</h4><br />
       <h6>
         Created by {video.channelTitle} on {video.date}

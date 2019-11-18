@@ -1,19 +1,26 @@
 .new-progression-container {
   padding: 20px;
   display: grid;
-  grid-template-rows: 30px 170px 50px 400px;
+  grid-template-rows: 40px 170px 50px 400px;
 }
 
 .create-progression-form input[type=text] {
   width: 300px;
   height: 20px;
   font-size: 16px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.create-progression-form input[type=submit], input[type=submit] {
+.create-progression-form input[type=text]:focus {
+  outline: none;
+}
+
+.create-progression-form input[type=submit], input[type=submit], button {
   margin-left: 10px;
-  background-color: #4CAF50;
-  border: none;
+  background-color: rgb(32, 188, 234);
+  border: 0.5px solid rgb(205, 250, 253);
   color: white;
   padding: 5px 10px;
   text-align: center;
@@ -25,16 +32,19 @@
   border-radius: 5px;
 }
 
-.create-progression-form input[type=submit]:hover, input[type=submit]:hover {
-  background-color: green;
+.create-progression-form input[type=submit]:hover, input[type=submit]:hover, button:hover {
+  background-color: rgb(27, 153, 234);
   cursor: pointer;
 }
 
 .progression {
+  margin: 0px 30px;
   padding: 10px;
   border: 1px solid black;
   display: flex;
   overflow-x: scroll;
+  background-color: rgb(221, 237, 245);
+  border-radius: 10px;
 }
 
 .progression-item {
