@@ -3,9 +3,13 @@ import './student.css'
 
 class Student extends Component {
   render(){
-    const { student, removeStudentFromKlass } = this.props
+    const { student, removeStudentFromKlass, handleDragOver, handleDragLeave } = this.props
     return (
-      <div className="student-row">
+      <div className={`student-row`}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        data-student-id={student.id}
+        >
         <div className="student-name">
           <div className="index-progression-x-out" onClick={(event) => removeStudentFromKlass(student)}>x</div>
           <h2>{student.firstName} {student.lastName}</h2>

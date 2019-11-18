@@ -15,11 +15,16 @@ class StudentContainer extends Component {
   }
 
   displayStudents = () => {
-    const { students, removeStudentFromKlass } = this.props
+    const { students, removeStudentFromKlass, handleDragOver, handleDragLeave } = this.props
     return this.sortedIds(students).map((stId, index) => {
       const student = students.byId[stId]
       return (
-        <Student key={index} student={student} removeStudentFromKlass={removeStudentFromKlass}/>
+        <Student
+          key={index}
+          student={student}
+          handleDragOver={handleDragOver}
+          handleDragLeave={handleDragLeave}
+          removeStudentFromKlass={removeStudentFromKlass}/>
     )})
   }
 

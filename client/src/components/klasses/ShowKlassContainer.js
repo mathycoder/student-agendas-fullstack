@@ -42,12 +42,12 @@ class ShowKlassContainer extends Component {
 
   handleDragOver = event => {
     event.preventDefault()
-    // document.querySelector('.progression').classList.add("drag-over-progression")
+    event.target.style.backgroundColor = "#FFFF00"
   }
 
   handleDragLeave = event => {
     event.preventDefault()
-    // document.querySelector('.progression').classList.remove("drag-over-progression")
+    event.target.style.backgroundColor = "rgb(221, 237, 245)"
   }
 
   handleDragStart = (event, progression) => {
@@ -75,7 +75,11 @@ class ShowKlassContainer extends Component {
             <button onClick={this.handleAddStudent}>Add Student</button>
             {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           </div>
-          <StudentsContainer students={students} removeStudentFromKlass={removeStudentFromKlass} />
+          <StudentsContainer
+            students={students}
+            handleDragOver={this.handleDragOver}
+            handleDragLeave={this.handleDragLeave}
+            removeStudentFromKlass={removeStudentFromKlass} />
           <StudentProgressionsContainer handleDragStart={this.handleDragStart}/>
         </div>
       )
