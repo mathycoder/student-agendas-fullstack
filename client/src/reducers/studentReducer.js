@@ -61,7 +61,7 @@ function allStudents(state = [], action) {
   switch(action.type) {
     case 'ADD_STUDENTS':
       return [
-        ...action.students.map(student => `student${student.id}`)
+        ...sortedStudents(action.students).map(student => `student${student.id}`)
       ]
 
     case 'ADD_STUDENT_TO_KLASS':
@@ -75,4 +75,14 @@ function allStudents(state = [], action) {
     default:
       return state
   }
+}
+
+function sortedStudents(students){
+  return students.sort((stA, stB) => {
+    const studentA = stA.firstName.toLowerCase()
+    const studentB = stB.firstName.toLowerCase()
+    if (studentA > studentB) { return 1 }
+    else if (studentA < studentB ) {return -1 }
+    else {return 0}
+  })
 }

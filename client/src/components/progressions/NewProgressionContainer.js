@@ -13,6 +13,7 @@ class NewProgressionContainer extends Component {
   state = {
     id: undefined,
     name: "",
+    color: "blue",
     currProgression: [],
     menuSelect: "Add YouTube Video",
     selectedIndex: ""
@@ -160,14 +161,29 @@ class NewProgressionContainer extends Component {
   renderForm = () => {
     return (
       <form className="create-progression-form" onSubmit={this.handleFormSubmit}>
-        <input type="text"
-          required
-          placeholder="Enter a title for this progression"
-          value={this.state.name}
-          onChange={this.onNameInputChange}/>
+        <div className={`new-progression-title ${this.state.color}-title`}>
+          <input type="text"
+            required
+            placeholder="Enter a title for this progression"
+            value={this.state.name}
+            onChange={this.onNameInputChange}/>
+        </div>
+        <div className="select-color red-title" onClick={event => this.handleColorClick("red")}></div>
+        <div className="select-color orange-title" onClick={event => this.handleColorClick("orange")}></div>
+        <div className="select-color green-title" onClick={event => this.handleColorClick("green")}></div>
+        <div className="select-color blue-title" onClick={event => this.handleColorClick("blue")}></div>
+        <div className="select-color purple-title" onClick={event => this.handleColorClick("purple")}></div>
         <input type="submit" value="save progression" />
       </form>
     )
+  }
+
+  handleColorClick = (color) => {
+    this.setState({
+      ...this.state,
+      currProgression: [...this.state.currProgression],
+      color: color
+    })
   }
 
   render(){
@@ -181,6 +197,7 @@ class NewProgressionContainer extends Component {
           <Droppable droppableId="droppable-1" direction="horizontal">
             {(provided) => (
               <NewProgression
+                color={this.state.color}
                 innerRef={provided.innerRef}
                 {...provided.droppableProps}
                 removeFromProgression={this.removeFromProgression}

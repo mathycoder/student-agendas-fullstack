@@ -4,17 +4,113 @@
   grid-template-rows: 40px 170px 50px 400px;
 }
 
+.create-progression-form {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.create-progression-form .select-color {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+
+.red {
+  background-color: rgb(250, 224, 224);
+}
+
+.red-title {
+  background-color: rgb(233, 43, 43);
+}
+
+.orange {
+  background-color: rgb(250, 242, 224);
+}
+
+.orange-title {
+  /* background-color: rgb(233, 162, 43); */
+  background-color: rgb(217, 139, 8);
+}
+
+.green {
+  background-color: rgb(227, 250, 224);
+}
+
+.green-title {
+  /* background-color: rgb(105, 232, 45); */
+  background-color: rgb(37, 189, 21);
+}
+
+.blue {
+  background-color: rgb(221, 237, 245);
+}
+
+.blue-title {
+  background-color: rgb(46, 185, 227);
+}
+
+.purple {
+  background-color: rgb(233, 224, 250);
+}
+
+.purple-title {
+  background-color: rgb(116, 45, 232);
+}
+
+.new-progression-title {
+  margin-top: 40px;
+  margin-right: 10px;
+  margin-left: 30px;
+  display: inline-block;
+  /* background-color: rgb(117, 27, 238); */
+  border: 0.5px solid rgb(235, 225, 253);
+  color: white;
+  font-weight: bold;
+  padding: 2px 10px;
+  padding-bottom: 3px;
+  width: fit-content;
+  z-index: 2;
+  font-size: 11px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .create-progression-form input[type=text] {
-  width: 300px;
+  margin-right: 10px;
+  width: 250px;
   height: 20px;
   font-size: 16px;
+  font-weight: bold;
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  background-color: inherit;
+  color: white;
+  border: none;
 }
 
 .create-progression-form input[type=text]:focus {
   outline: none;
+}
+
+.create-progression-form input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  font-weight: lighter;
+  font-style: italic;
+  opacity: 1; /* Firefox */
+}
+
+.create-progression-form input[type=text]:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.create-progression-form input[type=text]::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+  font-weight: lighter;
+  font-style: italic;
 }
 
 .create-progression-form input[type=submit], input[type=submit], button {
@@ -40,11 +136,11 @@
 .progression {
   margin: 0px 30px;
   padding: 10px;
-  border: 1px solid black;
   display: flex;
   overflow-x: scroll;
-  background-color: rgb(221, 237, 245);
-  border-radius: 10px;
+  /* background-color: rgb(221, 237, 245);*/
+  border: 2px dashed black;
+  border-radius: 20px;
 }
 
 .progression-item {

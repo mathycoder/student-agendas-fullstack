@@ -4,16 +4,6 @@ import './student.css'
 
 class StudentContainer extends Component {
 
-  sortedStudentIds = (students) => {
-    return students.allIds.sort((idA, idB) => {
-      const studentA = students.byId[idA].firstName.toLowerCase()
-      const studentB = students.byId[idB].firstName.toLowerCase()
-      if (studentA > studentB) { return 1 }
-      else if (studentA < studentB ) {return -1 }
-      else {return 0}
-    })
-  }
-
   getStudentProgressions = (student) => {
     const { studentProgressions, progressions } = this.props
     const myProgressionIds = studentProgressions.allIds.filter(spId => {
@@ -29,7 +19,7 @@ class StudentContainer extends Component {
 
   displayStudents = () => {
     const { students, videos, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
-    return this.sortedStudentIds(students).map((stId, index) => {
+    return students.allIds.map((stId, index) => {
       const student = students.byId[stId]
       return (
         <Student
