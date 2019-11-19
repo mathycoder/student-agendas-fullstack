@@ -15,6 +15,10 @@ class ShowKlassContainer extends Component {
     addingStudent: false
   }
 
+  componentDidUpdate(){
+    console.log(this.props.studentProgressions)
+  }
+
   componentDidMount(){
     const klassId = this.props.match.params.id
     this.props.fetchProgressions()
@@ -105,7 +109,11 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return {klasses: state.klasses, students: state.students}
+  return {
+    klasses: state.klasses,
+    students: state.students,
+    studentProgressions: state.studentProgressions
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowKlassContainer)

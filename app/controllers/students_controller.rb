@@ -15,7 +15,6 @@ class StudentsController < ApplicationController
   end
 
   def update
-    binding.pry
     student = Student.find_by(id: params[:id])
     progression = Progression.find_by(id: params[:student][:progressionId])
     student.progressions << progression
