@@ -57,6 +57,7 @@ class ShowKlassContainer extends Component {
   }
 
   handleDragDrop = (event) => {
+    console.log(event.target)
     event.target.style.backgroundColor = "rgb(221, 237, 245)"
     let progression = event.dataTransfer.getData("progression")
     progression = JSON.parse(progression)

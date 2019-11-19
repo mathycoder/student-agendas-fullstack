@@ -130,3 +130,61 @@
 .drag-over-student-agenda {
   background-color: red;
 }
+
+/* --------------------progressions in student agendas------------------------- */
+.student-agenda {
+  display: flex;
+  overflow: scroll;
+}
+
+.student-agenda .student-show-progression {
+  margin-top: 12px;
+  margin-left: 5px;
+  grid-template-rows: 0px 45px;
+  margin-bottom: 8px;
+  /* border: 1px black dashed;
+  display: grid;
+  margin-bottom: 15px;
+  padding: 8px;
+  padding-left: 0px;
+  padding-right: 10px;
+  border-radius: 20px;
+  background-color: rgb(235, 225, 253);
+  width: min-content; */
+}
+
+.student-agenda .student-show-progression-title {
+  font-size: 10px;
+}
+
+.student-agenda .student-show-progression-items {
+  max-width: 400px;
+  /* display: flex;
+  width: min-content;
+  max-width: 400px;
+  overflow: scroll; */
+}
+
+.student-agenda .student-show-progression-item {
+  width: 30px;
+  min-width: 30px;
+  height: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.student-agenda .student-show-progression-item img {
+  width: 35px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.student-agenda .student-show-progression-item-title {
+  font-weight: bold;
+  font-size: 0px;
+  height: 9px;
+  overflow: hidden;
+}
