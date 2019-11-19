@@ -3,7 +3,8 @@ import './student.css'
 
 class Student extends Component {
   render(){
-    const { student, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    const { student, progressions, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    if (progressions.length > 0) {console.log(progressions)}
     return (
       <div className={`student-row`}
         onDragOver={handleDragOver}
@@ -16,6 +17,7 @@ class Student extends Component {
           <h2>{student.firstName} {student.lastName}</h2>
         </div>
         <div className="student-agenda">
+          {progressions.map(progression => (<h2>{progression.id}</h2>))}
         </div>
       </div>
     )

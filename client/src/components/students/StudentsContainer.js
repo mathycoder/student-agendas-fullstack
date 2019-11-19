@@ -15,13 +15,23 @@ class StudentContainer extends Component {
   }
 
   displayStudents = () => {
-    const { students, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    const { students, progressions, studentProgressions, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return this.sortedIds(students).map((stId, index) => {
       const student = students.byId[stId]
+      const myProgressionIds = studentProgressions.allIds.filter(spId => {
+        const studentProgression = studentProgressions.byId[spId]
+        return studentProgression.studentId === `student${student.id}`
+      })
+      const myProgressions = myProgressionIds.map(stPrId => {
+        const studentProg = studentProgressions.byId[stPrId]
+        return progressions.byId[studentProg.progressionId]
+      })
+
       return (
         <Student
           key={index}
           student={student}
+          progressions={myProgressions}
           handleDragOver={handleDragOver}
           handleDragLeave={handleDragLeave}
           handleDragDrop={handleDragDrop}

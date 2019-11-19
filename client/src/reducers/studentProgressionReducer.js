@@ -23,8 +23,8 @@ function studentProgressionsById(state = {}, action) {
         [`studentProgression${id}`]: {
           id: id,
           agendaIndex: agenda_index,
-          studentId: student_id,
-          progressionId: progression_id
+          studentId: `student${student_id}`,
+          progressionId: `progression${progression_id}`
         }
       }
 

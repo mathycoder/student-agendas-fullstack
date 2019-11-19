@@ -15,10 +15,6 @@ class ShowKlassContainer extends Component {
     addingStudent: false
   }
 
-  componentDidUpdate(){
-    console.log(this.props.studentProgressions)
-  }
-
   componentDidMount(){
     const klassId = this.props.match.params.id
     this.props.fetchProgressions()
@@ -69,7 +65,7 @@ class ShowKlassContainer extends Component {
   }
 
   render(){
-    const { klasses, students, match, addStudentToKlass, removeStudentFromKlass } = this.props
+    const { klasses, students, progressions, match, addStudentToKlass, removeStudentFromKlass, studentProgressions } = this.props
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
     const klass = klasses.byId[klassId]
     if (klass) {
@@ -83,6 +79,8 @@ class ShowKlassContainer extends Component {
           </div>
           <StudentsContainer
             students={students}
+            studentProgressions={studentProgressions}
+            progressions={progressions}
             handleDragOver={this.handleDragOver}
             handleDragLeave={this.handleDragLeave}
             handleDragDrop={this.handleDragDrop}
@@ -112,7 +110,8 @@ function mapStateToProps(state){
   return {
     klasses: state.klasses,
     students: state.students,
-    studentProgressions: state.studentProgressions
+    studentProgressions: state.studentProgressions,
+    progressions: state.progressions
   }
 }
 
