@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+import StudentProgression from '../progressions/StudentProgression'
 import './student.css'
 
 class Student extends Component {
   render(){
-    const { student, progressions, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
-    if (progressions.length > 0) {console.log(progressions)}
+    const { student, progressions, videos, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return (
       <div className={`student-row`}
         onDragOver={handleDragOver}
@@ -17,7 +17,7 @@ class Student extends Component {
           <h2>{student.firstName} {student.lastName}</h2>
         </div>
         <div className="student-agenda">
-          {progressions.map(progression => (<h2>{progression.id}</h2>))}
+          {progressions.map(progression => <StudentProgression videos={videos} progression={progression}/>)}
         </div>
       </div>
     )
