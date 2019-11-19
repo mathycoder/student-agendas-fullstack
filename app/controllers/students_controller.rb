@@ -14,6 +14,20 @@ class StudentsController < ApplicationController
     end
   end
 
+  def update
+    binding.pry
+    student = Student.find_by(id: params[:id])
+    progression = Progression.find_by(id: params[:student][:progressionId])
+    student.progressions << progression
+    @sp = StudentProgression.last
+    @sp.agenda_index = student.progressions.length - 1
+    if @sp.save
+      render json: @sp, status: 201
+    else
+      render json: @sp.errors.full_messages, status: 422
+    end
+  end
+
   def destroy
     @student = Student.find_by(id: params[:id])
     @student.destroy
@@ -22,6 +36,6 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:firstName, :lastName)
+      params.require(:student).permit(:firstName, :lastName, :progressionId)
     end
 end

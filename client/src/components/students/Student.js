@@ -3,11 +3,12 @@ import './student.css'
 
 class Student extends Component {
   render(){
-    const { student, removeStudentFromKlass, handleDragOver, handleDragLeave } = this.props
+    const { student, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return (
       <div className={`student-row`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
+        onDrop={handleDragDrop}
         data-student-id={student.id}
         >
         <div className="student-name">

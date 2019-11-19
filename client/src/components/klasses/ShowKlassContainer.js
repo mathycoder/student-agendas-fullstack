@@ -7,6 +7,7 @@ import { removeKlass } from '../../actions/klassActions'
 import { fetchProgressions } from '../../actions/progressionActions'
 import { fetchVideos } from '../../actions/videoActions'
 import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
+import { addStudentProgression} from '../../actions/studentProgressionActions'
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
@@ -55,11 +56,12 @@ class ShowKlassContainer extends Component {
     event.dataTransfer.setData("progression", data)
   }
 
-  handleOnDrop = (event) => {
+  handleDragDrop = (event) => {
+    event.target.style.backgroundColor = "rgb(221, 237, 245)"
     let progression = event.dataTransfer.getData("progression")
     progression = JSON.parse(progression)
-    // this.addToStudentAgenda(progression)
-    // document.querySelector('.progression').classList.remove("drag-over-progression")
+    const student = this.props.students.byId[`student${event.currentTarget.dataset.studentId}`]
+    this.props.addStudentProgression(student, progression)
   }
 
   render(){
@@ -79,6 +81,7 @@ class ShowKlassContainer extends Component {
             students={students}
             handleDragOver={this.handleDragOver}
             handleDragLeave={this.handleDragLeave}
+            handleDragDrop={this.handleDragDrop}
             removeStudentFromKlass={removeStudentFromKlass} />
           <StudentProgressionsContainer handleDragStart={this.handleDragStart}/>
         </div>
@@ -96,7 +99,8 @@ function mapDispatchToProps(dispatch){
     removeStudentFromKlass: (student) => dispatch(removeStudentFromKlass(student)),
     removeKlass: (klass) => dispatch(removeKlass(klass)),
     fetchProgressions: () => dispatch(fetchProgressions()),
-    fetchVideos: () => dispatch(fetchVideos())
+    fetchVideos: () => dispatch(fetchVideos()),
+    addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression))
   }
 }
 

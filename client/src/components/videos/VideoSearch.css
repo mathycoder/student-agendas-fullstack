@@ -91,6 +91,7 @@
   margin-right: 7px;
   margin-bottom: 20px;
   cursor: grab;
+  background-color: white;
 }
 
 .search-video .title-text {
@@ -111,6 +112,7 @@
 
 .search-video img {
   width: 200px;
+
 }
 
 .search-video-preview {

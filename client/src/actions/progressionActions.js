@@ -44,8 +44,6 @@ export function editProgression(progression) {
   }
 }
 
-
-
 export function deleteProgression(progression) {
   return (dispatch) => {
     dispatch({type: 'START_DELETING_PROGRESSION_REQUEST'})

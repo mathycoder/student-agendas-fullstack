@@ -15,7 +15,7 @@ class StudentContainer extends Component {
   }
 
   displayStudents = () => {
-    const { students, removeStudentFromKlass, handleDragOver, handleDragLeave } = this.props
+    const { students, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return this.sortedIds(students).map((stId, index) => {
       const student = students.byId[stId]
       return (
@@ -24,6 +24,7 @@ class StudentContainer extends Component {
           student={student}
           handleDragOver={handleDragOver}
           handleDragLeave={handleDragLeave}
+          handleDragDrop={handleDragDrop}
           removeStudentFromKlass={removeStudentFromKlass}/>
     )})
   }
