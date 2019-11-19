@@ -7,7 +7,7 @@ import { removeKlass } from '../../actions/klassActions'
 import { fetchProgressions } from '../../actions/progressionActions'
 import { fetchVideos } from '../../actions/videoActions'
 import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
-import { addStudentProgression} from '../../actions/studentProgressionActions'
+import { addStudentProgression } from '../../actions/studentProgressionActions'
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {

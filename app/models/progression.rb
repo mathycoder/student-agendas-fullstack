@@ -2,6 +2,7 @@ class Progression < ApplicationRecord
   has_many :videos
   has_many :student_progressions
   has_many :students, through: :student_progressions
+  has_many :klasses, through: :students
 
   def videos_attributes=(data_array)
     self.videos = []

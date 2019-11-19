@@ -3,7 +3,11 @@ export function addStudents(klassId){
     dispatch({type: 'START_ADDING_STUDENTS_REQUEST'})
     fetch(`/klasses/${klassId}/students`)
       .then(resp => resp.json())
-      .then(students => dispatch({type: 'ADD_STUDENTS', students}))
+      .then(json => {
+        const students = json.students
+        const studentProgressions = json.student_progressions
+        dispatch({type: 'ADD_STUDENTS', students, studentProgressions})
+      })
   }
 }
 

@@ -9,6 +9,19 @@ export default studentProgressionReducer
 
 function studentProgressionsById(state = {}, action) {
   switch(action.type) {
+    case 'ADD_STUDENTS':
+    const normalizedObject = {}
+    action.studentProgressions.forEach(stProg => {
+      normalizedObject[`studentProgression${stProg.id}`] = {
+        id: stProg.id,
+        agendaIndex: stProg.agenda_index,
+        studentId: `student${stProg.student_id}`,
+        progressionId: `progression${stProg.progression_id}`
+      }
+    })
+    return {
+      ...normalizedObject
+    }
 
     case 'START_ADDING_STUDENT_PROGRESSION_REQUEST':
       return {
@@ -36,6 +49,11 @@ function studentProgressionsById(state = {}, action) {
 function allStudentProgressions(state = [], action) {
 
   switch(action.type) {
+
+    case 'ADD_STUDENTS':
+    return [
+      ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
+    ]
 
     case 'ADD_STUDENT_PROGRESSION':
     return [

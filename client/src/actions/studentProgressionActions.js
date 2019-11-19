@@ -17,3 +17,7 @@ export function addStudentProgression(student, progression) {
       .then(studentProgression => dispatch({ type: 'ADD_STUDENT_PROGRESSION', studentProgression }))
   }
 }
+
+export function fetchStudentProgressions(){
+  
+}
