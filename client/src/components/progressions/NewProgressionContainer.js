@@ -57,6 +57,7 @@ class NewProgressionContainer extends Component {
       progression: {
         id: this.state.id,
         name: this.state.name,
+        color: this.state.color,
         videos_attributes: [...this.state.currProgression]
       }
     }

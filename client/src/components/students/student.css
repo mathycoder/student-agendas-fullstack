@@ -38,11 +38,9 @@
   margin-right: 10px;
 }
 
-.student-row div.student-agenda {
+div.student-agenda {
   width: 500px;
   height: inherit;
-  /* background-color: rgb(221, 237, 245); */
-  /* border: 3px solid rgb(27, 153, 234); */
   background-color: rgb(232, 232, 232);
   border: 3px solid rgb(143, 143, 143);
 }
@@ -67,14 +65,14 @@
   padding-left: 0px;
   padding-right: 10px;
   border-radius: 20px;
-  background-color: rgb(235, 225, 253);
+  /* background-color: rgb(235, 225, 253); */
   width: min-content;
 }
 
 .student-show-progression-title {
   display: inline-block;
-  background-color: rgb(117, 27, 238);
-  border: 0.5px solid rgb(235, 225, 253);
+  /* background-color: rgb(117, 27, 238);
+  border: 0.5px solid rgb(235, 225, 253); */
   color: white;
   font-weight: bold;
   padding: 2px 10px;
@@ -112,6 +110,7 @@
 .student-show-progression-item img {
   width: 55px;
   height: 30px;
+  margin-left: -3px;
   object-fit: cover;
   user-drag: none;
   user-select: none;
@@ -181,7 +180,7 @@
 .student-agenda .student-show-progression-item img {
   width: 35px;
   height: 20px;
-  opacity: 0.7;
+
 }
 
 .student-agenda .student-show-progression-item-title {

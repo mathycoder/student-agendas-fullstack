@@ -2,13 +2,13 @@ class ProgressionsController < ApplicationController
 
   def index
     @progressions = Progression.all
-    render json: @progressions.to_json(only: [:id, :name], include: [videos: { only: [:id, :progression_index]}])
+    render json: @progressions.to_json(only: [:id, :name, :color], include: [videos: { only: [:id, :progression_index]}])
   end
 
   def create
     @progression = Progression.new(progression_params)
     if @progression.save
-      render json: @progression.to_json(only: [:id, :name], include: [:videos]), status: 201
+      render json: @progression.to_json(only: [:id, :name, :color], include: [:videos]), status: 201
     else
       render json: @progression.errors.full_messages, status: 422
     end
@@ -22,7 +22,7 @@ class ProgressionsController < ApplicationController
   def update
     @progression = Progression.find_by(id: params[:id])
     if @progression.update(progression_params)
-      render json: @progression.to_json(only: [:id, :name], include: [:videos]), status: 201
+      render json: @progression.to_json(only: [:id, :name, :color], include: [:videos]), status: 201
     else
       render json: @progression.errors.full_messages, status: 422
     end
@@ -37,6 +37,6 @@ class ProgressionsController < ApplicationController
 
   private
   def progression_params
-    params.require(:progression).permit(:name, :id, :videos_attributes => [:id, :progression_id, :url, :title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
+    params.require(:progression).permit(:name, :id, :color, :videos_attributes => [:id, :progression_id, :url, :title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
   end
 end

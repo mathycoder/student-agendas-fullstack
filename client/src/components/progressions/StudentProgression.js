@@ -5,10 +5,10 @@ const StudentProgression = (props) => {
   if (progression){
     return (
       <div
-        className="student-show-progression"
+        className={`student-show-progression ${progression.color}`}
         draggable onDragStart={event => handleDragStart(event, progression)}
         >
-        <div className="student-show-progression-title">{progression.name}</div>
+        <div className={`student-show-progression-title ${progression.color}-title`}>{progression.name}</div>
         <div className="student-show-progression-items">
           {progression.videos.map((videoId, index) => {
             if (videos.allIds.length > 0){

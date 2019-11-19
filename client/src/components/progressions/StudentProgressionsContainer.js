@@ -4,6 +4,10 @@ import { deleteProgression } from '../../actions/progressionActions'
 import { connect } from 'react-redux'
 
 class StudentProgressionsContainer extends Component {
+  componentDidUpdate(){
+    console.log(this.props.progressions)
+  }
+
   render(){
     const { progressions, videos, handleDragStart } = this.props
 
