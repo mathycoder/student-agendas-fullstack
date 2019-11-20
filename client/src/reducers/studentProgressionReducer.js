@@ -28,7 +28,6 @@ function studentProgressionsById(state = {}, action) {
         ...state
       }
 
-    //agenda_index: 1, id: 4, student_id: 46, progression_id: 44
     case 'ADD_STUDENT_PROGRESSION':
       const { id, agenda_index, student_id, progression_id } = action.studentProgression
       return {
@@ -39,6 +38,17 @@ function studentProgressionsById(state = {}, action) {
           studentId: `student${student_id}`,
           progressionId: `progression${progression_id}`
         }
+      }
+
+    case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
+      return {...state}
+
+    case 'REMOVE_STUDENT_FROM_PROGRESSION':
+      const studentProgId = `studentProgression${action.studentProgression.id}`
+      const { [studentProgId]: value, ...newState  } = state
+
+      return {
+        ...newState
       }
 
     default:
@@ -59,6 +69,10 @@ function allStudentProgressions(state = [], action) {
     return [
       ...state, `studentProgression${action.studentProgression.id}`
     ]
+
+    case 'REMOVE_STUDENT_FROM_PROGRESSION':
+      const stProgIdToDelete = `studentProgression${action.studentProgression.id}`
+      return state.filter(pId => pId !== stProgIdToDelete)
 
     default:
       return state

@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { deleteStudentProgression } from '../../actions/studentProgressionActions'
 
 class Student extends Component {
+
   handleDeleteProgClick = (progression) => {
     const { deleteStudentProgression, student } = this.props
     deleteStudentProgression(student, progression)
