@@ -57,13 +57,25 @@ div.student-agenda {
 
 .student-show-progressions-container {
   display: grid;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows: 50px 35px 1fr;
   margin-right: 20px;
   margin-top: 5px;
   background-color: rgb(81, 84, 92);
   border: 3px rgb(41, 44, 52) solid;
   width: 440px;
   height: 500px;
+}
+
+.student-show-progresisons-color-choice {
+  display: flex;
+  padding-left: 12px;
+  background-color: rgb(101, 104, 112);
+  justify-content: flex-start;
+
+}
+
+.student-show-progresisons-color-choice div {
+  margin-left: 5px;
 }
 
 .student-show-progressions-header {

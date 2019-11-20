@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 class StudentProgressionsContainer extends Component {
   state = {
     searchTerm: "",
+    color: "",
     searchedProgressions: []
   }
 
@@ -19,7 +20,16 @@ class StudentProgressionsContainer extends Component {
   handleChange = (event) => {
     this.setState({
       searchTerm: event.target.value,
+      color: "",
       searchedProgressions: this.filterer(event.target.value)
+    })
+  }
+
+  handleColorClick = (color) => {
+    this.setState({
+      ...this.state,
+      color: color,
+      searchedProgressions: this.colorFilterer(color)
     })
   }
 
@@ -31,8 +41,27 @@ class StudentProgressionsContainer extends Component {
     })
   }
 
+  colorFilterer = (color) => {
+    const { progressions } = this.props
+    return progressions.allIds.filter(progId => {
+      const prog = progressions.byId[progId]
+      return prog.color === color
+    })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
+  }
+
+  displayColors = () => {
+    return ["red", "orange", "green", "blue", "purple"].map(color => {
+      return (
+        <div
+          className={`select-color ${color}-title ${color === this.state.color ? 'selected-color' : ''}`} 
+          onClick={event => this.handleColorClick(color)}>
+        </div>
+      )
+    })
   }
 
   render(){
@@ -55,6 +84,9 @@ class StudentProgressionsContainer extends Component {
               </div>
             </form>
           </div>
+        </div>
+        <div className="student-show-progresisons-color-choice">
+          {this.displayColors()}
         </div>
         <div className="student-show-progressions-index">
           {this.state.searchedProgressions.map((progressionId, index) => {
