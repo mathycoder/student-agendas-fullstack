@@ -5,21 +5,34 @@ import { connect } from 'react-redux'
 
 class StudentProgressionsContainer extends Component {
   state = {
-    searchTerm: ""
+    searchTerm: "",
+    searchedProgressions: []
+  }
+
+  componentDidMount(){
+    this.setState({
+      ...this.state,
+      searchedProgressions: [...this.props.progressions.allIds]
+    })
   }
 
   handleChange = (event) => {
     this.setState({
-      searchTerm: event.target.value
+      searchTerm: event.target.value,
+      searchedProgressions: this.filterer(event.target.value)
+    })
+  }
+
+  filterer = (query) => {
+    const { progressions } = this.props
+    return progressions.allIds.filter(progId => {
+      const prog = progressions.byId[progId]
+      return prog.name.toLowerCase().includes(query.toLowerCase())
     })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-  }
-
-  componentDidUpdate(){
-    console.log(this.props.progressions)
   }
 
   render(){
@@ -44,7 +57,7 @@ class StudentProgressionsContainer extends Component {
           </div>
         </div>
         <div className="student-show-progressions-index">
-          {progressions.allIds.map((progressionId, index) => {
+          {this.state.searchedProgressions.map((progressionId, index) => {
             const progression = progressions.byId[progressionId]
             return <StudentProgression
                       key={index}

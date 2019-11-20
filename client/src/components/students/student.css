@@ -63,7 +63,7 @@ div.student-agenda {
   background-color: rgb(81, 84, 92);
   border: 3px rgb(41, 44, 52) solid;
   width: 440px;
-  height: 540px;
+  height: 500px;
 }
 
 .student-show-progressions-header {
@@ -88,13 +88,6 @@ div.student-agenda {
 .student-show-progressions-header .search-bar {
   width: 240px;
   background-color: white;
-  /* display: flex;
-  border: 1px black solid;
-  width: 300px;
-  border-radius: 40px;
-  padding: 4px 8px;
-  transition: 0.2s;
-  padding-right: 0px; */
 }
 
 .student-show-progressions-header .search-bar .mag-glass {
@@ -107,24 +100,6 @@ div.student-agenda {
 
 .student-show-progressions-header .search-bar input[type=text]{
   width: 150px;
-  /* height: 20px;
-  border: none;
-  font-size: 14px;
-  width: 200px; */
-}
-
-.student-show-progressions-header .search-bar input[type=submit]{
-
-  /* padding: 2px 6px;
-  border-left-color: black;
-  font-size: 13px;
-  font-weight:500;
-  border-radius: 0px 25px 25px 0px;
-  height: 30px;
-  margin-top: -4px;
-  margin-bottom: -10px;
-  margin-left: 12px; */
-
 }
 
 .student-show-progressions-index {
