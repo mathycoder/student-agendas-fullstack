@@ -4,6 +4,20 @@ import { deleteProgression } from '../../actions/progressionActions'
 import { connect } from 'react-redux'
 
 class StudentProgressionsContainer extends Component {
+  state = {
+    searchTerm: ""
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      searchTerm: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
   componentDidUpdate(){
     console.log(this.props.progressions)
   }
@@ -13,14 +27,32 @@ class StudentProgressionsContainer extends Component {
 
     return (
       <div className="student-show-progressions-container">
-        {progressions.allIds.map((progressionId, index) => {
-          const progression = progressions.byId[progressionId]
-          return <StudentProgression
-                    key={index}
-                    handleDragStart={handleDragStart}
-                    progression={progression}
-                    videos={videos}/>
-        })}
+        <div className="student-show-progressions-header">
+          <div>Progressions</div>
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <div className="search-bar">
+                <div className="mag-glass"></div>
+                <input
+                  type="text"
+                  value={this.state.searchTerm}
+                  onChange={this.handleChange}
+                  />
+                <input type="submit" value="Search"/>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="student-show-progressions-index">
+          {progressions.allIds.map((progressionId, index) => {
+            const progression = progressions.byId[progressionId]
+            return <StudentProgression
+                      key={index}
+                      handleDragStart={handleDragStart}
+                      progression={progression}
+                      videos={videos}/>
+          })}
+        </div>
       </div>
     )
   }

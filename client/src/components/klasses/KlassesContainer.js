@@ -4,8 +4,13 @@ import ShowKlassContainer from './ShowKlassContainer'
 import NewKlassForm from './NewKlassForm'
 import { connect } from 'react-redux'
 import { fetchKlasses, addKlass } from '../../actions/klassActions'
+import '../progressions/Progression.css'
 
 class KlassesContainer extends Component {
+  state = {
+      klassId: ""
+  }
+
   componentDidMount(){
     this.props.fetchKlasses()
   }
@@ -36,7 +41,7 @@ class KlassesContainer extends Component {
         {this.klassSelectDropdown()}
         <Switch>
           <Route exact path={`${match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={addKlass} />} />
-          <Route exact path={`${match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} />} key={Math.random()} />
+          <Route exact path={`${match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} handleKlassClick={this.handleKlassClick} />} key={Math.random()} />
         </Switch>
       </div>
     )

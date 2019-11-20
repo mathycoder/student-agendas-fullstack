@@ -69,6 +69,10 @@
 
 }
 
+.search-bar input[type=submit]:focus {
+  outline: none;
+}
+
 
 .search-videos-container {
   display: grid;

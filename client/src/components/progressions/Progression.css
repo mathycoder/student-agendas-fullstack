@@ -238,6 +238,11 @@
   background-color: gray;
 }
 
+.progression-menu-bar a {
+  text-decoration: none;
+  color: black;
+}
+
 .progression-menu-bar .selected {
   background-color: gray;
 }
