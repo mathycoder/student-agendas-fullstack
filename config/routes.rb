@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     resources :students
   end
 
+  resources :students do
+    resources :progressions
+  end 
+
 end

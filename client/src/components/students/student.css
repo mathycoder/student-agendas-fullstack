@@ -211,6 +211,19 @@ div.student-agenda {
   font-size: 10px;
 }
 
+.student-agenda .student-show-progression-title .student-prog-x {
+  display: inline-block;
+  margin-right: 3px;
+  margin-left: -5px;
+  top: -3px;
+  font-weight: 200;
+}
+
+.student-prog-x:hover {
+  cursor: pointer;
+  color: red;
+}
+
 .student-agenda .student-show-progression-items {
   max-width: 400px;
   /* display: flex;

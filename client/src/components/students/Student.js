@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
-import StudentProgression from '../progressions/StudentProgression'
+import StudentAgendaProgression from '../progressions/StudentAgendaProgression'
 import './student.css'
+import { connect } from 'react-redux'
+import { deleteStudentProgression } from '../../actions/studentProgressionActions'
 
 class Student extends Component {
+  handleDeleteProgClick = (progression) => {
+    const { deleteStudentProgression, student } = this.props
+    deleteStudentProgression(student, progression)
+  }
+
   render(){
     const { student, progressions, videos, removeStudentFromKlass, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return (
@@ -18,14 +25,22 @@ class Student extends Component {
           onDrop={handleDragDrop}
           data-student-id={student.id}
           >
-          {progressions.map((progression, index) => <StudentProgression key={index} videos={videos} progression={progression}/>)}
+          {progressions.map((progression, index) => <StudentAgendaProgression
+                                                      key={index}
+                                                      handleDeleteProgClick={this.handleDeleteProgClick}
+                                                      videos={videos}
+                                                      progression={progression}/>)}
         </div>
       </div>
     )
   }
 }
 
+function mapDispatchToProps(dispatch){
+  return {
+    deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression)),
+    // fetchVideos: () => dispatch(fetchVideos())
+  }
+}
 
-
-
-export default Student
+export default connect(null, mapDispatchToProps)(Student)
