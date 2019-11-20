@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import StudentAgendaProgression from '../progressions/StudentAgendaProgression'
 import StudentAgenda from './StudentAgenda'
 import './student.css'
 import { connect } from 'react-redux'
@@ -21,15 +20,21 @@ class Student extends Component {
           <div className="index-progression-x-out" onClick={(event) => removeStudentFromKlass(student)}>x</div>
           <h2>{student.firstName} {student.lastName}</h2>
         </div>
-        <StudentAgenda
-          student={student}
-          progressions={progressions}
-          videos={videos}
-          handleDragOver={handleDragOver}
-          handleDragLeave={handleDragLeave}
-          handleDragDrop={handleDragDrop}
-          handleDeleteProgClick={this.handleDeleteProgClick}
-          />
+        <Droppable droppableId={`droppable-${student.id}`} direction="horizontal">
+          {(provided) => (
+            <StudentAgenda
+              {...provided.droppableProps}
+              innerRef={provided.innerRef}
+              student={student}
+              progressions={progressions}
+              videos={videos}
+              handleDragOver={handleDragOver}
+              handleDragLeave={handleDragLeave}
+              handleDragDrop={handleDragDrop}
+              handleDeleteProgClick={this.handleDeleteProgClick}
+              />
+          )}
+        </Droppable>
       </div>
     )
   }

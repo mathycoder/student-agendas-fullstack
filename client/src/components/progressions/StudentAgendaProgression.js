@@ -1,10 +1,10 @@
 import React from 'react'
 
 const StudentAgendaProgression = (props) => {
-  const { progression, videos, handleDeleteProgClick } = props
+  const { progression, videos, handleDeleteProgClick, innerRef } = props
   if (progression){
     return (
-      <div className={`student-show-progression ${progression.color}`}>
+      <div className={`student-show-progression ${progression.color}`} ref={node => innerRef(node)}>
         <div className={`student-show-progression-title ${progression.color}-title`}>
           <div onClick={event => handleDeleteProgClick(progression)} className="student-prog-x">x</div>
           {progression.name}

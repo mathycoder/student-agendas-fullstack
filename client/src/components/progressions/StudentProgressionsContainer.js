@@ -54,10 +54,11 @@ class StudentProgressionsContainer extends Component {
   }
 
   displayColors = () => {
-    return ["red", "orange", "green", "blue", "purple"].map(color => {
+    return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
       return (
         <div
-          className={`select-color ${color}-title ${color === this.state.color ? 'selected-color' : ''}`} 
+          key={index}
+          className={`select-color ${color}-title ${color === this.state.color ? 'selected-color' : ''}`}
           onClick={event => this.handleColorClick(color)}>
         </div>
       )
