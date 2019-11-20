@@ -17,6 +17,10 @@
 
 .student-agendas {
   padding: 0 20px;
+  height: 600px;
+  width: 700px;
+  overflow-y: scroll;
+  overflow-x: inherit;
 }
 
 .student-row {
@@ -41,8 +45,8 @@
 div.student-agenda {
   width: 500px;
   height: inherit;
-  background-color: rgb(232, 232, 232);
-  border: 3px solid rgb(143, 143, 143);
+  background-color: rgb(240, 240, 240);
+  border: 3px solid rgb(200, 200, 200);
 }
 
 .new-student-form {
@@ -71,8 +75,6 @@ div.student-agenda {
 
 .student-show-progression-title {
   display: inline-block;
-  /* background-color: rgb(117, 27, 238);
-  border: 0.5px solid rgb(235, 225, 253); */
   color: white;
   font-weight: bold;
   padding: 2px 10px;
@@ -138,9 +140,12 @@ div.student-agenda {
   overflow: scroll;
 }
 
+.student-agenda::after { content: ' '; min-width: 15px; }
+
 .student-agenda .student-show-progression {
   margin-top: 12px;
-  margin-left: 5px;
+  margin-left: 12px;
+  margin-right: 4px;
   grid-template-rows: 0px 45px;
   margin-bottom: 8px;
   /* border: 1px black dashed;
@@ -153,6 +158,7 @@ div.student-agenda {
   background-color: rgb(235, 225, 253);
   width: min-content; */
 }
+
 
 .student-agenda .student-show-progression-title {
   font-size: 10px;
