@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import StudentAgendaProgression from '../progressions/StudentAgendaProgression'
+import StudentAgenda from './StudentAgenda'
 import './student.css'
 import { connect } from 'react-redux'
 import { deleteStudentProgression } from '../../actions/studentProgressionActions'
+import { Droppable } from 'react-beautiful-dnd'
 
 class Student extends Component {
 
@@ -19,19 +21,15 @@ class Student extends Component {
           <div className="index-progression-x-out" onClick={(event) => removeStudentFromKlass(student)}>x</div>
           <h2>{student.firstName} {student.lastName}</h2>
         </div>
-        <div
-          className="student-agenda"
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onDrop={handleDragDrop}
-          data-student-id={student.id}
-          >
-          {progressions.map((progression, index) => <StudentAgendaProgression
-                                                      key={index}
-                                                      handleDeleteProgClick={this.handleDeleteProgClick}
-                                                      videos={videos}
-                                                      progression={progression}/>)}
-        </div>
+        <StudentAgenda
+          student={student}
+          progressions={progressions}
+          videos={videos}
+          handleDragOver={handleDragOver}
+          handleDragLeave={handleDragLeave}
+          handleDragDrop={handleDragDrop}
+          handleDeleteProgClick={this.handleDeleteProgClick}
+          />
       </div>
     )
   }
@@ -39,8 +37,7 @@ class Student extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression)),
-    // fetchVideos: () => dispatch(fetchVideos())
+    deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression))
   }
 }
 
