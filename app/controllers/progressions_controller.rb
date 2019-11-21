@@ -30,6 +30,7 @@ class ProgressionsController < ApplicationController
     else
       student_progression = StudentProgression.find_by(progression_id: params[:id], student_id: params[:student_id])
       @student_progressions = StudentProgression.rearrange_progressions(student_progression, params[:student][:newIndex])
+      render json: @student_progressions
     end
   end
 

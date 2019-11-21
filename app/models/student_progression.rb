@@ -10,5 +10,6 @@ class StudentProgression < ApplicationRecord
     new_order.each_with_index do |sp, index|
       sp.update(agenda_index: index)
     end
+    new_order
   end
 end

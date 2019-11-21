@@ -16,7 +16,7 @@ class StudentAgenda extends Component {
         {progressions.map((progression, index) => {
           if (progression) {
             return (
-                <Draggable draggableId={`student-${student.id}-progression-${progression.id}`} index={index} key={index}>
+                <Draggable draggableId={`student-${student.id}-progression-${progression.id}`} index={index} key={`student-${student.id}-progression-${progression.id}`}>
                   {(provided) => (
                     <div {...provided.draggableProps} {...provided.dragHandleProps}>
                       <StudentAgendaProgression

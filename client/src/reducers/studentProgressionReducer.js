@@ -40,6 +40,22 @@ function studentProgressionsById(state = {}, action) {
         }
       }
 
+    case 'START_SWITCH_PROGGRESSION_REQUEST':
+      return {...state}
+
+    case 'SWITCH_PROGRESSION':
+      const normalizedObj = {}
+      action.studentProgressions.forEach(sp => {
+        normalizedObj[`studentProgression${sp.id}`] = {
+          id: sp.id,
+          agendaIndex: sp.agenda_index,
+          studentId: `student${sp.student_id}`,
+          progressionId: `progression${sp.progression_id}`
+        }
+      })
+
+      return {...state, ...normalizedObj}
+
     case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
       return {...state}
 
