@@ -61,11 +61,19 @@ class ShowKlassContainer extends Component {
   handleDragDrop = (event) => {
     const agenda = event.currentTarget.closest('.student-agenda')
     agenda.style.backgroundColor = "rgb(240, 240, 240)"
-
     let progression = event.dataTransfer.getData("progression")
     progression = JSON.parse(progression)
     const student = this.props.students.byId[`student${event.currentTarget.dataset.studentId}`]
-    this.props.addStudentProgression(student, progression)
+
+    const { studentProgressions } = this.props
+    const any = studentProgressions.allIds.filter(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
+    })
+
+    if (any.length === 0){
+      this.props.addStudentProgression(student, progression)
+    }
   }
 
   render(){

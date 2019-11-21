@@ -119,6 +119,7 @@ div.student-agenda {
 }
 
 .student-show-progression {
+  opacity: 0.999;
   border: 1px black dashed;
   display: grid;
   grid-template-rows: 0px 62px;

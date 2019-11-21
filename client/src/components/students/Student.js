@@ -20,6 +20,7 @@ class Student extends Component {
   handleDNDDragEnd = result => {
     const { destination, source, draggableId } = result
     if (!destination || !source) { return }
+
     if (destination.index !== source.index) {
       this.props.switchStudentProgression(draggableId, destination.index)
     }
