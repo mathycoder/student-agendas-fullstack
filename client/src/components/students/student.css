@@ -17,16 +17,15 @@
 
 .student-agendas {
   padding: 0 20px;
-  height: 600px;
+  height: 530px;
   width: 700px;
   overflow-y: scroll;
-  overflow-x: inherit;
 }
 
 .student-row {
   display: flex;
   margin: 10px;
-  height: 80px;
+  height: 85px;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -202,11 +201,11 @@ div.student-agenda {
 .student-agenda::after { content: ' '; min-width: 15px; }
 
 .student-agenda .student-show-progression {
-  margin-top: 12px;
+  margin-top: 15px;
   margin-left: 12px;
   margin-right: 4px;
   grid-template-rows: 0px 45px;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
   /* border: 1px black dashed;
   display: grid;
   margin-bottom: 15px;

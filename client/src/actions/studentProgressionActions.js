@@ -33,3 +33,25 @@ export function deleteStudentProgression(student, progression){
 
   }
 }
+
+export function switchStudentProgression(draggableId, newIndex){
+  return (dispatch) => {
+    dispatch({type: 'START_SWITH_PROGGRESSION_REQUEST'})
+    const params = {
+      student: {
+        newIndex: newIndex
+      }
+    }
+    const studentId = draggableId.split("-")[1]
+    const progressionId = draggableId.split("-")[3]
+    fetch(`/students/${studentId}/progressions/${progressionId}`, {
+      method: 'PATCH',
+      body: JSON.stringify(params),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(studentProgressions => dispatch({ type: 'SWITCH_PROGRESSION', studentProgressions }))
+  }
+}

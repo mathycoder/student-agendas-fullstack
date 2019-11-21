@@ -5,7 +5,7 @@ import { Draggable } from 'react-beautiful-dnd'
 
 class NewProgression extends Component {
   displayProgression = () => {
-    const { currProgression, removeFromProgression, handleProgressionItemClick } = this.props
+    const { placeholder, currProgression, removeFromProgression, handleProgressionItemClick } = this.props
     return (
       currProgression.map((video, index) => {
         const videoId = video.videoId

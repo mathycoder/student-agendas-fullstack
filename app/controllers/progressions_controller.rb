@@ -20,11 +20,16 @@ class ProgressionsController < ApplicationController
   end
 
   def update
-    @progression = Progression.find_by(id: params[:id])
-    if @progression.update(progression_params)
-      render json: @progression.to_json(only: [:id, :name, :color], include: [:videos]), status: 201
+    if !params[:student_id]
+      @progression = Progression.find_by(id: params[:id])
+      if @progression.update(progression_params)
+        render json: @progression.to_json(only: [:id, :name, :color], include: [:videos]), status: 201
+      else
+        render json: @progression.errors.full_messages, status: 422
+      end
     else
-      render json: @progression.errors.full_messages, status: 422
+      student_progression = StudentProgression.find_by(progression_id: params[:id], student_id: params[:student_id])
+      @student_progressions = StudentProgression.rearrange_progressions(student_progression, params[:student][:newIndex])
     end
   end
 
@@ -43,6 +48,6 @@ class ProgressionsController < ApplicationController
 
   private
   def progression_params
-    params.require(:progression).permit(:name, :id, :color, :videos_attributes => [:id, :progression_id, :url, :title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
+    params.require(:progression).permit(:name, :id, :color, :newIndex, :videos_attributes => [:id, :progression_id, :url, :title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
   end
 end

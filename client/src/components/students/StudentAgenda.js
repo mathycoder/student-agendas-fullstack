@@ -4,7 +4,7 @@ import { Draggable } from 'react-beautiful-dnd'
 
 class StudentAgenda extends Component {
   render(){
-    const { innerRef, handleDragOver, handleDragLeave, handleDragDrop, handleDeleteProgClick, progressions, videos, student } = this.props
+    const { placeholder, innerRef, handleDragOver, handleDragLeave, handleDragDrop, handleDeleteProgClick, progressions, videos, student } = this.props
     return (
       <div className="student-agenda"
         data-student-id={student.id}
@@ -37,6 +37,7 @@ class StudentAgenda extends Component {
 
           })
         }
+        {placeholder}
       </div>
     )
   }

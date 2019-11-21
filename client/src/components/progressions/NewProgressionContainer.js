@@ -198,6 +198,7 @@ class NewProgressionContainer extends Component {
           <Droppable droppableId="droppable-1" direction="horizontal">
             {(provided) => (
               <NewProgression
+                placeholder={provided.placeholder}
                 color={this.state.color}
                 innerRef={provided.innerRef}
                 {...provided.droppableProps}
