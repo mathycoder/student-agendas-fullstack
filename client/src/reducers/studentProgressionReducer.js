@@ -40,8 +40,10 @@ function studentProgressionsById(state = {}, action) {
         }
       }
 
-    case 'START_SWITCH_PROGGRESSION_REQUEST':
-      return {...state}
+    case 'START_SWITCH_PROGRESSION_REQUEST':
+      const allSps = {...state}
+      const modifiedObjs = switchAgendaOrder(action, allSps)
+      return {...state, modifiedObjs }
 
     case 'SWITCH_PROGRESSION':
       const normalizedObj = {}
@@ -93,4 +95,30 @@ function allStudentProgressions(state = [], action) {
     default:
       return state
   }
+}
+
+function switchAgendaOrder(action, allSps){
+  let currStProgression
+  let myStudentProgressions = []
+  const studId = `student${action.draggableId.split("-")[1]}`
+  const progId = `progression${action.draggableId.split("-")[3]}`
+  for(const sp in allSps){
+    if (allSps[sp].studentId === studId) {
+      myStudentProgressions.push(allSps[sp])
+    }
+    if (allSps[sp].studentId === studId && allSps[sp].progressionId === progId){
+      currStProgression = allSps[sp]
+    }
+  }
+
+  myStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
+  myStudentProgressions = myStudentProgressions.filter(sp => sp.id != currStProgression.id)
+  myStudentProgressions.splice(action.newIndex, 0, currStProgression)
+
+  const modifiedObj = {}
+  myStudentProgressions.forEach((sp, index) => {
+    sp.agendaIndex = index
+    modifiedObj[`studentProgression${sp.id}`] = sp
+  })
+  return modifiedObj
 }

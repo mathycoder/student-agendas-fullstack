@@ -36,7 +36,7 @@ export function deleteStudentProgression(student, progression){
 
 export function switchStudentProgression(draggableId, newIndex){
   return (dispatch) => {
-    dispatch({type: 'START_SWITH_PROGGRESSION_REQUEST'})
+    dispatch({type: 'START_SWITCH_PROGRESSION_REQUEST', draggableId, newIndex})
     const params = {
       student: {
         newIndex: newIndex

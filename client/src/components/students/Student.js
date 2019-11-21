@@ -21,7 +21,7 @@ class Student extends Component {
     // TODO: update the order of progressions in the student agenda
 
     const { destination, source, draggableId } = result
-    console.log(destination, source, draggableId)
+    if (!destination || !source) { return }
     if (destination.index !== source.index) {
       this.props.switchStudentProgression(draggableId, destination.index)
     }
