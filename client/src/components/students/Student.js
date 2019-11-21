@@ -18,31 +18,11 @@ class Student extends Component {
   }
 
   handleDNDDragEnd = result => {
-    // TODO: update the order of progressions in the student agenda
-
     const { destination, source, draggableId } = result
     if (!destination || !source) { return }
     if (destination.index !== source.index) {
       this.props.switchStudentProgression(draggableId, destination.index)
     }
-
-
-
-    // document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
-    // if (!destination) {
-    //   return
-    // }
-    //
-    // if (destination.index !== source.index) {
-    //   const testArray = [...this.state.currProgression]
-    //   testArray.splice(source.index, 1)
-    //   testArray.splice(destination.index, 0, this.state.currProgression[source.index])
-    //   this.setState({
-    //     ...this.state,
-    //     currProgression: testArray
-    //   })
-    // }
-
   }
 
   render(){

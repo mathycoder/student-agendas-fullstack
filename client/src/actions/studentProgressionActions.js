@@ -6,8 +6,8 @@ export function addStudentProgression(student, progression) {
         progressionId: progression.id
       }
     }
-    fetch(`/klasses/${student.klass_id}/students/${student.id}`, {
-      method: 'PATCH',
+    fetch(`/students/${student.id}/progressions`, {
+      method: 'POST',
       body: JSON.stringify(params),
       headers: {
         'Content-Type': 'application/json'

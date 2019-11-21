@@ -6,11 +6,24 @@ class ProgressionsController < ApplicationController
   end
 
   def create
-    @progression = Progression.new(progression_params)
-    if @progression.save
-      render json: @progression.to_json(only: [:id, :name, :color], include: [:videos]), status: 201
+    if !params[:student_id]
+      @progression = Progression.new(progression_params)
+      if @progression.save
+        render json: @progression.to_json(only: [:id, :name, :color], include: [:videos]), status: 201
+      else
+        render json: @progression.errors.full_messages, status: 422
+      end
     else
-      render json: @progression.errors.full_messages, status: 422
+      student = Student.find_by(id: params[:student_id])
+      progression = Progression.find_by(id: params[:student][:progressionId])
+      student.progressions << progression
+      @sp = StudentProgression.last
+      @sp.agenda_index = student.progressions.length - 1
+      if @sp.save
+        render json: @sp, status: 201
+      else
+        render json: @sp.errors.full_messages, status: 422
+      end
     end
   end
 
