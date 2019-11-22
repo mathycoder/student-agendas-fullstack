@@ -16,7 +16,7 @@ class ProgressionsContainer extends Component {
     return (
       <Switch>
         <Route exact path="/progressions" render={(routerProps) => <IndexProgressionsContainer {...routerProps}/>} />
-        <Route exact path="/progressions/new" component={NewProgressionContainer} />
+        <Route exact path="/progressions/new" render={(props) => <NewProgressionContainer {...props} key={Math.random()}/>} />
         <Route exact path="/progressions/:id" component={NewProgressionContainer} />
       </Switch>
     )
