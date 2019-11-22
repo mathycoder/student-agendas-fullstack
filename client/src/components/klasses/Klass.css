@@ -1,0 +1,16 @@
+.klass-show-container {
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 3fr 2fr;
+}
+
+.klass-show-title {
+  grid-column: 1 / 3;
+  display: flex;
+  margin-left: 20px;
+  align-items: center;
+}
+
+.klass-show-tile button {
+  height: 20px;
+}
