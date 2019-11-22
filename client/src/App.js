@@ -25,7 +25,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <NavBar />
+            <NavBar klasses={this.props.klasses}/>
           </header>
           <main>
             <Route exact path="/" component={Home} />
