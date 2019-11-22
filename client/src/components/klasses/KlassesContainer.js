@@ -3,16 +3,12 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import ShowKlassContainer from './ShowKlassContainer'
 import NewKlassForm from './NewKlassForm'
 import { connect } from 'react-redux'
-import { fetchKlasses, addKlass } from '../../actions/klassActions'
+import { addKlass } from '../../actions/klassActions'
 import '../progressions/Progression.css'
 
 class KlassesContainer extends Component {
   state = {
       klassId: ""
-  }
-
-  componentDidMount(){
-    this.props.fetchKlasses()
   }
 
   klassSelectDropdown = () => {
@@ -50,7 +46,6 @@ class KlassesContainer extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    fetchKlasses: () => dispatch(fetchKlasses()),
     addKlass: (klass) => dispatch(addKlass(klass))
   }
 }

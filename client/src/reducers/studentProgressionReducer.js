@@ -112,7 +112,7 @@ function switchAgendaOrder(action, allSps){
   }
 
   myStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
-  myStudentProgressions = myStudentProgressions.filter(sp => sp.id != currStProgression.id)
+  myStudentProgressions = myStudentProgressions.filter(sp => sp.id !== currStProgression.id)
   myStudentProgressions.splice(action.newIndex, 0, currStProgression)
 
   const modifiedObj = {}

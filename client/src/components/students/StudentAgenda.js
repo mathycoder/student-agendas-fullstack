@@ -31,7 +31,7 @@ class StudentAgenda extends Component {
                 </Draggable>
                 )
           } else {
-            return (<div></div>)
+            return (<div key={index}></div>)
           }
 
 

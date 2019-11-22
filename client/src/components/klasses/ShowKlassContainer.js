@@ -4,8 +4,6 @@ import StudentsContainer from '../students/StudentsContainer'
 import StudentProgressionsContainer from '../progressions/StudentProgressionsContainer'
 import { connect } from 'react-redux'
 import { removeKlass } from '../../actions/klassActions'
-import { fetchProgressions } from '../../actions/progressionActions'
-import { fetchVideos } from '../../actions/videoActions'
 import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import '../students/student.css'
@@ -17,8 +15,6 @@ class ShowKlassContainer extends Component {
 
   componentDidMount(){
     const klassId = this.props.match.params.id
-    this.props.fetchProgressions()
-    this.props.fetchVideos()
     this.props.fetchStudents(klassId)
   }
 
@@ -85,6 +81,7 @@ class ShowKlassContainer extends Component {
         <div className="klass-show-container">
           <div className="klass-show-title">
             <h1>{klass.name}</h1>
+            <button>Edit Class</button>
             <button onClick={this.handleDeleteKlass}>Delete Class</button>
             <button onClick={this.handleAddStudent}>Add Student</button>
             {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
@@ -113,8 +110,6 @@ function mapDispatchToProps(dispatch){
     addStudentToKlass: (klass, student) => dispatch(addStudentToKlass(klass, student)),
     removeStudentFromKlass: (student) => dispatch(removeStudentFromKlass(student)),
     removeKlass: (klass) => dispatch(removeKlass(klass)),
-    fetchProgressions: () => dispatch(fetchProgressions()),
-    fetchVideos: () => dispatch(fetchVideos()),
     addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression))
   }
 }
