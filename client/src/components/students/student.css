@@ -50,11 +50,29 @@ div.student-agenda {
   height: 500px;
 }
 
+.search-filters {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(101, 104, 112);
+}
+
+.search-filters button {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.search-filters button.recent {
+  border: 3px solid yellow;
+  padding: 3px 8px;
+}
+
+.search-filters button:focus {
+  outline: none;
+}
+
 .student-show-progressions-color-choice {
   display: flex;
   padding-left: 12px;
-  background-color: rgb(101, 104, 112);
-  justify-content: flex-start;
 
 }
 
@@ -253,14 +271,14 @@ div.student-agenda {
 .student-show-progressions-container.index-page {
   width: 96%;
   height: auto;
-  grid-template-rows: 50px 40px 1fr;
+  grid-template-rows: 70px 50px 1fr;
   border: none;
   background-color: white;
 }
 
 
-.index-page .student-show-progressions-color-choice {
-  width: 528px;
+.index-page .search-filters  {
+  width: 540px;
   border: black solid 3px;
   border-top: none;
   margin: 0 auto;
@@ -282,6 +300,7 @@ div.student-agenda {
   border-bottom: none;
   width: 500px;
   margin: 0 auto;
+  padding-bottom: 30px;
 }
 
 .student-show-progressions-container.index-page .selected-color {

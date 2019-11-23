@@ -8,6 +8,7 @@ class IndexProgressionsContainer extends Component {
   state = {
     searchTerm: "",
     color: "",
+    recent: undefined,
     searchedProgressions: []
   }
 
@@ -26,6 +27,7 @@ class IndexProgressionsContainer extends Component {
     this.setState({
       searchTerm: event.target.value,
       color: "",
+      recent: undefined,
       searchedProgressions: this.filterer(event.target.value)
     })
   }
@@ -34,7 +36,26 @@ class IndexProgressionsContainer extends Component {
     this.setState({
       ...this.state,
       color: color,
+      recent: undefined,
       searchedProgressions: this.colorFilterer(color)
+    })
+  }
+
+  handleRecentClick = () => {
+    const { progressions } = this.props
+    const progressionCopy = [...progressions.allIds]
+    const sortedProgressions =  progressionCopy.sort((a,b) => {
+      const progA = progressions.byId[a]
+      const progB = progressions.byId[b]
+      if (progA.updated_at > progB.updated_at) { return -1 }
+      else if (progA.updated_at < progB.updated_at) { return 1 }
+      else {return 0 }
+    })
+    this.setState({
+      ...this.state,
+      color: '',
+      recent: true,
+      searchedProgressions: sortedProgressions
     })
   }
 
@@ -103,8 +124,16 @@ class IndexProgressionsContainer extends Component {
             </form>
           </div>
         </div>
-        <div className="student-show-progressions-color-choice">
-          {this.displayColors()}
+        <div className="search-filters">
+          <div className="student-show-progressions-color-choice">
+            {this.displayColors()}
+          </div>
+          <div>
+            <button
+              onClick={this.handleRecentClick}
+              className={this.state.recent ? 'recent': ''}
+              >Most Recent</button>
+          </div>
         </div>
         <div className="student-show-progressions-index">
           {this.state.searchedProgressions.map((progressionId, index) => {

@@ -2,14 +2,15 @@ class ProgressionsController < ApplicationController
 
   def index
     @progressions = Progression.all
-    render json: @progressions.to_json(only: [:id, :name, :color], include: [videos: { only: [:id, :progression_index]}])
+
+    render json: @progressions.to_json(only: [:id, :name, :color, :updated_at], include: [videos: { only: [:id, :progression_index]}])
   end
 
   def create
     if !params[:student_id]
       @progression = Progression.new(progression_params)
       if @progression.save
-        render json: @progression.to_json(only: [:id, :name, :color], include: [:videos]), status: 201
+        render json: @progression.to_json(only: [:id, :name, :color, :updated_at], include: [:videos]), status: 201
       else
         render json: @progression.errors.full_messages, status: 422
       end
@@ -36,7 +37,7 @@ class ProgressionsController < ApplicationController
     if !params[:student_id]
       @progression = Progression.find_by(id: params[:id])
       if @progression.update(progression_params)
-        render json: @progression.to_json(only: [:id, :name, :color], include: [:videos]), status: 201
+        render json: @progression.to_json(only: [:id, :name, :color, :updated_at], include: [:videos]), status: 201
       else
         render json: @progression.errors.full_messages, status: 422
       end
