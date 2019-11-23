@@ -7,10 +7,12 @@ class NavBar extends Component{
     super(props)
     this.myRef = React.createRef()
     this.klassDropdownRef = React.createRef()
+    this.progressionDropdownRef = React.createRef()
   }
 
   state = {
-    klassDropdown: false
+    klassDropdown: false,
+    progressionDropdown: false
   }
 
   componentDidMount(){
@@ -24,10 +26,11 @@ class NavBar extends Component{
   handleClick = (e) => {
     if (this.state.klassDropdown){
       if (this.myRef.current.contains(e.target) || this.klassDropdownRef.current.contains(e.target)) { return }
-      this.setState({
-        ...this.state,
-        klassDropdown: !this.state.klassDropdown
-      })
+      this.handleKlassDropdownClick()
+    }
+    if (this.state.progressionDropdown){
+      if (this.myRef.current.contains(e.target) || this.progressionDropdownRef.current.contains(e.target)) { return }
+      this.handleProgressionDropdownClick()
     }
   }
 
@@ -38,21 +41,55 @@ class NavBar extends Component{
     })
   }
 
+  handleProgressionDropdownClick = () => {
+    this.setState({
+      ...this.state,
+      progressionDropdown: !this.state.progressionDropdown
+    })
+  }
+
   renderKlassDropdown = () => {
     const { klasses } = this.props
     return (
-      <div className="klass-dropdown-menu" ref={this.myRef}>
-        {klasses.allIds.map(klassId => {
+      <div className="dropdown-menu klass-dropdown" ref={this.myRef}>
+        {klasses.allIds.map((klassId, index) => {
           const klass = klasses.byId[klassId]
           return (
             <NavLink
               to={`/classes/${klass.id}`}
               onClick={this.handleKlassDropdownClick}
+              key={index}
               >
               Class {klass.name}
             </NavLink>
             )
         })}
+        <NavLink
+          to={`/classes/new`}
+          onClick={this.handleKlassDropdownClick}
+          >
+          Create A New Class
+        </NavLink>
+      </div>
+    )
+  }
+
+  renderProgressionDropdown = () => {
+    const { progressions } = this.props
+    return (
+      <div className="dropdown-menu progression-dropdown" ref={this.myRef}>
+        <NavLink
+          to={`/progressions/new`}
+          onClick={this.handleProgressionDropdownClick}
+          >
+          Create New
+        </NavLink>
+        <NavLink
+          to={`/progressions`}
+          onClick={this.handleProgressionDropdownClick}
+          >
+          All Progressions
+        </NavLink>
       </div>
     )
   }
@@ -65,11 +102,15 @@ class NavBar extends Component{
           <div className="klass-dropdown" ref={this.klassDropdownRef} onClick={this.handleKlassDropdownClick}>
             Classes
           </div>
+          <div className="klass-dropdown" ref={this.progressionDropdownRef} onClick={this.handleProgressionDropdownClick}>
+            Progressions
+          </div>
           <NavLink to="/progressions/new">New Progression</NavLink>
           <NavLink to="/progressions">All Progressions</NavLink>
         </div>
         <div className="navbar-dropdowns">
           {this.state.klassDropdown ? this.renderKlassDropdown() : ''}
+          {this.state.progressionDropdown ? this.renderProgressionDropdown() : ''}
         </div>
       </div>
     )

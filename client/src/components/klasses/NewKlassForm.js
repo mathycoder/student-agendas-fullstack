@@ -20,6 +20,7 @@ class KlassesContainer extends Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.addKlass(this.state)
+    debugger
   }
 
   render() {

@@ -14,3 +14,36 @@
 .klass-show-tile button {
   height: 20px;
 }
+
+.klass-index-page {
+  padding: 20px;
+}
+
+.klass-rows {
+  background-color: rgb(240, 240, 240);
+  width: 320px;
+  padding: 10px;
+  border: 2px solid gray;
+  border-radius: 15px;
+}
+
+.klass-row {
+  display: grid;
+  grid-template-columns: 100px 90px 90px;
+}
+
+.klass-row div {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.klass-row div button {
+
+
+}
+
+.klass-row div:first-child {
+  font-weight: bold;
+  padding-top: 5px;
+
+}

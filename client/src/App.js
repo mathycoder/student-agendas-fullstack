@@ -25,7 +25,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <NavBar klasses={this.props.klasses}/>
+            <NavBar klasses={this.props.klasses} progressions={this.props.progressions}/>
           </header>
           <main>
             <Route exact path="/" component={Home} />
@@ -49,7 +49,8 @@ function mapDispatchToProps(dispatch){
 
 function mapStateToProps(state){
   return {
-    klasses: state.klasses
+    klasses: state.klasses,
+    progressions: state.progressions
   }
 }
 
