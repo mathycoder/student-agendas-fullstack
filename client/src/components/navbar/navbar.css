@@ -25,13 +25,14 @@
 }
 
 .dropdown-menu {
+  padding: 0px;
   position: absolute;
   z-index: 10;
   background-color: #f9f9f9;
   width: 200px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  box-shadow: 2px 3px 3px #888, -2px 3px 3px lightgray;
+  box-shadow: 2px 3px 3px lightgray, -2px 3px 3px lightgray;
   display: flex;
   flex-direction: column;
 }
@@ -45,7 +46,8 @@
 }
 
 .dropdown-menu a {
-  padding: 10px 15px;
+  margin: 0;
+  padding: 12px 15px;
   font-weight: 400;
   font-size: 18px;
   text-decoration: none;

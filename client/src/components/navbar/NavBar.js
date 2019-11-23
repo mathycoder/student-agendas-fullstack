@@ -68,7 +68,7 @@ class NavBar extends Component{
           to={`/classes/new`}
           onClick={this.handleKlassDropdownClick}
           >
-          Create A New Class
+          Create New
         </NavLink>
       </div>
     )

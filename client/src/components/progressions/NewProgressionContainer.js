@@ -29,7 +29,8 @@ class NewProgressionContainer extends Component {
         ...this.state,
         currProgression: [...progressionVideos],
         name: progression.name,
-        id: progression.id
+        id: progression.id,
+        color: progression.color
       })
 
     }
