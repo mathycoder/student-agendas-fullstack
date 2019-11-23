@@ -77,7 +77,6 @@ class NavBar extends Component{
   }
 
   renderProgressionDropdown = () => {
-    const { progressions } = this.props
     const { progressionDropdown } = this.state
     return (
       <div className={`dropdown-menu progression-dropdown ${progressionDropdown ? 'opened' : 'closed'}`} ref={this.myRefProgressionButton}>
@@ -101,7 +100,7 @@ class NavBar extends Component{
     return (
       <div>
         <div className="navbar">
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/classes">Home</NavLink>
           <div className="klass-dropdown" ref={this.klassDropdownRef} onClick={this.handleKlassDropdownClick}>
             Classes
           </div>

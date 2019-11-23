@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addKlass } from '../../actions/klassActions'
+import { NavLink } from 'react-router-dom';
 
 class KlassesIndex extends Component {
 
@@ -12,7 +13,11 @@ class KlassesIndex extends Component {
           const klass = klasses.byId[klassId]
           return (
             <div key={index} className="klass-row">
-              <div>Class {klass.name}</div>
+              <div>
+                <NavLink to={`/classes/${klass.id}`}>
+                  Class {klass.name}
+                </NavLink>
+              </div>
               <div><button>Edit</button></div>
               <div><button>Delete</button></div>
             </div>
@@ -23,10 +28,27 @@ class KlassesIndex extends Component {
     )
   }
 
+  displayColors = () => {
+    return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
+      return (
+        <div
+          key={index}
+          className={`select-color ${color}-title`}>
+        </div>
+      )
+    })
+  }
+
   render(){
     return (
-      <div className="klass-index-page">
-        {this.renderKlasses()}
+      <div className="klass-index-container">
+        <div className="klass-index-title">
+          <div>Student Agendas</div>
+          <div>{this.displayColors()}</div>
+        </div>
+        <div className="klass-index-klasses">
+          {this.renderKlasses()}
+        </div>
       </div>
     )
   }

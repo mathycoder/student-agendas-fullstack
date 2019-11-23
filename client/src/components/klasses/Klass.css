@@ -15,35 +15,70 @@
   height: 20px;
 }
 
-.klass-index-page {
-  padding: 20px;
+.klass-index-container{
+
+  margin: 0 auto;
+  margin-top: 100px;
+  display: grid;
+  grid-template-rows: 80px 300px;
+  border: 3px rgb(41, 44, 52) solid;
+  width: 400px;
+  background-color: rgb(81, 84, 92);
+}
+
+.klass-index-title {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: rgb(101, 104, 112);
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  justify-content: center;
+}
+
+.klass-index-title div {
+  display: flex;
+  align-items: center;
+}
+
+.klass-index-title div div:first-child {
+  margin-left: 20px;
 }
 
 .klass-rows {
-  background-color: rgb(240, 240, 240);
-  width: 320px;
-  padding: 10px;
-  border: 2px solid gray;
-  border-radius: 15px;
+  padding: 20px;
+  color: white;
+
 }
 
 .klass-row {
   display: grid;
-  grid-template-columns: 100px 90px 90px;
+  grid-template-columns: 200px 60px 60px;
 }
 
 .klass-row div {
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
-.klass-row div button {
-
-
-}
 
 .klass-row div:first-child {
   font-weight: bold;
-  padding-top: 5px;
+  padding-top: 3px;
+  margin-left: 30px;
+  font-size: 18px;
 
+}
+
+.klass-row a {
+  text-decoration: none;
+  color: white;
+}
+
+.klass-row a:hover {
+  color: lightgray;
+}
+
+.klass-row button {
+  padding: 2px 8px;
 }
