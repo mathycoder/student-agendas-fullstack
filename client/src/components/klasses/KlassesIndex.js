@@ -7,28 +7,46 @@ import NewKlassForm from './NewKlassForm'
 class KlassesIndex extends Component {
 
   state = {
-    klassForm: false
+    klassForm: false,
+    editForm: false,
+    klId: ''
+  }
+
+  handleEditKlassClick = (id) => {
+    this.setState({
+      ...this.state,
+      editForm: true,
+      klId: `klass${id}`
+    })
   }
 
   renderKlasses = () => {
     const { klasses } = this.props
+    const { editForm, klId } = this.state
     return (
       <div className="klass-rows">
         {klasses.allIds.map((klassId, index) => {
           const klass = klasses.byId[klassId]
-          return (
-            <div key={index} className="klass-row">
-              <div>
-                <NavLink to={`/classes/${klass.id}`}>Class {klass.name}</NavLink>
+          if (editForm && klId === klassId){
+            return (
+              <NewKlassForm klass={klass} handleSubmitAddKlass={this.handleSubmitAddKlass}/>
+            )
+          } else {
+            return (
+              <div key={index} className="klass-row">
+                <div>
+                  <NavLink to={`/classes/${klass.id}`}>Class {klass.name}</NavLink>
+                </div>
+                <div>
+                  <button onClick={e => this.handleEditKlassClick(klass.id)}>Edit</button>
+                </div>
+                <div>
+                  <button onClick={e => this.handleDeleteKlassClick(klass.id)}>Delete</button>
+                </div>
               </div>
-              <div>
-                <button>Edit</button>
-              </div>
-              <div>
-                <button onClick={e => this.handleDeleteKlassClick(klass.id)}>Delete</button>
-              </div>
-            </div>
-          )
+            )
+          }
+
         })}
         {this.state.klassForm ? <NewKlassForm handleSubmitAddKlass={this.handleSubmitAddKlass}/> : ''}
       </div>
@@ -55,10 +73,14 @@ class KlassesIndex extends Component {
 
   handleSubmitAddKlass = (event, klass) => {
     event.preventDefault()
-    this.props.addKlass(klass)
+    if (!klass.klass.id){
+      this.props.addKlass(klass)
+    }
     this.setState({
       ...this.state,
-      klassForm: false
+      klassForm: false,
+      editForm: false,
+      klId: ''
     })
   }
 

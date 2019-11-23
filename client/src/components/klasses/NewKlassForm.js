@@ -1,9 +1,22 @@
 import React, { Component } from 'react'
 
-class KlassesContainer extends Component {
+class NewKlassForm extends Component {
   state = {
     klass: {
+      id: undefined,
       name: ""
+    }
+  }
+
+  componentDidMount(){
+    const { klass } = this.props
+    if (klass){
+      this.setState({
+        klass: {
+          id: klass.id,
+          name: klass.name
+        }
+      })
     }
   }
 
@@ -21,12 +34,12 @@ class KlassesContainer extends Component {
     return (
       <div>
         <form onSubmit={e => this.props.handleSubmitAddKlass(e, this.state)}>
-          <input
+          Class <input
             type="text"
             value={this.state.klass.name}
             onChange={this.handleNameChange}
-            placeholder="Enter a Class Name"/>
-          <input type="submit" value="Add Class" />
+            placeholder="Enter Name"/>
+          <input type="submit" value={this.state.klass.id ? 'Edit Class' : 'Add Class'} />
         </form>
       </div>
     )
@@ -34,4 +47,4 @@ class KlassesContainer extends Component {
 
 }
 
-export default KlassesContainer
+export default NewKlassForm
