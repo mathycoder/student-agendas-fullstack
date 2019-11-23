@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CreateStudentForm from '../students/CreateStudentForm'
 import StudentsContainer from '../students/StudentsContainer'
-import StudentProgressionsContainer from '../progressions/StudentProgressionsContainer'
+import IndexProgressionsContainer from '../progressions/IndexProgressionsContainer'
 import { connect } from 'react-redux'
 import { removeKlass } from '../../actions/klassActions'
 import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
@@ -95,7 +95,7 @@ class ShowKlassContainer extends Component {
             handleDragLeave={this.handleDragLeave}
             handleDragDrop={this.handleDragDrop}
             removeStudentFromKlass={removeStudentFromKlass} />
-          <StudentProgressionsContainer handleDragStart={this.handleDragStart}/>
+          <IndexProgressionsContainer handleDragStart={this.handleDragStart}/>
         </div>
       )
     } else {

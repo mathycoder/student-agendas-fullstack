@@ -230,6 +230,7 @@
 
 .progression-menu-bar ul li:hover {
   background-color: gray;
+  cursor: pointer;
 }
 
 .progression-menu-bar a {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import StudentAgendaProgression from '../progressions/StudentAgendaProgression'
+import StudentAgendaProgression from './StudentAgendaProgression'
 import { Draggable } from 'react-beautiful-dnd'
 
 class StudentAgenda extends Component {

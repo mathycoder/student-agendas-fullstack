@@ -303,16 +303,10 @@ div.student-agenda {
 .index-page .student-show-progression {
   grid-template-rows: 0px 0px 100px;
   border-radius: 30px;
-  /* opacity: 0.999;
-  border: 1px black dashed;
-  display: grid;
+}
 
-  margin-bottom: 15px;
-  padding: 8px;
-  padding-left: 0px;
-  padding-right: 10px;
-  border-radius: 20px;
-  width: min-content; */
+.index-page .student-show-progression:hover {
+  cursor: pointer;
 }
 
 
