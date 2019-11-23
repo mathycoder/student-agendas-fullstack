@@ -105,8 +105,6 @@ class NavBar extends Component{
           <div className="klass-dropdown" ref={this.progressionDropdownRef} onClick={this.handleProgressionDropdownClick}>
             Progressions
           </div>
-          <NavLink to="/progressions/new">New Progression</NavLink>
-          <NavLink to="/progressions">All Progressions</NavLink>
         </div>
         <div className="navbar-dropdowns">
           {this.state.klassDropdown ? this.renderKlassDropdown() : ''}

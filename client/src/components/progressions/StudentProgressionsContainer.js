@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import StudentProgression from './StudentProgression'
+import IndexProgression from './IndexProgression'
 import { deleteProgression } from '../../actions/progressionActions'
 import { connect } from 'react-redux'
 
@@ -66,10 +67,10 @@ class StudentProgressionsContainer extends Component {
   }
 
   render(){
-    const { progressions, videos, handleDragStart } = this.props
+    const { progressions, videos, handleDragStart, indexPage, deleteProgression, history } = this.props
 
     return (
-      <div className="student-show-progressions-container">
+      <div className={`student-show-progressions-container ${indexPage ? 'index-page' : ''}`}>
         <div className="student-show-progressions-header">
           <div>Progressions</div>
           <div>
@@ -86,17 +87,27 @@ class StudentProgressionsContainer extends Component {
             </form>
           </div>
         </div>
-        <div className="student-show-progresisons-color-choice">
+        <div className="student-show-progressions-color-choice">
           {this.displayColors()}
         </div>
         <div className="student-show-progressions-index">
           {this.state.searchedProgressions.map((progressionId, index) => {
             const progression = progressions.byId[progressionId]
-            return <StudentProgression
-                      key={index}
-                      handleDragStart={handleDragStart}
-                      progression={progression}
-                      videos={videos}/>
+            if (!indexPage) {
+              return <StudentProgression
+                        key={index}
+                        handleDragStart={handleDragStart}
+                        progression={progression}
+                        videos={videos}/>
+            } else {
+              return <IndexProgression
+                        key={index}
+                        progression={progression}
+                        deleteProgression={deleteProgression}
+                        history={history}
+                        videos={videos}/>
+            }
+
           })}
         </div>
       </div>
