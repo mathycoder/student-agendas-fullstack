@@ -18,6 +18,10 @@ class IndexProgressionsContainer extends Component {
     })
   }
 
+  componentDidUpdate(){
+    console.log(this.props.progressions)
+  }
+
   handleChange = (event) => {
     this.setState({
       searchTerm: event.target.value,
@@ -36,7 +40,7 @@ class IndexProgressionsContainer extends Component {
 
   filterer = (query) => {
     const { progressions } = this.props
-    return progressions.allIds.filter(progId => {
+    return this.alphabeticalProgressions().filter(progId => {
       const prog = progressions.byId[progId]
       return prog.name.toLowerCase().includes(query.toLowerCase())
     })
@@ -44,7 +48,7 @@ class IndexProgressionsContainer extends Component {
 
   colorFilterer = (color) => {
     const { progressions } = this.props
-    return progressions.allIds.filter(progId => {
+    return this.alphabeticalProgressions().filter(progId => {
       const prog = progressions.byId[progId]
       return prog.color === color
     })
@@ -52,7 +56,8 @@ class IndexProgressionsContainer extends Component {
 
   alphabeticalProgressions = () => {
     const { progressions } = this.props
-    return progressions.allIds.sort((a,b) => {
+    const allIdsCopy = [...progressions.allIds]
+    return allIdsCopy.sort((a,b) => {
       const progA = progressions.byId[a]
       const progB = progressions.byId[b]
       if (progA.name > progB.name) { return 1 }
