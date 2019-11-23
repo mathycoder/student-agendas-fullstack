@@ -5,7 +5,8 @@ import './navbar.css'
 class NavBar extends Component{
   constructor(props){
     super(props)
-    this.myRef = React.createRef()
+    this.myRefKlassButton = React.createRef()
+    this.myRefProgressionButton = React.createRef()
     this.klassDropdownRef = React.createRef()
     this.progressionDropdownRef = React.createRef()
   }
@@ -25,11 +26,11 @@ class NavBar extends Component{
 
   handleClick = (e) => {
     if (this.state.klassDropdown){
-      if (this.myRef.current.contains(e.target) || this.klassDropdownRef.current.contains(e.target)) { return }
+      if (this.myRefKlassButton.current.contains(e.target) || this.klassDropdownRef.current.contains(e.target)) { return }
       this.handleKlassDropdownClick()
     }
     if (this.state.progressionDropdown){
-      if (this.myRef.current.contains(e.target) || this.progressionDropdownRef.current.contains(e.target)) { return }
+      if (this.myRefProgressionButton.current.contains(e.target) || this.progressionDropdownRef.current.contains(e.target)) { return }
       this.handleProgressionDropdownClick()
     }
   }
@@ -50,8 +51,9 @@ class NavBar extends Component{
 
   renderKlassDropdown = () => {
     const { klasses } = this.props
+    const { klassDropdown } = this.state
     return (
-      <div className="dropdown-menu klass-dropdown" ref={this.myRef}>
+      <div className={`dropdown-menu klass-dropdown ${klassDropdown ? 'opened': 'closed'}`} ref={this.myRefKlassButton}>
         {klasses.allIds.map((klassId, index) => {
           const klass = klasses.byId[klassId]
           return (
@@ -76,8 +78,9 @@ class NavBar extends Component{
 
   renderProgressionDropdown = () => {
     const { progressions } = this.props
+    const { progressionDropdown } = this.state
     return (
-      <div className="dropdown-menu progression-dropdown" ref={this.myRef}>
+      <div className={`dropdown-menu progression-dropdown ${progressionDropdown ? 'opened' : 'closed'}`} ref={this.myRefProgressionButton}>
         <NavLink
           to={`/progressions/new`}
           onClick={this.handleProgressionDropdownClick}
@@ -107,8 +110,8 @@ class NavBar extends Component{
           </div>
         </div>
         <div className="navbar-dropdowns">
-          {this.state.klassDropdown ? this.renderKlassDropdown() : ''}
-          {this.state.progressionDropdown ? this.renderProgressionDropdown() : ''}
+          {this.renderKlassDropdown()}
+          {this.renderProgressionDropdown()}
         </div>
       </div>
     )

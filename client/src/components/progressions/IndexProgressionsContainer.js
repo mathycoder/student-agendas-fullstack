@@ -19,10 +19,6 @@ class IndexProgressionsContainer extends Component {
     })
   }
 
-  componentDidUpdate(){
-    console.log(this.props.progressions)
-  }
-
   handleChange = (event) => {
     this.setState({
       searchTerm: event.target.value,
