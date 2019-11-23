@@ -329,13 +329,13 @@ div.student-agenda {
 }
 
 .index-page .student-progression-index-wrapper {
-  width: 540px;
+  width: 520px;
 }
 
 .index-page .student-show-progression {
   grid-template-rows: 0px 0px 100px;
   border-radius: 30px;
-  margin-right: 50px;
+
 }
 
 .index-page .student-show-progression:hover {
@@ -353,11 +353,10 @@ div.student-agenda {
 
 
 
-.student-show-progression-items {
+.index-page .student-show-progression-items {
   display: flex;
-  width: min-content;
-  max-width: 500px;
-  overflow: scroll;
+  max-width: 450px;
+
   padding-left: 6px;
   padding-right: 6px;
 }

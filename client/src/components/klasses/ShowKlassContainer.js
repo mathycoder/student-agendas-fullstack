@@ -3,7 +3,6 @@ import CreateStudentForm from '../students/CreateStudentForm'
 import StudentsContainer from '../students/StudentsContainer'
 import IndexProgressionsContainer from '../progressions/IndexProgressionsContainer'
 import { connect } from 'react-redux'
-import { removeKlass } from '../../actions/klassActions'
 import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import '../students/student.css'
@@ -28,13 +27,6 @@ class ShowKlassContainer extends Component {
     const klassId = parseInt(match.params.id)
     addStudentToKlass(klassId, studentData)
     this.setState({...this.state, addingStudent: false})
-  }
-
-  handleDeleteKlass = (event) => {
-    const { match, removeKlass, history } = this.props
-    const klassId = parseInt(match.params.id)
-    removeKlass(klassId)
-    history.push('/classes');
   }
 
   handleDragOver = event => {
@@ -82,7 +74,6 @@ class ShowKlassContainer extends Component {
           <div className="klass-show-title">
             <h1>{klass.name}</h1>
             <button>Edit Class</button>
-            <button onClick={this.handleDeleteKlass}>Delete Class</button>
             <button onClick={this.handleAddStudent}>Add Student</button>
             {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           </div>
@@ -109,7 +100,6 @@ function mapDispatchToProps(dispatch){
     fetchStudents: (klassId) => dispatch(addStudents(klassId)),
     addStudentToKlass: (klass, student) => dispatch(addStudentToKlass(klass, student)),
     removeStudentFromKlass: (student) => dispatch(removeStudentFromKlass(student)),
-    removeKlass: (klass) => dispatch(removeKlass(klass)),
     addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression))
   }
 }

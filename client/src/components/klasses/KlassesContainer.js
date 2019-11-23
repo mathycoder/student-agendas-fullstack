@@ -2,21 +2,17 @@ import React, { Component } from 'react'
 import { Route, Switch } from "react-router-dom";
 import ShowKlassContainer from './ShowKlassContainer'
 import KlassesIndex from './KlassesIndex'
-import NewKlassForm from './NewKlassForm'
-import { connect } from 'react-redux'
-import { addKlass } from '../../actions/klassActions'
 import '../progressions/Progression.css'
 import './Klass.css'
 
 class KlassesContainer extends Component {
 
   render() {
-    const { match, addKlass } = this.props
+    const { match } = this.props
     return (
       <div>
         <Switch>
-          <Route exact path={`${match.url}`} component={KlassesIndex} />
-          <Route exact path={`${match.url}/new`} render={() => <NewKlassForm {...this.props} addKlass={addKlass} />} />
+          <Route exact path={`${match.url}`} render={() => <KlassesIndex {...this.props} />} />
           <Route exact path={`${match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} handleKlassClick={this.handleKlassClick} />} key={Math.random()} />
         </Switch>
       </div>
@@ -24,14 +20,4 @@ class KlassesContainer extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return {
-    addKlass: (klass) => dispatch(addKlass(klass))
-  }
-}
-
-function mapStateToProps(state){
-  return {klasses: state.klasses}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(KlassesContainer)
+export default KlassesContainer

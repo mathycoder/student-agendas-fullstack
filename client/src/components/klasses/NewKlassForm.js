@@ -17,22 +17,16 @@ class KlassesContainer extends Component {
     })
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
-    this.props.addKlass(this.state)
-    debugger
-  }
-
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={e => this.props.handleSubmitAddKlass(e, this.state)}>
           <input
             type="text"
             value={this.state.klass.name}
             onChange={this.handleNameChange}
             placeholder="Enter a Class Name"/>
-          <input type="submit" value="Create Class" />
+          <input type="submit" value="Add Class" />
         </form>
       </div>
     )

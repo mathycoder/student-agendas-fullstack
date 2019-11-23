@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addKlass } from '../../actions/klassActions'
+import { addKlass, removeKlass } from '../../actions/klassActions'
 import { NavLink } from 'react-router-dom';
+import NewKlassForm from './NewKlassForm'
 
 class KlassesIndex extends Component {
+
+  state = {
+    klassForm: false
+  }
 
   renderKlasses = () => {
     const { klasses } = this.props
@@ -14,16 +19,18 @@ class KlassesIndex extends Component {
           return (
             <div key={index} className="klass-row">
               <div>
-                <NavLink to={`/classes/${klass.id}`}>
-                  Class {klass.name}
-                </NavLink>
+                <NavLink to={`/classes/${klass.id}`}>Class {klass.name}</NavLink>
               </div>
-              <div><button>Edit</button></div>
-              <div><button>Delete</button></div>
+              <div>
+                <button>Edit</button>
+              </div>
+              <div>
+                <button onClick={e => this.handleDeleteKlassClick(klass.id)}>Delete</button>
+              </div>
             </div>
-
           )
         })}
+        {this.state.klassForm ? <NewKlassForm handleSubmitAddKlass={this.handleSubmitAddKlass}/> : ''}
       </div>
     )
   }
@@ -39,15 +46,42 @@ class KlassesIndex extends Component {
     })
   }
 
+  handleAddKlassClick = () => {
+    this.setState({
+      ...this.state,
+      klassForm: !this.state.klassForm
+    })
+  }
+
+  handleSubmitAddKlass = (event, klass) => {
+    event.preventDefault()
+    this.props.addKlass(klass)
+    this.setState({
+      ...this.state,
+      klassForm: false
+    })
+  }
+
+  handleDeleteKlassClick = (klassId) => {
+    this.props.removeKlass(klassId)
+  }
+
   render(){
     return (
-      <div className="klass-index-container">
-        <div className="klass-index-title">
-          <div>Student Agendas</div>
-          <div>{this.displayColors()}</div>
-        </div>
-        <div className="klass-index-klasses">
-          {this.renderKlasses()}
+      <div className="home-page-wrapper">
+        <div className="klass-index-container">
+          <div className="klass-index-title">
+            <div>Student Agendas</div>
+            <div>{this.displayColors()}</div>
+          </div>
+          <div className="klass-index-klasses">
+            {this.renderKlasses()}
+          </div>
+          <div className="klass-index-new-klass-button">
+            <button onClick={this.handleAddKlassClick}>
+                {this.state.klassForm ? 'Cancel' : 'Add Class'}
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -57,7 +91,8 @@ class KlassesIndex extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    addKlass: (klass) => dispatch(addKlass(klass))
+    addKlass: (klass) => dispatch(addKlass(klass)),
+    removeKlass: (klass) => dispatch(removeKlass(klass))
   }
 }
 

@@ -66,12 +66,6 @@ class NavBar extends Component{
             </NavLink>
             )
         })}
-        <NavLink
-          to={`/classes/new`}
-          onClick={this.handleKlassDropdownClick}
-          >
-          Create New
-        </NavLink>
       </div>
     )
   }
