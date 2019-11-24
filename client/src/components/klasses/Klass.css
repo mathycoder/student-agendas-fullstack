@@ -17,11 +17,30 @@
 
 /* ---------------------- klass index page ------------------------ */
 
+.home-page-wrapper {
+  display: flex;
+
+  /* background-image: url('/classroom5.png');
+  background-size: cover; */
+
+  /* background-image: url('/classroom12.png');
+  background-size: cover; */
+
+  background-image: url('/classroom2.png');
+  background-size: cover;
+
+  /* background-image: url('/classroom8.png');
+  background-size: cover;
+  background-repeat: no-repeat; */
+
+  height: 630px;
+  align-items: center;
+  justify-content: center;
+
+}
 
 .klass-index-container {
 
-  margin: 0 auto;
-  margin-top: 90px;
   display: grid;
   grid-template-rows: 100px auto 60px;
   border: 3px rgb(41, 44, 52) solid;
@@ -63,7 +82,7 @@
   display: grid;
   grid-template-columns: 200px 60px 60px;
 
-  max-height: 60px;
+  max-height: 65px;
   overflow-y: hidden;
   transition-property: max-height;
   transition-duration: 1s;
@@ -129,7 +148,7 @@
 }
 
 .slide-open {
-  max-height: 50px;
+  max-height: 55px;
 }
 
 .slide-close {

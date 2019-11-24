@@ -118,7 +118,7 @@ class KlassesIndex extends Component {
           deleteId: ''
         })
         this.props.removeKlass(klassId)
-      }, 500)
+      }, 800)
 
     }
   }
