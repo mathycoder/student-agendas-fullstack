@@ -9,7 +9,9 @@ import '../students/student.css'
 
 class ShowKlassContainer extends Component {
   state = {
-    addingStudent: false
+    addingStudent: false,
+    editingStudents: false,
+    showProgressions: false
   }
 
   componentDidMount(){
@@ -18,7 +20,15 @@ class ShowKlassContainer extends Component {
   }
 
   handleAddStudent = () => {
-    this.setState({...this.state, addingStudent: true})
+    this.setState({...this.state, addingStudent: !this.state.addingStudent})
+  }
+
+  handleEditingStudents = () => {
+    this.setState({...this.state, editingStudents: !this.state.editingStudents})
+  }
+
+  handleShowProgressions = () => {
+    this.setState({...this.state, showProgressions: !this.state.showProgressions})
   }
 
   handleStudentSubmit = (event, studentData) => {
@@ -64,8 +74,30 @@ class ShowKlassContainer extends Component {
     }
   }
 
+  renderStudents = () => {
+    const { students, studentProgressions, progressions, videos, match, removeStudentFromKlass } = this.props
+    return (
+      <StudentsContainer
+        students={students}
+        studentProgressions={studentProgressions}
+        progressions={progressions}
+        videos={videos}
+        handleDragOver={this.handleDragOver}
+        handleDragLeave={this.handleDragLeave}
+        handleDragDrop={this.handleDragDrop}
+        removeStudentFromKlass={removeStudentFromKlass} />
+    )
+  }
+
+  renderProgressions = () => {
+    return <IndexProgressionsContainer handleDragStart={this.handleDragStart}/>
+  }
+
+
+
   render(){
-    const { klasses, students, progressions, videos, match, addStudentToKlass, removeStudentFromKlass, studentProgressions } = this.props
+    const { klasses, addStudentToKlass, match } = this.props
+    const { editingStudents, showProgressions } = this.state
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
     const klass = klasses.byId[klassId]
     if (klass) {
@@ -73,20 +105,14 @@ class ShowKlassContainer extends Component {
         <div className="klass-show-container">
           <div className="klass-show-title">
             <h1>{klass.name}</h1>
-            <button>Edit Class</button>
             <button onClick={this.handleAddStudent}>Add Student</button>
+            <button onClick={this.handleEditingStudents}>Edit Students</button>
+            <button onClick={this.handleShowProgressions}>Add Progression</button>
             {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           </div>
-          <StudentsContainer
-            students={students}
-            studentProgressions={studentProgressions}
-            progressions={progressions}
-            videos={videos}
-            handleDragOver={this.handleDragOver}
-            handleDragLeave={this.handleDragLeave}
-            handleDragDrop={this.handleDragDrop}
-            removeStudentFromKlass={removeStudentFromKlass} />
-          <IndexProgressionsContainer handleDragStart={this.handleDragStart}/>
+          { editingStudents ? <div></div> : this.renderStudents() }
+          { !editingStudents && showProgressions ? this.renderProgressions() : <div></div> }
+
         </div>
       )
     } else {

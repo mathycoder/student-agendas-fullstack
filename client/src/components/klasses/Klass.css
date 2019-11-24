@@ -11,8 +11,8 @@
   align-items: center;
 }
 
-.klass-show-tile button {
-  height: 20px;
+.klass-show-title button:focus {
+  outline: none;
 }
 
 /* ---------------------- klass index page ------------------------ */
@@ -82,7 +82,7 @@
   display: grid;
   grid-template-columns: 200px 60px 60px;
 
-  max-height: 65px;
+  max-height: 60px;
   overflow-y: hidden;
   transition-property: max-height;
   transition-duration: 1s;
