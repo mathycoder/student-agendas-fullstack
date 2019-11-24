@@ -11,7 +11,8 @@ class ShowKlassContainer extends Component {
   state = {
     addingStudent: false,
     editingStudents: false,
-    showProgressions: false
+    showProgressions: true,
+    showProgressionsContainer: true
   }
 
   componentDidMount(){
@@ -28,7 +29,14 @@ class ShowKlassContainer extends Component {
   }
 
   handleShowProgressions = () => {
-    this.setState({...this.state, showProgressions: !this.state.showProgressions})
+    // this.setState({...this.state, showProgressions: !this.state.showProgressions})
+    // window.setTimeout(() => {
+    //   this.setState({...this.state, showProgressionsContainer: !this.state.showProgressionsContainer})
+    // }, 500)
+    this.setState({
+      ...this.state,
+      showProgressions: !this.state.showProgressions
+    })
   }
 
   handleStudentSubmit = (event, studentData) => {
@@ -85,6 +93,7 @@ class ShowKlassContainer extends Component {
         handleDragOver={this.handleDragOver}
         handleDragLeave={this.handleDragLeave}
         handleDragDrop={this.handleDragDrop}
+        showProgressions={this.state.showProgressions}
         removeStudentFromKlass={removeStudentFromKlass} />
     )
   }
@@ -93,11 +102,13 @@ class ShowKlassContainer extends Component {
     return <IndexProgressionsContainer handleDragStart={this.handleDragStart}/>
   }
 
-
+  progressionsButton = () => (
+    <button onClick={this.handleShowProgressions}>{this.state.showProgressions ? 'Hide Progressions' : 'Show Progressions'}</button>
+  )
 
   render(){
     const { klasses, addStudentToKlass, match } = this.props
-    const { editingStudents, showProgressions } = this.state
+    const { editingStudents, showProgressions, showProgressionsContainer } = this.state
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
     const klass = klasses.byId[klassId]
     if (klass) {
@@ -107,11 +118,11 @@ class ShowKlassContainer extends Component {
             <h1>{klass.name}</h1>
             <button onClick={this.handleAddStudent}>Add Student</button>
             <button onClick={this.handleEditingStudents}>Edit Students</button>
-            <button onClick={this.handleShowProgressions}>Add Progression</button>
+            { editingStudents ? '' : this.progressionsButton()}
             {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           </div>
           { editingStudents ? <div></div> : this.renderStudents() }
-          { !editingStudents && showProgressions ? this.renderProgressions() : <div></div> }
+          { !editingStudents && showProgressionsContainer ? this.renderProgressions() : <div></div> }
 
         </div>
       )

@@ -28,7 +28,7 @@ class App extends Component {
             <NavBar klasses={this.props.klasses} progressions={this.props.progressions}/>
           </header>
           <main>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={KlassesContainer} />
             <Route path="/progressions" component={ProgressionsContainer} />
             <Route path="/classes" component={KlassesContainer} />
           </main>

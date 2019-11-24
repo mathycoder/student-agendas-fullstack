@@ -1,11 +1,47 @@
+.klass-show-container {
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 3fr 2fr;
+}
 
+.klass-show-title {
+  grid-column: 1 / 3;
+  display: flex;
+  margin-left: 20px;
+  align-items: center;
+}
+
+.klass-show-title button:focus {
+  outline: none;
+}
 
 .student-agendas {
   padding: 0 20px;
   height: 530px;
-  width: 700px;
   overflow-y: scroll;
 }
+
+/* --------- when there's no progressions, agendas stretch here -------------- */
+.student-agendas.slide-width {
+  grid-column: 1 / 3;
+}
+
+.student-agendas .student-agenda {
+  width: 540px;
+}
+
+.student-agendas.slide-width .student-agenda {
+  width: 700px;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(.56, 1, .56, 1);
+}
+
+
+
+
+
+/* --------------------------------------------------------------------------- */
 
 .student-row {
   display: flex;
@@ -15,10 +51,11 @@
   margin-bottom: 20px;
 }
 
-.student-row div.student-name {
+.student-row .student-name {
   display: flex;
-  width: 150px;
-  font-size: 14px;
+  min-width: 120px;
+  max-width: 120px;
+  font-size: 12px;
 }
 
 .student-name .index-progression-x-out {
@@ -39,7 +76,7 @@ div.student-agenda {
   margin-left: 20px;
 }
 
-/* ------------------------------------------------------------------ */
+/* ---------------progressions container on show page------------------------------ */
 
 .student-show-progressions-container {
   display: grid;

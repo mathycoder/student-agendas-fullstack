@@ -39,7 +39,7 @@ class StudentContainer extends Component {
 
   render(){
     return (
-      <div className="student-agendas">
+      <div className={`student-agendas ${this.props.showProgressions ? '' :'slide-width'}`}>
         {this.props.students ? this.displayStudents() : ''}
       </div>
     )
