@@ -24,6 +24,23 @@ export function addKlass(klass){
   }
 }
 
+export function editKlass(klass){
+  return (dispatch) => {
+    dispatch({type: 'START_EDITING_KLASS_REQUEST', klass})
+    fetch(`/klasses/${klass.id}`, {
+      method: "PATCH",
+      body: JSON.stringify(klass),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(klass => {
+        dispatch({ type: 'EDIT_KLASS', klass })
+      })
+  }
+}
+
 export function removeKlass(klassId){
   return (dispatch) => {
     dispatch({type: 'START_REMOVING_KLASS_REQUEST'})

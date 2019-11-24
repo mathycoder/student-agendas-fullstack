@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addKlass, removeKlass } from '../../actions/klassActions'
+import { addKlass, removeKlass, editKlass } from '../../actions/klassActions'
 import { NavLink } from 'react-router-dom';
 import NewKlassForm from './NewKlassForm'
 
@@ -75,6 +75,8 @@ class KlassesIndex extends Component {
     event.preventDefault()
     if (!klass.klass.id){
       this.props.addKlass(klass)
+    } else {
+      this.props.editKlass(klass)
     }
     this.setState({
       ...this.state,
@@ -114,6 +116,7 @@ class KlassesIndex extends Component {
 function mapDispatchToProps(dispatch){
   return {
     addKlass: (klass) => dispatch(addKlass(klass)),
+    editKlass: (klass) => dispatch(editKlass(klass)),
     removeKlass: (klass) => dispatch(removeKlass(klass))
   }
 }

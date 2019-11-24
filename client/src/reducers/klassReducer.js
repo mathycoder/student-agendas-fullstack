@@ -37,6 +37,18 @@ function klassesById(state = {}, action) {
         [klassId]: action.klass
       }
 
+    case 'START_EDITING_KLASS_REQUEST':
+        return {
+          ...state
+        }
+
+    case 'EDIT_KLASS':
+      const { klass } = action
+      return {
+        ...state,
+        [`klass${klass.id}`]: klass
+      }
+
     case 'START_REMOVING_KLASS_REQUEST':
       return {
         ...state

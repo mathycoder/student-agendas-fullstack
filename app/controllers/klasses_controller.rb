@@ -14,6 +14,15 @@ class KlassesController < ApplicationController
     end
   end
 
+  def update
+    @klass = Klass.find_by(id: params[:klass][:id])
+    if @klass.update(klass_params)
+      render json: @klass, status: 201
+    else
+      render json: @klass.errors.full_messages, status: 422
+    end
+  end
+
   def show
     @klass = Klass.find_by(id: params[:id])
     render json: @klass
@@ -27,6 +36,6 @@ class KlassesController < ApplicationController
 
   private
     def klass_params
-      params.require(:klass).permit(:name)
+      params.require(:klass).permit(:name, :id)
     end
 end
