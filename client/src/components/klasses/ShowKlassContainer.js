@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CreateStudentForm from '../students/CreateStudentForm'
 import StudentsContainer from '../students/StudentsContainer'
 import IndexProgressionsContainer from '../progressions/IndexProgressionsContainer'
+import EditStudents from '../students/EditStudents'
 import { connect } from 'react-redux'
 import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
@@ -11,8 +12,7 @@ class ShowKlassContainer extends Component {
   state = {
     addingStudent: false,
     editingStudents: false,
-    showProgressions: true,
-    showProgressionsContainer: true
+    showProgressions: true
   }
 
   componentDidMount(){
@@ -29,10 +29,6 @@ class ShowKlassContainer extends Component {
   }
 
   handleShowProgressions = () => {
-    // this.setState({...this.state, showProgressions: !this.state.showProgressions})
-    // window.setTimeout(() => {
-    //   this.setState({...this.state, showProgressionsContainer: !this.state.showProgressionsContainer})
-    // }, 500)
     this.setState({
       ...this.state,
       showProgressions: !this.state.showProgressions
@@ -108,7 +104,7 @@ class ShowKlassContainer extends Component {
 
   render(){
     const { klasses, addStudentToKlass, match } = this.props
-    const { editingStudents, showProgressions, showProgressionsContainer } = this.state
+    const { editingStudents, showProgressions } = this.state
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
     const klass = klasses.byId[klassId]
     if (klass) {
@@ -121,8 +117,8 @@ class ShowKlassContainer extends Component {
             { editingStudents ? '' : this.progressionsButton()}
             {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           </div>
-          { editingStudents ? <div></div> : this.renderStudents() }
-          { !editingStudents && showProgressionsContainer ? this.renderProgressions() : <div></div> }
+          { editingStudents ? <EditStudents /> : this.renderStudents() }
+          { !editingStudents && showProgressions ? this.renderProgressions() : <div></div> }
 
         </div>
       )

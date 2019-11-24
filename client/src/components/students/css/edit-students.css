@@ -1,0 +1,25 @@
+.edit-students table {
+  margin: 20px;
+}
+
+.edit-students table tr {
+  height: 40px;
+}
+
+.edit-students table th {
+  text-align: left;
+}
+
+.edit-students table tr th, .edit-students table tr td {
+  width: 150px;
+}
+
+.edit-students table tr td:first-child, .edit-students table tr th:first-child {
+  width: 60px;
+}
+
+.edit-students table tr td:first-child div {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 15px;
+}
