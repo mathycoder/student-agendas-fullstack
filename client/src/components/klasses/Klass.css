@@ -36,7 +36,7 @@
 
 .klass-index-title {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 60px 20px;
   background-color: rgb(101, 104, 112);
   color: white;
   font-weight: bold;
@@ -57,12 +57,17 @@
 .klass-rows {
   padding: 20px;
   color: white;
-
 }
 
 .klass-row {
   display: grid;
   grid-template-columns: 200px 60px 60px;
+
+  max-height: 60px;
+  overflow-y: hidden;
+  transition-property: max-height;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(.56, 1, .56, 1);
 }
 
 .klass-row div {
@@ -113,6 +118,26 @@
   justify-content: space-around;
   font-size: 20px;
   font-weight: bolder;
+
+}
+
+.add-klass-form {
+  overflow-y: hidden;
+  transition-property: max-height;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(.56, 1, .56, 1);
+}
+
+.slide-open {
+  max-height: 50px;
+}
+
+.slide-close {
+  max-height: 0px;
+}
+
+.pause-transition {
+  transition-duration: 0.01s;
 }
 
 .klass-index-container form input[type=text]{

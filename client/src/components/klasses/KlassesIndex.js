@@ -9,7 +9,10 @@ class KlassesIndex extends Component {
   state = {
     klassForm: false,
     editForm: false,
-    klId: ''
+    klId: '',
+    pauseTransition: false,
+    deleteId: '',
+    deleteConfirm: false
   }
 
   handleEditKlassClick = (id) => {
@@ -22,7 +25,7 @@ class KlassesIndex extends Component {
 
   renderKlasses = () => {
     const { klasses } = this.props
-    const { editForm, klId } = this.state
+    const { editForm, klId, klassForm } = this.state
     return (
       <div className="klass-rows">
         {klasses.allIds.map((klassId, index) => {
@@ -33,7 +36,7 @@ class KlassesIndex extends Component {
             )
           } else {
             return (
-              <div key={index} className="klass-row">
+              <div key={index} className={`klass-row ${this.state.deleteConfirm && this.state.deleteId === klass.id ? 'slide-close' : ''}`}>
                 <div>
                   <NavLink to={`/classes/${klass.id}`}>Class {klass.name}</NavLink>
                 </div>
@@ -48,7 +51,10 @@ class KlassesIndex extends Component {
           }
 
         })}
-        {this.state.klassForm ? <NewKlassForm handleSubmitAddKlass={this.handleSubmitAddKlass}/> : ''}
+        <div className={`add-klass-form ${klassForm ? 'slide-open' : 'slide-close'} ${this.state.pauseTransition ? 'pause-transition' : ''}`}>
+          <NewKlassForm handleSubmitAddKlass={this.handleSubmitAddKlass}/>
+        </div>
+
       </div>
     )
   }
@@ -78,16 +84,43 @@ class KlassesIndex extends Component {
     } else {
       this.props.editKlass(klass)
     }
+
     this.setState({
       ...this.state,
       klassForm: false,
       editForm: false,
-      klId: ''
+      klId: '',
+      pauseTransition: true
     })
+
+    window.setTimeout(() => {
+      this.setState({
+        ...this.state,
+        pauseTransition: false
+      })
+    }, 500)
+
   }
 
   handleDeleteKlassClick = (klassId) => {
-    this.props.removeKlass(klassId)
+    const deleteKlass = window.confirm("Are you sure you want to delete this class?");
+    if (deleteKlass) {
+      this.setState({
+        ...this.state,
+        deleteConfirm: true,
+        deleteId: klassId
+      })
+
+      window.setTimeout(() => {
+        this.setState({
+          ...this.state,
+          deleteConfirm: false,
+          deleteId: ''
+        })
+        this.props.removeKlass(klassId)
+      }, 500)
+
+    }
   }
 
   render(){

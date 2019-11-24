@@ -9,7 +9,7 @@ export function fetchKlasses() {
 
 export function addKlass(klass){
   return (dispatch) => {
-    dispatch({type: 'START_ADDING_KLASS_REQUEST'})
+    dispatch({type: 'START_ADDING_KLASS_REQUEST', klass })
     fetch('/klasses', {
       method: "POST",
       body: JSON.stringify(klass),
