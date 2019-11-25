@@ -29,6 +29,23 @@ export function addStudentToKlass(klassId, studentData){
   }
 }
 
+export function editStudentInKlass(klassId, studentData){
+  return (dispatch) => {
+    dispatch({type: 'START_EDITING_STUDENT_IN_KLASS_REQUEST'})
+    fetch(`/klasses/${klassId}/students/${studentData.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(studentData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(student => {
+        dispatch({ type: 'EDIT_STUDENT_IN_KLASS', student })
+      })
+  }
+}
+
 export function removeStudentFromKlass(studentData){
   return (dispatch) => {
     dispatch({type: 'START_REMOVING_STUDENT_FROM_KLASS_REQUEST'})

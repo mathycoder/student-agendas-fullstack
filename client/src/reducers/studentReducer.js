@@ -37,6 +37,17 @@ function studentsById(state = {}, action) {
         [newStudentId]: action.student
       }
 
+    case 'START_EDITING_STUDENT_IN_KLASS_REQUEST':
+    return {
+      ...state
+    }
+
+    case 'EDIT_STUDENT_IN_KLASS':
+    return {
+      ...state,
+      [`student${action.student.id}`]: action.student
+    }
+
     case 'START_REMOVING_STUDENT_FROM_KLASS_REQUEST':
       return {
         ...state

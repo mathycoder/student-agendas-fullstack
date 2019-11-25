@@ -2,6 +2,10 @@
   margin: 20px;
 }
 
+.edit-students button:focus {
+  outline: none;
+}
+
 .edit-table {
   border: 1px solid black;
 }

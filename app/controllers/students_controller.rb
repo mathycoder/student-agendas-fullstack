@@ -14,6 +14,15 @@ class StudentsController < ApplicationController
     end
   end
 
+  def update
+    @student = Student.find_by(id: params[:id])
+    if @student.update(student_params)
+      render json: @student, status: 201
+    else
+      render json: @student.errors.full_messages, status: 422
+    end
+  end
+
   def destroy
     @student = Student.find_by(id: params[:id])
     @student.destroy
@@ -22,6 +31,6 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:firstName, :lastName, :progressionId)
+      params.require(:student).permit(:firstName, :lastName, :progressionId, :id)
     end
 end

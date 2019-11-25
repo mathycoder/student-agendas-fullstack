@@ -4,8 +4,21 @@ import './student.css'
 class CreateStudentForm extends Component {
 
   state = {
+    id: undefined,
     firstName: "",
     lastName: ""
+  }
+
+  componentDidMount(){
+    if (this.props.student){
+      const { student } = this.props
+      this.setState({
+        ...this.state,
+        id: student.id,
+        firstName: student.firstName,
+        lastName: student.lastName
+      })
+    }
   }
 
   handleFirstNameChange = (event) => {
@@ -45,7 +58,7 @@ class CreateStudentForm extends Component {
           <button onClick={event => handleStudentSubmit(event, this.state)}>Add to Class</button>
         </div>
         <div>
-          <button onClick={this.props.handleAddStudent}>Cancel</button>
+          <button onClick={this.props.handleCancelStudent}>Cancel</button>
         </div>
       </div>
     )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
+import { addStudentToKlass, removeStudentFromKlass, editStudentInKlass } from '../../actions/studentActions'
 import './css/edit-students.css'
 import CreateStudentForm from '../students/CreateStudentForm'
 
@@ -13,22 +13,39 @@ class EditStudents extends Component {
   }
 
   handleAddStudent = () => {
-    this.setState({...this.state, addingStudent: !this.state.addingStudent})
+    if (!this.state.editStudent){
+      this.setState({...this.state, addingStudent: !this.state.addingStudent})
+    }
+
+  }
+
+  handleCancelStudent = () => {
+    this.setState({
+      ...this.state,
+      addingStudent: false,
+      editStudent: false,
+      editId: ''
+    })
   }
 
   handleStudentSubmit = (event, studentData) => {
     event.preventDefault()
-    const { klass, addStudentToKlass } = this.props
-    addStudentToKlass(klass.id, studentData)
-    this.setState({...this.state, addingStudent: false})
+    const { klass, addStudentToKlass, editStudentInKlass } = this.props
+    if (!studentData.id){ addStudentToKlass(klass.id, studentData) }
+    else { editStudentInKlass(klass.id, studentData) }
+
+    this.setState({...this.state, addingStudent: false, editStudent: false, editId: '' })
   }
 
   handleEditClick = (student) => {
-    this.setState({
-      ...this.state,
-      editStudent: true,
-      editId: student.id
-    })
+    if (!this.state.addingStudent){
+      this.setState({
+        ...this.state,
+        editStudent: true,
+        editId: student.id
+      })
+    }
+
   }
 
   renderStudentRows = () => {
@@ -50,7 +67,7 @@ class EditStudents extends Component {
           </div>
         )
       } else {
-        return <CreateStudentForm handleAddStudent={this.handleAddStudent} handleStudentSubmit={this.handleStudentSubmit}/>
+        return <CreateStudentForm student={student} handleCancelStudent={this.handleCancelStudent} handleStudentSubmit={this.handleStudentSubmit}/>
       }
 
     })
@@ -68,7 +85,7 @@ class EditStudents extends Component {
             <div></div>
           </div>
           {this.renderStudentRows()}
-          {addingStudent ? <CreateStudentForm handleAddStudent={this.handleAddStudent} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
+          {addingStudent ? <CreateStudentForm handleCancelStudent={this.handleCancelStudent} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           <div className="add-student-button">
             <div>
               {addingStudent ? '' : <button onClick={this.handleAddStudent}>Add Student</button>}
@@ -83,7 +100,8 @@ class EditStudents extends Component {
 function mapDispatchToProps(dispatch){
   return {
     addStudentToKlass: (klass, student) => dispatch(addStudentToKlass(klass, student)),
-    removeStudentFromKlass: (student) => dispatch(removeStudentFromKlass(student))
+    removeStudentFromKlass: (student) => dispatch(removeStudentFromKlass(student)),
+    editStudentInKlass: (klass, student) => dispatch(editStudentInKlass(klass, student))
   }
 }
 
