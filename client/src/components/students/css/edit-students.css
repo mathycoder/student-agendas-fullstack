@@ -60,3 +60,33 @@
   grid-column: 5/7;
   text-align: center;
 }
+
+@media screen and (max-width: 680px) {
+  .edit-table {
+    width: 450px;
+  }
+
+  .edit-table > div, .edit-table form > div {
+    grid-template-columns: 80px 80px 80px 80px 50px 50px;
+    font-size: 12px;
+  }
+
+
+  .edit-table button {
+    padding: 2px 8px;
+    margin: 0px;
+    margin-top: -2px;
+    font-size: 12px;
+  }
+
+  .add-student-button {
+    grid-column: 5/7;
+    text-align: center;
+    width: 100px;
+  }
+
+  .student-form input[type=text] {
+    font-size: 12px;
+    width: 70px;
+  }
+}
