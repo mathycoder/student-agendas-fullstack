@@ -55,17 +55,12 @@ class EditStudents extends Component {
       if (student.id !== this.state.editId){
         return (
           <div key={index} className="edit-table-student-row">
-            <div>
-              <div
-                className="x-out"
-                onClick={e => this.props.removeStudentFromKlass(student)}
-                >x</div>
-            </div>
             <div>{student.firstName}</div>
             <div>{student.lastName}</div>
             <div>{student.username}</div>
             <div>{student.password}</div>
             <div><button onClick={e => this.handleEditClick(student)}>Edit</button></div>
+            <div><button onClick={e => this.props.removeStudentFromKlass(student)}>Delete</button></div>
           </div>
         )
       } else {
@@ -81,11 +76,11 @@ class EditStudents extends Component {
       <div className="edit-students">
         <div className="edit-table">
           <div className="edit-table-header">
-            <div></div>
             <div>First Name</div>
             <div>Last Name</div>
             <div>Username</div>
             <div>Password</div>
+            <div></div>
             <div></div>
           </div>
           {this.renderStudentRows()}
