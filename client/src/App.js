@@ -6,7 +6,6 @@ import { fetchKlasses } from './actions/klassActions'
 import { fetchProgressions } from './actions/progressionActions'
 import { fetchVideos } from './actions/videoActions'
 import NavBar from './components/navbar/NavBar'
-import Home from './Home'
 import { connect } from 'react-redux'
 import {
   BrowserRouter as Router,

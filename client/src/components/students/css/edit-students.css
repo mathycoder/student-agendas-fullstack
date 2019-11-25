@@ -16,7 +16,7 @@
 
 .edit-table > div, .edit-table form > div {
   display: grid;
-  grid-template-columns: 60px 120px 120px 120px 120px;
+  grid-template-columns: 60px 120px 120px 120px 120px 120px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 16px;

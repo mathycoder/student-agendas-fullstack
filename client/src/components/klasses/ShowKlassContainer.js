@@ -65,7 +65,7 @@ class ShowKlassContainer extends Component {
   }
 
   renderStudents = () => {
-    const { students, studentProgressions, progressions, videos, match } = this.props
+    const { students, studentProgressions, progressions, videos } = this.props
     return (
       <StudentsContainer
         students={students}
@@ -88,7 +88,7 @@ class ShowKlassContainer extends Component {
   )
 
   render(){
-    const { klasses, addStudentToKlass, match } = this.props
+    const { klasses, match } = this.props
     const { editingStudents, showProgressions } = this.state
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
     const klass = klasses.byId[klassId]

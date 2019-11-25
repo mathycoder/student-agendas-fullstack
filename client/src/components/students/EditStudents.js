@@ -63,11 +63,13 @@ class EditStudents extends Component {
             </div>
             <div>{student.firstName}</div>
             <div>{student.lastName}</div>
+            <div>{student.username}</div>
+            <div>{student.password}</div>
             <div><button onClick={e => this.handleEditClick(student)}>Edit</button></div>
           </div>
         )
       } else {
-        return <CreateStudentForm student={student} handleCancelStudent={this.handleCancelStudent} handleStudentSubmit={this.handleStudentSubmit}/>
+        return <CreateStudentForm key={index} student={student} handleCancelStudent={this.handleCancelStudent} handleStudentSubmit={this.handleStudentSubmit}/>
       }
 
     })
@@ -82,6 +84,8 @@ class EditStudents extends Component {
             <div></div>
             <div>First Name</div>
             <div>Last Name</div>
+            <div>Username</div>
+            <div>Password</div>
             <div></div>
           </div>
           {this.renderStudentRows()}
