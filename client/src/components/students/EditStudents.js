@@ -6,9 +6,10 @@ import CreateStudentForm from '../students/CreateStudentForm'
 
 
 class EditStudents extends Component {
-
   state = {
-    addingStudent: false
+    addingStudent: false,
+    editStudent: false,
+    editId: ''
   }
 
   handleAddStudent = () => {
@@ -27,21 +28,17 @@ class EditStudents extends Component {
     return students.allIds.map((studentId, index) => {
       const student = students.byId[studentId]
       return (
-        <tr key={index}>
-          <td>
+        <div key={index} className="edit-table-student-row">
+          <div>
             <div
               className="x-out"
               onClick={e => this.props.removeStudentFromKlass(student)}
               >x</div>
-          </td>
-          <td>{student.firstName}</td>
-          <td>{student.lastName}</td>
-          <td></td>
-          <td></td>
-          <td>
-            <button>Edit</button>
-          </td>
-        </tr>
+          </div>
+          <div>{student.firstName}</div>
+          <div>{student.lastName}</div>
+          <div><button>Edit</button></div>
+        </div>
       )
     })
   }
@@ -50,19 +47,16 @@ class EditStudents extends Component {
     const { addingStudent } = this.state
     return (
       <div className="edit-students">
-        <table>
-          <tbody>
-            <tr>
-              <th></th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-              <th>Password</th>
-            </tr>
-            {this.renderStudentRows()}
-          </tbody>
-        </table>
-        {addingStudent ? <CreateStudentForm handleAddStudent={this.handleAddStudent} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
+        <div className="edit-table">
+          <div className="edit-table-header">
+            <div></div>
+            <div>First Name</div>
+            <div>Last Name</div>
+            <div></div>
+          </div>
+          {this.renderStudentRows()}
+          {addingStudent ? <CreateStudentForm handleAddStudent={this.handleAddStudent} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
+        </div>
         <div className="add-student-button">
           {addingStudent ? '' : <button onClick={this.handleAddStudent}>Add Student</button>}
         </div>

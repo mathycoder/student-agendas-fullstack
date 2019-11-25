@@ -27,19 +27,26 @@ class CreateStudentForm extends Component {
     const { handleStudentSubmit } = this.props
     const { firstName, lastName } = this.state
     return (
-      <div className="new-student-form">
-        <form onSubmit={event => handleStudentSubmit(event, this.state)}>
+      <div className="edit-table-student-row student-form">
+        <div></div>
+        <div>
           <input type="text"
             placeholder="First Name"
             onChange={this.handleFirstNameChange}
             value={firstName} />
+        </div>
+        <div>
           <input type="text"
             placeholder="Last Name"
             onChange={this.handleLastNameChange}
             value={lastName} />
-          <input type="submit" value="Add to class" />
+        </div>
+        <div>
+          <button onClick={event => handleStudentSubmit(event, this.state)}>Add to Class</button>
+        </div>
+        <div>
           <button onClick={this.props.handleAddStudent}>Cancel</button>
-        </form>
+        </div>
       </div>
     )
   }
