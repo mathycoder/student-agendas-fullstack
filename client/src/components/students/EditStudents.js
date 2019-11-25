@@ -23,23 +23,36 @@ class EditStudents extends Component {
     this.setState({...this.state, addingStudent: false})
   }
 
+  handleEditClick = (student) => {
+    this.setState({
+      ...this.state,
+      editStudent: true,
+      editId: student.id
+    })
+  }
+
   renderStudentRows = () => {
     const { students } = this.props
     return students.allIds.map((studentId, index) => {
       const student = students.byId[studentId]
-      return (
-        <div key={index} className="edit-table-student-row">
-          <div>
-            <div
-              className="x-out"
-              onClick={e => this.props.removeStudentFromKlass(student)}
-              >x</div>
+      if (student.id !== this.state.editId){
+        return (
+          <div key={index} className="edit-table-student-row">
+            <div>
+              <div
+                className="x-out"
+                onClick={e => this.props.removeStudentFromKlass(student)}
+                >x</div>
+            </div>
+            <div>{student.firstName}</div>
+            <div>{student.lastName}</div>
+            <div><button onClick={e => this.handleEditClick(student)}>Edit</button></div>
           </div>
-          <div>{student.firstName}</div>
-          <div>{student.lastName}</div>
-          <div><button>Edit</button></div>
-        </div>
-      )
+        )
+      } else {
+        return <CreateStudentForm handleAddStudent={this.handleAddStudent} handleStudentSubmit={this.handleStudentSubmit}/>
+      }
+
     })
   }
 
@@ -56,9 +69,11 @@ class EditStudents extends Component {
           </div>
           {this.renderStudentRows()}
           {addingStudent ? <CreateStudentForm handleAddStudent={this.handleAddStudent} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
-        </div>
-        <div className="add-student-button">
-          {addingStudent ? '' : <button onClick={this.handleAddStudent}>Add Student</button>}
+          <div className="add-student-button">
+            <div>
+              {addingStudent ? '' : <button onClick={this.handleAddStudent}>Add Student</button>}
+            </div>
+          </div>
         </div>
       </div>
     )

@@ -39,5 +39,13 @@
   padding-left: 5px;
   margin-left: -7px;
   margin-top: -5px;
+}
 
+.add-student-button {
+  grid-column: 1 / 4;
+}
+
+.add-student-button button {
+  width: 140px;
+  margin-left: 80px;
 }
