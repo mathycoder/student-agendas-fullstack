@@ -16,7 +16,6 @@ class EditStudents extends Component {
     if (!this.state.editStudent){
       this.setState({...this.state, addingStudent: !this.state.addingStudent})
     }
-
   }
 
   handleCancelStudent = () => {
@@ -32,9 +31,11 @@ class EditStudents extends Component {
     event.preventDefault()
     const { klass, addStudentToKlass, editStudentInKlass } = this.props
     if (!studentData.id){ addStudentToKlass(klass.id, studentData) }
-    else { editStudentInKlass(klass.id, studentData) }
+    else {
+      editStudentInKlass(klass.id, studentData)
+      this.setState({...this.state, addingStudent: false, editStudent: false, editId: '' })
+    }
 
-    this.setState({...this.state, addingStudent: false, editStudent: false, editId: '' })
   }
 
   handleEditClick = (student) => {
@@ -54,7 +55,10 @@ class EditStudents extends Component {
       const student = students.byId[studentId]
       if (student.id !== this.state.editId){
         return (
-          <div key={index} className="edit-table-student-row">
+          <div
+            key={index}
+            className={`edit-table-student-row ${index % 2 === 0 ? 'even' : 'odd'}`}
+            >
             <div>{student.firstName}</div>
             <div>{student.lastName}</div>
             <div>{student.username}</div>
@@ -80,16 +84,12 @@ class EditStudents extends Component {
             <div>Last Name</div>
             <div>Username</div>
             <div>Password</div>
-            <div></div>
-            <div></div>
-          </div>
-          {this.renderStudentRows()}
-          {addingStudent ? <CreateStudentForm handleCancelStudent={this.handleCancelStudent} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
-          <div className="add-student-button">
-            <div>
+            <div className="add-student-button">
               {addingStudent ? '' : <button onClick={this.handleAddStudent}>Add Student</button>}
             </div>
           </div>
+          {addingStudent ? <CreateStudentForm handleCancelStudent={this.handleCancelStudent} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
+          {this.renderStudentRows()}
         </div>
       </div>
     )

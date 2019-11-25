@@ -77,7 +77,7 @@ function allStudents(state = [], action) {
 
     case 'ADD_STUDENT_TO_KLASS':
       const studentId = `student${action.student.id}`
-      return [...state, studentId]
+      return [studentId, ...state]
 
     case 'REMOVE_STUDENT_FROM_KLASS':
       const studentIdToDelete = `student${action.student.id}`

@@ -53,24 +53,45 @@ class CreateStudentForm extends Component {
     })
   }
 
+  handleLocalSubmit = (event) => {
+    event.preventDefault()
+    this.props.handleStudentSubmit(event, this.state)
+    this.setState({
+      ...this.state,
+      firstName: '',
+      lastName: ''
+    })
+
+  }
+
   renderUsernamePassword = () => {
-    const { username, password } = this.state
-    return (
-      < >
-        <div>
-          <input type="text"
-            placeholder="Username"
-            onChange={this.handleUsernameChange}
-            value={username} />
-        </div>
-        <div>
-          <input type="text"
-            placeholder="Password"
-            onChange={this.handlePasswordChange}
-            value={password} />
-        </div>
-      </>
-    )
+    const { username, password, id } = this.state
+    if (id){
+      return (
+        < >
+          <div>
+            <input type="text"
+              placeholder="Username"
+              onChange={this.handleUsernameChange}
+              value={username} />
+          </div>
+          <div>
+            <input type="text"
+              placeholder="Password"
+              onChange={this.handlePasswordChange}
+              value={password} />
+          </div>
+        </>
+      )
+    } else {
+      return (
+        < >
+          <div>XXXXXXX</div>
+          <div>XXXXXXX</div>
+        </>
+      )
+    }
+
   }
 
 
@@ -91,14 +112,14 @@ class CreateStudentForm extends Component {
             onChange={this.handleLastNameChange}
             value={lastName} />
         </div>
-        { id ? this.renderUsernamePassword() : ''}
+        {this.renderUsernamePassword()}
         <div>
-          <button onClick={event => handleStudentSubmit(event, this.state)}>
-            {id ? 'Submit' : 'Add to Class'}
+          <button onClick={event => this.handleLocalSubmit(event)}>
+            {id ? 'Save' : 'Add'}
           </button>
         </div>
         <div>
-          <button onClick={this.props.handleCancelStudent}>Cancel</button>
+          <button onClick={this.props.handleCancelStudent}>Close</button>
         </div>
       </div>
     )

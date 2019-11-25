@@ -1,5 +1,8 @@
+
+
 .edit-students {
   margin: 20px;
+  grid-column: 1 / 3;
 }
 
 .edit-students button:focus {
@@ -7,28 +10,39 @@
 }
 
 .edit-table {
+  margin: 0 auto;
   border: 1px solid black;
-  padding: 20px;
-}
-
-.edit-table div {
-
+  width: 640px;
 }
 
 .edit-table > div, .edit-table form > div {
   display: grid;
-  grid-template-columns: 120px 120px 120px 120px 80px 80px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  grid-template-columns: 120px 120px 120px 120px 70px 90px;
   font-size: 16px;
 }
 
 .edit-table-header div {
   font-weight: bolder;
+  background-color: rgb(101, 104, 112);
+  color: white;
+  padding: 15px;
 }
 
-.edit-table-student-row button {
+.edit-table-student-row div {
+  padding: 15px;
+}
+
+.edit-table-student-row.even {
+  background-color: rgb(225, 225, 225);
+}
+
+.edit-table-student-row.odd {
+  background-color: rgb(240, 240, 240);
+}
+
+.edit-table button {
   padding: 2px 8px;
+  margin: 0px;
   margin-top: -2px;
 }
 
@@ -43,10 +57,6 @@
 }
 
 .add-student-button {
-  grid-column: 1 / 4;
-}
-
-.add-student-button button {
-  width: 140px;
-  margin-left: 80px;
+  grid-column: 5/7;
+  text-align: center;
 }
