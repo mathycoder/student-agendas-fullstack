@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import CreateStudentForm from '../students/CreateStudentForm'
 import StudentsContainer from '../students/StudentsContainer'
 import IndexProgressionsContainer from '../progressions/IndexProgressionsContainer'
 import EditStudents from '../students/EditStudents'
 import { connect } from 'react-redux'
-import { addStudents, addStudentToKlass, removeStudentFromKlass } from '../../actions/studentActions'
+import { addStudents } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
   state = {
-    addingStudent: false,
     editingStudents: false,
     showProgressions: true
   }
@@ -18,10 +16,6 @@ class ShowKlassContainer extends Component {
   componentDidMount(){
     const klassId = this.props.match.params.id
     this.props.fetchStudents(klassId)
-  }
-
-  handleAddStudent = () => {
-    this.setState({...this.state, addingStudent: !this.state.addingStudent})
   }
 
   handleEditingStudents = () => {
@@ -33,14 +27,6 @@ class ShowKlassContainer extends Component {
       ...this.state,
       showProgressions: !this.state.showProgressions
     })
-  }
-
-  handleStudentSubmit = (event, studentData) => {
-    event.preventDefault()
-    const { match, addStudentToKlass } = this.props
-    const klassId = parseInt(match.params.id)
-    addStudentToKlass(klassId, studentData)
-    this.setState({...this.state, addingStudent: false})
   }
 
   handleDragOver = event => {
@@ -79,7 +65,7 @@ class ShowKlassContainer extends Component {
   }
 
   renderStudents = () => {
-    const { students, studentProgressions, progressions, videos, match, removeStudentFromKlass } = this.props
+    const { students, studentProgressions, progressions, videos, match } = this.props
     return (
       <StudentsContainer
         students={students}
@@ -89,8 +75,7 @@ class ShowKlassContainer extends Component {
         handleDragOver={this.handleDragOver}
         handleDragLeave={this.handleDragLeave}
         handleDragDrop={this.handleDragDrop}
-        showProgressions={this.state.showProgressions}
-        removeStudentFromKlass={removeStudentFromKlass} />
+        showProgressions={this.state.showProgressions} />
     )
   }
 
@@ -112,12 +97,12 @@ class ShowKlassContainer extends Component {
         <div className="klass-show-container">
           <div className="klass-show-title">
             <h1>{klass.name}</h1>
-            <button onClick={this.handleAddStudent}>Add Student</button>
-            <button onClick={this.handleEditingStudents}>Edit Students</button>
+            <button onClick={this.handleEditingStudents}>
+              { editingStudents ? 'Return to Class': 'Edit Students' }
+            </button>
             { editingStudents ? '' : this.progressionsButton()}
-            {this.state.addingStudent ? <CreateStudentForm addStudentToKlass={addStudentToKlass} handleStudentSubmit={this.handleStudentSubmit}/> : ''}
           </div>
-          { editingStudents ? <EditStudents /> : this.renderStudents() }
+          { editingStudents ? <EditStudents klass={klass} /> : this.renderStudents() }
           { !editingStudents && showProgressions ? this.renderProgressions() : <div></div> }
 
         </div>
@@ -131,8 +116,6 @@ class ShowKlassContainer extends Component {
 function mapDispatchToProps(dispatch){
   return {
     fetchStudents: (klassId) => dispatch(addStudents(klassId)),
-    addStudentToKlass: (klass, student) => dispatch(addStudentToKlass(klass, student)),
-    removeStudentFromKlass: (student) => dispatch(removeStudentFromKlass(student)),
     addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression))
   }
 }

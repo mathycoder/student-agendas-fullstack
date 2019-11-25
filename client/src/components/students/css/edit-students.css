@@ -11,15 +11,39 @@
 }
 
 .edit-students table tr th, .edit-students table tr td {
-  width: 150px;
+  min-width: 140px;
+  max-width: 140px;
 }
 
 .edit-students table tr td:first-child, .edit-students table tr th:first-child {
-  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
 }
 
 .edit-students table tr td:first-child div {
   display: inline-block;
   margin-left: 20px;
   margin-top: 15px;
+}
+
+.edit-students table tr button:focus {
+  outline: none;
+}
+
+.add-student-button {
+  margin-left: 90px;
+  margin-top: 10px;
+}
+
+.new-student-form {
+  margin-left: 80px;
+  margin-top: -20px;
+}
+
+.new-student-form input[type=text]{
+  font-size: 16px;
+  width: 113px;
+  padding: 3px 6px;
+  margin-right: 15px;
+
 }

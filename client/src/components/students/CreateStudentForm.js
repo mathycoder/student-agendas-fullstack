@@ -37,7 +37,8 @@ class CreateStudentForm extends Component {
             placeholder="Last Name"
             onChange={this.handleLastNameChange}
             value={lastName} />
-          <input type="submit" placeholder="Add to class" />
+          <input type="submit" value="Add to class" />
+          <button onClick={this.props.handleAddStudent}>Cancel</button>
         </form>
       </div>
     )
