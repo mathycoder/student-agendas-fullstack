@@ -4,6 +4,7 @@ import VimeoSearchContainer from '../videos/vimeo/VimeoSearchContainer'
 import NewProgressionMenuBar from './NewProgressionMenuBar'
 import NewProgression from './NewProgression'
 import DisplayPreview from '../videos/DisplayPreview'
+import NewReflection from '../reflections/NewReflection'
 import './Progression.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { connect } from 'react-redux'
@@ -170,11 +171,13 @@ class NewProgressionContainer extends Component {
             value={this.state.name}
             onChange={this.onNameInputChange}/>
         </div>
-        <div className="select-color red-title" onClick={event => this.handleColorClick("red")}></div>
-        <div className="select-color orange-title" onClick={event => this.handleColorClick("orange")}></div>
-        <div className="select-color green-title" onClick={event => this.handleColorClick("green")}></div>
-        <div className="select-color blue-title" onClick={event => this.handleColorClick("blue")}></div>
-        <div className="select-color purple-title" onClick={event => this.handleColorClick("purple")}></div>
+        <div className="color-container">
+          <div className="select-color red-title" onClick={event => this.handleColorClick("red")}></div>
+          <div className="select-color orange-title" onClick={event => this.handleColorClick("orange")}></div>
+          <div className="select-color green-title" onClick={event => this.handleColorClick("green")}></div>
+          <div className="select-color blue-title" onClick={event => this.handleColorClick("blue")}></div>
+          <div className="select-color purple-title" onClick={event => this.handleColorClick("purple")}></div>
+        </div>
         <input type="submit" value="save progression" />
       </form>
     )
@@ -219,6 +222,8 @@ class NewProgressionContainer extends Component {
         {this.state.menuSelect === "Edit Progression" && this.state.selectedIndex !== '' ? <DisplayPreview video={this.state.currProgression[this.state.selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
         {this.state.menuSelect === "Add YouTube Video" ? <VideoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
         {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
+        {this.state.menuSelect === "Add Reflection" ? <NewReflection addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
+
       </div>
     )
   }

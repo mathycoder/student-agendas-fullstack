@@ -1,12 +1,12 @@
 .loading {
+  align-self: center;
+  margin-top: 40px;
   height: 150px;
   width: 150px;
   background-image: url("/loading.png");
-  margin-top: 40px;
   background-size: contain;
   background-repeat: no-repeat;
   animation: rotation 3.5s infinite linear;
-  margin-left: 200px;
 }
 
 @keyframes rotation {
@@ -75,16 +75,27 @@
 
 
 .search-videos-container {
-  display: grid;
-  grid-template-columns: 700px 400px;
+  display: flex;
+  justify-content: center;
+  /* display: grid;
+  grid-template-columns: 3fr 2fr; */
 }
 
 .search-videos {
   display: flex;
   flex-wrap: wrap;
-  height: 360px;
+  height: 320px;
   overflow: scroll;
   margin-top: 10px;
+}
+
+.video-icon {
+  margin-top: 30px;
+}
+
+.video-icon img {
+  display: block;
+  margin: 0 auto;
 }
 
 .search-video {
@@ -119,14 +130,42 @@
 }
 
 .search-video-preview {
-  max-width: 500px;
   margin-top: 10px;
-}
-
-.shiftup {
-  margin-top: -50px;
+  width: 350px;
 }
 
 .search-video-preview h4, .search-video-preview h6  {
   display: inline;
+}
+
+
+
+@media screen and (max-width: 650px) {
+
+  .search-videos-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .search-videos {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 188px;
+    width: 490px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin-top: 10px;
+    margin-left: -20px;
+    padding-left: 10px;
+  }
+
+  .loading {
+    margin-bottom: 0px;
+    margin-top: 40px;
+  }
+
+  .search-video-preview {
+    margin-top: 30px;
+  }
+
 }

@@ -116,8 +116,8 @@ div.student-agenda {
 
 }
 
-.student-show-progresisons-color-choice div {
-  margin-left: 5px;
+.student-show-progressions-color-choice div {
+
 }
 
 .student-show-progressions-header {
@@ -201,7 +201,7 @@ div.student-agenda {
 .student-show-progression-item {
   width: 50px;
   min-width: 50px;
-  height: 40px;
+  height: 38px;
   border: 1px solid black;
   padding: 10px;
   border-radius: 15px;

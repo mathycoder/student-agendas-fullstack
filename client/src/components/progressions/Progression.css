@@ -7,7 +7,12 @@
 .create-progression-form {
   display: flex;
   align-items: center;
-  height: 100%;
+
+}
+
+
+.color-container {
+  display: flex;
 }
 
 .select-color {
@@ -318,4 +323,30 @@
 
 .index-progression-x-out:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+
+  .new-progression-container {
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 55px 170px 65px 350px;
+  }
+
+  .create-progression-form {
+    margin-left: -30px;
+  }
+
+  .color-container {
+    position: absolute;
+    left: 330px;
+    top: 50px;
+  }
+
+  .create-progression-form input[type=submit]{
+    margin-top: 15px;
+    padding: 3px 10px;
+  }
+
+
 }
