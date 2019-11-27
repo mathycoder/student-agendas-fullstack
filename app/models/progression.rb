@@ -1,5 +1,6 @@
 class Progression < ApplicationRecord
   has_many :videos
+  has_many :reflections
   has_many :student_progressions
   has_many :students, through: :student_progressions
   has_many :klasses, through: :students
