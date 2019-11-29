@@ -1,3 +1,3 @@
 class Reflection < ApplicationRecord
-  belongs_to :progression
+  belongs_to :item
 end

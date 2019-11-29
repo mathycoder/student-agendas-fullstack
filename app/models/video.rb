@@ -1,5 +1,5 @@
 class Video < ApplicationRecord
-  belongs_to :progression
+  belongs_to :item
 
   def self.vimeo_request(query)
     resp = Faraday.get("https://api.vimeo.com/videos") do |req|
