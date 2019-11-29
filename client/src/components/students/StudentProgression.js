@@ -10,7 +10,7 @@ const StudentProgression = (props) => {
         >
         <div className={`student-show-progression-title ${progression.color}-title`}>{progression.name}</div>
         <div className="student-show-progression-items">
-          {progression.videos.map((videoId, index) => {
+          {progression.items.map((videoId, index) => {
             if (videos.allIds.length > 0){
               const video = videos.byId[videoId]
               return (

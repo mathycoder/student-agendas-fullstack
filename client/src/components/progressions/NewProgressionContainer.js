@@ -95,12 +95,19 @@ class NewProgressionContainer extends Component {
     document.querySelector('.progression').classList.remove("drag-over-progression")
   }
 
-  addToProgression = (video) => {
-    const any = this.state.currProgression.find(vid => vid.videoId === video.videoId)
-    if (!any) {
+  addToProgression = (item) => {
+    if (item.videoId) {
+      const any = this.state.currProgression.find(vid => vid.videoId === item.videoId)
+      if (!any) {
+        this.setState({
+          ...this.state,
+          currProgression: [...this.state.currProgression, item]
+        })
+      }
+    } else {
       this.setState({
         ...this.state,
-        currProgression: [...this.state.currProgression, video]
+        currProgression: [...this.state.currProgression, item]
       })
     }
   }
