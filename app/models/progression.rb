@@ -10,9 +10,7 @@ class Progression < ApplicationRecord
   def items_attributes=(data_array)
     data_array.each_with_index do |video, index|
       item = Item.new
-      binding.pry
-      item.create_video(video)
-      item.save
+      item.build_video(video)
       self.items << item
     end
   end
