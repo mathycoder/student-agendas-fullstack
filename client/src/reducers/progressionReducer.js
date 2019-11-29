@@ -18,10 +18,14 @@ function progressionsById(state = {}, action) {
     case 'ADD_PROGRESSIONS':
       const normalizedObject = {}
       action.progressions.forEach(progression => {
-        progression.videos = progression.videos.sort((a,b) => {
+        progression.items = progression.items.sort((a,b) => {
           return a.progression_index - b.progression_index
         })
-        progression.videos = progression.videos.map(video => `video${video.id}`)
+        progression.items = progression.items.map(item => {
+          if (item.video){
+            return `video${item.video.id}`
+          }
+        })
         normalizedObject[`progression${progression.id}`] = progression
       })
 

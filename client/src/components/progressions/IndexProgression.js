@@ -9,7 +9,7 @@ const IndexProgression = (props) => {
           <div className={`student-show-progression-title ${progression.color}-title`}>{progression.name}</div>
           <div className="index-progression-x-out" onClick={(event) => props.deleteProgression(progression)}>x</div>
           <div className="student-show-progression-items" onClick={(event) => {props.history.push(`/progressions/${progression.id}`)}}>
-            {progression.videos.map((videoId, index) => {
+            {progression.items.map((videoId, index) => {
               if (videos.allIds.length > 0){
                 const video = videos.byId[videoId]
                 return (
