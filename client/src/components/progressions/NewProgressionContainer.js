@@ -43,7 +43,6 @@ class NewProgressionContainer extends Component {
 
   componentDidUpdate(){
     this.loadProgressionIntoState()
-    console.log(this.state.currProgression)
   }
 
   onNameInputChange = event => {
@@ -55,6 +54,7 @@ class NewProgressionContainer extends Component {
   }
 
   handleFormSubmit = (event) => {
+    const { addProgression, editProgression, history } = this.props
     event.preventDefault()
     const progression = {
       progression: {
@@ -65,11 +65,11 @@ class NewProgressionContainer extends Component {
       }
     }
     if (!this.state.id) {
-      this.props.addProgression(progression)
-      this.props.history.push('/progressions');
+      addProgression(progression, history)
+      // history.push('/progressions');
     } else {
-      this.props.editProgression(progression)
-      this.props.history.push('/progressions');
+      editProgression(progression)
+      history.push('/progressions');
     }
   }
 
@@ -100,8 +100,7 @@ class NewProgressionContainer extends Component {
     if (!any) {
       this.setState({
         ...this.state,
-        currProgression: [...this.state.currProgression, video],
-        draggedItem: {...this.state.draggedItem}
+        currProgression: [...this.state.currProgression, video]
       })
     }
   }
@@ -192,39 +191,54 @@ class NewProgressionContainer extends Component {
     })
   }
 
-  render(){
+  renderProgressionTemplate = () => {
     return (
-      <div className="new-progression-container">
-        {this.renderForm()}
-        <DragDropContext
-          onDragEnd={this.handleDNDDragEnd}
-          onDragStart={this.handleDNDDragStart}
-          >
-          <Droppable droppableId="droppable-1" direction="horizontal">
-            {(provided) => (
-              <NewProgression
-                placeholder={provided.placeholder}
-                color={this.state.color}
-                innerRef={provided.innerRef}
-                {...provided.droppableProps}
-                removeFromProgression={this.removeFromProgression}
-                currProgression={this.state.currProgression}
-                handleProgressionItemClick={this.handleProgressionItemClick}
-                handleDragOver={this.handleDragOver}
-                handleDragLeave={this.handleDragLeave}
-                handleOnDrop={this.handleOnDrop} >
-                  {provided.placeholder}
-              </NewProgression>
-            )}
-          </Droppable>
-        </DragDropContext>
+      <DragDropContext
+        onDragEnd={this.handleDNDDragEnd}
+        onDragStart={this.handleDNDDragStart}
+        >
+        <Droppable droppableId="droppable-1" direction="horizontal">
+          {(provided) => (
+            <NewProgression
+              placeholder={provided.placeholder}
+              color={this.state.color}
+              innerRef={provided.innerRef}
+              {...provided.droppableProps}
+              removeFromProgression={this.removeFromProgression}
+              currProgression={this.state.currProgression}
+              handleProgressionItemClick={this.handleProgressionItemClick}
+              handleDragOver={this.handleDragOver}
+              handleDragLeave={this.handleDragLeave}
+              handleOnDrop={this.handleOnDrop} >
+                {provided.placeholder}
+            </NewProgression>
+          )}
+        </Droppable>
+      </DragDropContext>
+    )
+  }
 
+  renderAddingItemsTemplate = () => {
+    return (
+      <div>
         <NewProgressionMenuBar handleMenuClick={this.handleMenuClick} menuSelect={this.state.menuSelect} progressionEmpty={this.progressionEmpty}/>
         {this.state.menuSelect === "Edit Progression" && this.state.selectedIndex !== '' ? <DisplayPreview video={this.state.currProgression[this.state.selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
         {this.state.menuSelect === "Add YouTube Video" ? <VideoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
         {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
         {this.state.menuSelect === "Add Reflection" ? <NewReflection addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
+      </div>
+    )
+  }
 
+
+
+  render(){
+    const {id} = this.state
+    return (
+      <div className="new-progression-container">
+        {this.renderForm()}
+        {this.renderProgressionTemplate()}
+        {this.renderAddingItemsTemplate()}
       </div>
     )
   }
@@ -239,7 +253,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    addProgression: (progression) => dispatch(addProgression(progression)),
+    addProgression: (progression, history) => dispatch(addProgression(progression, history)),
     editProgression: (progression) => dispatch(editProgression(progression))
   }
 }

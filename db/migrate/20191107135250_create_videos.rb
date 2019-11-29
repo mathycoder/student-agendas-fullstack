@@ -9,8 +9,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :channelTitle
       t.string :videoId
       t.string :url
-      t.integer :progression_id
-      t.integer :progression_index
+      t.integer :item_id
       t.timestamps
     end
   end

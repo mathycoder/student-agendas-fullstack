@@ -7,7 +7,7 @@ export function fetchProgressions() {
   }
 }
 
-export function addProgression(progression) {
+export function addProgression(progression, history) {
   return (dispatch) => {
     dispatch({type: 'START_ADDING_PROGRESSION_REQUEST'})
     fetch(`/progressions`, {
@@ -20,6 +20,7 @@ export function addProgression(progression) {
       .then(resp => resp.json())
       .then(progression => {
         dispatch({ type: 'ADD_PROGRESSION', progression })
+        history.push(`/progressions/${progression.id}`);
       })
 
   }
