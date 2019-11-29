@@ -40,10 +40,15 @@ function progressionsById(state = {}, action) {
 
     case 'ADD_PROGRESSION':
       const newProgression = {...action.progression}
-      newProgression.videos = newProgression.videos.sort((a,b) => {
+
+      newProgression.items = newProgression.items.sort((a,b) => {
         return a.progression_index - b.progression_index
       })
-      newProgression.videos = newProgression.videos.map(video => `video${video.id}`)
+      newProgression.items = newProgression.items.map(item => {
+        if (item.video){
+          return `video${item.video.id}`
+        }
+      })
       const progressionId = `progression${newProgression.id}`
       return {
         ...state,

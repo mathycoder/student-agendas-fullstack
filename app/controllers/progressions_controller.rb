@@ -12,7 +12,8 @@ class ProgressionsController < ApplicationController
     if !params[:student_id]
       @progression = Progression.new(progression_params)
       if @progression.save
-        render json: @progression.to_json(only: [:id, :name, :color, :updated_at], include: [:videos]), status: 201
+        #render json: @progression.to_json(only: [:id, :name, :color, :updated_at], include: [:videos]), status: 201
+        render json: @progression.to_json(include: [items: { include: [:video]}])
       else
         render json: @progression.errors.full_messages, status: 422
       end

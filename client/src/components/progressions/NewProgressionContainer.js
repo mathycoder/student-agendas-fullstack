@@ -24,7 +24,7 @@ class NewProgressionContainer extends Component {
     const progId = this.props.match.params.id
     if (progId && progId !== "new" && !this.state.id && this.props.videos.allIds.length > 0 && this.props.progressions.allIds.length > 0) {
       const progression = this.props.progressions.byId[`progression${progId}`]
-      const progressionVideos = progression.videos.map(vidId => this.props.videos.byId[vidId])
+      const progressionVideos = progression.items.map(vidId => this.props.videos.byId[vidId])
 
       this.setState({
         ...this.state,
