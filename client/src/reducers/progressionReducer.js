@@ -60,10 +60,14 @@ function progressionsById(state = {}, action) {
 
     case 'EDIT_PROGRESSION':
       const editedProgression = {...action.progression}
-      editedProgression.videos = editedProgression.videos.sort((a,b) => {
+      editedProgression.items = editedProgression.items.sort((a,b) => {
         return a.progression_index - b.progression_index
       })
-      editedProgression.videos = editedProgression.videos.map(video => `video${video.id}`)
+      editedProgression.items = editedProgression.items.map(item => {
+        if (item.video){
+          return `video${item.video.id}`
+        }
+      })
       const progId = `progression${editedProgression.id}`
 
 
