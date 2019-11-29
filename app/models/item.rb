@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
   belongs_to :progression
-  belongs_to :video
-  belongs_to :reflection
+  has_one :video
+  has_one :reflection
 end

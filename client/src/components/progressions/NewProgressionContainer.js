@@ -61,7 +61,7 @@ class NewProgressionContainer extends Component {
         id: this.state.id,
         name: this.state.name,
         color: this.state.color,
-        videos_attributes: [...this.state.currProgression]
+        items_attributes: [...this.state.currProgression]
       }
     }
     if (!this.state.id) {

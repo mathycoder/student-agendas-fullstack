@@ -63,6 +63,6 @@ class ProgressionsController < ApplicationController
 
   private
   def progression_params
-    params.require(:progression).permit(:name, :id, :color, :newIndex, :videos_attributes => [:id, :progression_id, :url, :title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
+    params.require(:progression).permit(:name, :id, :color, :newIndex, :items_attributes => [:id, :progression_id, :url, :title, :videoId, :channelTitle, :date, :description, :thumbnailUrl])
   end
 end

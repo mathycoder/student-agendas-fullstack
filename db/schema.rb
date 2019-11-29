@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 2019_11_29_133809) do
   create_table "items", force: :cascade do |t|
     t.integer "progression_index"
     t.integer "progression_id"
-    t.integer "video_id"
-    t.integer "reflection_id"
   end
 
   create_table "klasses", force: :cascade do |t|
