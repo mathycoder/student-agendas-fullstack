@@ -112,13 +112,40 @@ class NewProgressionContainer extends Component {
     }
   }
 
-  handleProgressionItemClick = index => {
+  editReflectionItem = (item) => {
+    const editedProgression = [...this.state.currProgression]
+    editedProgression[this.state.selectedIndex] = item
     this.setState({
       ...this.state,
-      currProgression: [...this.state.currProgression],
+      currProgression: editedProgression,
+      menuSelect: ''
+    })
+  }
+
+  handleProgressionItemClick = index => {
+    const { currProgression } = this.state
+    this.setState({
+      ...this.state,
+      currProgression: [...currProgression],
       selectedIndex: index,
       menuSelect: "Edit Progression"
     })
+    // if (currProgression[index].videoId) {
+    //   this.setState({
+    //     ...this.state,
+    //     currProgression: [...currProgression],
+    //     selectedIndex: index,
+    //     menuSelect: "Edit Progression"
+    //   })
+    // } else {
+    //   this.setState({
+    //     ...this.state,
+    //     currProgression: [...currProgression],
+    //     selectedIndex: index,
+    //     menuSelect: "Add Reflection"
+    //   })
+    // }
+
   }
 
   handleMenuClick = (event) => {
@@ -226,16 +253,21 @@ class NewProgressionContainer extends Component {
   }
 
   renderAddingItemsTemplate = () => {
+    const {selectedIndex, currProgression} = this.state
     return (
       <div>
         <NewProgressionMenuBar handleMenuClick={this.handleMenuClick} menuSelect={this.state.menuSelect} progressionEmpty={this.progressionEmpty}/>
-        {this.state.menuSelect === "Edit Progression" && this.state.selectedIndex !== '' ? <DisplayPreview video={this.state.currProgression[this.state.selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
+        {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].videoId ? <DisplayPreview video={currProgression[selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
+        {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].question1 ? <NewReflection reflection={currProgression[selectedIndex]} addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
+
         {this.state.menuSelect === "Add YouTube Video" ? <VideoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
         {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
-        {this.state.menuSelect === "Add Reflection" ? <NewReflection addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
+        {this.state.menuSelect === "Add Reflection" ? <NewReflection reflection='' addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
       </div>
     )
   }
+
+  // click on Reflection to edit just that one!
 
 
 
