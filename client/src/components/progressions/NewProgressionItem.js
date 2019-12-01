@@ -16,10 +16,10 @@ const NewProgressionItem = ({video, reflection, removeFromProgression, handlePro
     return (
       <div ref={node => innerRef(node)} className="progression-item-container">
         <div className="x-out" onClick={(event) => removeFromProgression(reflection)}>x</div>
-        <div className="progression-item" id={`item-${reflection.tempId}`} onClick={event => handleProgressionItemClick(index)}>
+        <div className="progression-item reflection-item" id={`item-${reflection.tempId}`} onClick={event => handleProgressionItemClick(index)}>
           <img width="180px" src="/paper-pencil.png" alt="learning reflection" />
-          <br/>
-          <div className="progression-item-title"></div>
+            <br/>
+            <div className="reflection-item-title">{reflection.title}</div>
         </div>
       </div>
     )

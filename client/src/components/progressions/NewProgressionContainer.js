@@ -267,10 +267,6 @@ class NewProgressionContainer extends Component {
     )
   }
 
-  // click on Reflection to edit just that one!
-
-
-
   render(){
     const {id} = this.state
     return (

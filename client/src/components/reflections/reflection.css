@@ -24,8 +24,19 @@
   display: inline-block;
   margin-top: 40px;
   margin-left: 60px;
+  /* font-weight: bold;
+  font-size: 22px; */
+}
+
+.paper-form-title-input{
   font-weight: bold;
-  font-size: 22px;
+  font-size: 18px;
+  width: 250px;
+  border: none;
+}
+
+.paper-form-title-input:focus{
+  outline: none;
 }
 
 
@@ -64,6 +75,34 @@
   padding: 5px 10px;
 }
 
+.progression-item.reflection-item {
+  width: 120px;
+  min-width: 120px;
+  padding: 8px 1px 5px 1px;
+}
+
+.progression-item.reflection-item.item-dragging {
+  border: 2px solid gray;
+  padding: 7px 0px 4px 0px;
+}
+
+
+.reflection-item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  height: 20px;
+  overflow: hidden;
+}
+
+
+.progression-item.reflection-item img {
+  margin-left: -4px;
+  height: 97px;
+  object-fit: contain;
+}
+
+
 
 
 @media screen and (max-width: 890px) {
@@ -80,15 +119,16 @@
   }
 
   .lined-paper .lined-paper-form .paper-form-title {
-    margin-top: 24px;
+    margin-top: 22px;
     margin-left: 50px;
     font-size: 20px;
   }
 
-  .lined-paper .lined-paper-form .paper-form-title {
-    font-size: 18px;
-    margin-left: 40px;
-    margin-top: 30px;
+  .paper-form-title-input{
+    font-weight: bold;
+    font-size: 16px;
+    width: 200px;
+    border: none;
   }
 
   .reflection-question textarea {
@@ -96,7 +136,7 @@
     height: 130px;
     max-height: 130px;
     margin-left: 50px;
-    margin-top: 8px;
+    margin-top: 5px;
     font-size: 15px;
     max-height: 150px;
   }
