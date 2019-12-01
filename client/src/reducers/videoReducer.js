@@ -38,14 +38,16 @@ function videosById(state = {}, action) {
       }
 
     case 'EDIT_PROGRESSION':
-      const newNormalizedObj = {}
-      action.progression.items.forEach(video => {
-        newNormalizedObj[`video${video.id}`] = video
+      const normObj = {}
+      action.progression.items.forEach(item => {
+        if (item.video) {
+          normObj[`video${item.video.id}`] = item.video
+        }
       })
 
       return {
         ...state,
-        ...allVideos
+        ...normObj
       }
 
     default:
@@ -71,10 +73,17 @@ function allVideos(state = [], action) {
       ]
 
     case 'EDIT_PROGRESSION':
+      const editedItemsWithVideos = action.progression.items.filter(item => item.video)
 
       return [
-        ...state, ...action.progression.items.map(video => `video${video.id}`)
+        ...state, ...editedItemsWithVideos.map(item => `video${item.video.id}`)
       ]
+
+    // case 'EDIT_PROGRESSION':
+    //
+    //   return [
+    //     ...state, ...action.progression.items.map(video => `video${video.id}`)
+    //   ]
 
     default:
       return state

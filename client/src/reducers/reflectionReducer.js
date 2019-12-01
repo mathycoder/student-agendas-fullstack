@@ -36,6 +36,20 @@ function reflectionsById(state = {}, action) {
         ...normalizedObj
       }
 
+    case 'EDIT_PROGRESSION':
+      const normObj = {}
+      action.progression.items.forEach(item => {
+        if (item.reflection) {
+          normObj[`reflection${item.reflection.id}`] = item.reflection
+        }
+
+      })
+
+      return {
+        ...state,
+        ...normObj
+      }
+
     default:
       return state
   }
@@ -55,6 +69,13 @@ function allReflections(state = [], action) {
 
       return [
         ...state, ...newItemsWithReflections.map(item => `reflection${item.reflection.id}`)
+      ]
+
+    case 'EDIT_PROGRESSION':
+      const editedItemsWithReflections = action.progression.items.filter(item => item.reflection)
+
+      return [
+        ...state, ...editedItemsWithReflections.map(item => `reflection${item.reflection.id}`)
       ]
 
     default:
