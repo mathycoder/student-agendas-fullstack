@@ -9,10 +9,16 @@ class Progression < ApplicationRecord
 
   def items_attributes=(data_array)
     self.items.destroy_all
-    data_array.each_with_index do |video, index|
+    data_array.each_with_index do |attributes, index|
       item = Item.new
-      new_video = Video.find_or_create_by(video)
-      item.video = new_video
+      if attributes[:videoId]
+        new_video = Video.find_or_create_by(attributes)
+        item.video = new_video
+      else
+        binding.pry
+        new_reflection = Reflection.create(attributes)
+        item.reflection = new_reflection
+      end
       item.progression_index = index
       self.items << item
     end

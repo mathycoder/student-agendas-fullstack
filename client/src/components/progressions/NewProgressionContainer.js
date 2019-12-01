@@ -43,7 +43,6 @@ class NewProgressionContainer extends Component {
 
   componentDidUpdate(){
     this.loadProgressionIntoState()
-    console.log(this.state.selectedIndex)
   }
 
   onNameInputChange = event => {

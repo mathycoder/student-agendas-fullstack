@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_133809) do
 
   create_table "reflections", force: :cascade do |t|
     t.string "question1"
+    t.string "title"
     t.integer "item_id"
   end
 
