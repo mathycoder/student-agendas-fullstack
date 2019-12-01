@@ -19,6 +19,10 @@ class App extends Component {
     this.props.fetchVideos()
   }
 
+  componentDidUpdate(){
+    console.log(this.props.progressions)
+  }
+
   render() {
     return (
       <Router>

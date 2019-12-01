@@ -24,6 +24,8 @@ function progressionsById(state = {}, action) {
         progression.items = progression.items.map(item => {
           if (item.video){
             return `video${item.video.id}`
+          } else if (item.reflection) {
+            return `reflection${item.reflection.id}`
           }
         })
         normalizedObject[`progression${progression.id}`] = progression
@@ -47,6 +49,8 @@ function progressionsById(state = {}, action) {
       newProgression.items = newProgression.items.map(item => {
         if (item.video){
           return `video${item.video.id}`
+        } else if (item.reflection) {
+          return `reflection${item.reflection.id}`
         }
       })
       const progressionId = `progression${newProgression.id}`
@@ -66,6 +70,8 @@ function progressionsById(state = {}, action) {
       editedProgression.items = editedProgression.items.map(item => {
         if (item.video){
           return `video${item.video.id}`
+        } else if (item.reflection) {
+          return `reflection${item.reflection.id}`
         }
       })
       const progId = `progression${editedProgression.id}`

@@ -4,7 +4,7 @@ class ProgressionsController < ApplicationController
     @progressions = Progression.all
 
     #render json: @progressions.to_json(only: [:id, :name, :color, :updated_at], include: [videos: { only: [:id, :progression_index]}])
-    render json: @progressions.to_json(include: [items: { include: [:video]}])
+    render json: @progressions.to_json(include: [items: { include: [:video, :reflection]}])
 
   end
 
