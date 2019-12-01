@@ -65,13 +65,14 @@ class ShowKlassContainer extends Component {
   }
 
   renderStudents = () => {
-    const { students, studentProgressions, progressions, videos } = this.props
+    const { students, studentProgressions, progressions, videos, reflections } = this.props
     return (
       <StudentsContainer
         students={students}
         studentProgressions={studentProgressions}
         progressions={progressions}
         videos={videos}
+        reflections={reflections}
         handleDragOver={this.handleDragOver}
         handleDragLeave={this.handleDragLeave}
         handleDragDrop={this.handleDragDrop}
@@ -126,7 +127,8 @@ function mapStateToProps(state){
     students: state.students,
     studentProgressions: state.studentProgressions,
     progressions: state.progressions,
-    videos: state.videos
+    videos: state.videos,
+    reflections: state.reflections
   }
 }
 

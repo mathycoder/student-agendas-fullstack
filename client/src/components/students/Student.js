@@ -27,7 +27,7 @@ class Student extends Component {
   }
 
   render(){
-    const { student, progressions, videos, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    const { student, progressions, videos, reflections, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return (
       <div className={`student-row`}>
         <div className="student-name">
@@ -46,6 +46,7 @@ class Student extends Component {
                 student={student}
                 progressions={progressions}
                 videos={videos}
+                reflections={reflections}
                 handleDragOver={handleDragOver}
                 handleDragLeave={handleDragLeave}
                 handleDragDrop={handleDragDrop}
