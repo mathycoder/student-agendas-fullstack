@@ -15,8 +15,7 @@ class Progression < ApplicationRecord
         new_video = Video.find_or_create_by(attributes)
         item.video = new_video
       else
-        binding.pry
-        new_reflection = Reflection.create(attributes)
+        new_reflection = Reflection.find_or_create_by(attributes)
         item.reflection = new_reflection
       end
       item.progression_index = index

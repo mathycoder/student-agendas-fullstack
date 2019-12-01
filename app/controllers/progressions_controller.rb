@@ -13,7 +13,7 @@ class ProgressionsController < ApplicationController
       @progression = Progression.new(progression_params)
       if @progression.save
         #render json: @progression.to_json(only: [:id, :name, :color, :updated_at], include: [:videos]), status: 201
-        render json: @progression.to_json(include: [items: { include: [:video]}])
+        render json: @progression.to_json(include: [items: { include: [:video, :reflection]}])
       else
         render json: @progression.errors.full_messages, status: 422
       end
@@ -41,7 +41,7 @@ class ProgressionsController < ApplicationController
       @progression = Progression.find_by(id: params[:id])
       if @progression.update(progression_params)
         #render json: @progression.to_json(only: [:id, :name, :color, :updated_at], include: [:videos]), status: 201
-        render json: @progression.to_json(include: [items: { include: [:video]}])
+        render json: @progression.to_json(include: [items: { include: [:video, :reflection]}])
       else
         render json: @progression.errors.full_messages, status: 422
       end
