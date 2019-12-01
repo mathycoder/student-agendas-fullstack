@@ -31,7 +31,8 @@ class NewProgression extends Component {
 
   renderReflectionDraggable = (reflection, index) => {
     const { removeFromProgression, handleProgressionItemClick } = this.props
-    const tempId = reflection.tempId
+    const tempId = reflection.tempId || `reflection${reflection.id}`
+
     return (
       <Draggable draggableId={tempId} index={index} key={tempId}>
         {(provided) => {

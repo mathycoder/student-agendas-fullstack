@@ -33,7 +33,7 @@ function allReflections(state = [], action) {
 
     case 'ADD_REFLECTIONS':
       return [
-        ...action.reflections.map(reflection => `reflection${reflection.id}`)
+        'reflectionFiller', ...action.reflections.map(reflection => `reflection${reflection.id}`)
       ]
 
     default:

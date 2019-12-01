@@ -22,13 +22,20 @@ class NewProgressionContainer extends Component {
 
   loadProgressionIntoState = () => {
     const progId = this.props.match.params.id
-    if (progId && progId !== "new" && !this.state.id && this.props.videos.allIds.length > 0 && this.props.progressions.allIds.length > 0) {
+    if (progId && progId !== "new" && !this.state.id && this.props.videos.allIds.length > 0 && this.props.reflections.allIds.length > 0 && this.props.progressions.allIds.length > 0) {
       const progression = this.props.progressions.byId[`progression${progId}`]
-      const progressionVideos = progression.items.map(vidId => this.props.videos.byId[vidId])
+      const progressionItems = progression.items.map(videoOrReflectionId => {
+        if (videoOrReflectionId.includes("video")) {
+          return this.props.videos.byId[videoOrReflectionId]
+        } else if (videoOrReflectionId.includes("reflection")) {
+          return this.props.reflections.byId[videoOrReflectionId]
+        }
+
+      })
 
       this.setState({
         ...this.state,
-        currProgression: [...progressionVideos],
+        currProgression: [...progressionItems],
         name: progression.name,
         id: progression.id,
         color: progression.color
@@ -131,22 +138,6 @@ class NewProgressionContainer extends Component {
       selectedIndex: index,
       menuSelect: "Edit Progression"
     })
-    // if (currProgression[index].videoId) {
-    //   this.setState({
-    //     ...this.state,
-    //     currProgression: [...currProgression],
-    //     selectedIndex: index,
-    //     menuSelect: "Edit Progression"
-    //   })
-    // } else {
-    //   this.setState({
-    //     ...this.state,
-    //     currProgression: [...currProgression],
-    //     selectedIndex: index,
-    //     menuSelect: "Add Reflection"
-    //   })
-    // }
-
   }
 
   handleMenuClick = (event) => {
@@ -283,7 +274,8 @@ class NewProgressionContainer extends Component {
 function mapStateToProps(state){
   return {
     progressions: state.progressions,
-    videos: state.videos
+    videos: state.videos,
+    reflections: state.reflections
   }
 }
 
