@@ -5,6 +5,7 @@ import KlassesContainer from './components/klasses/KlassesContainer'
 import { fetchKlasses } from './actions/klassActions'
 import { fetchProgressions } from './actions/progressionActions'
 import { fetchVideos } from './actions/videoActions'
+import { fetchReflections } from './actions/reflectionActions'
 import NavBar from './components/navbar/NavBar'
 import { connect } from 'react-redux'
 import {
@@ -17,10 +18,7 @@ class App extends Component {
     this.props.fetchKlasses()
     this.props.fetchProgressions()
     this.props.fetchVideos()
-  }
-
-  componentDidUpdate(){
-    console.log(this.props.progressions)
+    this.props.fetchReflections()
   }
 
   render() {
@@ -46,7 +44,8 @@ function mapDispatchToProps(dispatch){
   return {
     fetchKlasses: () => dispatch(fetchKlasses()),
     fetchProgressions: () => dispatch(fetchProgressions()),
-    fetchVideos: () => dispatch(fetchVideos())
+    fetchVideos: () => dispatch(fetchVideos()),
+    fetchReflections: () => dispatch(fetchReflections())
   }
 }
 

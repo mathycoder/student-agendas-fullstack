@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :progressions
   resources :videos
+  resources :reflections
   resources :klasses
 
   resources :klasses do
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
 
   resources :students do
     resources :progressions
-  end 
+  end
 
 end

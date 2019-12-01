@@ -10,6 +10,7 @@ import klassReducer from './reducers/klassReducer.js'
 import studentReducer from './reducers/studentReducer.js'
 import progressionReducer from './reducers/progressionReducer.js'
 import videoReducer from './reducers/videoReducer.js'
+import reflectionReducer from './reducers/reflectionReducer.js'
 import videoSearchReducer from './reducers/videoSearchReducer.js'
 import studentProgressionReducer from './reducers/studentProgressionReducer.js'
 import { combineReducers } from 'redux'
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   students: studentReducer,
   progressions: progressionReducer,
   videos: videoReducer,
+  reflections: reflectionReducer,
   videoSearch: videoSearchReducer,
   studentProgressions: studentProgressionReducer
 })
