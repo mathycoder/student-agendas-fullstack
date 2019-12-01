@@ -100,7 +100,7 @@ class IndexProgressionsContainer extends Component {
   }
 
   render(){
-    const { progressions, videos, handleDragStart, indexPage, deleteProgression, history } = this.props
+    const { progressions, videos, reflections, handleDragStart, indexPage, deleteProgression, history } = this.props
 
     return (
       <div className={`student-show-progressions-container ${indexPage ? 'index-page' : ''}`}>
@@ -139,6 +139,7 @@ class IndexProgressionsContainer extends Component {
                         key={index}
                         handleDragStart={handleDragStart}
                         progression={progression}
+                        reflections={reflections}
                         videos={videos}/>
             } else {
               return <IndexProgression
@@ -146,6 +147,7 @@ class IndexProgressionsContainer extends Component {
                         progression={progression}
                         deleteProgression={deleteProgression}
                         history={history}
+                        reflections={reflections}
                         videos={videos}/>
             }
 
@@ -165,7 +167,8 @@ function mapDispatchToProps(dispatch){
 function mapStateToProps(state){
   return {
     progressions: state.progressions,
-    videos: state.videos
+    videos: state.videos,
+    reflections: state.reflections
   }
 }
 
