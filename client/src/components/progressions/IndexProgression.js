@@ -27,9 +27,9 @@ const IndexProgression = (props) => {
                 if (reflections.allIds.length > 0){
                   const reflection = reflections.byId[itemChildId]
                   return (
-                  <div key={index} className="student-show-progression-item">
+                  <div key={index} className="student-show-progression-item reflection">
                     <img src="/paper-pencil.png" alt="learning reflection" />
-                    <br/>
+
                     <div className="student-show-progression-item-title">{reflection.title}</div>
                   </div>
                  )
