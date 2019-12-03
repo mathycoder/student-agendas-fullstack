@@ -30,8 +30,7 @@ const RenderItem = ({progression, videos, reflections}) => {
         return (<div key={index}></div>)
       }
     }
-  }
-  )
+  })
 }
 
 function mapStateToProps(state){

@@ -14,8 +14,9 @@ class ShowKlassContainer extends Component {
   }
 
   componentDidMount(){
-    const klassId = this.props.match.params.id
-    this.props.fetchStudents(klassId)
+    const { match, fetchStudents } = this.props
+    const klassId = match.params.id
+    fetchStudents(klassId)
   }
 
   handleEditingStudents = () => {
@@ -47,21 +48,17 @@ class ShowKlassContainer extends Component {
   }
 
   handleDragDrop = (event) => {
+    const { studentProgressions, students, addStudentProgression } = this.props
     const agenda = event.currentTarget.closest('.student-agenda')
     agenda.style.backgroundColor = "rgb(240, 240, 240)"
     let progression = event.dataTransfer.getData("progression")
     progression = JSON.parse(progression)
-    const student = this.props.students.byId[`student${event.currentTarget.dataset.studentId}`]
-
-    const { studentProgressions } = this.props
+    const student = students.byId[`student${event.currentTarget.dataset.studentId}`]
     const any = studentProgressions.allIds.filter(spId => {
       const sp = studentProgressions.byId[spId]
       return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
     })
-
-    if (any.length === 0){
-      this.props.addStudentProgression(student, progression)
-    }
+    if (any.length === 0){ addStudentProgression(student, progression) }
   }
 
   renderStudents = () => <StudentsContainer
@@ -114,7 +111,9 @@ function mapDispatchToProps(dispatch){
 
 function mapStateToProps(state){
   return {
-    klasses: state.klasses
+    klasses: state.klasses,
+    students: state.students,
+    studentProgressions: state.studentProgressions
   }
 }
 

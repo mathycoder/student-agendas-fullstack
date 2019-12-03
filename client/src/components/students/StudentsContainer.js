@@ -47,7 +47,6 @@ class StudentContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    klasses: state.klasses,
     students: state.students,
     studentProgressions: state.studentProgressions,
     progressions: state.progressions

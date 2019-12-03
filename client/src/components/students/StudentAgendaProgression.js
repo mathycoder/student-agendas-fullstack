@@ -18,7 +18,6 @@ const StudentAgendaProgression = (props) => {
   } else {
     return (<div></div>)
   }
-
 }
 
 export default StudentAgendaProgression
