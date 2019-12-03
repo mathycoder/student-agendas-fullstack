@@ -51,13 +51,13 @@
   height: 175px;
   max-height: 182px;
   overflow: none;
-  margin-top: 6px;
+  margin-top: 3px;
   margin-left: 80px;
   font-size: 18px;
   padding: 10px 15px 0px 10px;
   border: none;
   background-color: inherit;
-
+  line-height: 32px;
 
 }
 
@@ -136,9 +136,10 @@
     height: 130px;
     max-height: 130px;
     margin-left: 50px;
-    margin-top: 5px;
+    margin-top: 3px;
     font-size: 15px;
     max-height: 150px;
+    line-height: 25px;
   }
 
   .add-prog-button {

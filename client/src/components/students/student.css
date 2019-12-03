@@ -185,6 +185,8 @@ div.student-agenda {
   font-size: 11px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  overflow: hidden;
+  height: 12px;
 }
 
 .student-show-progression-items {
@@ -271,6 +273,8 @@ div.student-agenda {
 
 .student-agenda .student-show-progression-title {
   font-size: 10px;
+  overflow: hidden;
+  height: 11px;
 }
 
 .student-agenda .student-show-progression-title .student-prog-x {
@@ -418,6 +422,8 @@ div.student-agenda {
   padding-right: 20px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  overflow: hidden;
+  height: 18px;
 }
 
 

@@ -72,8 +72,8 @@ class NewProgressionContainer extends Component {
       }
     }
     if (!this.state.id) {
-      addProgression(progression, history)
-      // history.push('/progressions');
+      addProgression(progression)
+      history.push('/progressions');
     } else {
       editProgression(progression)
       history.push('/progressions');
@@ -281,7 +281,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    addProgression: (progression, history) => dispatch(addProgression(progression, history)),
+    addProgression: (progression) => dispatch(addProgression(progression)),
     editProgression: (progression) => dispatch(editProgression(progression))
   }
 }
