@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const RenderItem = ({progression, videos, reflections}) => {
   return progression.items.map((itemChildId, index) => {
@@ -33,4 +34,11 @@ const RenderItem = ({progression, videos, reflections}) => {
   )
 }
 
-export default RenderItem
+function mapStateToProps(state){
+  return {
+    videos: state.videos,
+    reflections: state.reflections
+  }
+}
+
+export default connect(mapStateToProps, null)(RenderItem)

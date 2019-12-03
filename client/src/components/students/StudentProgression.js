@@ -11,7 +11,7 @@ const StudentProgression = (props) => {
         >
         <div className={`student-show-progression-title ${progression.color}-title`}>{progression.name}</div>
         <div className="student-show-progression-items">
-          <RenderItem progression={progression} videos={videos} reflections={reflections} />
+          <RenderItem progression={progression} />
         </div>
       </div>
     )

@@ -64,29 +64,20 @@ class ShowKlassContainer extends Component {
     }
   }
 
-  renderStudents = () => {
-    const { students, studentProgressions, progressions, videos, reflections } = this.props
-    return (
-      <StudentsContainer
-        students={students}
-        studentProgressions={studentProgressions}
-        progressions={progressions}
-        videos={videos}
-        reflections={reflections}
-        handleDragOver={this.handleDragOver}
-        handleDragLeave={this.handleDragLeave}
-        handleDragDrop={this.handleDragDrop}
-        showProgressions={this.state.showProgressions} />
-    )
-  }
+  renderStudents = () => <StudentsContainer
+                          handleDragOver={this.handleDragOver}
+                          handleDragLeave={this.handleDragLeave}
+                          handleDragDrop={this.handleDragDrop}
+                          showProgressions={this.state.showProgressions} />
 
-  renderProgressions = () => {
-    return <IndexProgressionsContainer handleDragStart={this.handleDragStart}/>
-  }
 
-  progressionsButton = () => (
-    <button onClick={this.handleShowProgressions}>{this.state.showProgressions ? 'Hide Progressions' : 'Show Progressions'}</button>
-  )
+  renderProgressions = () => <IndexProgressionsContainer handleDragStart={this.handleDragStart}/>
+
+
+  progressionsButton = () =>  <button onClick={this.handleShowProgressions}>
+                                {this.state.showProgressions ? 'Hide Progressions' : 'Show Progressions'}
+                              </button>
+
 
   render(){
     const { klasses, match } = this.props
@@ -109,7 +100,7 @@ class ShowKlassContainer extends Component {
         </div>
       )
     } else {
-      return (<div></div>)
+      return <div></div>
     }
   }
 }
@@ -123,12 +114,7 @@ function mapDispatchToProps(dispatch){
 
 function mapStateToProps(state){
   return {
-    klasses: state.klasses,
-    students: state.students,
-    studentProgressions: state.studentProgressions,
-    progressions: state.progressions,
-    videos: state.videos,
-    reflections: state.reflections
+    klasses: state.klasses
   }
 }
 

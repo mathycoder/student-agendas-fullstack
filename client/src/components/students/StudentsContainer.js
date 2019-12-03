@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Student from './Student'
 import './student.css'
+import { connect } from 'react-redux'
 
 class StudentContainer extends Component {
 
@@ -20,7 +21,7 @@ class StudentContainer extends Component {
   }
 
   displayStudents = () => {
-    const { students, videos, reflections, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    const { students, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return students.allIds.map((stId, index) => {
       const student = students.byId[stId]
       return (
@@ -28,8 +29,6 @@ class StudentContainer extends Component {
           key={index}
           student={student}
           progressions={this.getStudentProgressions(student)}
-          videos={videos}
-          reflections={reflections}
           handleDragOver={handleDragOver}
           handleDragLeave={handleDragLeave}
           handleDragDrop={handleDragDrop} />
@@ -46,4 +45,13 @@ class StudentContainer extends Component {
   }
 }
 
-export default StudentContainer
+function mapStateToProps(state){
+  return {
+    klasses: state.klasses,
+    students: state.students,
+    studentProgressions: state.studentProgressions,
+    progressions: state.progressions
+  }
+}
+
+export default connect(mapStateToProps, null)(StudentContainer)

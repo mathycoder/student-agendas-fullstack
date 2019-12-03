@@ -10,7 +10,7 @@ const IndexProgression = (props) => {
           <div className={`student-show-progression-title ${progression.color}-title`}>{progression.name}</div>
           <div className="index-progression-x-out" onClick={(event) => props.deleteProgression(progression)}>x</div>
           <div className="student-show-progression-items" onClick={(event) => {props.history.push(`/progressions/${progression.id}`)}}>
-            <RenderItem progression={progression} videos={videos} reflections={reflections} />
+            <RenderItem progression={progression} />
           </div>
         </div>
       </div>

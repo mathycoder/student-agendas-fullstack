@@ -2,7 +2,7 @@ import React from 'react'
 import RenderItem from '../progressions/RenderItem.js'
 
 const StudentAgendaProgression = (props) => {
-  const { progression, videos, reflections, handleDeleteProgClick, innerRef } = props
+  const { progression, handleDeleteProgClick, innerRef } = props
   if (progression){
     return (
       <div className={`student-show-progression ${progression.color}`} ref={node => innerRef(node)}>
@@ -11,7 +11,7 @@ const StudentAgendaProgression = (props) => {
           {progression.name}
         </div>
         <div className="student-show-progression-items">
-          <RenderItem progression={progression} videos={videos} reflections={reflections} />
+          <RenderItem progression={progression} />
         </div>
       </div>
     )

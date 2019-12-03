@@ -12,11 +12,6 @@ class Student extends Component {
     deleteStudentProgression(student, progression)
   }
 
-  handleDNDDragStart = attributes => {
-    // const {draggableId} = attributes
-    // document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
-  }
-
   handleDNDDragEnd = result => {
     const { destination, source, draggableId } = result
     if (!destination || !source) { return }
@@ -27,7 +22,7 @@ class Student extends Component {
   }
 
   render(){
-    const { student, progressions, videos, reflections, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    const { student, progressions, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return (
       <div className={`student-row`}>
         <div className="student-name">
@@ -45,8 +40,6 @@ class Student extends Component {
                 innerRef={provided.innerRef}
                 student={student}
                 progressions={progressions}
-                videos={videos}
-                reflections={reflections}
                 handleDragOver={handleDragOver}
                 handleDragLeave={handleDragLeave}
                 handleDragDrop={handleDragDrop}
