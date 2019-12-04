@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import ProgressionsContainer from './components/progressions/ProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
 import { fetchKlasses } from './actions/klassActions'
