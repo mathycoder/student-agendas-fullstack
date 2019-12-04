@@ -8,8 +8,14 @@ export function setCurrentUser(user){
 export function login(credentials){
   return (dispatch) => {
     dispatch({type: 'LOGIN_REQUEST'})
-    fetch(`/klasses`)
+    fetch(`/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(credentials)
+    })
       .then(resp => resp.json())
-      .then(klasses => dispatch({ type: 'ADD_KLASSES', klasses }))
+      .then(user => dispatch({ type: 'SET_CURRENT_USER', user }))
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProgressionsContainer from './components/progressions/ProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
+import Login from './components/Login'
 import { fetchKlasses } from './actions/klassActions'
 import { fetchProgressions } from './actions/progressionActions'
 import { fetchVideos } from './actions/videoActions'
@@ -28,7 +29,7 @@ class App extends Component {
             <NavBar klasses={this.props.klasses} progressions={this.props.progressions}/>
           </header>
           <main>
-            <Route exact path="/" component={KlassesContainer} />
+            <Route exact path="/" component={Login} />
             <Route path="/progressions" component={ProgressionsContainer} />
             <Route path="/classes" component={KlassesContainer} />
           </main>
