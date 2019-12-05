@@ -1,4 +1,4 @@
-export function getCurrentUser(){
+export function getCurrentUser(history){
   return (dispatch) => {
     dispatch({ type: 'CHECKING_CURRENT_USER' })
     fetch(`/get_current_user`, {
@@ -11,7 +11,7 @@ export function getCurrentUser(){
       .then(resp => resp.json())
       .then(user => {
         if (user.error){
-          alert("Gotta log in first")
+          history.push('/')
         } else {
           dispatch({ type: 'SET_CURRENT_USER', user })
         }
