@@ -31,7 +31,7 @@ class App extends Component {
             <NavBar klasses={klasses} progressions={progressions} currentUser={currentUser}/>
           </header>
           <main>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
             <Route path="/progressions" component={ProgressionsContainer} />
             <Route path="/classes" component={KlassesContainer} />

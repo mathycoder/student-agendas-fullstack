@@ -11,7 +11,7 @@ export function getCurrentUser(history){
       .then(resp => resp.json())
       .then(user => {
         if (user.error){
-          history.push('/')
+          history.push('/login')
         } else {
           dispatch({ type: 'SET_CURRENT_USER', user })
         }
@@ -62,7 +62,7 @@ export function logout(history){
           alert("logout failed")
         } else {
           dispatch({ type: 'CLEAR_CURRENT_USER' })
-          history.push('/')
+          history.push('/login')
         }
       })
       .catch(console.log)

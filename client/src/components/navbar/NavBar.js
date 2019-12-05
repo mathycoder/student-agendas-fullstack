@@ -90,25 +90,46 @@ class NavBar extends Component{
     )
   }
 
-  render(){
+  renderNavBar = () => {
     const { currentUser } = this.props
+    if (currentUser) {
+      return (
+        <div>
+          <div className="navbar">
+            <NavLink to="/classes">Home</NavLink>
+            <div className="klass-dropdown" ref={this.klassDropdownRef} onClick={this.handleKlassDropdownClick}>
+              Classes
+            </div>
+            <div className="klass-dropdown" ref={this.progressionDropdownRef} onClick={this.handleProgressionDropdownClick}>
+              Progressions
+            </div>
+            <NavLink to="/logout">Logout</NavLink>
+          </div>
+          <div className="navbar-dropdowns">
+            {this.renderKlassDropdown()}
+            {this.renderProgressionDropdown()}
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <div className="navbar">
+            <div className="klass-dropdown">
+              <NavLink to="/login">Login</NavLink>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+  }
+
+  render(){
     return (
-      <div>
-        <div className="navbar">
-          <NavLink to="/classes">Home</NavLink>
-          <div className="klass-dropdown" ref={this.klassDropdownRef} onClick={this.handleKlassDropdownClick}>
-            Classes
-          </div>
-          <div className="klass-dropdown" ref={this.progressionDropdownRef} onClick={this.handleProgressionDropdownClick}>
-            Progressions
-          </div>
-          {currentUser? <NavLink to="/logout">Logout</NavLink>: <NavLink to="/">Login</NavLink>}
-        </div>
-        <div className="navbar-dropdowns">
-          {this.renderKlassDropdown()}
-          {this.renderProgressionDropdown()}
-        </div>
-      </div>
+      <>
+        {this.renderNavBar()}
+      </>
     )
   }
 
