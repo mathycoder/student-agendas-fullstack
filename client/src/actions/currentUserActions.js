@@ -5,7 +5,8 @@ export function getCurrentUser(){
       method: "GET",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      credentials: "include"
     })
       .then(resp => resp.json())
       .then(user => {
