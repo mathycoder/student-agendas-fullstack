@@ -14,13 +14,17 @@ import { Route } from "react-router-dom";
 
 
 class App extends Component {
+  state = {
+    initialFetch: false
+  }
+
   componentDidMount(){
     const {history, getCurrentUser, fetchKlasses, fetchProgressions, fetchVideos, fetchReflections} = this.props
     getCurrentUser(history)
     fetchKlasses()
-    fetchProgressions()
-    fetchVideos()
-    fetchReflections()
+    // fetchProgressions()
+    // fetchVideos()
+    // fetchReflections()
   }
 
   render() {

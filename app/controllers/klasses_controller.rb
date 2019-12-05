@@ -1,12 +1,12 @@
 class KlassesController < ApplicationController
 
   def index
-    @klasses = Klass.all
+    @klasses = current_user.klasses.all
     render json: @klasses
   end
 
   def create
-    @klass = Klass.new(klass_params)
+    @klass = current_user.klasses.build(klass_params)
     if @klass.save
       render json: @klass, status: 201
     else
