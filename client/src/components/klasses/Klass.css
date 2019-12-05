@@ -106,11 +106,11 @@
   margin: 0 auto;
 }
 
-.klass-index-new-klass-button button {
+.klass-index-new-klass-button button, .klass-index-new-klass-button input[type=submit] {
   width: 200px;
 }
 
-.klass-index-new-klass-button button:focus {
+.klass-index-new-klass-button button:focus, .klass-index-new-klass-button input[type=submit]:focus {
   outline: none;
 }
 

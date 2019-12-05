@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProgressionsContainer from './components/progressions/ProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
-import Login from './components/Login'
+import Login from './components/sessions/Login'
 import { getCurrentUser } from './actions/currentUserActions'
 import { fetchKlasses } from './actions/klassActions'
 import { fetchProgressions } from './actions/progressionActions'
