@@ -1,10 +1,25 @@
-// synchronous action creator!
-export function setCurrentUser(user){
-    return {type: 'SET_CURRENT_USER', user}
+export function getCurrentUser(){
+  return (dispatch) => {
+    dispatch({ type: 'CHECKING_CURRENT_USER' })
+    fetch(`/get_current_user`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(resp => resp.json())
+      .then(user => {
+        if (user.error){
+          alert("Gotta log in first")
+        } else {
+          dispatch({ type: 'SET_CURRENT_USER', user })
+        }
+      })
+      .catch(console.log)
+  }
 }
 
 
-// asynchronous action creator!
 export function login(credentials){
   return (dispatch) => {
     dispatch({type: 'LOGIN_REQUEST'})
@@ -16,6 +31,14 @@ export function login(credentials){
       body: JSON.stringify(credentials)
     })
       .then(resp => resp.json())
-      .then(user => dispatch({ type: 'SET_CURRENT_USER', user }))
+      .then(user => {
+        if (user.error){
+          alert("email or password incorrect!")
+        } else {
+          dispatch({ type: 'SET_CURRENT_USER', user })
+        }
+      })
+      .catch(console.log)
+
   }
 }

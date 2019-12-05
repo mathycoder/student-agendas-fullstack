@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProgressionsContainer from './components/progressions/ProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
 import Login from './components/Login'
+import { getCurrentUser } from './actions/currentUserActions'
 import { fetchKlasses } from './actions/klassActions'
 import { fetchProgressions } from './actions/progressionActions'
 import { fetchVideos } from './actions/videoActions'
@@ -15,6 +16,7 @@ import {
 
 class App extends Component {
   componentDidMount(){
+    this.props.getCurrentUser()
     this.props.fetchKlasses()
     this.props.fetchProgressions()
     this.props.fetchVideos()
@@ -45,7 +47,8 @@ function mapDispatchToProps(dispatch){
     fetchKlasses: () => dispatch(fetchKlasses()),
     fetchProgressions: () => dispatch(fetchProgressions()),
     fetchVideos: () => dispatch(fetchVideos()),
-    fetchReflections: () => dispatch(fetchReflections())
+    fetchReflections: () => dispatch(fetchReflections()),
+    getCurrentUser: () => dispatch(getCurrentUser())
   }
 }
 
