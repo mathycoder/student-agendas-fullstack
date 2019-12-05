@@ -8,6 +8,7 @@ export function addStudentProgression(student, progression) {
     }
     fetch(`/students/${student.id}/progressions`, {
       method: 'POST',
+      credentials: "include",
       body: JSON.stringify(params),
       headers: {
         'Content-Type': 'application/json'
@@ -24,6 +25,7 @@ export function deleteStudentProgression(student, progression){
 
     fetch(`/students/${student.id}/progressions/${progression.id}`, {
       method: 'DELETE',
+      credentials: "include",
       headers: {
         'Content-Type': 'application/json'
       }
@@ -46,6 +48,7 @@ export function switchStudentProgression(draggableId, newIndex){
     const progressionId = draggableId.split("-")[3]
     fetch(`/students/${studentId}/progressions/${progressionId}`, {
       method: 'PATCH',
+      credentials: "include",
       body: JSON.stringify(params),
       headers: {
         'Content-Type': 'application/json'

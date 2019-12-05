@@ -1,7 +1,13 @@
 export function addStudents(klassId){
   return (dispatch) => {
     dispatch({type: 'START_ADDING_STUDENTS_REQUEST'})
-    fetch(`/klasses/${klassId}/students`)
+    fetch(`/klasses/${klassId}/students`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "GET",
+      credentials: "include"
+    })
       .then(resp => resp.json())
       .then(json => {
         const students = json.students
@@ -20,7 +26,8 @@ export function addStudentToKlass(klassId, studentData){
       body: JSON.stringify(studentData),
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      credentials: "include"
     })
       .then(resp => resp.json())
       .then(student => {
@@ -51,6 +58,7 @@ export function removeStudentFromKlass(studentData){
     dispatch({type: 'START_REMOVING_STUDENT_FROM_KLASS_REQUEST'})
     fetch(`/klasses/${studentData.klass_id}/students/${studentData.id}`, {
       method: 'DELETE',
+      credentials: "include",
       headers: {
         'Content-Type': 'application/json'
       }

@@ -13,7 +13,7 @@ import { connect } from 'react-redux'
 import { Route } from "react-router-dom";
 
 
-class App extends Component {
+class IndexContainer extends Component {
   state = {
     initialFetch: false
   }
@@ -22,9 +22,9 @@ class App extends Component {
     const {history, getCurrentUser, fetchKlasses, fetchProgressions, fetchVideos, fetchReflections} = this.props
     getCurrentUser(history)
     fetchKlasses()
-    // fetchProgressions()
-    // fetchVideos()
-    // fetchReflections()
+    fetchProgressions()
+    fetchVideos()
+    fetchReflections()
   }
 
   render() {
@@ -64,4 +64,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(IndexContainer)

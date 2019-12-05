@@ -1,7 +1,7 @@
 class ProgressionsController < ApplicationController
 
   def index
-    @progressions = Progression.all
+    @progressions = current_user.progressions
 
     #render json: @progressions.to_json(only: [:id, :name, :color, :updated_at], include: [videos: { only: [:id, :progression_index]}])
     render json: @progressions.to_json(include: [items: { include: [:video, :reflection]}])
@@ -10,7 +10,7 @@ class ProgressionsController < ApplicationController
 
   def create
     if !params[:student_id]
-      @progression = Progression.new(progression_params)
+      @progression = current_user.progressions.build(progression_params)
       if @progression.save
         #render json: @progression.to_json(only: [:id, :name, :color, :updated_at], include: [:videos]), status: 201
         render json: @progression.to_json(include: [items: { include: [:video, :reflection]}])

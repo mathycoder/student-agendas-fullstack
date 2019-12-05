@@ -1,4 +1,5 @@
 class Progression < ApplicationRecord
+  belongs_to :teacher
   has_many :items
   has_many :videos, through: :items
   has_many :reflections, through: :items
