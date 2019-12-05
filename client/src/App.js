@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProgressionsContainer from './components/progressions/ProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
 import Login from './components/sessions/Login'
+import Logout from './components/sessions/Logout'
 import { getCurrentUser } from './actions/currentUserActions'
 import { fetchKlasses } from './actions/klassActions'
 import { fetchProgressions } from './actions/progressionActions'
@@ -24,14 +25,16 @@ class App extends Component {
   }
 
   render() {
+    const { klasses, progressions, currentUser } = this.props
     return (
       <Router>
         <div className="App">
           <header className="App-header">
-            <NavBar klasses={this.props.klasses} progressions={this.props.progressions}/>
+            <NavBar klasses={klasses} progressions={progressions} currentUser={currentUser}/>
           </header>
           <main>
             <Route exact path="/" component={Login} />
+            <Route exact path="/logout" component={Logout} />
             <Route path="/progressions" component={ProgressionsContainer} />
             <Route path="/classes" component={KlassesContainer} />
           </main>
@@ -55,7 +58,8 @@ function mapDispatchToProps(dispatch){
 function mapStateToProps(state){
   return {
     klasses: state.klasses,
-    progressions: state.progressions
+    progressions: state.progressions,
+    currentUser: state.currentUser
   }
 }
 

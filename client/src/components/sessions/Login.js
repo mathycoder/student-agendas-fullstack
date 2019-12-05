@@ -26,9 +26,9 @@ class Login extends Component{
   }
 
   handleFormSubmit = event => {
-    const { login } = this.props
+    const { login, history } = this.props
     event.preventDefault()
-    login(this.state)
+    login(this.state, history)
   }
 
   displayColors = () => {
@@ -68,7 +68,7 @@ class Login extends Component{
             </div>
           </div>
           <div className="klass-index-new-klass-button">
-            <input type="submit" value="Login" />
+            <button onClick={this.handleFormSubmit}>Login</button>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ class Login extends Component{
 
 function mapDispatchToProps(dispatch){
   return {
-    login: (credentials) => dispatch(login(credentials))
+    login: (credentials, history) => dispatch(login(credentials, history))
   }
 }
 

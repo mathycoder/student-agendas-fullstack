@@ -91,6 +91,7 @@ class NavBar extends Component{
   }
 
   render(){
+    const { currentUser } = this.props
     return (
       <div>
         <div className="navbar">
@@ -101,6 +102,7 @@ class NavBar extends Component{
           <div className="klass-dropdown" ref={this.progressionDropdownRef} onClick={this.handleProgressionDropdownClick}>
             Progressions
           </div>
+          {currentUser? <NavLink to="/logout">Logout</NavLink>: <NavLink to="/">Login</NavLink>}
         </div>
         <div className="navbar-dropdowns">
           {this.renderKlassDropdown()}

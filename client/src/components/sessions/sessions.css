@@ -8,7 +8,7 @@
 }
 
 .form-input-fields input[type=text], .form-input-fields input[type=password] {
-  min-width: 200px;
+  min-width: 220px;
   font-size: 16px;
   height: 24px;
   padding-left: 10px;
@@ -16,6 +16,7 @@
   padding-bottom: 4px;
   margin: 10px 0px;
   border: 2px gray solid;
+
 }
 
 .form-input-fields input[type=text]:focus, .form-input-fields input[type=password]:focus {
@@ -23,5 +24,6 @@
 }
 
 .login .klass-index-new-klass-button {
-  align-self: center;
+  margin-right: 100px;
+
 }
