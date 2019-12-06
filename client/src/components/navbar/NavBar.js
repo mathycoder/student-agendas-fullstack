@@ -119,6 +119,9 @@ class NavBar extends Component{
             <div className="klass-dropdown">
               <NavLink to="/login">Login</NavLink>
             </div>
+            <div className="klass-dropdown">
+              <NavLink to="/signup">Signup</NavLink>
+            </div>
           </div>
         </div>
       )

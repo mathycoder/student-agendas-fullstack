@@ -13,13 +13,6 @@ class IndexProgressionsContainer extends Component {
     initialLoad: false
   }
 
-  componentDidMount(){
-    // this.setState({
-    //   ...this.state,
-    //   searchedProgressions: this.alphabeticalProgressions()
-    // })
-  }
-
   componentDidUpdate(){
     if (!this.state.initialLoad && this.props.progressions.allIds.length > 0){
       this.setState({

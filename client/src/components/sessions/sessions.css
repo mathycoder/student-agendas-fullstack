@@ -1,4 +1,4 @@
-.login .form-input-fields {
+.login .form-input-fields, .signup .form-input-fields {
   margin-top: 15px;
   display: flex;
   flex-direction: column;
@@ -26,4 +26,13 @@
 .login .klass-index-new-klass-button {
   margin-right: 100px;
 
+}
+
+.signup .klass-index-container {
+  height: 370px;
+}
+
+
+.signup .form-input-fields div:first-child {
+  margin-top: 40px;
 }

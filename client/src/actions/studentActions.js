@@ -41,6 +41,7 @@ export function editStudentInKlass(klassId, studentData){
     dispatch({type: 'START_EDITING_STUDENT_IN_KLASS_REQUEST'})
     fetch(`/klasses/${klassId}/students/${studentData.id}`, {
       method: 'PATCH',
+      credentials: "include",
       body: JSON.stringify(studentData),
       headers: {
         'Content-Type': 'application/json'

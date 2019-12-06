@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     @teacher = Teacher.find_by(email: params[:session][:email])
     if @teacher && @teacher.authenticate(params[:session][:password])
       session[:user_id] = @teacher.id
-      render json: @teacher, status: 201
+      render json: @teacher.to_json(only: [:name, :email]), status: 201
     else
       render json: {
         error: "Invalid Credentials", status: 422
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def get_current_user
     if current_user
-      render json: current_user
+      render json: current_user.to_json(only: [:name, :email])
     else
       render json: {
         error: "No one logged in"

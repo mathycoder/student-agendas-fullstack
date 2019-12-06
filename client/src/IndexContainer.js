@@ -3,6 +3,7 @@ import ProgressionsContainer from './components/progressions/ProgressionsContain
 import KlassesContainer from './components/klasses/KlassesContainer'
 import Login from './components/sessions/Login'
 import Logout from './components/sessions/Logout'
+import Signup from './components/sessions/Signup'
 import { getCurrentUser } from './actions/currentUserActions'
 import NavBar from './components/navbar/NavBar'
 import { connect } from 'react-redux'
@@ -27,6 +28,7 @@ class IndexContainer extends Component {
           </header>
           <main>
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
             <Route exact path="/logout" component={Logout} />
             <Route path="/progressions" component={ProgressionsContainer} />
             <Route path="/classes" component={KlassesContainer} />
