@@ -4,10 +4,6 @@ import KlassesContainer from './components/klasses/KlassesContainer'
 import Login from './components/sessions/Login'
 import Logout from './components/sessions/Logout'
 import { getCurrentUser } from './actions/currentUserActions'
-import { fetchKlasses } from './actions/klassActions'
-import { fetchProgressions } from './actions/progressionActions'
-import { fetchVideos } from './actions/videoActions'
-import { fetchReflections } from './actions/reflectionActions'
 import NavBar from './components/navbar/NavBar'
 import { connect } from 'react-redux'
 import { Route } from "react-router-dom";
@@ -19,20 +15,15 @@ class IndexContainer extends Component {
   }
 
   componentDidMount(){
-    const {history, getCurrentUser, fetchKlasses, fetchProgressions, fetchVideos, fetchReflections} = this.props
+    const {history, getCurrentUser} = this.props
     getCurrentUser(history)
-    fetchKlasses()
-    fetchProgressions()
-    fetchVideos()
-    fetchReflections()
   }
 
   render() {
-    const { klasses, progressions, currentUser, history } = this.props
     return (
         <>
           <header className="App-header">
-            <NavBar klasses={klasses} progressions={progressions} currentUser={currentUser}/>
+            <NavBar />
           </header>
           <main>
             <Route exact path="/login" component={Login} />
@@ -48,20 +39,9 @@ class IndexContainer extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    fetchKlasses: () => dispatch(fetchKlasses()),
-    fetchProgressions: () => dispatch(fetchProgressions()),
-    fetchVideos: () => dispatch(fetchVideos()),
-    fetchReflections: () => dispatch(fetchReflections()),
     getCurrentUser: (history) => dispatch(getCurrentUser(history))
   }
 }
 
-function mapStateToProps(state){
-  return {
-    klasses: state.klasses,
-    progressions: state.progressions,
-    currentUser: state.currentUser
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(IndexContainer)
+export default connect(null, mapDispatchToProps)(IndexContainer)

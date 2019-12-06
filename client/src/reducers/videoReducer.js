@@ -9,6 +9,8 @@ export default videoReducer
 
 function videosById(state = {}, action) {
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return {}
 
     case 'START_ADDING_VIDEOS_REQUEST':
       return {
@@ -59,6 +61,8 @@ function videosById(state = {}, action) {
 function allVideos(state = [], action) {
 
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return []
 
     case 'ADD_VIDEOS':
       return [

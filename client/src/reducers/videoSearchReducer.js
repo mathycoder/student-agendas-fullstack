@@ -19,6 +19,8 @@ export default videoSearchReducer
 
 function youTubeVideos(state = [], action) {
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return []
 
     case 'START_YOUTUBE_SEARCH_REQUEST':
       return []
@@ -35,6 +37,9 @@ function youTubeVideos(state = [], action) {
 
 function youTubeStatic(state = {searchTerm: null, loading: false}, action) {
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return []
+
     case 'START_YOUTUBE_SEARCH_REQUEST':
       return {
         ...state,
@@ -55,6 +60,8 @@ function youTubeStatic(state = {searchTerm: null, loading: false}, action) {
 
 function vimeoVideos(state = [], action) {
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return []
 
     case 'START_VIMEO_SEARCH_REQUEST':
       return []

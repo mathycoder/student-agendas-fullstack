@@ -1,7 +1,7 @@
 export function getCurrentUser(history){
   return (dispatch) => {
     dispatch({ type: 'CHECKING_CURRENT_USER' })
-    fetch(`/get_current_user`, {
+     fetch(`/get_current_user`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -19,6 +19,28 @@ export function getCurrentUser(history){
       .catch(console.log)
   }
 }
+
+// export function getCurrentUser(history){
+//   return async (dispatch) => {
+//     dispatch({ type: 'CHECKING_CURRENT_USER' })
+//     await fetch(`/get_current_user`, {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       credentials: "include"
+//     })
+//       .then(resp => resp.json())
+//       .then(user => {
+//         if (user.error){
+//           history.push('/login')
+//         } else {
+//           dispatch({ type: 'SET_CURRENT_USER', user })
+//         }
+//       })
+//       .catch(console.log)
+//   }
+// }
 
 
 export function login(credentials, history){

@@ -10,6 +10,9 @@ export default reflectionReducer
 function reflectionsById(state = {}, action) {
   switch(action.type) {
 
+    case 'CLEAR_CURRENT_USER':
+      return {}
+
     case 'START_ADDING_REFLECTIONS_REQUEST':
       return {...state}
 
@@ -58,6 +61,8 @@ function reflectionsById(state = {}, action) {
 function allReflections(state = [], action) {
 
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return []
 
     case 'ADD_REFLECTIONS':
       return [

@@ -2,8 +2,20 @@ import React, { Component } from 'react'
 import NewProgressionContainer from './NewProgressionContainer'
 import IndexProgressionsContainer from './IndexProgressionsContainer'
 import { Route, Switch } from "react-router-dom";
+import { connect } from 'react-redux'
+import { fetchKlasses } from '../../actions/klassActions'
+import { fetchProgressions } from '../../actions/progressionActions'
+import { fetchVideos } from '../../actions/videoActions'
+import { fetchReflections } from '../../actions/reflectionActions'
 
 class ProgressionsContainer extends Component {
+  componentDidMount(){
+    const {fetchKlasses, fetchProgressions, fetchVideos, fetchReflections} = this.props
+    fetchKlasses()
+    fetchProgressions()
+    fetchVideos()
+    fetchReflections()
+  }
 
   render(){
     return (
@@ -16,4 +28,13 @@ class ProgressionsContainer extends Component {
   }
 }
 
-export default ProgressionsContainer
+function mapDispatchToProps(dispatch){
+  return {
+    fetchKlasses: () => dispatch(fetchKlasses()),
+    fetchProgressions: () => dispatch(fetchProgressions()),
+    fetchVideos: () => dispatch(fetchVideos()),
+    fetchReflections: () => dispatch(fetchReflections())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ProgressionsContainer)

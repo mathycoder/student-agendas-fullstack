@@ -9,6 +9,9 @@ export default studentReducer
 
 function studentsById(state = {}, action) {
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return {}
+
     case 'START_ADDING_STUDENTS_REQUEST':
       return {
         ...state
@@ -70,6 +73,9 @@ function studentsById(state = {}, action) {
 function allStudents(state = [], action) {
 
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return []
+      
     case 'ADD_STUDENTS':
       return [
         ...sortedStudents(action.students).map(student => `student${student.id}`)

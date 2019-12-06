@@ -9,6 +9,9 @@ export default studentProgressionReducer
 
 function studentProgressionsById(state = {}, action) {
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return {}
+
     case 'ADD_STUDENTS':
     const normalizedObject = {}
     action.studentProgressions.forEach(stProg => {
@@ -77,6 +80,8 @@ function studentProgressionsById(state = {}, action) {
 function allStudentProgressions(state = [], action) {
 
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return []
 
     case 'ADD_STUDENTS':
     return [

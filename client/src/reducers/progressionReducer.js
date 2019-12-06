@@ -10,6 +10,9 @@ export default progressionReducer
 function progressionsById(state = {}, action) {
   switch(action.type) {
 
+    case 'CLEAR_CURRENT_USER':
+      return {}
+
     case 'START_ADDING_PROGRESSIONS_REQUEST':
       return {
         ...state
@@ -102,6 +105,9 @@ function progressionsById(state = {}, action) {
 function allProgressions(state = [], action) {
 
   switch(action.type) {
+
+    case 'CLEAR_CURRENT_USER':
+      return []
 
     case 'ADD_PROGRESSIONS':
       return [

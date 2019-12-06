@@ -10,6 +10,9 @@ export default klassReducer
 function klassesById(state = {}, action) {
 
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return {}
+
     case 'START_ADDING_KLASSES_REQUEST':
       return {
         ...state
@@ -67,6 +70,9 @@ function klassesById(state = {}, action) {
 function allKlasses(state = [], action) {
 
   switch(action.type) {
+    case 'CLEAR_CURRENT_USER':
+      return []
+
     case 'ADD_KLASSES':
       return [
         ...action.klasses.map(klass => `klass${klass.id}`)
