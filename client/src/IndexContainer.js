@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FlashMessage from './FlashMessage'
 import ProgressionsContainer from './components/progressions/ProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
 import Login from './components/sessions/Login'
@@ -27,6 +28,7 @@ class IndexContainer extends Component {
             <NavBar />
           </header>
           <main>
+            <FlashMessage />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/logout" component={Logout} />
