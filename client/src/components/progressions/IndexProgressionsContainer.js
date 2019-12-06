@@ -9,14 +9,26 @@ class IndexProgressionsContainer extends Component {
     searchTerm: "",
     color: "",
     recent: undefined,
-    searchedProgressions: []
+    searchedProgressions: [],
+    initialLoad: false
   }
 
   componentDidMount(){
-    this.setState({
-      ...this.state,
-      searchedProgressions: this.alphabeticalProgressions()
-    })
+    // this.setState({
+    //   ...this.state,
+    //   searchedProgressions: this.alphabeticalProgressions()
+    // })
+  }
+
+  componentDidUpdate(){
+    if (!this.state.initialLoad && this.props.progressions.allIds.length > 0){
+      this.setState({
+        ...this.state,
+        initialLoad: true,
+        searchedProgressions: this.alphabeticalProgressions()
+      })
+    }
+
   }
 
   handleChange = (event) => {
