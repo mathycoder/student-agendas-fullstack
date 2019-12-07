@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FlashMessage from './FlashMessage'
+import FlashMessage from './components/flash/FlashMessage'
 import ProgressionsContainer from './components/progressions/ProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
 import Login from './components/sessions/Login'

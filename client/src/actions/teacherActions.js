@@ -11,7 +11,7 @@ export function signup(teacherData, history){
       .then(resp => resp.json())
       .then(user => {
         if (user.error){
-          history.push('/login')
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: user.error })
         } else {
           dispatch({ type: 'SET_CURRENT_USER', user })
           history.push('/classes')

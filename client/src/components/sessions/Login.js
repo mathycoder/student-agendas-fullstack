@@ -29,6 +29,11 @@ class Login extends Component{
     const { login, history } = this.props
     event.preventDefault()
     login(this.state, history)
+    this.setState({
+      ...this.state,
+      email: '',
+      password: ''
+    })
   }
 
   displayColors = () => {

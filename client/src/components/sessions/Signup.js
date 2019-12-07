@@ -55,38 +55,43 @@ class Signup extends Component{
   render(){
     return (
       <div className="home-page-wrapper signup">
-        <div className="klass-index-container">
-          <div className="klass-index-title">
-            <div>Create New Account</div>
-            <div>{this.displayColors()}</div>
-          </div>
-          <div className="form-input-fields">
-            <div>
-              <input
-                value={this.state.name}
-                onChange={this.handleNameChange}
-                type="text"
-                placeholder="Full Name" />
+        <form onSubmit={this.handleFormSubmit}>
+          <div className="klass-index-container">
+            <div className="klass-index-title">
+              <div>Create New Account</div>
+              <div>{this.displayColors()}</div>
             </div>
-            <div>
-              <input
-                value={this.state.email}
-                onChange={this.handleEmailChange}
-                type="text"
-                placeholder="Email" />
+            <div className="form-input-fields">
+              <div>
+                <input
+                  value={this.state.name}
+                  onChange={this.handleNameChange}
+                  type="text"
+                  required
+                  placeholder="Full Name" />
+              </div>
+              <div>
+                <input
+                  value={this.state.email}
+                  onChange={this.handleEmailChange}
+                  type="text"
+                  required
+                  placeholder="Email" />
+              </div>
+              <div>
+                <input
+                  type="password"
+                  required
+                  value={this.state.password}
+                  onChange={this.handlePasswordChange}
+                  placeholder="Password" />
+              </div>
             </div>
-            <div>
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.handlePasswordChange}
-                placeholder="Password" />
+            <div className="klass-index-new-klass-button">
+              <input type="submit" value="Create Teacher Account"/>
             </div>
           </div>
-          <div className="klass-index-new-klass-button">
-            <button onClick={this.handleFormSubmit}>Create Teacher Account</button>
-          </div>
-        </div>
+        </form>
       </div>
     )
   }

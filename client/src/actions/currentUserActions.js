@@ -11,7 +11,7 @@ export function getCurrentUser(history){
       .then(resp => resp.json())
       .then(user => {
         if (user.error){
-          history.push('/login')
+          // history.push('/login')
         } else {
           dispatch({ type: 'SET_CURRENT_USER', user })
         }
@@ -34,7 +34,7 @@ export function login(credentials, history){
       .then(resp => resp.json())
       .then(user => {
         if (user.error){
-          alert("email or password incorrect!")
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: "Email or password incorrect" })
         } else {
           dispatch({ type: 'SET_CURRENT_USER', user })
           history.push('/classes')
@@ -61,6 +61,7 @@ export function logout(history){
           alert("logout failed")
         } else {
           dispatch({ type: 'CLEAR_CURRENT_USER' })
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: "Successfully logged out" })
           history.push('/login')
         }
       })

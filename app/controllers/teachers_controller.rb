@@ -9,8 +9,8 @@ class TeachersController < ApplicationController
       render json: @teacher.to_json(only: [:name, :email]), status: 201
     else
       render json: {
-        error: "Invalid Credentials", status: 422
-      }
+        error: @teacher.errors.full_messages.first
+        }, status: 424
     end
   end
 
