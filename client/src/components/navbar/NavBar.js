@@ -93,7 +93,7 @@ class NavBar extends Component{
 
   renderNavBar = () => {
     const { currentUser } = this.props
-    if (currentUser) {
+    if (currentUser && currentUser !== 'none') {
       return (
         <div>
           <div className="navbar">
