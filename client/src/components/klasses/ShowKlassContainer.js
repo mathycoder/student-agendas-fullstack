@@ -5,6 +5,7 @@ import EditStudents from '../students/EditStudents'
 import { connect } from 'react-redux'
 import { addStudents } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
+import { addFlashMessage } from '../../actions/flashActions'
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
@@ -48,7 +49,7 @@ class ShowKlassContainer extends Component {
   }
 
   handleDragDrop = (event) => {
-    const { studentProgressions, students, addStudentProgression } = this.props
+    const { studentProgressions, students, addStudentProgression, addFlashMessage } = this.props
     const agenda = event.currentTarget.closest('.student-agenda')
     agenda.style.backgroundColor = "rgb(240, 240, 240)"
     let progression = event.dataTransfer.getData("progression")
@@ -58,7 +59,11 @@ class ShowKlassContainer extends Component {
       const sp = studentProgressions.byId[spId]
       return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
     })
-    if (any.length === 0){ addStudentProgression(student, progression) }
+    if (any.length === 0){
+      addStudentProgression(student, progression)
+    } else {
+      addFlashMessage("This student agenda already has this progression")
+    }
   }
 
   renderStudents = () => <StudentsContainer
@@ -105,7 +110,8 @@ class ShowKlassContainer extends Component {
 function mapDispatchToProps(dispatch){
   return {
     fetchStudents: (klassId) => dispatch(addStudents(klassId)),
-    addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression))
+    addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression)),
+    addFlashMessage: (message) => dispatch(addFlashMessage(message))
   }
 }
 

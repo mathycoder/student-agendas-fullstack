@@ -9,6 +9,7 @@ import './Progression.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { connect } from 'react-redux'
 import { addProgression, editProgression } from '../../actions/progressionActions'
+import { addFlashMessage } from '../../actions/flashActions'
 
 class NewProgressionContainer extends Component {
   state = {
@@ -110,6 +111,8 @@ class NewProgressionContainer extends Component {
           ...this.state,
           currProgression: [...this.state.currProgression, item]
         })
+      } else {
+        this.props.addFlashMessage("Your progression already contains this video")
       }
     } else {
       this.setState({
@@ -282,7 +285,8 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return {
     addProgression: (progression) => dispatch(addProgression(progression)),
-    editProgression: (progression) => dispatch(editProgression(progression))
+    editProgression: (progression) => dispatch(editProgression(progression)),
+    addFlashMessage: (message) => dispatch(addFlashMessage(message))
   }
 }
 
