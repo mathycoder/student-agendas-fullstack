@@ -4,8 +4,11 @@ function currentUserReducer(state = null, action) {
     case 'SET_CURRENT_USER':
       return action.user
 
+    case 'SET_CURRENT_USER_TO_NONE':
+      return 'none'
+
     case 'CLEAR_CURRENT_USER':
-      return null
+      return 'none'
 
     default:
       return state;

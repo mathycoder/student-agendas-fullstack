@@ -8,7 +8,7 @@ import Signup from './components/sessions/Signup'
 import { getCurrentUser } from './actions/currentUserActions'
 import NavBar from './components/navbar/NavBar'
 import { connect } from 'react-redux'
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 
 class IndexContainer extends Component {
@@ -21,6 +21,27 @@ class IndexContainer extends Component {
     getCurrentUser(history)
   }
 
+  renderRoutes = () => {
+    const {currentUser} = this.props
+    if (currentUser) {
+      return (
+        <>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/logout" component={Logout} />
+          <Route path="/progressions" component={ProgressionsContainer} />
+          <Route path="/classes" render={(props) => (
+              currentUser !== "none" ?
+              <KlassesContainer{...props} />
+            : <Redirect to="/login"/>
+          )} />
+        </>
+      )
+    } else {
+      return <></>
+    }
+  }
+
   render() {
     return (
         <>
@@ -29,16 +50,18 @@ class IndexContainer extends Component {
           </header>
           <main>
             <FlashMessage />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/logout" component={Logout} />
-            <Route path="/progressions" component={ProgressionsContainer} />
-            <Route path="/classes" component={KlassesContainer} />
+            { this.renderRoutes()}
           </main>
         </>
     )
   }
 
+}
+
+function mapStateToProps(state){
+  return {
+    currentUser: state.currentUser
+  }
 }
 
 function mapDispatchToProps(dispatch){
@@ -48,4 +71,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(null, mapDispatchToProps)(IndexContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(IndexContainer)

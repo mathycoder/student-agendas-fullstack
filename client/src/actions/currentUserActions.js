@@ -11,7 +11,7 @@ export function getCurrentUser(history){
       .then(resp => resp.json())
       .then(user => {
         if (user.error){
-          // history.push('/login')
+          dispatch({ type: 'SET_CURRENT_USER_TO_NONE' })
         } else {
           dispatch({ type: 'SET_CURRENT_USER', user })
         }
@@ -58,7 +58,7 @@ export function logout(history){
       .then(resp => resp.json())
       .then(user => {
         if (user.error){
-          alert("logout failed")
+          console.log(user.error)
         } else {
           dispatch({ type: 'CLEAR_CURRENT_USER' })
           dispatch({ type: 'ADD_FLASH_MESSAGE', message: "Successfully logged out" })
