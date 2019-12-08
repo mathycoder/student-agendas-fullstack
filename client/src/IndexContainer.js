@@ -19,7 +19,7 @@ class IndexContainer extends Component {
 
   componentDidMount(){
     const {history, getCurrentUser} = this.props
-    getCurrentUser(history)
+    getCurrentUser()
   }
 
   renderRoutes = () => {
@@ -63,7 +63,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    getCurrentUser: (history) => dispatch(getCurrentUser(history))
+    getCurrentUser: () => dispatch(getCurrentUser())
   }
 }
 

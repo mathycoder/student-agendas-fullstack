@@ -1,4 +1,4 @@
-export function getCurrentUser(history){
+export function getCurrentUser(){
   return (dispatch) => {
     dispatch({ type: 'CHECKING_CURRENT_USER' })
      fetch(`/get_current_user`, {

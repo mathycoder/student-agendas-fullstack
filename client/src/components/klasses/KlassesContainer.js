@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import ShowKlassContainer from './ShowKlassContainer'
 import KlassesIndex from './KlassesIndex'
 import '../progressions/Progression.css'
@@ -9,6 +9,7 @@ import { fetchKlasses } from '../../actions/klassActions'
 import { fetchProgressions } from '../../actions/progressionActions'
 import { fetchVideos } from '../../actions/videoActions'
 import { fetchReflections } from '../../actions/reflectionActions'
+import { addFlashMessage } from '../../actions/flashActions'
 
 class KlassesContainer extends Component {
   componentDidMount(){
@@ -19,16 +20,36 @@ class KlassesContainer extends Component {
     fetchReflections()
   }
 
+  renderShowRoute = () => {
+    const { match, klasses, addFlashMessage } = this.props
+    return <Route exact path={`${match.url}/:id`} key={Math.random()} render={(routerProps) => {
+      const klassId = `klass${routerProps.match.params.id}`
+      const {allIds} = klasses
+      if (allIds.includes(klassId)) {
+        return <ShowKlassContainer {...routerProps} />
+      } else {
+        addFlashMessage("You don't have access to that class")
+        return <Redirect to="/classes"/>
+      }
+    }}/>
+  }
+
   render() {
-    const { match } = this.props
+    const { match, klasses } = this.props
     return (
       <div>
         <Switch>
-          <Route exact path={`${match.url}`} render={() => <KlassesIndex {...this.props} />} />
-          <Route exact path={`${match.url}/:id`} render={(routerProps) => <ShowKlassContainer {...routerProps} handleKlassClick={this.handleKlassClick} />} key={Math.random()} />
+          <Route exact path={`${match.url}`} component={KlassesIndex}/>
+          {klasses.allIds.length > 0 ? this.renderShowRoute() : ''}
         </Switch>
       </div>
     )
+  }
+}
+
+function mapStateToProps(state){
+  return {
+    klasses: state.klasses
   }
 }
 
@@ -37,8 +58,9 @@ function mapDispatchToProps(dispatch){
     fetchKlasses: () => dispatch(fetchKlasses()),
     fetchProgressions: () => dispatch(fetchProgressions()),
     fetchVideos: () => dispatch(fetchVideos()),
-    fetchReflections: () => dispatch(fetchReflections())
+    fetchReflections: () => dispatch(fetchReflections()),
+    addFlashMessage: (message) => dispatch(addFlashMessage(message))
   }
 }
 
-export default connect(null, mapDispatchToProps)(KlassesContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(KlassesContainer)

@@ -1,4 +1,4 @@
-function flashReducer(state=[], action){
+function flashReducer(state=null, action){
   switch(action.type){
     case 'ADD_FLASH_MESSAGE':
       return action.message
@@ -7,7 +7,7 @@ function flashReducer(state=[], action){
       return null
 
     default:
-      return null
+      return state
   }
 }
 
