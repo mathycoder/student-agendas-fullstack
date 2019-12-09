@@ -108,6 +108,11 @@ class NavBar extends Component{
             <div className="klass-dropdown" ref={this.progressionDropdownRef} onClick={this.handleProgressionDropdownClick}>
               Progressions
             </div>
+            <div className="profile-pic">
+              <NavLink id="profile-link" to="/profile">
+                <img src="/silhouette.png" />
+              </NavLink>
+            </div>
             <NavLink id="logout" to="/logout">Logout</NavLink>
           </div>
           <div className="navbar-dropdowns">
@@ -122,6 +127,14 @@ class NavBar extends Component{
           <div className="navbar">
             <div className="color-logo">
               {this.displayColors()}
+            </div>
+            <div className="title">
+              Student Agendas
+            </div>
+            <div className="profile-pic">
+              <NavLink id="profile-link" to="/profile">
+                <img src="/silhouette.png" />
+              </NavLink>
             </div>
             <NavLink id="login" to="/login">Login</NavLink>
             <NavLink to="/signup">Signup</NavLink>

@@ -1,4 +1,4 @@
-.login .form-input-fields, .signup .form-input-fields {
+.login .form-input-fields, .signup .form-input-fields, .profile .form-input-fields {
   margin-top: 15px;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@
 }
 
 .form-input-fields input[type=text]:focus, .form-input-fields input[type=password]:focus {
-  outline: none;
+  outline-color: gray;
 }
 
 .login .klass-index-new-klass-button {

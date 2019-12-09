@@ -12,9 +12,9 @@
 .navbar .title {
   font-weight: bold;
   color: rgb(100, 100, 100);
-  font-size: 18px;
+  font-size: 17px;
   margin-top: 4px;
-  margin-left: 4px;
+  margin-left: 20px;
 }
 
 .color-logo {
@@ -41,7 +41,7 @@
   display: inline-block;
 }
 
-#color-logo-link {
+#color-logo-link, #profile-link {
   margin-left: 0;
   margin-top: 7px;
   padding: 0px;
@@ -112,14 +112,21 @@
 }
 
 #logout {
-  margin-left: auto;
   margin-right: 2%;
-}
-
-#login {
-  margin-left: auto;
 }
 
 .navbar a:last-child {
   margin-right: 15px;
+}
+
+.profile-pic {
+  margin-left: auto;
+  width: 30px;
+  height: 20px;
+  margin-top: -5px;
+}
+
+.profile-pic img {
+  width: 25px;
+  height: 25px;
 }
