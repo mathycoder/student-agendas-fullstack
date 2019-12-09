@@ -12,7 +12,9 @@ class ProgressionsController < ApplicationController
       if @progression.save
         render json: @progression.to_json(include: [items: { include: [:video, :reflection]}])
       else
-        render json: @progression.errors.full_messages, status: 422
+        render json: {
+          error: @progression.errors.full_messages[0]
+          }, status: 422
       end
     else
       student = Student.find_by(id: params[:student_id])

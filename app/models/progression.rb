@@ -8,6 +8,9 @@ class Progression < ApplicationRecord
   has_many :students, through: :student_progressions
   has_many :klasses, through: :students
 
+  validates :name, presence: true, length: { maximum: 30, minimum: 4 }
+  # validates :email, presence: true, uniqueness: true
+
   def items_attributes=(data_array)
     self.items.destroy_all
     data_array.each_with_index do |attributes, index|

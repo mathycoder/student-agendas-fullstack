@@ -8,10 +8,3 @@ class Teacher < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   has_secure_password
 end
-#
-#
-# create_table "teachers", force: :cascade do |t|
-#   t.string "name"
-#   t.string "email"
-#   t.string "password_digest"
-# end

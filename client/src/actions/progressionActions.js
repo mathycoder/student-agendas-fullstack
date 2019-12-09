@@ -19,7 +19,7 @@ export function fetchProgressions() {
   }
 }
 
-export function addProgression(progression) {
+export function addProgression(progression, history) {
   return (dispatch) => {
     dispatch({type: 'START_ADDING_PROGRESSION_REQUEST'})
     fetch(`/progressions`, {
@@ -32,14 +32,19 @@ export function addProgression(progression) {
     })
       .then(resp => resp.json())
       .then(progression => {
-        dispatch({ type: 'ADD_PROGRESSION', progression })
+        if (progression.error){
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: progression.error })
+        } else {
+          dispatch({ type: 'ADD_PROGRESSION', progression })
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: "Progression Added" })
+          history.push('/progressions')
+        }
       })
-
   }
 }
 
 
-export function editProgression(progression) {
+export function editProgression(progression, history) {
   return (dispatch) => {
     dispatch({type: 'START_EDITING_PROGRESSION_REQUEST'})
     fetch(`/progressions/${progression.progression.id}`, {
@@ -53,6 +58,7 @@ export function editProgression(progression) {
       .then(resp => resp.json())
       .then(progression => {
         dispatch({ type: 'EDIT_PROGRESSION', progression })
+        history.push('/progressions')
       })
 
   }

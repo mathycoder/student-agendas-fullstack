@@ -25,7 +25,6 @@ function progressionsById(state = {}, action) {
           return a.progression_index - b.progression_index
         })
         progression.items = progression.items.map(item => {
-          debugger
           if (item.video){
             return `video${item.video.id}`
           } else if (item.reflection) {
