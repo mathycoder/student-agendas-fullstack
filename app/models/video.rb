@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
-  belongs_to :item
+  has_many :item_videos
+  has_many :items, through: :item_videos
 
   def self.vimeo_request(query)
     resp = Faraday.get("https://api.vimeo.com/videos") do |req|

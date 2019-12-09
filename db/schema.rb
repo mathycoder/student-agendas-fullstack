@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_143059) do
+ActiveRecord::Schema.define(version: 2019_12_09_132112) do
+
+  create_table "item_videos", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "video_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.integer "progression_index"
@@ -70,7 +75,6 @@ ActiveRecord::Schema.define(version: 2019_12_04_143059) do
     t.string "thumbnailUrl"
     t.string "videoId"
     t.string "url"
-    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

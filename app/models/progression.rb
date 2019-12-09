@@ -9,6 +9,7 @@ class Progression < ApplicationRecord
   has_many :klasses, through: :students
 
   validates :name, presence: true, length: { maximum: 30, minimum: 4 }
+  validates_presence_of :items, message: "Add at least one video or reflection to your progression"
   # validates :email, presence: true, uniqueness: true
 
   def items_attributes=(data_array)
@@ -16,7 +17,7 @@ class Progression < ApplicationRecord
     data_array.each_with_index do |attributes, index|
       item = Item.new
       if attributes[:videoId]
-        new_video = Video.create(attributes)
+        new_video = Video.find_or_create_by(attributes)
         item.video = new_video
       else
         new_reflection = Reflection.find_or_create_by(attributes)

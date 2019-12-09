@@ -57,8 +57,13 @@ export function editProgression(progression, history) {
     })
       .then(resp => resp.json())
       .then(progression => {
-        dispatch({ type: 'EDIT_PROGRESSION', progression })
-        history.push('/progressions')
+        if (progression.error){
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: progression.error })
+        } else {
+          dispatch({ type: 'EDIT_PROGRESSION', progression })
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: "Progression Edited" })
+          history.push('/progressions')
+        }
       })
 
   }
