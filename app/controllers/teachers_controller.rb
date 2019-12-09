@@ -18,11 +18,12 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find_by(id: params[:id])
     if (params[:file])
       @uploaded_io = params[:file]
-      File.open(Rails.root.join('client', 'public', @uploaded_io.original_filename), 'wb') do |file|
+      filename =  'profile/' + @uploaded_io.original_filename.gsub(" ", "-")
+      File.open(Rails.root.join('client', 'public', filename), 'wb') do |file|
         file.write(@uploaded_io.read)
       end
 
-      if @teacher.update(image_url: @uploaded_io)
+      if @teacher.update(image_url: filename)
         render json: @teacher.to_json(only: [:name, :email, :id, :image_url]), status: 201
       else
         render json: {

@@ -12,19 +12,33 @@ class ProfilePicForm extends Component {
     const { updateProfilePic, currentUser } = this.props
     const file = this.fileUploadRef.current.files[0]
     updateProfilePic(file, currentUser.id)
-
   }
+
+  displayProfilePic = () => {
+    const { currentUser } = this.props
+    if (currentUser.image_url){
+      return <img src={`/${currentUser.image_url}`} />
+    } else {
+      return <img src="/silhouette.png" />
+    }
+  }
+
+  // return <img src={`/${encodeURI(currentUser.image_url)}`} />
 
   render(){
     return (
       <div className="profile-pic-form">
-        <img src="/silhouette.png" />
-        <br/>
-        <input
-          type="file"
-          ref={this.fileUploadRef}
-        />
-        <button onClick={this.handleClick}>Upload</button>
+
+        {this.displayProfilePic()}
+
+
+        <div className="file-submit">
+          <input
+            type="file"
+            ref={this.fileUploadRef}
+          />
+          <button onClick={this.handleClick}>Upload</button>
+        </div>
       </div>
     )
   }
