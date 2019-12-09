@@ -128,7 +128,7 @@ class KlassesIndex extends Component {
       <div className="home-page-wrapper">
         <div className="klass-index-container">
           <div className="klass-index-title">
-            <div>Student Agendas</div>
+            <div>{`${this.props.currentUser.name}'s Classes`}</div>
             <div>{this.displayColors()}</div>
           </div>
           <div className="klass-index-klasses">
@@ -155,7 +155,10 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return {klasses: state.klasses}
+  return {
+    klasses: state.klasses,
+    currentUser: state.currentUser
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(KlassesIndex)

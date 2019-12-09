@@ -52,10 +52,11 @@
 .klass-index-title div {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .klass-index-title div div:first-child {
-  margin-left: 45px;
+  
 }
 
 .klass-rows {

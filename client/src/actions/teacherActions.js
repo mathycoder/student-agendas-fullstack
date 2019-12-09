@@ -14,6 +14,7 @@ export function signup(teacherData, history){
           dispatch({ type: 'ADD_FLASH_MESSAGE', message: user.error })
         } else {
           dispatch({ type: 'SET_CURRENT_USER', user })
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: "Created New Teacher Account" })
           history.push('/classes')
         }
       })

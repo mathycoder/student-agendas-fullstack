@@ -50,33 +50,39 @@ class Login extends Component{
 
   render(){
     return (
-      <div className="home-page-wrapper login">
-        <div className="klass-index-container">
-          <div className="klass-index-title">
-            <div>Student Agendas</div>
-            <div>{this.displayColors()}</div>
-          </div>
-          <div className="form-input-fields">
-            <div>
-              <input
-                value={this.state.email}
-                onChange={this.handleEmailChange}
-                type="text"
-                placeholder="Email" />
+      <form onSubmit={this.handleFormSubmit}>
+        <div className="home-page-wrapper login">
+          <div className="klass-index-container">
+            <div className="klass-index-title">
+              <div>Student Agendas</div>
+              <div>{this.displayColors()}</div>
             </div>
-            <div>
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.handlePasswordChange}
-                placeholder="Password" />
+            <div className="form-input-fields">
+              <div>
+                <input
+                  required
+                  value={this.state.email}
+                  onChange={this.handleEmailChange}
+                  type="text"
+                  placeholder="Email" />
+              </div>
+              <div>
+                <input
+                  required
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handlePasswordChange}
+                  placeholder="Password" />
+              </div>
             </div>
-          </div>
-          <div className="klass-index-new-klass-button">
-            <button onClick={this.handleFormSubmit}>Login</button>
+            <div className="klass-index-new-klass-button">
+              <input
+                type="submit"
+                value="Login"/>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     )
   }
 }

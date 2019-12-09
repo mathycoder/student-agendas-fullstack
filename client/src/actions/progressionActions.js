@@ -43,7 +43,6 @@ export function addProgression(progression, history) {
   }
 }
 
-
 export function editProgression(progression, history) {
   return (dispatch) => {
     dispatch({type: 'START_EDITING_PROGRESSION_REQUEST'})

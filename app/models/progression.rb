@@ -10,7 +10,6 @@ class Progression < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 30, minimum: 4 }
   validates_presence_of :items, message: "Add at least one video or reflection to your progression"
-  # validates :email, presence: true, uniqueness: true
 
   def items_attributes=(data_array)
     self.items.destroy_all

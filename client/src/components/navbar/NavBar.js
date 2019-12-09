@@ -97,14 +97,18 @@ class NavBar extends Component{
       return (
         <div>
           <div className="navbar">
-            <NavLink to="/classes">Home</NavLink>
+            <NavLink id="color-logo-link" to="/classes">
+              <div className="color-logo">
+                {this.displayColors()}
+              </div>
+            </NavLink>
             <div className="klass-dropdown" ref={this.klassDropdownRef} onClick={this.handleKlassDropdownClick}>
               Classes
             </div>
             <div className="klass-dropdown" ref={this.progressionDropdownRef} onClick={this.handleProgressionDropdownClick}>
               Progressions
             </div>
-            <NavLink to="/logout">Logout</NavLink>
+            <NavLink id="logout" to="/logout">Logout</NavLink>
           </div>
           <div className="navbar-dropdowns">
             {this.renderKlassDropdown()}
@@ -116,17 +120,27 @@ class NavBar extends Component{
       return (
         <div>
           <div className="navbar">
-            <div className="klass-dropdown">
-              <NavLink to="/login">Login</NavLink>
+            <div className="color-logo">
+              {this.displayColors()}
             </div>
-            <div className="klass-dropdown">
-              <NavLink to="/signup">Signup</NavLink>
-            </div>
+            <NavLink id="login" to="/login">Login</NavLink>
+            <NavLink to="/signup">Signup</NavLink>
+
           </div>
         </div>
       )
     }
+  }
 
+  displayColors = () => {
+    return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
+      return (
+        <div
+          key={index}
+          className={`select-color ${color}-title`}>
+        </div>
+      )
+    })
   }
 
   render(){
