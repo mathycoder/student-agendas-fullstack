@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import './teacher.css'
 import { fetchKlasses } from '../../actions/klassActions'
+import { updateTeacher } from '../../actions/teacherActions'
 import { connect } from 'react-redux'
 
 class TeacherProfile extends Component {
   state = {
-    name: ''
+    name: '',
+    id: undefined
   }
 
   componentDidMount(){
@@ -13,7 +15,8 @@ class TeacherProfile extends Component {
     fetchKlasses()
     this.setState({
       ...this.state,
-      name: currentUser.name
+      name: currentUser.name,
+      id: currentUser.id
     })
   }
 
@@ -25,8 +28,10 @@ class TeacherProfile extends Component {
   }
 
   handleFormSubmit = (e) => {
+    const { updateTeacher, history } = this.props
     e.preventDefault()
-    
+    updateTeacher(this.state, history)
+
   }
 
   displayColors = () => {
@@ -76,7 +81,8 @@ class TeacherProfile extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    fetchKlasses: () => dispatch(fetchKlasses())
+    fetchKlasses: () => dispatch(fetchKlasses()),
+    updateTeacher: (teacherData, history) => dispatch(updateTeacher(teacherData, history))
   }
 }
 

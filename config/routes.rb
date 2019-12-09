@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :videos
   resources :reflections
   resources :klasses
-  resources :teachers, only: [:create]
+  resources :teachers, only: [:create, :update]
 
   resources :klasses do
     resources :students

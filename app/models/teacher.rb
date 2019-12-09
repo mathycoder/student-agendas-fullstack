@@ -6,6 +6,6 @@ class Teacher < ApplicationRecord
   has_many :reflections, through: :items
   validates :name, presence: true, length: { maximum: 20, minimum: 4 }
   validates :email, presence: true, uniqueness: true
-  validates :password, length: { maximum: 20, minimum: 4 }
+  # validates :password, length: { maximum: 20, minimum: 4 }
   has_secure_password
 end
