@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
 import './teacher.css'
+import ProfilePicForm from './ProfilePicForm'
 import { fetchKlasses } from '../../actions/klassActions'
 import { updateTeacher } from '../../actions/teacherActions'
 import { connect } from 'react-redux'
 
 class TeacherProfile extends Component {
-  state = {
-    name: '',
-    id: undefined
+  constructor(props){
+    super(props)
+    this.fileUploadRef = React.createRef()
+    this.state = {
+      name: '',
+      id: undefined,
+      file: undefined
+    }
   }
 
   componentDidMount(){
@@ -20,6 +26,10 @@ class TeacherProfile extends Component {
     })
   }
 
+  componentDidUpdate(){
+    console.log(this.state)
+  }
+
   handleNameChange = (e) => {
     this.setState({
       ...this.state,
@@ -27,11 +37,17 @@ class TeacherProfile extends Component {
     })
   }
 
+  handleFileChange = (e) => {
+    this.setState({
+      ...this.state,
+      file: e.target.value
+    })
+  }
+
   handleFormSubmit = (e) => {
     const { updateTeacher, history } = this.props
     e.preventDefault()
     updateTeacher(this.state, history)
-
   }
 
   displayColors = () => {
@@ -47,17 +63,15 @@ class TeacherProfile extends Component {
 
   render(){
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <div className="home-page-wrapper profile">
+      <div className="home-page-wrapper profile">
+
           <div className="klass-index-container">
             <div className="klass-index-title">
               <div>Your Profile</div>
               <div>{this.displayColors()}</div>
             </div>
             <div className="form-input-fields">
-              <div class="profile-pic-form">
-                <img src="/silhouette.png" />
-              </div>
+              <ProfilePicForm />
               <div>
                 <input
                   required
@@ -68,13 +82,14 @@ class TeacherProfile extends Component {
               </div>
             </div>
             <div className="klass-index-new-klass-button">
-              <input
-                type="submit"
-                value="Update"/>
+              <button onClick={this.handleFormSubmit}>
+                Update
+              </button>
+
             </div>
           </div>
-        </div>
-      </form>
+
+      </div>
     )
   }
 }

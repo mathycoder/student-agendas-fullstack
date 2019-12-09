@@ -6,7 +6,7 @@ class TeachersController < ApplicationController
     @teacher.password = params[:password]
     if @teacher.save
       session[:user_id] = @teacher.id
-      render json: @teacher.to_json(only: [:name, :email, :id]), status: 201
+      render json: @teacher.to_json(only: [:name, :email, :id, :image_url]), status: 201
     else
       render json: {
         error: @teacher.errors.full_messages.first
@@ -16,18 +16,32 @@ class TeachersController < ApplicationController
 
   def update
     @teacher = Teacher.find_by(id: params[:id])
-    if @teacher.update(name: params[:teacher][:name])
-      render json: @teacher.to_json(only: [:name, :email, :id]), status: 201
-    else
-      render json: {
-        error: @teacher.errors.full_messages.first
-        }, status: 424
-    end
+    if (params[:file])
+      @uploaded_io = params[:file]
+      File.open(Rails.root.join('client', 'public', @uploaded_io.original_filename), 'wb') do |file|
+        file.write(@uploaded_io.read)
+      end
 
+      if @teacher.update(image_url: @uploaded_io)
+        render json: @teacher.to_json(only: [:name, :email, :id, :image_url]), status: 201
+      else
+        render json: {
+          error: @teacher.errors.full_messages.first
+          }, status: 424
+      end
+    else
+      if @teacher.update(name: params[:teacher][:name])
+        render json: @teacher.to_json(only: [:name, :email, :id, :image_url]), status: 201
+      else
+        render json: {
+          error: @teacher.errors.full_messages.first
+          }, status: 424
+      end
+    end
   end
 
   private
     def teacher_params
-      params.require(:teacher).permit(:password, :name, :email)
+      params.require(:teacher).permit(:password, :name, :email, :image_url, :file)
     end
 end

@@ -45,3 +45,20 @@ export function updateTeacher(teacherData, history){
       .catch(console.log)
   }
 }
+
+export function updateProfilePic(file, teacherId){
+  return (dispatch) => {
+    let data = new FormData()
+    data.append('file', file)
+    fetch(`/teachers/${teacherId}`, {
+      method: 'PATCH',
+      body: data,
+      credentials: "include"
+   })
+     .then(resp => resp.json())
+     .then(user => {
+       console.log(user)
+     })
+     .catch(console.log)
+  }
+}
