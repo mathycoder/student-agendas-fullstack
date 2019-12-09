@@ -110,7 +110,7 @@ class NavBar extends Component{
             </div>
             <div className="profile-pic">
               <NavLink id="profile-link" to="/profile">
-                <img src="/silhouette.png" />
+                {this.profilePic()}
               </NavLink>
             </div>
             <NavLink id="logout" to="/logout">Logout</NavLink>
@@ -154,6 +154,12 @@ class NavBar extends Component{
         </div>
       )
     })
+  }
+
+  profilePic = () => {
+    const { currentUser } = this.props 
+    return this.props.currentUser.image_url ?
+      <img src={`/${currentUser.image_url}`} /> : <img src="/silhouette.png" />
   }
 
   render(){

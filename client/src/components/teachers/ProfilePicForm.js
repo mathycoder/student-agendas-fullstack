@@ -9,6 +9,7 @@ class ProfilePicForm extends Component {
   }
 
   handleClick = e => {
+    e.preventDefault()
     const { updateProfilePic, currentUser } = this.props
     const file = this.fileUploadRef.current.files[0]
     updateProfilePic(file, currentUser.id)
@@ -23,23 +24,21 @@ class ProfilePicForm extends Component {
     }
   }
 
-  // return <img src={`/${encodeURI(currentUser.image_url)}`} />
-
   render(){
     return (
-      <div className="profile-pic-form">
-
-        {this.displayProfilePic()}
-
-
-        <div className="file-submit">
-          <input
-            type="file"
-            ref={this.fileUploadRef}
-          />
-          <button onClick={this.handleClick}>Upload</button>
+      <form onSubmit={this.handleClick}>
+        <div className="profile-pic-form">
+          {this.displayProfilePic()}
+          <div className="file-submit">
+            <input
+              required
+              type="file"
+              ref={this.fileUploadRef}
+            />
+            <input type="submit" value="Upload" />
+          </div>
         </div>
-      </div>
+      </form>
     )
   }
 }

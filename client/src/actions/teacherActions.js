@@ -57,7 +57,7 @@ export function updateProfilePic(file, teacherId){
    })
      .then(resp => resp.json())
      .then(user => {
-       console.log(user)
+       dispatch({ type: 'SET_CURRENT_USER', user })
      })
      .catch(console.log)
   }
