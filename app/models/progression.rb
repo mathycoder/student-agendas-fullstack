@@ -13,7 +13,7 @@ class Progression < ApplicationRecord
     data_array.each_with_index do |attributes, index|
       item = Item.new
       if attributes[:videoId]
-        new_video = Video.find_or_create_by(attributes)
+        new_video = Video.create(attributes)
         item.video = new_video
       else
         new_reflection = Reflection.find_or_create_by(attributes)
