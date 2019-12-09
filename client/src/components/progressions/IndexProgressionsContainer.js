@@ -13,7 +13,15 @@ class IndexProgressionsContainer extends Component {
     initialLoad: false
   }
 
+  componentDidMount(){
+    this.initialLoad()
+  }
+
   componentDidUpdate(){
+    this.initialLoad()
+  }
+
+  initialLoad = () => {
     if (!this.state.initialLoad && this.props.progressions.allIds.length > 0){
       this.setState({
         ...this.state,
@@ -21,7 +29,6 @@ class IndexProgressionsContainer extends Component {
         searchedProgressions: this.alphabeticalProgressions()
       })
     }
-
   }
 
   handleChange = (event) => {
@@ -92,6 +99,12 @@ class IndexProgressionsContainer extends Component {
     event.preventDefault()
   }
 
+  handleDeleteProgression = (progression) => {
+    const { deleteProgression } = this.props
+    const deleteCheck = window.confirm("Are you sure you want to delete this progression?");
+    if (deleteCheck) { deleteProgression(progression) }
+  }
+
   displayColors = () => {
     return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
       return (
@@ -105,7 +118,7 @@ class IndexProgressionsContainer extends Component {
   }
 
   render(){
-    const { progressions, videos, reflections, handleDragStart, indexPage, deleteProgression, history } = this.props
+    const { progressions, videos, reflections, handleDragStart, indexPage, history } = this.props
 
     return (
       <div className={`student-show-progressions-container ${indexPage ? 'index-page' : ''}`}>
@@ -150,7 +163,7 @@ class IndexProgressionsContainer extends Component {
               return <IndexProgression
                         key={index}
                         progression={progression}
-                        deleteProgression={deleteProgression}
+                        handleDeleteProgression={this.handleDeleteProgression}
                         history={history}
                         reflections={reflections}
                         videos={videos}/>
