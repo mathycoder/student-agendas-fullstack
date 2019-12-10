@@ -36,3 +36,22 @@
 .signup .form-input-fields div:first-child {
   margin-top: 40px;
 }
+
+.radio-input {
+  display: flex;
+  color: white;
+}
+
+
+
+.radio-input div {
+  margin: 0 8px;
+}
+
+.radio-input input[type=radio] {
+  margin: 0 5px;
+}
+
+.radio-input input[type=radio]:checked {
+  background-color: grey;
+}

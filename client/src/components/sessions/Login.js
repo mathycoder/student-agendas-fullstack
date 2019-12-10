@@ -8,7 +8,15 @@ class Login extends Component{
 
   state = {
     email: '',
-    password: ''
+    password: '',
+    type: "teacher"
+  }
+
+  handleRadioChange = event => {
+    this.setState({
+      ...this.state,
+      type: event.target.value
+    })
   }
 
   handleEmailChange = event => {
@@ -29,11 +37,13 @@ class Login extends Component{
     const { login, history } = this.props
     event.preventDefault()
     login(this.state, history)
-    this.setState({
-      ...this.state,
-      email: '',
-      password: ''
-    })
+    window.setTimeout(() => (
+      this.setState({
+        ...this.state,
+        email: '',
+        password: ''
+      })
+    ), 400)
   }
 
   displayColors = () => {
@@ -58,6 +68,26 @@ class Login extends Component{
               <div>{this.displayColors()}</div>
             </div>
             <div className="form-input-fields">
+              <div className="radio-input">
+                <div>
+                  <input
+                    type="radio"
+                    value="teacher"
+                    name="type"
+                    checked={this.state.type === "teacher" ? 'checked' : ''}
+                    onChange={this.handleRadioChange}
+                  />Teacher
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    value="student"
+                    name="type"
+                    checked={this.state.type === "student" ? 'checked' : ''}
+                    onChange={this.handleRadioChange}
+                  />Student
+                </div>
+              </div>
               <div>
                 <input
                   required

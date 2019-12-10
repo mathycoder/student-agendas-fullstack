@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:create, :get_current_user]
 
   def create
+    binding.pry
     @teacher = Teacher.find_by(email: params[:session][:email])
     if @teacher && @teacher.authenticate(params[:session][:password])
       session[:user_id] = @teacher.id
