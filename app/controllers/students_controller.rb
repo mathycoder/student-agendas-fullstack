@@ -11,7 +11,9 @@ class StudentsController < ApplicationController
     if @student.save
       render json: @student, status: 201
     else
-      render json: @student.errors.full_messages, status: 422
+      render json: {
+        error: @student.errors.full_messages[0]
+        }, status: 422
     end
   end
 
@@ -20,7 +22,9 @@ class StudentsController < ApplicationController
     if @student.update(student_params)
       render json: @student, status: 201
     else
-      render json: @student.errors.full_messages, status: 422
+      render json: {
+        error: @student.errors.full_messages[0]
+        }, status: 422
     end
   end
 

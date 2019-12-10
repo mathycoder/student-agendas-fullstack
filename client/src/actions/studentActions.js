@@ -17,7 +17,6 @@ export function addStudents(klassId){
   }
 }
 
-
 export function addStudentToKlass(klassId, studentData){
   return (dispatch) => {
     dispatch({type: 'START_ADDING_STUDENT_TO_KLASS_REQUEST'})
@@ -31,7 +30,11 @@ export function addStudentToKlass(klassId, studentData){
     })
       .then(resp => resp.json())
       .then(student => {
-        dispatch({ type: 'ADD_STUDENT_TO_KLASS', student })
+        if (student.error){
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: student.error })
+        } else {
+          dispatch({ type: 'ADD_STUDENT_TO_KLASS', student })
+        }
       })
   }
 }
@@ -49,7 +52,11 @@ export function editStudentInKlass(klassId, studentData){
     })
       .then(resp => resp.json())
       .then(student => {
-        dispatch({ type: 'EDIT_STUDENT_IN_KLASS', student })
+        if (student.error){
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: student.error })
+        } else {
+          dispatch({ type: 'EDIT_STUDENT_TO_KLASS', student })
+        }
       })
   }
 }
