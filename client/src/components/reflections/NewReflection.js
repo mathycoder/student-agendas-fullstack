@@ -44,19 +44,31 @@ class NewReflection extends Component {
         <div className="new-reflection-left">
           <div className="lined-paper">
             <div className="lined-paper-form">
-              <div className="paper-form-title">
-                <input className="paper-form-title-input" onChange={this.handleTitleChange} value={title} placeholder='Enter a Reflection title'/>
-              </div>
-              <button
-                onClick={e => editing ? editReflectionItem(this.state) : addToProgression(this.state)}
-                className="add-prog-button">{editing ? 'Submit Edits' : 'Add to Progression'}</button>
-              <div className="reflection-question">
-                <textarea
-                  onChange={this.handleQuestion1Change}
-                  placeholder="Enter your question here"
-                  value={this.state.question1}>
-                </textarea>
-              </div>
+              <form
+                onSubmit={e => editing ? editReflectionItem(this.state) : addToProgression(this.state)}
+                >
+                <div className="paper-form-title">
+                  <input
+                    required
+                    className="paper-form-title-input"
+                    onChange={this.handleTitleChange}
+                    value={title}
+                    placeholder='Enter a Reflection title'/>
+                </div>
+                <input
+                  className="add-prog-button"
+                  type="submit"
+                  value={editing ? 'Submit Edits' : 'Add to Progression'}
+                />
+                <div className="reflection-question">
+                  <textarea
+                    required
+                    onChange={this.handleQuestion1Change}
+                    placeholder="Enter your question here"
+                    value={this.state.question1}>
+                  </textarea>
+                </div>
+              </form>
             </div>
           </div>
         </div>
