@@ -8,6 +8,7 @@ class Login extends Component{
 
   state = {
     email: '',
+    username: '',
     password: '',
     type: "teacher"
   }
@@ -15,7 +16,17 @@ class Login extends Component{
   handleRadioChange = event => {
     this.setState({
       ...this.state,
+      email: '',
+      username: '',
+      password: '',
       type: event.target.value
+    })
+  }
+
+  handleUsernameChange = event => {
+    this.setState({
+      ...this.state,
+      username: event.target.value
     })
   }
 
@@ -34,16 +45,15 @@ class Login extends Component{
   }
 
   handleFormSubmit = event => {
-    const { login, history } = this.props
     event.preventDefault()
-    login(this.state, history)
-    window.setTimeout(() => (
-      this.setState({
-        ...this.state,
-        email: '',
-        password: ''
-      })
-    ), 400)
+    const { login, history } = this.props
+    const { email, password, username, type } = this.state
+    const params = {
+      password: password,
+      type: type
+    }
+    type === "teacher" ? params.email = email : params.username = username
+    login(params, history)
   }
 
   displayColors = () => {
@@ -57,6 +67,31 @@ class Login extends Component{
     })
   }
 
+  emailOrUsername = () => {
+    if (this.state.type === "teacher"){
+      return (
+        <div>
+          <input
+            required
+            value={this.state.email}
+            onChange={this.handleEmailChange}
+            type="text"
+            placeholder="Email" />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <input
+            required
+            value={this.state.username}
+            onChange={this.handleUsernameChange}
+            type="text"
+            placeholder="Username" />
+        </div>
+      )
+    }
+  }
 
   render(){
     return (
@@ -88,14 +123,7 @@ class Login extends Component{
                   />Student
                 </div>
               </div>
-              <div>
-                <input
-                  required
-                  value={this.state.email}
-                  onChange={this.handleEmailChange}
-                  type="text"
-                  placeholder="Email" />
-              </div>
+              {this.emailOrUsername()}
               <div>
                 <input
                   required
