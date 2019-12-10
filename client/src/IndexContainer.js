@@ -9,7 +9,7 @@ import Signup from './components/sessions/Signup'
 import { getCurrentUser } from './actions/currentUserActions'
 import NavBar from './components/navbar/NavBar'
 import { connect } from 'react-redux'
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import PrivateRoute from './components/routes/PrivateRoute'
 
 
@@ -19,8 +19,7 @@ class IndexContainer extends Component {
   }
 
   componentDidMount(){
-    const {history, getCurrentUser} = this.props
-    getCurrentUser()
+    this.props.getCurrentUser()
   }
 
   renderRoutes = () => {

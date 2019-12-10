@@ -2,7 +2,7 @@ import React from 'react'
 import RenderItem from '../progressions/RenderItem.js'
 
 const StudentProgression = (props) => {
-  const { progression, videos, reflections, handleDragStart } = props
+  const { progression, handleDragStart } = props
   if (progression){
     return (
       <div

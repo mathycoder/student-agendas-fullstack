@@ -2,7 +2,7 @@ import React from 'react'
 import RenderItem from './RenderItem.js'
 
 const IndexProgression = (props) => {
-  const { progression, videos, reflections } = props
+  const { progression } = props
   if (progression){
     return (
       <div className="student-progression-index-wrapper">

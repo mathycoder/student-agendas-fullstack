@@ -55,9 +55,8 @@ class NewProgression extends Component {
   }
 
   displayProgression = () => {
-    const { currProgression, removeFromProgression, handleProgressionItemClick } = this.props
     return (
-      currProgression.map((item, index) => {
+      this.props.currProgression.map((item, index) => {
         if (item.videoId) {
           return this.renderVideoDraggable(item, index)
         } else {

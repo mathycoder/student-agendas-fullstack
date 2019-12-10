@@ -18,9 +18,9 @@ class ProfilePicForm extends Component {
   displayProfilePic = () => {
     const { currentUser } = this.props
     if (currentUser.image_url){
-      return <img src={`/${currentUser.image_url}`} />
+      return <img src={`/${currentUser.image_url}`} alt="user profile icon" />
     } else {
-      return <img src="/silhouette.png" />
+      return <img src="/silhouette.png" alt="silhouette icon"/>
     }
   }
 

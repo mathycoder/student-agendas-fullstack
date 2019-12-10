@@ -73,7 +73,7 @@ class NewReflection extends Component {
           </div>
         </div>
         <div className="new-reflection-right">
-          <img src="/paper-pencil.png"/>
+          <img src="/paper-pencil.png" alt="paper and pencil"/>
         </div>
       </div>
     )

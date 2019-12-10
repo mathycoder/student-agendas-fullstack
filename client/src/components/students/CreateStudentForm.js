@@ -96,7 +96,6 @@ class CreateStudentForm extends Component {
 
 
   render() {
-    const { handleStudentSubmit } = this.props
     const { firstName, lastName, id } = this.state
     return (
       <div className="edit-table-student-row student-form">

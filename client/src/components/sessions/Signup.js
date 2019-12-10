@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { login } from '../../actions/currentUserActions'
 import { signup } from '../../actions/teacherActions'
 import { connect } from 'react-redux'
 import '../klasses/Klass.css'

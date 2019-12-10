@@ -26,10 +26,6 @@ class TeacherProfile extends Component {
     })
   }
 
-  componentDidUpdate(){
-    console.log(this.state)
-  }
-
   handleNameChange = (e) => {
     this.setState({
       ...this.state,

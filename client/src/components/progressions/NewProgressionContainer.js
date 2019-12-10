@@ -22,17 +22,13 @@ class NewProgressionContainer extends Component {
   }
 
   loadProgressionIntoState = () => {
-    const progId = this.props.match.params.id
-    if (progId && progId !== "new" && !this.state.id && this.props.videos.allIds.length > 0 && this.props.reflections.allIds.length > 0 && this.props.progressions.allIds.length > 0) {
-      const progression = this.props.progressions.byId[`progression${progId}`]
-      const progressionItems = progression.items.map(videoOrReflectionId => {
-        if (videoOrReflectionId.includes("video")) {
-          return this.props.videos.byId[videoOrReflectionId]
-        } else if (videoOrReflectionId.includes("reflection")) {
-          return this.props.reflections.byId[videoOrReflectionId]
-        }
-
-      })
+    const { videos, reflections, progressions, match } = this.props
+    const progId = match.params.id
+    if (progId && progId !== "new" && !this.state.id && videos.allIds.length > 0 && reflections.allIds.length > 0 && progressions.allIds.length > 0) {
+      const progression = progressions.byId[`progression${progId}`]
+      const progressionItems = progression.items.map(videoOrReflectionId => (
+        videoOrReflectionId.includes("video") ? videos.byId[videoOrReflectionId] : reflections.byId[videoOrReflectionId]
+      ))
 
       this.setState({
         ...this.state,
@@ -261,7 +257,6 @@ class NewProgressionContainer extends Component {
   }
 
   render(){
-    const {id} = this.state
     return (
       <div className="new-progression-container">
         {this.renderForm()}
