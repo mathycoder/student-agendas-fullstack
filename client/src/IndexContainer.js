@@ -3,6 +3,7 @@ import FlashMessage from './components/flash/FlashMessage'
 import ProgressionsContainer from './components/progressions/ProgressionsContainer'
 import KlassesContainer from './components/klasses/KlassesContainer'
 import TeacherProfile from './components/teachers/TeacherProfile'
+import AgendaContainer from './components/agendas/AgendaContainer'
 import Login from './components/sessions/Login'
 import Logout from './components/sessions/Logout'
 import Signup from './components/sessions/Signup'
@@ -30,9 +31,10 @@ class IndexContainer extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/logout" component={Logout} />
-          <PrivateRoute path="/profile" component={TeacherProfile} />
-          <PrivateRoute path="/progressions" component={ProgressionsContainer} />
-          <PrivateRoute path="/classes" component={KlassesContainer} />
+          <PrivateRoute type="student" path="/myagenda" component={AgendaContainer} />
+          <PrivateRoute type="teacher" path="/profile" component={TeacherProfile} />
+          <PrivateRoute type="teacher" path="/progressions" component={ProgressionsContainer} />
+          <PrivateRoute type="teacher" path="/classes" component={KlassesContainer} />
         </>
       )
     } else {
