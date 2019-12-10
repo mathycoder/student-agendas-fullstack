@@ -30,10 +30,24 @@ class NewKlassForm extends Component {
     })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.handleSubmitAddKlass(e, this.state)
+    window.setTimeout(() => (
+      this.setState({
+        klass: {
+          id: undefined,
+          name: ""
+        }
+      })
+    ), 100)
+
+  }
+
   render() {
     return (
       <div>
-        <form onSubmit={e => this.props.handleSubmitAddKlass(e, this.state)}>
+        <form onSubmit={this.handleSubmit}>
           Class <input
             type="text"
             value={this.state.klass.name}

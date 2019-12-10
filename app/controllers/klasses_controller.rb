@@ -10,7 +10,9 @@ class KlassesController < ApplicationController
     if @klass.save
       render json: @klass, status: 201
     else
-      render json: @klass.errors.full_messages, status: 422
+      render json: {
+        error: @klass.errors.full_messages[0]
+        }, status: 422
     end
   end
 
@@ -19,7 +21,9 @@ class KlassesController < ApplicationController
     if @klass.update(klass_params)
       render json: @klass, status: 201
     else
-      render json: @klass.errors.full_messages, status: 422
+      render json: {
+        error: @klass.errors.full_messages[0]
+        }, status: 422
     end
   end
 

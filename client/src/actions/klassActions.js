@@ -32,7 +32,11 @@ export function addKlass(klass){
     })
       .then(resp => resp.json())
       .then(klass => {
-        dispatch({ type: 'ADD_KLASS', klass })
+        if (klass.error){
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: klass.error })
+        } else {
+          dispatch({ type: 'ADD_KLASS', klass })
+        }
       })
   }
 }
@@ -50,7 +54,11 @@ export function editKlass(klass){
     })
       .then(resp => resp.json())
       .then(klass => {
-        dispatch({ type: 'EDIT_KLASS', klass })
+        if (klass.error){
+          dispatch({ type: 'ADD_FLASH_MESSAGE', message: klass.error })
+        } else {
+          dispatch({ type: 'EDIT_KLASS', klass })
+        }
       })
   }
 }

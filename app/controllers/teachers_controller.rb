@@ -17,7 +17,7 @@ class TeachersController < ApplicationController
   def update
     @teacher = Teacher.find_by(id: params[:id])
     if (params[:file])
-      # File.delete(Rails.root.join('client', 'public', @teacher.image_url))
+      File.delete(Rails.root.join('client', 'public', @teacher.image_url)) if @teacher.image_url
       @uploaded_io = params[:file]
       filename =  'profile/' + @uploaded_io.original_filename.gsub(" ", "-")
       File.open(Rails.root.join('client', 'public', filename), 'wb') do |file|

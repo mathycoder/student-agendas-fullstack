@@ -58,6 +58,7 @@ export function updateProfilePic(file, teacherId){
      .then(resp => resp.json())
      .then(user => {
        dispatch({ type: 'SET_CURRENT_USER', user })
+       dispatch({ type: 'ADD_FLASH_MESSAGE', message: "Updated Profile Pic" })
      })
      .catch(console.log)
   }
