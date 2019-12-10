@@ -93,7 +93,7 @@ class NavBar extends Component{
 
   renderNavBar = () => {
     const { currentUser } = this.props
-    if (currentUser && currentUser !== 'none') {
+    if (currentUser && currentUser !== 'none' && currentUser.type==="teacher") {
       return (
         <div>
           <div className="navbar">
@@ -121,6 +121,25 @@ class NavBar extends Component{
           </div>
         </div>
       )
+    } else if (currentUser && currentUser !== 'none' && currentUser.type==="student") {
+      return (
+        <div>
+          <div className="navbar">
+            <NavLink id="color-logo-link" to="/myagenda">
+              <div className="color-logo">
+                {this.displayColors()}
+              </div>
+            </NavLink>
+            <div className="title">
+              {`Logged in as ${currentUser.firstName} ${currentUser.lastName}`}
+            </div>
+            <div className="profile-pic">
+
+            </div>
+            <NavLink id="logout" to="/logout">Logout</NavLink>
+          </div>
+        </div>
+      )
     } else {
       return (
         <div>
@@ -138,7 +157,6 @@ class NavBar extends Component{
             </div>
             <NavLink id="login" to="/login">Login</NavLink>
             <NavLink to="/signup">Signup</NavLink>
-
           </div>
         </div>
       )
@@ -159,7 +177,7 @@ class NavBar extends Component{
   profilePic = () => {
     const { currentUser } = this.props
     return this.props.currentUser.image_url ?
-      <img src={`/${currentUser.image_url}`} alt="user profile icon"/> : 
+      <img src={`/${currentUser.image_url}`} alt="user profile icon"/> :
         <img src="/silhouette.png" alt="silhouette icon"/>
   }
 
