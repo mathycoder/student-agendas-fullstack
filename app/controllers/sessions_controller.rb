@@ -41,8 +41,22 @@ class SessionsController < ApplicationController
   end
 
   def get_current_user
-    if current_user
-      render json: current_user.to_json(only: [:name, :email, :id, :image_url])
+    if current_user && current_user.is_a?(Teacher)
+      render json: {
+        name: current_user.name,
+        email: current_user.email,
+        id: current_user.id,
+        image_url: current_user.image_url,
+        type: "teacher"
+        }, status: 201
+    elsif current_user && current_user.is_a?(Student)
+      render json: {
+        firstName: current_user.firstName,
+        lastName: current_user.lastName,
+        id: current_user.id,
+        username: current_user.username,
+        type: "student"
+        }, status: 201
     else
       render json: {
         error: "No one logged in"
