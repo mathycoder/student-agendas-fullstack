@@ -5,18 +5,18 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :progressions
-  resources :videos
-  resources :reflections
-  resources :klasses
+  resources :progressions, only: [:index, :create, :show, :update, :destroy]
+  resources :videos, only: [:index]
+  resources :reflections, only: [:index]
+  resources :klasses, only: [:index, :create, :update, :show, :destroy]
   resources :teachers, only: [:create, :update]
 
   resources :klasses do
-    resources :students
+    resources :students, only: [:index, :create, :update, :destroy]
   end
 
   resources :students do
-    resources :progressions
+    resources :progressions, only: [:create, :update, :destroy]
   end
 
 end
