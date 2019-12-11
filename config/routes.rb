@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   resources :teachers, only: [:create, :update]
 
   resources :klasses do
-    resources :students, only: [:index, :create, :update, :destroy]
+    resources :students, only: [:index, :show, :create, :update, :destroy]
   end
+
 
   resources :students do
     resources :progressions, only: [:create, :update, :destroy]

@@ -2,6 +2,9 @@ class Student < ApplicationRecord
   belongs_to :klass
   has_many :student_progressions
   has_many :progressions, through: :student_progressions
+  has_many :items, through: :progressions
+  has_many :videos, through: :items
+  has_many :reflections, through: :items
 
   validates :firstName, presence: true, length: { maximum: 12, minimum: 3 }
   validates :lastName, presence: true, length: { maximum: 12, minimum: 3 }

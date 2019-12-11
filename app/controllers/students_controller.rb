@@ -17,6 +17,16 @@ class StudentsController < ApplicationController
     end
   end
 
+  def show
+    render json: {
+      students: [current_user],
+      progressions: JSON.parse(current_user.progressions.to_json(include: [items: { include: [:video, :reflection]}])),
+      student_progressions: current_user.student_progressions,
+      videos: current_user.videos,
+      reflections: current_user.reflections
+      }, status: 201
+  end
+
   def update
     @student = Student.find_by(id: params[:id])
     if @student.update(student_params)

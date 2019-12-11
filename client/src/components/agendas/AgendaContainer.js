@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
-import { fetchProgressions } from '../../actions/progressionActions'
+import { fetchStudentData } from '../../actions/studentActions'
 import { connect } from 'react-redux'
 
 class AgendaContainer extends Component {
+  componentDidMount(){
+    const { currentUser, fetchStudentData } = this.props
+    if(currentUser.type === "student"){
+      fetchStudentData(currentUser)
+    }
+  }
 
   render(){
     return (
@@ -13,13 +19,13 @@ class AgendaContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    progressions: state.progressions
+    currentUser: state.currentUser
   }
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    fetchProgressions: () => dispatch(fetchProgressions())
+    fetchStudentData: (student) => dispatch(fetchStudentData(student))
   }
 }
 

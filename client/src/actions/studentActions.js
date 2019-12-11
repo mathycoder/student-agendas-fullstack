@@ -78,3 +78,24 @@ export function removeStudentFromKlass(studentData){
       })
   }
 }
+
+export function fetchStudentData(student){
+  return (dispatch) => {
+    dispatch({type: 'START_FETCHING_STUDENT_DATA'})
+    fetch(`/klasses/${student.klass_id}/students/${student.id}`, {
+      method: 'GET',
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(student => {
+        console.log(student)
+        dispatch({ type: 'ADD_VIDEOS', videos: student.videos })
+        dispatch({ type: 'ADD_REFLECTIONS', reflections: student.reflections })
+        dispatch({ type: 'ADD_PROGRESSIONS', progressions: student.progressions })
+        dispatch({type: 'ADD_STUDENTS', students: student.students, studentProgressions: student.student_progressions})
+      })
+  }
+}
