@@ -3,10 +3,6 @@ import MyProgressionVideo from './MyProgressionVideo'
 import { connect } from 'react-redux'
 
 class MyProgression extends Component{
-  state = {
-    index: 0
-  }
-
   renderProgressionItem = (itemId) => {
     const { videos, reflections } = this.props
     if (itemId.includes("video")){
@@ -14,16 +10,31 @@ class MyProgression extends Component{
     }
   }
 
+  renderBackButton = () => {
+    const { handleBackClick, itemIndex } = this.props
+    return itemIndex > 0 ? <button onClick={handleBackClick}>Back</button> : ''
+  }
+
+  renderNextButton = () => {
+    const { progression, handleNextClick, itemIndex } = this.props
+    return itemIndex < progression.items.length - 1 ? <button onClick={handleNextClick}>Next</button> : ''
+  }
+
+
+
   render(){
-    const { progression } = this.props
-    const { index } = this.state
+    const { progression, itemIndex } = this.props
     if (progression) {
       return (
         <div className={`myprogression ${progression.color} ${progression.color}-border`}>
           <div className={`student-show-progression-title ${progression.color}-title`}>
             {progression.name}
           </div>
-          { this.renderProgressionItem(progression.items[index]) }
+          <div className="nav-buttons">
+            {this.renderBackButton()}
+            {this.renderNextButton()}
+          </div>
+          { this.renderProgressionItem(progression.items[itemIndex]) }
         </div>
       )
     } else {

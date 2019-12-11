@@ -8,7 +8,8 @@ import './myagenda.css'
 class AgendaContainer extends Component {
   state = {
     initialLoad: false,
-    selectedProgressionId: null
+    selectedProgressionId: null,
+    itemIndex: 0
   }
 
   componentDidMount(){
@@ -20,7 +21,7 @@ class AgendaContainer extends Component {
 
   componentDidUpdate(){
     const { currentUser, progressions, studentProgressions } = this.props
-    const { initialLoad, selectedProgressionId } = this.state
+    const { initialLoad } = this.state
     if (!initialLoad && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
       const progs = this.getStudentProgressions(currentUser)
       this.setState({
@@ -53,15 +54,34 @@ class AgendaContainer extends Component {
     })
   }
 
+  handleBackClick = () => {
+    const { itemIndex } = this.state
+    this.setState({
+      ...this.state,
+      itemIndex: itemIndex - 1
+    })
+  }
+
+  handleNextClick = () => {
+    const { itemIndex } = this.state
+    this.setState({
+      ...this.state,
+      itemIndex: itemIndex + 1
+    })
+  }
+
   render(){
     const { currentUser, progressions } = this.props
-    const { selectedProgressionId } = this.state
+    const { selectedProgressionId, itemIndex } = this.state
     return (
       <div className="myagenda-wrapper">
         <MyAgenda
           handleProgressionClick={this.handleProgressionClick}
           progressions={this.getStudentProgressions(currentUser)}/>
         <MyProgression
+          itemIndex={itemIndex}
+          handleBackClick={this.handleBackClick}
+          handleNextClick={this.handleNextClick}
           progression={progressions.byId[selectedProgressionId]} />
       </div>
     )
