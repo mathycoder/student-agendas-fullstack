@@ -7,8 +7,6 @@ import './Klass.css'
 import { connect } from 'react-redux'
 import { fetchKlasses } from '../../actions/klassActions'
 import { fetchProgressions } from '../../actions/progressionActions'
-import { fetchVideos } from '../../actions/videoActions'
-import { fetchReflections } from '../../actions/reflectionActions'
 import { addFlashMessage } from '../../actions/flashActions'
 
 class KlassesContainer extends Component {
@@ -16,8 +14,6 @@ class KlassesContainer extends Component {
     const {fetchKlasses, fetchProgressions, fetchVideos, fetchReflections} = this.props
     fetchKlasses()
     fetchProgressions()
-    fetchVideos()
-    fetchReflections()
   }
 
   renderShowRoute = () => {
@@ -57,8 +53,6 @@ function mapDispatchToProps(dispatch){
   return {
     fetchKlasses: () => dispatch(fetchKlasses()),
     fetchProgressions: () => dispatch(fetchProgressions()),
-    fetchVideos: () => dispatch(fetchVideos()),
-    fetchReflections: () => dispatch(fetchReflections()),
     addFlashMessage: (message) => dispatch(addFlashMessage(message))
   }
 }

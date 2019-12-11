@@ -13,7 +13,9 @@ export function fetchProgressions() {
         if (progressions.error){
           console.log("Can't load progressions")
         } else {
-          dispatch({ type: 'ADD_PROGRESSIONS', progressions })
+          dispatch({ type: 'ADD_VIDEOS', videos: progressions.videos })
+          dispatch({ type: 'ADD_REFLECTIONS', reflections: progressions.reflections })
+          dispatch({ type: 'ADD_PROGRESSIONS', progressions: progressions.progressions })
         }
     })
   }

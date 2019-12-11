@@ -2,8 +2,11 @@ class ProgressionsController < ApplicationController
 
   def index
     @progressions = current_user.progressions
-    render json: @progressions.to_json(include: [items: { include: [:video, :reflection]}])
-
+    render json: {
+      progressions: JSON.parse(@progressions.to_json(include: [items: { include: [:video, :reflection]}])),
+      videos: current_user.videos,
+      reflections: current_user.reflections
+    }
   end
 
   def create
