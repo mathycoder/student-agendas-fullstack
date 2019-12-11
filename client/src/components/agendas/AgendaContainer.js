@@ -7,6 +7,7 @@ import './myagenda.css'
 
 class AgendaContainer extends Component {
   state = {
+    initialLoad: false,
     selectedProgressionId: null
   }
 
@@ -14,6 +15,19 @@ class AgendaContainer extends Component {
     const { currentUser, fetchStudentData } = this.props
     if(currentUser.type === "student"){
       fetchStudentData(currentUser)
+    }
+  }
+
+  componentDidUpdate(){
+    const { currentUser, progressions, studentProgressions } = this.props
+    const { initialLoad, selectedProgressionId } = this.state
+    if (!initialLoad && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
+      const progs = this.getStudentProgressions(currentUser)
+      this.setState({
+        ...this.state,
+        initialLoad: true,
+        selectedProgressionId: `progression${progs[0].id}`
+      })
     }
   }
 

@@ -34,6 +34,23 @@
   height: 22px;
 }
 
+.myprogression .myprogression-video {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  height: 317.5px;
+  overflow: scroll;
+  justify-content: center;
+}
+
+.myprogression .myprogression-video div:first-child {
+  width: 450px;
+}
+
+.myprogression .myprogression-video div:nth-child(2) {
+  width: 300px;
+}
+
 .red-border {
   border: 2px solid rgb(233, 43, 43);
 }
