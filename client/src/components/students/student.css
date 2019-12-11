@@ -408,7 +408,6 @@ div.student-agenda {
 .index-page .student-show-progression {
   grid-template-rows: 0px 0px 100px;
   border-radius: 30px;
-
 }
 
 .index-page .student-show-progression:hover {

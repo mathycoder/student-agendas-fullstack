@@ -61,7 +61,6 @@ export function logout(history){
           console.log(user.error)
         } else {
           dispatch({ type: 'CLEAR_CURRENT_USER' })
-          dispatch({ type: 'ADD_FLASH_MESSAGE', message: "Successfully logged out" })
           history.push('/login')
         }
       })
