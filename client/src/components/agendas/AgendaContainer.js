@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { fetchStudentData } from '../../actions/studentActions'
 import MyAgenda from './MyAgenda'
+import MyProgression from './MyProgression'
 import { connect } from 'react-redux'
+import './myagenda.css'
 
 class AgendaContainer extends Component {
+  state = {
+    selectedProgressionId: null
+  }
+
   componentDidMount(){
     const { currentUser, fetchStudentData } = this.props
     if(currentUser.type === "student"){
@@ -26,13 +32,23 @@ class AgendaContainer extends Component {
     return myProgressions
   }
 
+  handleProgressionClick = (progression) => {
+    this.setState({
+      ...this.state,
+      selectedProgressionId: `progression${progression.id}`
+    })
+  }
+
   render(){
-    const { currentUser } = this.props
+    const { currentUser, progressions } = this.props
+    const { selectedProgressionId } = this.state
     return (
       <div className="myagenda-wrapper">
         <MyAgenda
-          progressions={this.getStudentProgressions(currentUser)}
-        />
+          handleProgressionClick={this.handleProgressionClick}
+          progressions={this.getStudentProgressions(currentUser)}/>
+        <MyProgression
+          progression={progressions.byId[selectedProgressionId]} />
       </div>
     )
   }

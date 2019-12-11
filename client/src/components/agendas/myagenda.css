@@ -1,5 +1,7 @@
 .myagenda-wrapper {
   padding: 20px;
+  display: grid;
+  grid-template-rows: 180px 380px;
 }
 
 .myagenda {
@@ -20,4 +22,34 @@
   border-radius: 30px;
   margin-left: 20px;
   margin-top: 15px;
+}
+
+/* -----------------------------------my progression---------------------------------- */
+.myprogression {
+  border: 2px dashed black;
+}
+
+.myprogression .student-show-progression-title {
+  font-size: 20px;
+  height: 22px;
+}
+
+.red-border {
+  border: 2px solid rgb(233, 43, 43);
+}
+
+.orange-border {
+  border: 2px solid rgb(217, 139, 8);
+}
+
+.green-border {
+  border: 2px solid rgb(37, 189, 21);
+}
+
+.blue-border {
+  border: 2px solid rgb(46, 185, 227);
+}
+
+.purple-border {
+  border: 2px solid rgb(116, 45, 232);
 }

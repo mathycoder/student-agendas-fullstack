@@ -11,7 +11,7 @@ import { addFlashMessage } from '../../actions/flashActions'
 
 class KlassesContainer extends Component {
   componentDidMount(){
-    const {fetchKlasses, fetchProgressions, fetchVideos, fetchReflections} = this.props
+    const {fetchKlasses, fetchProgressions } = this.props
     fetchKlasses()
     fetchProgressions()
   }

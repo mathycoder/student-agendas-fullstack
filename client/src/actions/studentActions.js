@@ -91,7 +91,6 @@ export function fetchStudentData(student){
     })
       .then(resp => resp.json())
       .then(student => {
-        console.log(student)
         dispatch({ type: 'ADD_VIDEOS', videos: student.videos })
         dispatch({ type: 'ADD_REFLECTIONS', reflections: student.reflections })
         dispatch({ type: 'ADD_PROGRESSIONS', progressions: student.progressions })
