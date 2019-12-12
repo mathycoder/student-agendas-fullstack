@@ -42,7 +42,7 @@ class MyProgressionReflection extends Component {
 
   renderForm = () => {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div className="reflection-response">
         <textarea
           required
           onChange={this.handleTextChange}
@@ -54,14 +54,14 @@ class MyProgressionReflection extends Component {
             type="submit"
             value="Save Response" />
         </div>
-      </form>
+      </div>
     )
   }
 
   renderCurrentResponse = () => {
     const { progression } = this.props
     return (
-      <div>
+      <div className="reflection-response">
         <h3>Your current response: </h3>
         <p>{progression.question1Answer}</p>
         <div className="submit-progression">
@@ -74,18 +74,21 @@ class MyProgressionReflection extends Component {
   render(){
     const {reflection} = this.props
     return (
+      <form onSubmit={this.handleSubmit}>
       <div className="myprogression-reflection">
-        <div className="lined-paper">
-          <div className="myprogression-reflection-title">
-            {reflection.title}
-          </div>
-          <div className="myprogression-reflection-question">
-            {reflection.question1}
-          </div>
-        </div>
 
-        {this.state.editing ? this.renderForm() : this.renderCurrentResponse()}
+          <div className="lined-paper">
+            <div className="myprogression-reflection-title">
+              {reflection.title}
+            </div>
+            <div className="myprogression-reflection-question">
+              {reflection.question1}
+            </div>
+          </div>
+          {this.state.editing ? this.renderForm() : this.renderCurrentResponse()}
+
       </div>
+      </form>
     )
   }
 }

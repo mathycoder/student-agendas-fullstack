@@ -1,7 +1,7 @@
 .myagenda-wrapper {
   padding: 20px;
   display: grid;
-  grid-template-rows: 200px 1fr;
+  grid-template-rows: 210px 1fr;
 }
 
 .myagenda {
@@ -160,7 +160,11 @@
 }
 
 .reflection-response {
-  flex: 1;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .myprogression-reflection-title {
@@ -180,14 +184,12 @@
 
 .myprogression-reflection textarea {
   margin: 0 20px 20px 20px;
-  flex: 1;
-  min-width: 300px;
+  min-width: 350px;
   background: white;
   border-radius: 20px;
   border: 1px dashed black;
-  min-height: 210px;
+  min-height: 220px;
   max-width: 450px;
-  width: inherit;
   font-size: 18px;
   padding: 10px 15px 0px 10px;
   line-height: 24px;
