@@ -20,7 +20,8 @@ function studentProgressionsById(state = {}, action) {
         agendaIndex: stProg.agenda_index,
         studentId: `student${stProg.student_id}`,
         progressionId: `progression${stProg.progression_id}`,
-        submitted: stProg.submitted
+        submitted: stProg.submitted,
+        createdAt: stProg.created_at
       }
     })
     return {
@@ -33,7 +34,7 @@ function studentProgressionsById(state = {}, action) {
       }
 
     case 'ADD_STUDENT_PROGRESSION':
-      const { id, agenda_index, student_id, progression_id, submitted } = action.studentProgression
+      const { id, agenda_index, student_id, progression_id, submitted, created_at } = action.studentProgression
       return {
         ...state,
         [`studentProgression${id}`]: {
@@ -41,7 +42,8 @@ function studentProgressionsById(state = {}, action) {
           agendaIndex: agenda_index,
           studentId: `student${student_id}`,
           progressionId: `progression${progression_id}`,
-          submitted: submitted
+          submitted: submitted,
+          createdAt: created_at
         }
       }
 
@@ -58,7 +60,8 @@ function studentProgressionsById(state = {}, action) {
           agendaIndex: sp.agenda_index,
           studentId: `student${sp.student_id}`,
           progressionId: `progression${sp.progression_id}`,
-          submitted: sp.submitted
+          submitted: sp.submitted,
+          createdAt: sp.created_at
         }
       })
       return {...state, ...normalizedObj}
@@ -70,7 +73,8 @@ function studentProgressionsById(state = {}, action) {
         agendaIndex: sp.agenda_index,
         studentId: `student${sp.student_id}`,
         progressionId: `progression${sp.progression_id}`,
-        submitted: sp.submitted
+        submitted: sp.submitted,
+        createdAt: sp.created_at
       }
       return {
         ...state,

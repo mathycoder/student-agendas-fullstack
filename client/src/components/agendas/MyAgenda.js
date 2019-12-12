@@ -21,7 +21,7 @@ const MyAgenda = ({ progressions, handleProgressionClick, itemIndex, selectedPro
                 </div>
               </div>
               <div className="progression-status">
-                Assigned: 12/10/19
+                Assigned: {progression.createdAt}
               </div>
             </div>
           )

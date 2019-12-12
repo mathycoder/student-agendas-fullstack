@@ -47,10 +47,20 @@ class AgendaContainer extends Component {
     const myProgressions = myOrderedStudentProgressions.map(sp => {
       const prog = progressions.byId[sp.progressionId]
       prog.submitted = sp.submitted
+      prog.createdAt = this.formatDate(sp.createdAt)
       return prog
     })
-
     return myProgressions
+  }
+
+  formatDate = (rawDate) => {
+    const monthNames = [
+    "Jan", "Feb", "Mar",
+    "Apr", "May", "Jun", "Jul",
+    "Aug", "Sep", "Oct",
+    "Nov", "Dec"]
+    const date = new Date(rawDate)
+    return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
   }
 
   handleProgressionClick = (progression, index) => {
