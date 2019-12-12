@@ -22,7 +22,9 @@ class MyProgression extends Component{
     const { progression, handleNextClick, itemIndex } = this.props
     return itemIndex < progression.items.length - 1 ?
       <span className="right-arrow" onClick={handleNextClick}>&#8680;</span>
-        : <div className="submit-progression"><button>Submit Progression</button></div>
+        : <div className="submit-progression">
+            <button>Submit Progression</button>
+          </div>
   }
 
 
