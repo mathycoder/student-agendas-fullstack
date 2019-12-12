@@ -15,12 +15,14 @@ class MyProgression extends Component{
 
   renderBackButton = () => {
     const { handleBackClick, itemIndex } = this.props
-    return itemIndex > 0 ? <button onClick={handleBackClick}>Back</button> : ''
+    return itemIndex > 0 ? <span className="left-arrow" onClick={handleBackClick}>&#8678;</span> : ''
   }
 
   renderNextButton = () => {
     const { progression, handleNextClick, itemIndex } = this.props
-    return itemIndex < progression.items.length - 1 ? <button onClick={handleNextClick}>Next</button> : ''
+    return itemIndex < progression.items.length - 1 ?
+      <span className="right-arrow" onClick={handleNextClick}>&#8680;</span>
+        : <div className="submit-progression"><button>Submit Progression</button></div>
   }
 
 

@@ -25,7 +25,12 @@
 }
 
 .highlighted {
-  background-color: yellow;
+  /* background-color: yellow;
+  transition-property: background-color;
+  transition-duration: 1s; */
+  transform: scale(1.12);
+  transition: transform 0.5s;
+  z-index: 5;
 }
 
 .unhighlighted {
@@ -35,6 +40,40 @@
 /* -----------------------------------my progression---------------------------------- */
 .myprogression {
 
+}
+
+.nav-buttons {
+  font-size: 40px;
+  margin-top: -5px;
+  margin-bottom: -20px;
+}
+
+.nav-buttons span:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.nav-buttons .submit-progression {
+  display: block;
+  margin-top: -56px;
+  margin-left: 45px;
+  margin-bottom: 15px;
+}
+
+.nav-buttons .submit-progression button {
+  padding: 4px 8px;
+  color: black;
+  background-image: none;
+  background: transparent;
+  border: 2.5px solid black;
+}
+
+.nav-buttons .submit-progression button:hover {
+  border: 2.5px solid gray;
+}
+
+.nav-buttons .submit-progression button:focus {
+  outline: none;
 }
 
 .myprogression .student-show-progression-title {
@@ -108,7 +147,6 @@
   flex: 1;
 }
 
-
 .myprogression-reflection-title {
   text-align: center;
   margin-top: 24px;
@@ -142,4 +180,11 @@
 
 .myprogression-reflection textarea:focus {
   outline: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .myprogression {
+    width: 90%;
+    margin: 0 auto;
+  }
 }

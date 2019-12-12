@@ -47,10 +47,11 @@ class AgendaContainer extends Component {
     return myProgressions
   }
 
-  handleProgressionClick = (progression) => {
+  handleProgressionClick = (progression, index) => {
     this.setState({
       ...this.state,
-      selectedProgressionId: `progression${progression.id}`
+      selectedProgressionId: `progression${progression.id}`,
+      itemIndex: index
     })
   }
 

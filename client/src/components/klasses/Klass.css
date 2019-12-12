@@ -4,20 +4,8 @@
 
 .home-page-wrapper {
   display: flex;
-
-  /* background-image: url('/classroom5.png');
-  background-size: cover; */
-
-  /* background-image: url('/classroom12.png');
-  background-size: cover; */
-
   background-image: url('/classroom2.png');
   background-size: cover;
-
-  /* background-image: url('/classroom8.png');
-  background-size: cover;
-  background-repeat: no-repeat; */
-
   height: 630px;
   align-items: center;
   justify-content: center;
@@ -56,7 +44,7 @@
 }
 
 .klass-index-title div div:first-child {
-  
+
 }
 
 .klass-rows {

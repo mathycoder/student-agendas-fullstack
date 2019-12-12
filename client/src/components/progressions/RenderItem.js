@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgressionId}) => {
+const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgressionId, handleProgressionClick}) => {
   return progression.items.map((itemChildId, index) => {
     let item
     const highlighted = selectedProgressionId === `progression${progression.id}` && index === itemIndex ?
@@ -10,7 +10,9 @@ const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgre
       if (videos.allIds.length > 0){
         const video = videos.byId[itemChildId]
         item = (
-        <div key={index} className={`student-show-progression-item ${highlighted}`}>
+        <div key={index}
+          onClick={handleProgressionClick ? (e => handleProgressionClick(progression, index)) : ''}
+          className={`student-show-progression-item ${highlighted}`}>
           <img src={video.thumbnailUrl} alt="learning video" />
           <br/>
           <div className="student-show-progression-item-title">{video.title}</div>
@@ -23,7 +25,10 @@ const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgre
       if (reflections.allIds.length > 0){
         const reflection = reflections.byId[itemChildId]
         item = (
-        <div key={index} className={`student-show-progression-item reflection ${highlighted}`}>
+        <div
+          key={index}
+          onClick={handleProgressionClick ? (e => handleProgressionClick(progression, index)) : ''}
+          className={`student-show-progression-item reflection ${highlighted}`}>
           <img src="/paper-pencil.png" alt="learning reflection" />
 
           <div className="student-show-progression-item-title">{reflection.title}</div>
