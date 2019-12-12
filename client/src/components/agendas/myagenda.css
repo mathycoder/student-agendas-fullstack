@@ -75,7 +75,7 @@
   margin-bottom: 15px;
 }
 
-.nav-buttons .submit-progression button {
+.submit-progression button, .submit-progression input[type=submit] {
   padding: 4px 8px;
   color: black;
   background-image: none;
@@ -83,7 +83,7 @@
   border: 2.5px solid black;
 }
 
-.nav-buttons .submit-progression button:hover {
+.submit-progression button:hover, .submit-progression input[type=submit]:hover {
   border: 2.5px solid gray;
 }
 
