@@ -48,6 +48,7 @@ class AgendaContainer extends Component {
       const prog = progressions.byId[sp.progressionId]
       prog.submitted = sp.submitted
       prog.createdAt = this.formatDate(sp.createdAt)
+      prog.updatedAt = this.formatDate(sp.updatedAt)
       return prog
     })
     return myProgressions
