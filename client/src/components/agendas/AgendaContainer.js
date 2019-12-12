@@ -110,6 +110,7 @@ class AgendaContainer extends Component {
           handleProgressionClick={this.handleProgressionClick}
           progressions={this.getStudentProgressions(currentUser)}/>
         <MyProgression
+          key={Math.random()}
           itemIndex={itemIndex}
           handleProgressionSubmit={this.handleProgressionSubmit}
           handleBackClick={this.handleBackClick}

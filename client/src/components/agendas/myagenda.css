@@ -58,9 +58,19 @@
 }
 
 .nav-buttons {
+  display: flex;
   font-size: 40px;
-  margin-top: -5px;
-  margin-bottom: -20px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  justify-content: center;
+}
+
+.nav-buttons .gray{
+  color: gray;
+}
+
+.nav-buttons .gray:hover {
+  cursor: auto;
 }
 
 .nav-buttons span:hover {
@@ -69,13 +79,12 @@
 }
 
 .nav-buttons .submit-progression {
-  display: block;
-  margin-top: -56px;
-  margin-left: 45px;
-  margin-bottom: 15px;
+  margin-top: -10px;
+  margin-left: 30px;
 }
 
-.submit-progression button, .submit-progression input[type=submit] {
+
+.myprogression button, .myprogression input[type=submit] {
   padding: 4px 8px;
   color: black;
   background-image: none;
@@ -83,12 +92,22 @@
   border: 2.5px solid black;
 }
 
-.submit-progression button:hover, .submit-progression input[type=submit]:hover {
+.myprogression button:hover, .myprogression input[type=submit]:hover {
   border: 2.5px solid gray;
 }
 
 .nav-buttons .submit-progression button:focus {
   outline: none;
+}
+
+.submit-progression.gray-button button {
+  border: 2.5px solid gray;
+  color: gray;
+}
+
+.submit-progression.gray-button button:hover {
+  border: 2.5px solid gray;
+  cursor: default;
 }
 
 .myprogression .student-show-progression-title {

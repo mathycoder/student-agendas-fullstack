@@ -9,22 +9,42 @@ class MyProgression extends Component{
     if (itemId.includes("video")){
       return <MyProgressionVideo video={videos.byId[itemId]} />
     } else if (itemId.includes("reflection")){
-      return <MyProgressionReflection progression={progression} reflection={reflections.byId[itemId]} />
+      return <MyProgressionReflection
+              progression={progression}
+              reflection={reflections.byId[itemId]} />
     }
   }
 
   renderBackButton = () => {
     const { handleBackClick, itemIndex } = this.props
-    return itemIndex > 0 ? <span className="left-arrow" onClick={handleBackClick}>&#8678;</span> : ''
+    return itemIndex > 0 ?
+      <span className="left-arrow" onClick={handleBackClick}>&#8678;</span>
+        : <span className="left-arrow gray">&#8678;</span>
   }
 
   renderNextButton = () => {
     const { progression, handleNextClick, itemIndex, handleProgressionSubmit } = this.props
     return itemIndex < progression.items.length - 1 ?
       <span className="right-arrow" onClick={handleNextClick}>&#8680;</span>
-        : <div className="submit-progression">
-            <button onClick={e => handleProgressionSubmit(progression)}>Submit Progression</button>
-          </div>
+        : <span className="right-arrow gray">&#8680;</span>
+  }
+
+  renderSubmitProgressionButton = () => {
+    const { progression, handleProgressionSubmit } = this.props
+    const reflectionsExist = progression.items.findIndex(item => item.includes("reflection"))
+    if ((reflectionsExist && progression.question1Answer) || !reflectionsExist ){
+      return (
+        <div className="submit-progression">
+          <button onClick={e => handleProgressionSubmit(progression)}>Submit Progression</button>
+        </div>
+      )
+    } else {
+      return (
+        <div className="submit-progression gray-button">
+          <button>Submit Progression</button>
+        </div>
+      )
+    }
   }
 
   render(){
@@ -38,6 +58,7 @@ class MyProgression extends Component{
           <div className="nav-buttons">
             {this.renderBackButton()}
             {this.renderNextButton()}
+            {this.renderSubmitProgressionButton()}
           </div>
           { this.renderProgressionItem(progression.items[itemIndex]) }
         </div>
