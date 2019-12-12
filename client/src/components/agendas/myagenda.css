@@ -25,9 +25,6 @@
 }
 
 .highlighted {
-  /* background-color: yellow;
-  transition-property: background-color;
-  transition-duration: 1s; */
   transform: scale(1.12);
   transition: transform 0.5s;
   z-index: 5;
@@ -35,6 +32,10 @@
 
 .unhighlighted {
   opacity: 0.5;
+}
+
+.submitted {
+  background-color: grey;
 }
 
 /* -----------------------------------my progression---------------------------------- */

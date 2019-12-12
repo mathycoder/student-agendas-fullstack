@@ -11,7 +11,7 @@ const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgre
         const video = videos.byId[itemChildId]
         item = (
         <div key={index}
-          onClick={handleProgressionClick ? (e => handleProgressionClick(progression, index)) : ''}
+          onClick={handleProgressionClick ? (e => handleProgressionClick(progression, index)) : undefined}
           className={`student-show-progression-item ${highlighted}`}>
           <img src={video.thumbnailUrl} alt="learning video" />
           <br/>
@@ -27,7 +27,7 @@ const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgre
         item = (
         <div
           key={index}
-          onClick={handleProgressionClick ? (e => handleProgressionClick(progression, index)) : ''}
+          onClick={handleProgressionClick ? (e => handleProgressionClick(progression, index)) : undefined}
           className={`student-show-progression-item reflection ${highlighted}`}>
           <img src="/paper-pencil.png" alt="learning reflection" />
 

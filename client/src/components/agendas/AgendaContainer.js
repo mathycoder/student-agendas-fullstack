@@ -24,10 +24,11 @@ class AgendaContainer extends Component {
     const { initialLoad } = this.state
     if (!initialLoad && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
       const progs = this.getStudentProgressions(currentUser)
+      const firstIncomplete = progs.find(prog => !prog.submitted)
       this.setState({
         ...this.state,
         initialLoad: true,
-        selectedProgressionId: `progression${progs[0].id}`
+        selectedProgressionId: firstIncomplete ? `progression${firstIncomplete.id}` : null
       })
     }
   }
@@ -42,7 +43,11 @@ class AgendaContainer extends Component {
       return studentProgressions.byId[stPrId]
     })
     const myOrderedStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
-    const myProgressions = myOrderedStudentProgressions.map(sp => progressions.byId[sp.progressionId])
+    const myProgressions = myOrderedStudentProgressions.map(sp => {
+      const prog = progressions.byId[sp.progressionId]
+      prog.submitted = sp.submitted
+      return prog
+    })
 
     return myProgressions
   }

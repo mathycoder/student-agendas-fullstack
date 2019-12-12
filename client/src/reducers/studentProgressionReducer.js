@@ -19,7 +19,8 @@ function studentProgressionsById(state = {}, action) {
         id: stProg.id,
         agendaIndex: stProg.agenda_index,
         studentId: `student${stProg.student_id}`,
-        progressionId: `progression${stProg.progression_id}`
+        progressionId: `progression${stProg.progression_id}`,
+        submitted: stProg.submitted
       }
     })
     return {
@@ -32,14 +33,15 @@ function studentProgressionsById(state = {}, action) {
       }
 
     case 'ADD_STUDENT_PROGRESSION':
-      const { id, agenda_index, student_id, progression_id } = action.studentProgression
+      const { id, agenda_index, student_id, progression_id, submitted } = action.studentProgression
       return {
         ...state,
         [`studentProgression${id}`]: {
           id: id,
           agendaIndex: agenda_index,
           studentId: `student${student_id}`,
-          progressionId: `progression${progression_id}`
+          progressionId: `progression${progression_id}`,
+          submitted: submitted
         }
       }
 
@@ -55,7 +57,8 @@ function studentProgressionsById(state = {}, action) {
           id: sp.id,
           agendaIndex: sp.agenda_index,
           studentId: `student${sp.student_id}`,
-          progressionId: `progression${sp.progression_id}`
+          progressionId: `progression${sp.progression_id}`,
+          submitted: sp.submitted
         }
       })
 

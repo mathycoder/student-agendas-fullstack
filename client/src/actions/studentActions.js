@@ -93,7 +93,7 @@ export function fetchStudentData(student){
       .then(student => {
         dispatch({ type: 'ADD_VIDEOS', videos: student.videos })
         dispatch({ type: 'ADD_REFLECTIONS', reflections: student.reflections })
-        dispatch({ type: 'ADD_PROGRESSIONS', progressions: student.progressions })
+        dispatch({ type: 'ADD_PROGRESSIONS', progressions: student.progressions, studentProgressions: student.student_progressions })
         dispatch({type: 'ADD_STUDENTS', students: student.students, studentProgressions: student.student_progressions})
       })
   }
