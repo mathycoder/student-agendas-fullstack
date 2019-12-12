@@ -59,11 +59,17 @@ export function switchStudentProgression(draggableId, newIndex){
   }
 }
 
-export function markStudentProgressionComplete(student, progression){
+export function updateStudentProgression(student, progression, attribute){
   return (dispatch) => {
-    const params = {
-      submitted: true
+    let params
+    if (attribute === "submitted"){
+      params = {
+        submitted: true
+      }
+    } else {
+      params = attribute
     }
+
     fetch(`/students/${student.id}/progressions/${progression.id}`, {
       method: 'PATCH',
       credentials: "include",

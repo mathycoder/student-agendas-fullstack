@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { fetchStudentData } from '../../actions/studentActions'
-import { markStudentProgressionComplete } from '../../actions/studentProgressionActions'
+import { updateStudentProgression } from '../../actions/studentProgressionActions'
 import MyAgenda from './MyAgenda'
 import MyProgression from './MyProgression'
 import { connect } from 'react-redux'
@@ -49,6 +49,7 @@ class AgendaContainer extends Component {
       prog.submitted = sp.submitted
       prog.createdAt = this.formatDate(sp.createdAt)
       prog.updatedAt = this.formatDate(sp.updatedAt)
+      prog.question1Answer = sp.question1Answer
       return prog
     })
     return myProgressions
@@ -89,8 +90,8 @@ class AgendaContainer extends Component {
   }
 
   handleProgressionSubmit = (progression) => {
-    const { markStudentProgressionComplete, currentUser } = this.props
-    markStudentProgressionComplete(currentUser, progression)
+    const { updateStudentProgression, currentUser } = this.props
+    updateStudentProgression(currentUser, progression, "submitted")
     this.setState({
       ...this.state,
       itemIndex: 0,
@@ -130,7 +131,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return {
     fetchStudentData: (student) => dispatch(fetchStudentData(student)),
-    markStudentProgressionComplete: (student, progression) => dispatch(markStudentProgressionComplete(student, progression))
+    updateStudentProgression: (student, progression, attribute) => dispatch(updateStudentProgression(student, progression, attribute))
   }
 }
 

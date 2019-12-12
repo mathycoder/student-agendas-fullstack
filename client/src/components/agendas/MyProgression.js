@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 
 class MyProgression extends Component{
   renderProgressionItem = (itemId) => {
-    const { videos, reflections } = this.props
+    const { videos, reflections, progression } = this.props
     if (itemId.includes("video")){
       return <MyProgressionVideo video={videos.byId[itemId]} />
     } else if (itemId.includes("reflection")){
-      return <MyProgressionReflection reflection={reflections.byId[itemId]} />
+      return <MyProgressionReflection progression={progression} reflection={reflections.byId[itemId]} />
     }
   }
 
