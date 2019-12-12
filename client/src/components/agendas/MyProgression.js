@@ -19,15 +19,13 @@ class MyProgression extends Component{
   }
 
   renderNextButton = () => {
-    const { progression, handleNextClick, itemIndex } = this.props
+    const { progression, handleNextClick, itemIndex, handleProgressionSubmit } = this.props
     return itemIndex < progression.items.length - 1 ?
       <span className="right-arrow" onClick={handleNextClick}>&#8680;</span>
         : <div className="submit-progression">
-            <button>Submit Progression</button>
+            <button onClick={e => handleProgressionSubmit(progression)}>Submit Progression</button>
           </div>
   }
-
-
 
   render(){
     const { progression, itemIndex } = this.props
@@ -53,8 +51,10 @@ class MyProgression extends Component{
 function mapStateToProps(state){
   return {
     videos: state.videos,
-    reflections: state.reflections
+    reflections: state.reflections,
+    currentUser: state.currentUser
   }
 }
+
 
 export default connect(mapStateToProps, null)(MyProgression)

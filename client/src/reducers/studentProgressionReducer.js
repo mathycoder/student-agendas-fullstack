@@ -61,8 +61,21 @@ function studentProgressionsById(state = {}, action) {
           submitted: sp.submitted
         }
       })
-
       return {...state, ...normalizedObj}
+
+    case 'UPDATE_STUDENT_PROGRESSION':
+      const sp = action.studentProgression
+      const normalObj  = {
+        id: sp.id,
+        agendaIndex: sp.agenda_index,
+        studentId: `student${sp.student_id}`,
+        progressionId: `progression${sp.progression_id}`,
+        submitted: sp.submitted
+      }
+      return {
+        ...state,
+        [`studentProgression${sp.id}`]: normalObj
+      }
 
     case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
       return {...state}

@@ -58,3 +58,21 @@ export function switchStudentProgression(draggableId, newIndex){
       .then(studentProgressions => dispatch({ type: 'SWITCH_PROGRESSION', studentProgressions }))
   }
 }
+
+export function markStudentProgressionComplete(student, progression){
+  return (dispatch) => {
+    const params = {
+      submitted: true
+    }
+    fetch(`/students/${student.id}/progressions/${progression.id}`, {
+      method: 'PATCH',
+      credentials: "include",
+      body: JSON.stringify(params),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(studentProgression => dispatch({ type: 'UPDATE_STUDENT_PROGRESSION', studentProgression }))
+  }
+}
