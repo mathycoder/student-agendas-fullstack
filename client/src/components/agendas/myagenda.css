@@ -1,7 +1,7 @@
 .myagenda-wrapper {
   padding: 20px;
   display: grid;
-  grid-template-rows: 180px 1fr;
+  grid-template-rows: 200px 1fr;
 }
 
 .myagenda {
@@ -9,7 +9,7 @@
   width: 90%;
   min-width: 450px;
   max-width: 800px;
-  height: 150px;
+  height: 180px;
   margin: 0 auto;
   background-color: rgb(81, 84, 92);
   border: 3px rgb(41, 44, 52) solid;
@@ -17,11 +17,23 @@
   overflow: scroll;
 }
 
-.myagenda .student-show-progression {
+.myagenda .progression-wrapper {
+  display: grid;
+  grid-template-rows: 150px 20px;
+}
+
+.myagenda .progression-wrapper .student-show-progression {
   grid-template-rows: 0px 100px;
   border-radius: 30px;
   margin-left: 20px;
   margin-top: 15px;
+}
+
+.myagenda .progression-wrapper .progression-status {
+  color: white;
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .highlighted {
@@ -37,6 +49,8 @@
 .submitted {
   background-color: grey;
 }
+
+
 
 /* -----------------------------------my progression---------------------------------- */
 .myprogression {

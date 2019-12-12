@@ -7,34 +7,41 @@ const MyAgenda = ({ progressions, handleProgressionClick, itemIndex, selectedPro
       {progressions.map((progression, index) => {
         if (progression && !progression.submitted) {
           return (
-            <div
-            key={index}
-            className={`student-show-progression ${progression.color}`}>
-              <div className={`student-show-progression-title ${progression.color}-title`}>
-                {progression.name}
-              </div>
-              <div className="student-show-progression-items">
-                <RenderItem
-                  handleProgressionClick={handleProgressionClick}
-                  itemIndex={itemIndex}
-                  selectedProgressionId={selectedProgressionId}
-                  progression={progression} />
-              </div>
-            </div>
-          )
-        } else if (progression && progression.submitted) {
-            return (
-              <div
-              key={index}
-              className={`student-show-progression ${progression.color} submitted`}>
+            <div key={index} className="progression-wrapper">
+              <div className={`student-show-progression ${progression.color}`}>
                 <div className={`student-show-progression-title ${progression.color}-title`}>
                   {progression.name}
                 </div>
                 <div className="student-show-progression-items">
                   <RenderItem
+                    handleProgressionClick={handleProgressionClick}
                     itemIndex={itemIndex}
                     selectedProgressionId={selectedProgressionId}
                     progression={progression} />
+                </div>
+              </div>
+              <div className="progression-status">
+                Assigned: 12/10/19
+              </div>
+            </div>
+          )
+        } else if (progression && progression.submitted) {
+            return (
+              <div key={index} className="progression-wrapper">
+                <div
+                className={`student-show-progression ${progression.color} submitted`}>
+                  <div className={`student-show-progression-title ${progression.color}-title`}>
+                    {progression.name}
+                  </div>
+                  <div className="student-show-progression-items">
+                    <RenderItem
+                      itemIndex={itemIndex}
+                      selectedProgressionId={selectedProgressionId}
+                      progression={progression} />
+                  </div>
+                </div>
+                <div className="progression-status">
+                  Submitted
                 </div>
               </div>
             )
