@@ -1,7 +1,8 @@
 import React  from 'react'
 import RenderItem from '../progressions/RenderItem'
 
-const MyAgenda = ({ progressions, handleProgressionClick }) => {
+const MyAgenda = ({ progressions, handleProgressionClick, itemIndex, selectedProgressionId }) => {
+
   return (
     <div className="myagenda index-page">
       {progressions.map((progression, index) => {
@@ -15,7 +16,10 @@ const MyAgenda = ({ progressions, handleProgressionClick }) => {
                 {progression.name}
               </div>
               <div className="student-show-progression-items">
-                <RenderItem progression={progression} />
+                <RenderItem
+                  itemIndex={itemIndex}
+                  selectedProgressionId={selectedProgressionId}
+                  progression={progression} />
               </div>
             </div>
           )

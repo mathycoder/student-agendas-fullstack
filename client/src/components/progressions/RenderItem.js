@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const RenderItem = ({progression, videos, reflections}) => {
+const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgressionId}) => {
   return progression.items.map((itemChildId, index) => {
     let item
+    const highlighted = selectedProgressionId === `progression${progression.id}` && index === itemIndex ?
+      "highlighted" : (selectedProgressionId ? 'unhighlighted' : '')
     if (itemChildId.includes("video")) {
       if (videos.allIds.length > 0){
         const video = videos.byId[itemChildId]
         item = (
-        <div key={index} className="student-show-progression-item">
+        <div key={index} className={`student-show-progression-item ${highlighted}`}>
           <img src={video.thumbnailUrl} alt="learning video" />
           <br/>
           <div className="student-show-progression-item-title">{video.title}</div>
@@ -21,7 +23,7 @@ const RenderItem = ({progression, videos, reflections}) => {
       if (reflections.allIds.length > 0){
         const reflection = reflections.byId[itemChildId]
         item = (
-        <div key={index} className="student-show-progression-item reflection">
+        <div key={index} className={`student-show-progression-item reflection ${highlighted}`}>
           <img src="/paper-pencil.png" alt="learning reflection" />
 
           <div className="student-show-progression-item-title">{reflection.title}</div>

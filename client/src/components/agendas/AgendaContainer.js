@@ -76,6 +76,8 @@ class AgendaContainer extends Component {
     return (
       <div className="myagenda-wrapper">
         <MyAgenda
+          itemIndex={itemIndex}
+          selectedProgressionId={selectedProgressionId}
           handleProgressionClick={this.handleProgressionClick}
           progressions={this.getStudentProgressions(currentUser)}/>
         <MyProgression

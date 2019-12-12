@@ -24,6 +24,14 @@
   margin-top: 15px;
 }
 
+.highlighted {
+  background-color: yellow;
+}
+
+.unhighlighted {
+  opacity: 0.5;
+}
+
 /* -----------------------------------my progression---------------------------------- */
 .myprogression {
   border: 2px dashed black;
