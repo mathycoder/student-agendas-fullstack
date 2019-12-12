@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import MyProgressionVideo from './MyProgressionVideo'
+import MyProgressionReflection from './MyProgressionReflection'
 import { connect } from 'react-redux'
 
 class MyProgression extends Component{
   renderProgressionItem = (itemId) => {
     const { videos, reflections } = this.props
     if (itemId.includes("video")){
-      return <MyProgressionVideo video={videos.byId[itemId]}/>
+      return <MyProgressionVideo video={videos.byId[itemId]} />
+    } else if (itemId.includes("reflection")){
+      return <MyProgressionReflection reflection={reflections.byId[itemId]} />
     }
   }
 

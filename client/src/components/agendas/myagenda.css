@@ -1,7 +1,7 @@
 .myagenda-wrapper {
   padding: 20px;
   display: grid;
-  grid-template-rows: 180px 380px;
+  grid-template-rows: 180px 1fr;
 }
 
 .myagenda {
@@ -34,29 +34,12 @@
 
 /* -----------------------------------my progression---------------------------------- */
 .myprogression {
-  border: 2px dashed black;
+
 }
 
 .myprogression .student-show-progression-title {
   font-size: 20px;
   height: 22px;
-}
-
-.myprogression .myprogression-video {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-  height: 317.5px;
-  overflow: scroll;
-  justify-content: center;
-}
-
-.myprogression .myprogression-video div:first-child {
-  width: 450px;
-}
-
-.myprogression .myprogression-video div:nth-child(2) {
-  width: 300px;
 }
 
 .red-border {
@@ -77,4 +60,86 @@
 
 .purple-border {
   border: 2px solid rgb(116, 45, 232);
+}
+
+/* ----------------------my progresion video ---------------------------*/
+.myprogression-video {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+  min-height: 250px;
+}
+
+.myprogression .myprogression-video .video-display {
+  margin-bottom: 30px;
+}
+
+.myprogression .myprogression-video .video-details {
+  width: 350px;
+  margin: 0 30px 30px 30px;
+}
+
+.video-details h4, .video-details h6 {
+  display: inline;
+}
+
+/* ----------------------my progression reflection --------------------- */
+
+.myprogression-reflection {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 250px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.myprogression-reflection .lined-paper {
+  max-width: 350px;
+  background-size: 350px 232px;
+  background-repeat: no-repeat;
+  height: 230px;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.reflection-response {
+  flex: 1;
+}
+
+
+.myprogression-reflection-title {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: bold;
+  height: 28px;
+}
+
+.myprogression-reflection-question {
+  margin-left: 50px;
+  margin-top: 8px;
+  padding-right: 10px;
+  line-height: 29px;
+}
+
+.myprogression-reflection textarea {
+  margin: 0 20px 20px 20px;
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  border-radius: 20px;
+  border: 1px dashed black;
+  min-height: 210px;
+  max-width: 450px;
+  width: inherit;
+  font-size: 18px;
+  padding: 10px 15px 0px 10px;
+  line-height: 24px;
+  resize: none;
+}
+
+.myprogression-reflection textarea:focus {
+  outline: none;
 }
