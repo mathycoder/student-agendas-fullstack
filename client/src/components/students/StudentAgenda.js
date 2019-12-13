@@ -12,7 +12,7 @@ const StudentAgenda = ({ placeholder, innerRef, handleDragOver, handleDragLeave,
       ref={node => innerRef(node)}
       >
       {progressions.map((progression, index) => {
-        if (progression) {
+        if (progression && !progression.submitted) {
           return (
               <Draggable draggableId={`student-${student.id}-progression-${progression.id}`} index={index} key={`student-${student.id}-progression-${progression.id}`}>
                 {(provided) => (
@@ -25,6 +25,10 @@ const StudentAgenda = ({ placeholder, innerRef, handleDragOver, handleDragLeave,
                   </div>
                 )}
               </Draggable>)
+        } else if (progression && progression.submitted) {
+          return <StudentAgendaProgression
+            key={index}
+            progression={progression}/>
         } else {
           return (<div key={index}></div>)
         }

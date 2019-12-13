@@ -46,7 +46,7 @@
 .student-row {
   display: flex;
   margin: 10px;
-  height: 85px;
+  height: 95px;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -69,7 +69,8 @@ div.student-agenda {
   height: inherit;
   background-color: rgb(240, 240, 240);
   border: 3px solid rgb(200, 200, 200);
-
+  /* background-color: rgb(81, 84, 92);
+  border: 3px solid black; */
 
 }
 
@@ -335,6 +336,26 @@ div.student-agenda {
   font-size: 0px;
   height: 9px;
   overflow: hidden;
+}
+
+
+/* This styling is repeated in myagenda.css.  Consider combining styling if they never diverge.  */
+.progression-wrapper {
+
+}
+
+.student-agenda .progression-wrapper {
+  display: grid;
+  grid-template-rows: 75px 20px;
+  grid-template-columns: min-content;
+}
+
+.student-agenda .progression-wrapper .progression-status {
+  color: black;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-top: 3px;
 }
 
 /* -------------------Progressions Index Page -------------------------- */
