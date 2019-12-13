@@ -5,14 +5,16 @@ import { updateStudentProgression } from '../../actions/studentProgressionAction
 class MyProgressionReflection extends Component {
   state = {
     response: '',
-    editing: false
+    editing: true
   }
 
   componentDidMount(){
     const { progression } = this.props
+    const edit = progression.question1Answer ? false : true
     this.setState({
       ...this.state,
-      response: progression.question1Answer
+      response: progression.question1Answer,
+      editing: edit
     })
   }
 

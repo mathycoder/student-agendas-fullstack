@@ -41,7 +41,9 @@ class MyProgression extends Component{
     } else {
       return (
         <div className="submit-progression gray-button">
-          <button>Submit Progression</button>
+          <button>Submit Progression
+          </button>
+          <span className="tooltiptext">Save a Reflection before submitting</span>
         </div>
       )
     }
