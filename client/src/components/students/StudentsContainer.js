@@ -5,6 +5,21 @@ import { connect } from 'react-redux'
 
 class StudentContainer extends Component {
 
+  // getStudentProgressions = (student) => {
+  //   const { studentProgressions, progressions } = this.props
+  //   const myStudentProgressionIds = studentProgressions.allIds.filter(spId => {
+  //     const studentProgression = studentProgressions.byId[spId]
+  //     return studentProgression.studentId === `student${student.id}`
+  //   })
+  //   const myStudentProgressions = myStudentProgressionIds.map(stPrId => {
+  //     return studentProgressions.byId[stPrId]
+  //   })
+  //   const myOrderedStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
+  //   const myProgressions = myOrderedStudentProgressions.map(sp => progressions.byId[sp.progressionId])
+  //
+  //   return myProgressions
+  // }
+
   getStudentProgressions = (student) => {
     const { studentProgressions, progressions } = this.props
     const myStudentProgressionIds = studentProgressions.allIds.filter(spId => {
@@ -15,9 +30,25 @@ class StudentContainer extends Component {
       return studentProgressions.byId[stPrId]
     })
     const myOrderedStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
-    const myProgressions = myOrderedStudentProgressions.map(sp => progressions.byId[sp.progressionId])
-
+    const myProgressions = myOrderedStudentProgressions.map(sp => {
+      const prog = {...progressions.byId[sp.progressionId]}
+      prog.submitted = sp.submitted
+      prog.createdAt = this.formatDate(sp.createdAt)
+      prog.updatedAt = this.formatDate(sp.updatedAt)
+      prog.question1Answer = sp.question1Answer
+      return prog
+    })
     return myProgressions
+  }
+
+  formatDate = (rawDate) => {
+    const monthNames = [
+    "Jan", "Feb", "Mar",
+    "Apr", "May", "Jun", "Jul",
+    "Aug", "Sep", "Oct",
+    "Nov", "Dec"]
+    const date = new Date(rawDate)
+    return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
   }
 
   displayStudents = () => {

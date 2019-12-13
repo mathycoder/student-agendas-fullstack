@@ -45,7 +45,8 @@ class AgendaContainer extends Component {
     })
     const myOrderedStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
     const myProgressions = myOrderedStudentProgressions.map(sp => {
-      const prog = progressions.byId[sp.progressionId]
+      // const prog = progressions.byId[sp.progressionId]
+      const prog = {...progressions.byId[sp.progressionId]}
       prog.submitted = sp.submitted
       prog.createdAt = this.formatDate(sp.createdAt)
       prog.updatedAt = this.formatDate(sp.updatedAt)
@@ -115,7 +116,7 @@ class AgendaContainer extends Component {
           handleProgressionSubmit={this.handleProgressionSubmit}
           handleBackClick={this.handleBackClick}
           handleNextClick={this.handleNextClick}
-          progression={progressions.byId[selectedProgressionId]} />
+          progression={this.getStudentProgressions(currentUser).find(prog => `progression${prog.id}` === selectedProgressionId)} />
       </div>
     )
   }
