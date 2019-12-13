@@ -12,4 +12,20 @@ class StudentProgression < ApplicationRecord
     end
     new_order
   end
+
+  def self.rearrange_progressions_after_submit(student_progression)
+    student = Student.find_by(id: student_progression.student_id)
+    original_order = student.student_progressions.sort_by{|sp| sp.agenda_index}
+    original_order.delete(student_progression)
+
+    # I want to arrange the newly submitted student_progression after all of the other
+    # submitted ones.  That's how I find the new_index of the current submitted student_prog
+    new_index = original_order.select{|sp| !!sp.submitted}.length
+
+    new_order = original_order.insert(new_index, student_progression)
+    new_order.each_with_index do |sp, index|
+      sp.update(agenda_index: index)
+    end
+    new_order
+  end
 end

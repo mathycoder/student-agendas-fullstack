@@ -4,22 +4,6 @@ import './student.css'
 import { connect } from 'react-redux'
 
 class StudentContainer extends Component {
-
-  // getStudentProgressions = (student) => {
-  //   const { studentProgressions, progressions } = this.props
-  //   const myStudentProgressionIds = studentProgressions.allIds.filter(spId => {
-  //     const studentProgression = studentProgressions.byId[spId]
-  //     return studentProgression.studentId === `student${student.id}`
-  //   })
-  //   const myStudentProgressions = myStudentProgressionIds.map(stPrId => {
-  //     return studentProgressions.byId[stPrId]
-  //   })
-  //   const myOrderedStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
-  //   const myProgressions = myOrderedStudentProgressions.map(sp => progressions.byId[sp.progressionId])
-  //
-  //   return myProgressions
-  // }
-
   getStudentProgressions = (student) => {
     const { studentProgressions, progressions } = this.props
     const myStudentProgressionIds = studentProgressions.allIds.filter(spId => {
