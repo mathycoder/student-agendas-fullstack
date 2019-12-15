@@ -14,12 +14,6 @@ class ShowKlassContainer extends Component {
     showProgressions: true
   }
 
-  componentDidMount(){
-    // const { match, fetchStudents } = this.props
-    // const klassId = match.params.id
-    // fetchStudents(klassId)
-  }
-
   handleEditingStudents = () => {
     this.setState({...this.state, editingStudents: !this.state.editingStudents})
   }
@@ -67,6 +61,7 @@ class ShowKlassContainer extends Component {
   }
 
   renderStudents = () => <StudentsContainer
+                          klass={this.props.klass}
                           handleDragOver={this.handleDragOver}
                           handleDragLeave={this.handleDragLeave}
                           handleDragDrop={this.handleDragDrop}

@@ -21,7 +21,7 @@ class ShowKlassRouter extends Component {
       <div>
         <Switch>
           <Route exact path={`${match.url}`} render={renderProps => <ShowKlassContainer klass={klass} />}/>
-          <Route exact path={`${match.url}/students/:id`} render={renderProps => <StudentShowContainer />}/>
+          <Route exact path={`${match.url}/students/:id`} render={renderProps => <StudentShowContainer {...renderProps} />}/>
         </Switch>
       </div>
     )

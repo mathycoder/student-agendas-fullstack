@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import StudentAgenda from './StudentAgenda'
 import './student.css'
 import { connect } from 'react-redux'
+import { NavLink } from "react-router-dom"
 import { deleteStudentProgression, switchStudentProgression } from '../../actions/studentProgressionActions'
 import { Droppable, DragDropContext } from 'react-beautiful-dnd'
 
@@ -47,11 +48,14 @@ class Student extends Component {
   }
 
   render(){
-    const { student } = this.props
+    const { student, klass } = this.props
     return (
       <div className={`student-row`}>
         <div className="student-name">
-          <h2 onClick={this.handleNameClick}>{student.firstName} {student.lastName}</h2>
+          <NavLink to={`/classes/${klass.id}/students/${student.id}`}>
+            <h2>{student.firstName} {student.lastName}</h2>
+          </NavLink>
+
         </div>
         {this.renderStudentAgenda()}
       </div>
