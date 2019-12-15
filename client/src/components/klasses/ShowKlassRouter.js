@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { addStudents } from '../../actions/studentActions'
 import ShowKlassContainer from './ShowKlassContainer'
-import StudentShowContainer from '../students/StudentShowContainer'
+import StudentShowContainer from '../students/show/StudentShowContainer'
 import { connect } from 'react-redux'
 import { Route, Switch, NavLink } from "react-router-dom"
 

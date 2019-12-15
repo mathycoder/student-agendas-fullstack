@@ -1,0 +1,37 @@
+.student-show-wrapper {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.student-show-wrapper .progression-wrapper {
+  margin-bottom: 30px;
+  /* display: grid;
+  grid-template-columns: 300px 100px; */
+}
+
+.student-show-wrapper .progression-wrapper .student-show-progression {
+  grid-template-rows: 0px 100px;
+  margin: 0px 10px;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.student-show-wrapper .progression-wrapper .student-progression-details {
+  /* background-color: rgb(81, 84, 92); */
+  /* color: white; */
+  color: black;
+  width: 250px;
+  margin-left: 30px;
+  margin-top: 3px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.student-show-wrapper .student-show-progression:hover {
+  cursor: default;
+}
