@@ -10,6 +10,7 @@ class ShowKlassRouter extends Component {
   constructor(props){
     super(props)
     this.myRefStudentButton = React.createRef()
+    this.myRefStudentDropdown = React.createRef()
   }
 
   state = {
@@ -33,7 +34,7 @@ class ShowKlassRouter extends Component {
 
   handleClick = (e) => {
     if (this.state.studentDropdown){
-      if (this.myRefStudentButton.current.contains(e.target)) { return }
+      if (this.myRefStudentButton.current.contains(e.target) || this.myRefStudentDropdown.current.contains(e.target)) { return }
       this.handleStudentDropdownClick()
     }
   }
@@ -74,7 +75,7 @@ class ShowKlassRouter extends Component {
     const { students } = this.props
     const { studentDropdown } = this.state
     return (
-      <div className={`dropdown-menu student-dropdown ${studentDropdown ? 'opened': 'closed'}`} ref={this.myRefStudentButton}>
+      <div className={`dropdown-menu student-dropdown ${studentDropdown ? 'opened': 'closed'}`} ref={this.myRefStudentDropdown}>
         {students.allIds.map((studentId, index) => {
           const student = students.byId[studentId]
           return (
@@ -92,10 +93,11 @@ class ShowKlassRouter extends Component {
   }
 
   renderStudentDropdownContainer = () => {
-    const { student } = this.state
+    const { student, studentDropdown } = this.state
     return (
       <div className="student-dropdown-button" ref={this.myRefStudentButton} onClick={this.handleStudentDropdownClick}>
-        {student ? `${student.firstName} ${student.lastName}` : 'Students'}
+        <div>{ student ? `${student.firstName} ${student.lastName}` : 'Students'} </div>
+        <div className={`triangle ${studentDropdown ? 'up':'down'}`}>&#9660;</div>
       </div>
     )
   }
@@ -118,7 +120,7 @@ class ShowKlassRouter extends Component {
         <div className="klass-show-title">
           <h1>{klass.name}</h1>
           {this.renderStudentDropdownContainer()}
-          <button><NavLink to={`/classes/${klass.id}`}>Return to Class</NavLink></button>
+          <NavLink to={`/classes/${klass.id}`}><button>Return to Class</button></NavLink>
         </div>
       )
     }

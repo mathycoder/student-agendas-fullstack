@@ -1,10 +1,13 @@
 /* ---------------------- show klass router page ------------------ */
 .student-dropdown {
-  margin-left: 90px;
-  margin-top: -20px;
+  margin-left: 98px;
+  margin-top: -10px;
 }
 
 .student-dropdown-button {
+  width: 180px;
+  display: grid;
+  grid-template-columns: 170px 10px;
   margin-left: 20px;
   text-decoration: none;
   color: #666666;
@@ -14,21 +17,33 @@
 	background-color:#f9f9f9;
 	border-radius:6px;
 	border:1px solid #dcdcdc;
-	display:inline-block;
 	cursor:pointer;
 	color:#666666;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding: 6px 12px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
 }
 
+.student-dropdown-button div:first-child {
+  overflow: hidden;
+}
 
 .student-dropdown-button:hover {
   color: gray;
   cursor: pointer;
+}
+
+.triangle.up {
+  transform: rotate( -180deg ) translateX(-4px);
+  transition: transform 250ms ease;
+}
+
+.triangle.down {
+  transform: rotate( -360deg );
+  transition: transform 250ms ease;
 }
 
 
