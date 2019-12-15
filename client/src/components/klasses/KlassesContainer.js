@@ -19,7 +19,7 @@ class KlassesContainer extends Component {
 
   renderShowRoute = () => {
     const { match, klasses, addFlashMessage } = this.props
-    return <Route exact path={`${match.url}/:id`} key={Math.random()} render={(routerProps) => {
+    return <Route path={`${match.url}/:id`} key={Math.random()} render={(routerProps) => {
       const klassId = `klass${routerProps.match.params.id}`
       const {allIds} = klasses
       if (allIds.includes(klassId)) {

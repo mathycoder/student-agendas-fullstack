@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { addStudents } from '../../actions/studentActions'
 import ShowKlassContainer from './ShowKlassContainer'
+import StudentShowContainer from '../students/StudentShowContainer'
 import { connect } from 'react-redux'
 import { Route, Switch, Redirect } from "react-router-dom"
 
@@ -19,7 +20,8 @@ class ShowKlassRouter extends Component {
     return (
       <div>
         <Switch>
-          <Route path={`${match.url}`} render={renderProps => <ShowKlassContainer klass={klass} />}/>
+          <Route exact path={`${match.url}`} render={renderProps => <ShowKlassContainer klass={klass} />}/>
+          <Route exact path={`${match.url}/students/:id`} render={renderProps => <StudentShowContainer />}/>
         </Switch>
       </div>
     )
