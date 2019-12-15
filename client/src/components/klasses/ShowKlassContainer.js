@@ -9,22 +9,6 @@ import { addFlashMessage } from '../../actions/flashActions'
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
-  state = {
-    editingStudents: false,
-    showProgressions: true
-  }
-
-  handleEditingStudents = () => {
-    this.setState({...this.state, editingStudents: !this.state.editingStudents})
-  }
-
-  handleShowProgressions = () => {
-    this.setState({
-      ...this.state,
-      showProgressions: !this.state.showProgressions
-    })
-  }
-
   handleDragOver = event => {
     event.preventDefault()
     const agenda = event.currentTarget.closest('.student-agenda')
@@ -65,33 +49,19 @@ class ShowKlassContainer extends Component {
                           handleDragOver={this.handleDragOver}
                           handleDragLeave={this.handleDragLeave}
                           handleDragDrop={this.handleDragDrop}
-                          showProgressions={this.state.showProgressions} />
+                          showProgressions={this.props.showProgressions} />
 
 
   renderProgressions = () => <IndexProgressionsContainer handleDragStart={this.handleDragStart}/>
 
-
-  progressionsButton = () =>  <button onClick={this.handleShowProgressions}>
-                                {this.state.showProgressions ? 'Hide Progressions' : 'Show Progressions'}
-                              </button>
-
-
   render(){
-    const { klass } = this.props
-    const { editingStudents, showProgressions } = this.state
+    const { klass, editingStudents, showProgressions } = this.props
+
     if (klass) {
       return (
         <div className="klass-show-container">
-          <div className="klass-show-title">
-            <h1>{klass.name}</h1>
-            <button onClick={this.handleEditingStudents}>
-              { editingStudents ? 'Return to Class': 'Edit Students' }
-            </button>
-            { editingStudents ? '' : this.progressionsButton()}
-          </div>
           { editingStudents ? <EditStudents klass={klass} /> : this.renderStudents() }
           { !editingStudents && showProgressions ? this.renderProgressions() : <div></div> }
-
         </div>
       )
     } else {

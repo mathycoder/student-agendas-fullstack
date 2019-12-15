@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class StudentShowContainer extends Component{
+  componentDidMount(){
+      this.props.handleStudentShowPage()
+  }
+
   render(){
     const { students } = this.props
     const studentId = this.props.match.params.id

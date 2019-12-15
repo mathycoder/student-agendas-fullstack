@@ -1,6 +1,6 @@
 .klass-show-container {
   display: grid;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows: 1fr;
   grid-template-columns: 3fr 2fr;
 }
 
@@ -9,6 +9,12 @@
   display: flex;
   margin-left: 20px;
   align-items: center;
+}
+
+.klass-show-title a {
+  text-decoration: none;
+  color:#666666;
+
 }
 
 .klass-show-title button:focus {
