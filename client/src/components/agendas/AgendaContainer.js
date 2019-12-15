@@ -5,6 +5,7 @@ import MyAgenda from './MyAgenda'
 import MyProgression from './MyProgression'
 import { connect } from 'react-redux'
 import './myagenda.css'
+import { getStudentProgressions } from '../progressions/helpers/getStudentProgressions'
 
 class AgendaContainer extends Component {
   state = {
@@ -24,7 +25,7 @@ class AgendaContainer extends Component {
     const { currentUser, progressions, studentProgressions } = this.props
     const { initialLoad } = this.state
     if (!initialLoad && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
-      const progs = this.getStudentProgressions(currentUser)
+      const progs = getStudentProgressions(currentUser, studentProgressions, progressions)
       const firstIncomplete = progs.find(prog => !prog.submitted)
       this.setState({
         ...this.state,
@@ -32,41 +33,6 @@ class AgendaContainer extends Component {
         selectedProgressionId: firstIncomplete ? `progression${firstIncomplete.id}` : null
       })
     }
-  }
-
-  getStudentProgressions = (student) => {
-    const { studentProgressions, progressions } = this.props
-    if (progressions.allIds.length > 0){
-      const myStudentProgressionIds = studentProgressions.allIds.filter(spId => {
-        const studentProgression = studentProgressions.byId[spId]
-        return studentProgression.studentId === `student${student.id}`
-      })
-      const myStudentProgressions = myStudentProgressionIds.map(stPrId => {
-        return studentProgressions.byId[stPrId]
-      })
-      const myOrderedStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
-      const myProgressions = myOrderedStudentProgressions.map(sp => {
-        const prog = {...progressions.byId[sp.progressionId]}
-        prog.submitted = sp.submitted
-        prog.createdAt = this.formatDate(sp.createdAt)
-        prog.updatedAt = this.formatDate(sp.updatedAt)
-        prog.question1Answer = sp.question1Answer
-        return prog
-      })
-      return myProgressions
-    } else {
-      return []
-    }
-  }
-
-  formatDate = (rawDate) => {
-    const monthNames = [
-    "Jan", "Feb", "Mar",
-    "Apr", "May", "Jun", "Jul",
-    "Aug", "Sep", "Oct",
-    "Nov", "Dec"]
-    const date = new Date(rawDate)
-    return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
   }
 
   handleProgressionClick = (progression, index) => {
@@ -104,7 +70,7 @@ class AgendaContainer extends Component {
   }
 
   render(){
-    const { currentUser } = this.props
+    const { currentUser, studentProgressions, progressions } = this.props
     const { selectedProgressionId, itemIndex } = this.state
     return (
       <div className="myagenda-wrapper">
@@ -112,14 +78,14 @@ class AgendaContainer extends Component {
           itemIndex={itemIndex}
           selectedProgressionId={selectedProgressionId}
           handleProgressionClick={this.handleProgressionClick}
-          progressions={this.getStudentProgressions(currentUser)}/>
+          progressions={getStudentProgressions(currentUser, studentProgressions, progressions)}/>
         <MyProgression
           key={Math.random()}
           itemIndex={itemIndex}
           handleProgressionSubmit={this.handleProgressionSubmit}
           handleBackClick={this.handleBackClick}
           handleNextClick={this.handleNextClick}
-          progression={this.getStudentProgressions(currentUser).find(prog => `progression${prog.id}` === selectedProgressionId)} />
+          progression={getStudentProgressions(currentUser, studentProgressions, progressions).find(prog => `progression${prog.id}` === selectedProgressionId)} />
       </div>
     )
   }
