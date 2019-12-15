@@ -6,7 +6,6 @@ import { deleteStudentProgression, switchStudentProgression } from '../../action
 import { Droppable, DragDropContext } from 'react-beautiful-dnd'
 
 class Student extends Component {
-
   handleDeleteProgClick = (progression) => {
     const { deleteStudentProgression, student } = this.props
     deleteStudentProgression(student, progression)
@@ -21,33 +20,40 @@ class Student extends Component {
     }
   }
 
-  render(){
+  renderStudentAgenda = () => {
     const { student, progressions, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    return (
+      <DragDropContext
+        onDragEnd={this.handleDNDDragEnd}
+        onDragStart={this.handleDNDDragStart}
+        >
+        <Droppable droppableId={`droppable-${student.id}`} direction="horizontal">
+          {(provided) => (
+            <StudentAgenda
+              {...provided.droppableProps}
+              placeholder={provided.placeholder}
+              innerRef={provided.innerRef}
+              student={student}
+              progressions={progressions}
+              handleDragOver={handleDragOver}
+              handleDragLeave={handleDragLeave}
+              handleDragDrop={handleDragDrop}
+              handleDeleteProgClick={this.handleDeleteProgClick}
+              />
+          )}
+        </Droppable>
+      </DragDropContext>
+    )
+  }
+
+  render(){
+    const { student, progressions } = this.props
     return (
       <div className={`student-row`}>
         <div className="student-name">
-          <h2>{student.firstName} {student.lastName}</h2>
+          <h2 onClick={this.handleNameClick}>{student.firstName} {student.lastName}</h2>
         </div>
-        <DragDropContext
-          onDragEnd={this.handleDNDDragEnd}
-          onDragStart={this.handleDNDDragStart}
-          >
-          <Droppable droppableId={`droppable-${student.id}`} direction="horizontal">
-            {(provided) => (
-              <StudentAgenda
-                {...provided.droppableProps}
-                placeholder={provided.placeholder}
-                innerRef={provided.innerRef}
-                student={student}
-                progressions={progressions}
-                handleDragOver={handleDragOver}
-                handleDragLeave={handleDragLeave}
-                handleDragDrop={handleDragDrop}
-                handleDeleteProgClick={this.handleDeleteProgClick}
-                />
-            )}
-          </Droppable>
-        </DragDropContext>
+        {this.renderStudentAgenda()}
       </div>
     )
   }

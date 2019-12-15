@@ -38,15 +38,12 @@
 }
 
 
-
-
-
 /* --------------------------------------------------------------------------- */
 
 .student-row {
   display: flex;
   margin: 10px;
-  height: 95px;
+  height: 85px;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -293,10 +290,6 @@ div.student-agenda {
 
 .student-agenda .student-show-progression-items {
   max-width: 400px;
-  /* display: flex;
-  width: min-content;
-  max-width: 400px;
-  overflow: scroll; */
 }
 
 .student-agenda .student-show-progression-item {
@@ -340,7 +333,7 @@ div.student-agenda {
 
 
 /* This styling is repeated in myagenda.css.  Consider combining styling if they never diverge.  */
-.progression-wrapper {
+/* .progression-wrapper {
 
 }
 
@@ -356,7 +349,7 @@ div.student-agenda {
   font-weight: bold;
   margin-left: 15px;
   margin-top: 3px;
-}
+} */
 
 /* -------------------Progressions Index Page -------------------------- */
 

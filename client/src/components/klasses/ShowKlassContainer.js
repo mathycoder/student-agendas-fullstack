@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { addStudents } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import { addFlashMessage } from '../../actions/flashActions'
+import { Route, Switch, Redirect } from "react-router-dom"
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {

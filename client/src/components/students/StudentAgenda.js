@@ -26,9 +26,12 @@ const StudentAgenda = ({ placeholder, innerRef, handleDragOver, handleDragLeave,
                 )}
               </Draggable>)
         } else if (progression && progression.submitted) {
-          return <StudentAgendaProgression
-            key={index}
-            progression={progression}/>
+          return (
+            <div key={index}>
+              <StudentAgendaProgression
+                progression={progression}/>
+            </div>
+          )
         } else {
           return (<div key={index}></div>)
         }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect } from "react-router-dom";
 import ShowKlassContainer from './ShowKlassContainer'
 import KlassesIndex from './KlassesIndex'
+// import ShowKlassRouter from './ShowKlassRouter'
 import '../progressions/Progression.css'
 import './Klass.css'
 import { connect } from 'react-redux'

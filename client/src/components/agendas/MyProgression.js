@@ -32,7 +32,7 @@ class MyProgression extends Component{
   renderSubmitProgressionButton = () => {
     const { progression, handleProgressionSubmit } = this.props
     const reflectionsExist = progression.items.findIndex(item => item.includes("reflection"))
-    if ((reflectionsExist && progression.question1Answer) || !reflectionsExist ){
+    if ((reflectionsExist && progression.question1Answer) || reflectionsExist === -1 ){
       return (
         <div className="submit-progression">
           <button onClick={e => handleProgressionSubmit(progression)}>Submit Progression</button>

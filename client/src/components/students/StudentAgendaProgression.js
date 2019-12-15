@@ -5,34 +5,24 @@ const StudentAgendaProgression = (props) => {
   const { progression, handleDeleteProgClick, innerRef } = props
   if (progression && !progression.submitted){
     return (
-      <div className="progression-wrapper">
-        <div className={`student-show-progression ${progression.color}`} ref={node => innerRef(node)}>
-          <div className={`student-show-progression-title ${progression.color}-title`}>
-            <div onClick={event => handleDeleteProgClick(progression)} className="student-prog-x">x</div>
-            {progression.name}
-          </div>
-          <div className="student-show-progression-items">
-            <RenderItem progression={progression} />
-          </div>
+      <div className={`student-show-progression ${progression.color}`} ref={node => innerRef(node)}>
+        <div className={`student-show-progression-title ${progression.color}-title`}>
+          <div onClick={event => handleDeleteProgClick(progression)} className="student-prog-x">x</div>
+          {progression.name}
         </div>
-        <div className="progression-status">
-          Assigned: {progression.createdAt}
+        <div className="student-show-progression-items">
+          <RenderItem progression={progression} />
         </div>
       </div>
     )
   } else if (progression && progression.submitted) {
     return (
-      <div className="progression-wrapper">
-        <div className={`student-show-progression ${progression.color} submitted`}>
-          <div className={`student-show-progression-title ${progression.color}-title`}>
-            {progression.name}
-          </div>
-          <div className="student-show-progression-items">
-            <RenderItem progression={progression} />
-          </div>
+      <div className={`student-show-progression ${progression.color} submitted`}>
+        <div className={`student-show-progression-title ${progression.color}-title`}>
+          {progression.name}
         </div>
-        <div className="progression-status">
-          Submitted on {progression.updatedAt}
+        <div className="student-show-progression-items">
+          <RenderItem progression={progression} />
         </div>
       </div>
     )
