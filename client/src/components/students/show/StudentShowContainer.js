@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getStudentProgressions } from '../../progressions/helpers/getStudentProgressions'
 import AssignedProgressions from './AssignedProgressions'
 import SubmittedProgressions from './SubmittedProgressions'
+import StudentShowAgenda from './StudentShowAgenda'
 import '../css/student-show.css'
 
 class StudentShowContainer extends Component {
@@ -48,19 +49,42 @@ class StudentShowContainer extends Component {
     }
   }
 
+  displayColors = () => {
+    return (
+      <div className="color-logo">
+         {["red", "orange", "green", "blue", "purple"].map((color, index) => {
+          return (
+            <div
+              key={index}
+              className={`select-color ${color}-title`}>
+            </div>
+          )
+          })}
+      </div>
+    )
+
+  }
+
   render(){
-    const { student, assignedProgressions, submittedProgressions } = this.state
+    const { student, assignedProgressions, submittedProgressions, myProgressions } = this.state
     const { progressions, studentProgressions, reflections, videos } = this.props
     if (student && assignedProgressions && submittedProgressions) {
       return (
-        <div className="student-show-wrapper index-page">
+        <div className="student-show-wrapper">
+          <div className="student-show-agenda student-agenda">
+            <StudentShowAgenda progressions={myProgressions}/>
+          </div>
           <div className="assigned-progressions">
+            <h2>Incomplete</h2>
+            {this.displayColors()}
             <AssignedProgressions
               reflections={reflections}
               videos={videos}
               progressions={assignedProgressions}/>
           </div>
           <div className="submitted-progressions">
+            <h2>Submitted</h2>
+            {this.displayColors()}
             <SubmittedProgressions
               videos={videos}
               reflections={reflections}
