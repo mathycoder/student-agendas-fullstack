@@ -1,15 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-class StudentShowContainer extends Component{
+class StudentShowContainer extends Component {
+  state = {
+    student: undefined
+  }
+
   componentDidMount(){
-      this.props.handleStudentShowPage()
+    this.props.handleStudentShowPage()
+  }
+
+  componentDidUpdate(){
+    const { students, handleSetStudent } = this.props
+    const studentId = this.props.match.params.id
+    const student = students.byId[`student${studentId}`]
+    if (student && !this.state.student){
+      handleSetStudent(student)
+      this.setState({
+        ...this.state,
+        student: student
+      })
+    }
   }
 
   render(){
-    const { students } = this.props
-    const studentId = this.props.match.params.id
-    const student = students.byId[`student${studentId}`]
+    const { student } = this.state
     if (student) {
       return (
         <div>
