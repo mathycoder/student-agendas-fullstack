@@ -47,7 +47,7 @@ class Student extends Component {
   }
 
   render(){
-    const { student, progressions } = this.props
+    const { student } = this.props
     return (
       <div className={`student-row`}>
         <div className="student-name">

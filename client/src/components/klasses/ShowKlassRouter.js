@@ -13,10 +13,13 @@ class ShowKlassRouter extends Component {
   }
 
   render(){
+    const { klasses, match } = this.props
+    const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
+    const klass = klasses.byId[klassId]
     return (
       <div>
         <Switch>
-          <Route exact path='/classes/:id' component={ShowKlassContainer}/>
+          <Route path={`${match.url}`} render={renderProps => <ShowKlassContainer klass={klass} />}/>
         </Switch>
       </div>
     )

@@ -28,6 +28,7 @@ class IndexContainer extends Component {
     if (currentUser) {
       return (
         <>
+          <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
             <Route exact path="/login" render={(props) => (
                 currentUser === "none" ? <Login /> :

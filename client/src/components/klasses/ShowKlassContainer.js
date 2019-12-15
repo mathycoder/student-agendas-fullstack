@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import { addStudents } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import { addFlashMessage } from '../../actions/flashActions'
-import { Route, Switch, Redirect } from "react-router-dom"
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
@@ -16,9 +15,9 @@ class ShowKlassContainer extends Component {
   }
 
   componentDidMount(){
-    const { match, fetchStudents } = this.props
-    const klassId = match.params.id
-    fetchStudents(klassId)
+    // const { match, fetchStudents } = this.props
+    // const klassId = match.params.id
+    // fetchStudents(klassId)
   }
 
   handleEditingStudents = () => {
@@ -83,10 +82,8 @@ class ShowKlassContainer extends Component {
 
 
   render(){
-    const { klasses, match } = this.props
+    const { klass } = this.props
     const { editingStudents, showProgressions } = this.state
-    const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
-    const klass = klasses.byId[klassId]
     if (klass) {
       return (
         <div className="klass-show-container">

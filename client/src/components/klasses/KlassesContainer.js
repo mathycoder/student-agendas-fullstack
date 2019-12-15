@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Route, Switch, Redirect } from "react-router-dom";
-import ShowKlassContainer from './ShowKlassContainer'
+// import ShowKlassContainer from './ShowKlassContainer'
 import KlassesIndex from './KlassesIndex'
-// import ShowKlassRouter from './ShowKlassRouter'
+import ShowKlassRouter from './ShowKlassRouter'
 import '../progressions/Progression.css'
 import './Klass.css'
 import { connect } from 'react-redux'
@@ -23,7 +23,7 @@ class KlassesContainer extends Component {
       const klassId = `klass${routerProps.match.params.id}`
       const {allIds} = klasses
       if (allIds.includes(klassId)) {
-        return <ShowKlassContainer {...routerProps} />
+        return <ShowKlassRouter {...routerProps} />
       } else {
         addFlashMessage("You don't have access to that class")
         return <Redirect to="/classes"/>
