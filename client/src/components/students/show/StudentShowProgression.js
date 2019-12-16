@@ -9,6 +9,7 @@ class StudentShowProgression extends Component{
       return <div></div>
     } else if (itemId.includes("reflection")){
       return <StudentShowReflection
+                key={Math.random()}
                 student={student}
                 progression={progression}
                 reflection={reflections.byId[itemId]} />

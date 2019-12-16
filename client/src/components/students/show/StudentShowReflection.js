@@ -4,7 +4,8 @@ import { updateStudentProgression } from '../../../actions/studentProgressionAct
 
 class StudentShowReflection extends Component {
   state = {
-    comment: ''
+    comment: '',
+    editing: false
   }
 
   handleTextChange = e => {
@@ -17,14 +18,16 @@ class StudentShowReflection extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const { student, progression, currentUser, updateStudentProgression } = this.props
-    updateStudentProgression(student, progression, this.state)
+    updateStudentProgression(student, progression, {comment: this.state.comment})
 
   }
 
   handleEditClick = e => {
+    const { progression } = this.props
     this.setState({
       ...this.state,
-      editing: true
+      editing: true,
+      comment: progression.question1Comment
     })
   }
 
@@ -46,8 +49,25 @@ class StudentShowReflection extends Component {
     )
   }
 
+  renderCurrentComment = () => {
+    const { progression } = this.props
+    return (
+      <div>
+        <div className="teacher-comment not-editing">
+          <h3>Teacher feedback: </h3>
+          <p>{progression.question1Comment}</p>
+          <div className="submit-progression">
+            <button onClick={this.handleEditClick}>Edit</button>
+          </div>
+        </div>
+      </div>
+
+    )
+  }
+
   render(){
     const { reflection, student, progression } = this.props
+    const { editing } = this.state
     return (
       <form onSubmit={this.handleSubmit}>
       <div className="myprogression-reflection">
@@ -63,7 +83,7 @@ class StudentShowReflection extends Component {
             <h3>{student.firstName}s Response:</h3>
             <p>{progression.submitted ? progression.question1Answer : 'Not Yet Completed'}</p>
           </div>
-          {progression.submitted ? this.renderForm() : ''}
+          {!progression.submitted ? '' : (editing ? this.renderForm() : this.renderCurrentComment())}
 
       </div>
       </form>

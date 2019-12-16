@@ -13,9 +13,11 @@ export const getStudentProgressions = (student, studentProgressions, progression
     const myProgressions = myOrderedStudentProgressions.map(sp => {
       const prog = {...progressions.byId[sp.progressionId]}
       prog.submitted = sp.submitted
+      prog.graded = sp.graded
       prog.createdAt = formatDate(sp.createdAt)
       prog.updatedAt = formatDate(sp.updatedAt)
       prog.question1Answer = sp.question1Answer
+      prog.question1Comment = sp.question1Comment
       return prog
     })
     return myProgressions

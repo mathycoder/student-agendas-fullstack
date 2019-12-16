@@ -20,13 +20,15 @@ class StudentShowContainer extends Component {
 
   componentDidUpdate(){
     this.setStudent()
-    this.setProgressions()
+    // this.setProgressions()
     this.setInitialLoad()
   }
 
   setInitialLoad = () => {
-    const { myProgressions, selectedProgressionId, itemIndex, initialLoad } = this.state
-    if (!initialLoad && myProgressions && myProgressions.length > 0){
+    const { progressions, studentProgressions } = this.props
+    const { selectedProgressionId, itemIndex, initialLoad, student } = this.state
+    if (!initialLoad && student && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
+      const myProgressions = getStudentProgressions(student, studentProgressions, progressions)
       this.setState({
         ...this.state,
         initialLoad: true,
@@ -36,16 +38,16 @@ class StudentShowContainer extends Component {
     }
   }
 
-  setProgressions = () => {
-    const { progressions, studentProgressions } = this.props
-    const { student, incompleteProgressions, completeProgressions, myProgressions } = this.state
-    if (!myProgressions && progressions.allIds.length > 0 && student){
-      const tempProgressions = getStudentProgressions(student, studentProgressions, progressions)
-      this.setState({
-        myProgressions: [...tempProgressions]
-      })
-    }
-  }
+  // setProgressions = () => {
+  //   const { progressions, studentProgressions } = this.props
+  //   const { student, incompleteProgressions, completeProgressions, myProgressions } = this.state
+  //   if (!myProgressions && progressions.allIds.length > 0 && student){
+  //     const tempProgressions = getStudentProgressions(student, studentProgressions, progressions)
+  //     this.setState({
+  //       myProgressions: [...tempProgressions]
+  //     })
+  //   }
+  // }
 
   setStudent = () => {
     const { students, handleSetStudent } = this.props
@@ -72,19 +74,20 @@ class StudentShowContainer extends Component {
   render(){
     const { student, myProgressions, selectedProgressionId, itemIndex } = this.state
     const { progressions, studentProgressions, reflections, videos } = this.props
-    if (student && myProgressions) {
+    if (student) {
+      const myProgs = getStudentProgressions(student, studentProgressions, progressions)
       return (
         <div className="myagenda-wrapper student-show-wrapper">
           <StudentShowAgenda
             itemIndex={itemIndex}
             selectedProgressionId={selectedProgressionId}
             handleProgressionClick={this.handleProgressionClick}
-            progressions={myProgressions}/>
+            progressions={myProgs}/>
           <StudentShowProgression
               key={Math.random()}
               itemIndex={itemIndex}
               student={student}
-              progression={myProgressions.find(prog => `progression${prog.id}` === selectedProgressionId)} />
+              progression={myProgs.find(prog => `progression${prog.id}` === selectedProgressionId)} />
         </div>
       )
     } else {
