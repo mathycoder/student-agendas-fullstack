@@ -8,7 +8,7 @@ const StudentShowAgenda = ({ progressions, handleProgressionClick, itemIndex, se
         if (progression) {
           return (
             <div key={index} className="progression-wrapper">
-              <div className={`student-show-progression ${progression.color}`}>
+              <div className={`student-show-progression ${progression.color} ${selectedProgressionId === `progression${progression.id}` ? 'highlighted-less' :'unhighlighted-less'}`}>
                 <div className={`student-show-progression-title ${progression.color}-title`}>
                   {progression.name}
                 </div>

@@ -58,8 +58,20 @@
   border: 1px solid rgb(176, 255, 175);
 }
 
-.highlighted {
+.highlighted{
   transform: scale(1.12);
+  transition: transform 0.5s;
+  z-index: 5;
+}
+
+.highlighted-less{
+  transform: scale(1.02);
+  transition: transform 0.5s;
+  z-index: 5;
+}
+
+.unhighlighted-less{
+  transform: scale(0.95);
   transition: transform 0.5s;
   z-index: 5;
 }
