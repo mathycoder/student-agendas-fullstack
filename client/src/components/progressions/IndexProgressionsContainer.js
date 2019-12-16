@@ -101,7 +101,7 @@ class IndexProgressionsContainer extends Component {
 
   handleDeleteProgression = (progression) => {
     const { deleteProgression } = this.props
-    const deleteCheck = window.confirm("Are you sure you want to delete this progression?");
+    const deleteCheck = window.confirm("Are you sure you want to delete this progression?  This will delete the progression from all student agendas.");
     if (deleteCheck) { deleteProgression(progression) }
   }
 

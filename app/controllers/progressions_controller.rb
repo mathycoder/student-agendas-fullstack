@@ -67,9 +67,10 @@ class ProgressionsController < ApplicationController
   def destroy
     if (!params[:student_id])
       @progression = Progression.find_by(id: params[:id])
-      # @progression.videos.destroy_all
+      @student_progressions = @progression.student_progressions.map{|sp| sp}
+      @progression.student_progressions.destroy_all
       @progression.destroy
-      render json: @progression, status: 201
+      render json: {progression: @progression, studentProgressions: @student_progressions}, status: 201
     else
       @student_progression = StudentProgression.find_by(student_id: params[:student_id], progression_id: params[:id])
       @student_progression.destroy

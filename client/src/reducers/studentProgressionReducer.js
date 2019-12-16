@@ -125,6 +125,9 @@ function allStudentProgressions(state = [], action) {
       const stProgIdToDelete = `studentProgression${action.studentProgression.id}`
       return state.filter(pId => pId !== stProgIdToDelete)
 
+    case 'DELETE_PROGRESSION':
+      const spsToRemove = action.studentProgressions.map(sp => `studentProgression${sp.id}`)
+      return state.filter(sp => !spsToRemove.includes(sp))
     default:
       return state
   }

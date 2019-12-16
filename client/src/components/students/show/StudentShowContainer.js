@@ -83,6 +83,7 @@ class StudentShowContainer extends Component {
           <StudentShowProgression
               key={Math.random()}
               itemIndex={itemIndex}
+              student={student}
               progression={myProgressions.find(prog => `progression${prog.id}` === selectedProgressionId)} />
         </div>
       )

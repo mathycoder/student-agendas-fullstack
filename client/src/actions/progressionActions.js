@@ -78,6 +78,9 @@ export function deleteProgression(progression) {
       credentials: "include"
     })
       .then(resp => resp.json())
-      .then(progression => dispatch({ type: 'DELETE_PROGRESSION', progression }))
+      .then(json => {
+        dispatch({ type: 'DELETE_PROGRESSION', progression: json.progression, studentProgressions: json.studentProgressions})
+      })
+
   }
 }

@@ -1,3 +1,76 @@
 .student-show-wrapper .myagenda {
   margin-top: -15px;
 }
+
+
+/* -------------------------StudentShowReflection------------------ */
+
+.student-show-wrapper .myprogression-reflection {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 250px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.student-show-wrapper  .myprogression-reflection .lined-paper {
+  max-width: 300px;
+  background-image: url('/lined-paper.png');
+  background-size: 300px 650px;
+  background-repeat: no-repeat;
+  height: 230px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.student-show-wrapper  .myprogression-reflection-title {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: bold;
+  height: 28px;
+}
+
+.student-show-wrapper  .myprogression-reflection-question {
+  margin-left: 50px;
+  margin-top: 10px;
+  padding-right: 10px;
+  line-height: 28px;
+}
+
+.student-show-wrapper .reflection-response {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.student-show-wrapper  .reflection-response h3 {
+  margin-bottom: 0px;
+}
+
+.student-show-wrapper  .teacher-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.student-show-wrapper  .teacher-comment textarea {
+  margin: 0 20px 20px 20px;
+  min-width: 250px;
+  background: white;
+  border-radius: 20px;
+  border: 1px dashed black;
+  min-height: 220px;
+
+  font-size: 18px;
+  padding: 10px 15px 0px 10px;
+  line-height: 24px;
+  resize: none;
+}
+
+.student-show-wrapper  .myprogression-reflection textarea:focus {
+  outline: none;
+}
