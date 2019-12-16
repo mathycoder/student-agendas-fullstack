@@ -30,10 +30,32 @@
 }
 
 .myagenda .progression-wrapper .progression-status {
+  display: flex;
+  align-items: center;
   color: white;
   margin: 0 auto;
   font-size: 12px;
   font-weight: bold;
+}
+
+.progression-status .dot {
+  display: inline-block;
+  margin-right: 5px;
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border: 1px solid pink;
+  border-radius: 50%;
+}
+
+.progression-status .dot.yellow {
+  background-color: rgb(251, 255, 0 );
+  border: 1px solid rgb(249, 250, 173);
+}
+
+.progression-status .dot.green {
+  background-color: rgb(21, 250, 17);
+  border: 1px solid rgb(176, 255, 175);
 }
 
 .highlighted {
@@ -46,9 +68,11 @@
   opacity: 0.5;
 }
 
-.submitted {
+.submitted, .graded {
   background-color: grey;
 }
+
+
 
 
 

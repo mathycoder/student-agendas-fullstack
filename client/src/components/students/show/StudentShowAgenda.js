@@ -8,7 +8,7 @@ const StudentShowAgenda = ({ progressions, handleProgressionClick, itemIndex, se
         if (progression) {
           return (
             <div key={index} className="progression-wrapper">
-              <div className={`student-show-progression ${progression.color} ${progression.submitted ? 'submitted' : ''}`}>
+              <div className={`student-show-progression ${progression.color}`}>
                 <div className={`student-show-progression-title ${progression.color}-title`}>
                   {progression.name}
                 </div>
@@ -22,7 +22,12 @@ const StudentShowAgenda = ({ progressions, handleProgressionClick, itemIndex, se
                 </div>
               </div>
               <div className="progression-status">
-                {progression.submitted ? `Submitted: ${progression.updatedAt}` : `Assigned: ${progression.createdAt}`}
+                <span className={`dot ${progression.submitted && !progression.graded ? 'yellow' :''} ${progression.graded ? 'green' :''}`}></span>
+                {progression.submitted ?
+                  (progression.graded ? `Graded: ${progression.updatedAt}`
+                    : `Submitted: ${progression.updatedAt}`)
+                    : `Assigned: ${progression.createdAt}`}
+
               </div>
             </div>
           )

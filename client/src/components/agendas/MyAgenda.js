@@ -21,7 +21,8 @@ const MyAgenda = ({ progressions, handleProgressionClick, itemIndex, selectedPro
                 </div>
               </div>
               <div className="progression-status">
-                Assigned: {progression.createdAt}
+                <span className="dot"></span>
+                {`Assigned: ${progression.createdAt}`}
               </div>
             </div>
           )
@@ -41,7 +42,8 @@ const MyAgenda = ({ progressions, handleProgressionClick, itemIndex, selectedPro
                   </div>
                 </div>
                 <div className="progression-status">
-                  Submitted on {progression.updatedAt}
+                  <span className="dot green"></span>
+                    {`Submitted: ${progression.updatedAt}`}
                 </div>
               </div>
             )
