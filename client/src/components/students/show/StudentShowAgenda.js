@@ -1,35 +1,36 @@
-import React from 'react'
+import React  from 'react'
 import RenderItem from '../../progressions/RenderItem'
 
-const StudentShowAgenda = ({progressions}) => {
-  return progressions.map((progression, index) => {
-    if (progression && !progression.submitted){
-      return (
-        <div className={`student-show-progression ${progression.color}`}>
-          <div className={`student-show-progression-title ${progression.color}-title`}>
-            <div className="student-prog-x">x</div>
-            {progression.name}
-          </div>
-          <div className="student-show-progression-items">
-            <RenderItem progression={progression} />
-          </div>
-        </div>
-      )
-    } else if (progression && progression.submitted) {
-      return (
-        <div className={`student-show-progression ${progression.color} submitted`}>
-          <div className={`student-show-progression-title ${progression.color}-title`}>
-            {progression.name}
-          </div>
-          <div className="student-show-progression-items">
-            <RenderItem progression={progression} />
-          </div>
-        </div>
-      )
-    } else {
-      return (<div></div>)
-    }
-  })
+const StudentShowAgenda = ({ progressions, handleProgressionClick, itemIndex, selectedProgressionId }) => {
+  return (
+    <div className="myagenda index-page">
+      {progressions.map((progression, index) => {
+        if (progression) {
+          return (
+            <div key={index} className="progression-wrapper">
+              <div className={`student-show-progression ${progression.color} ${progression.submitted ? 'submitted' : ''}`}>
+                <div className={`student-show-progression-title ${progression.color}-title`}>
+                  {progression.name}
+                </div>
+                <div className="student-show-progression-items">
+                  <RenderItem
+                    handleProgressionClick={handleProgressionClick}
+                    itemIndex={itemIndex}
+                    selectedProgressionId={selectedProgressionId}
+                    progression={progression} />
+                </div>
+              </div>
+              <div className="progression-status">
+                {progression.submitted ? `Submitted: ${progression.updatedAt}` : `Assigned: ${progression.createdAt}`}
+              </div>
+            </div>
+          )
+        } else {
+          return (<div key={index}></div>)
+        }
+      })}
+    </div>
+  )
 }
 
 export default StudentShowAgenda

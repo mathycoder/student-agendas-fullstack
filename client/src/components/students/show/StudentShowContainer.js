@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getStudentProgressions } from '../../progressions/helpers/getStudentProgressions'
-import AssignedProgressions from './AssignedProgressions'
-import SubmittedProgressions from './SubmittedProgressions'
 import StudentShowAgenda from './StudentShowAgenda'
+import StudentShowProgression from './StudentShowProgression'
 import '../css/student-show.css'
 
 class StudentShowContainer extends Component {
   state = {
     student: undefined,
     myProgressions: undefined,
-    assignedProgressions: undefined,
-    submittedProgressions: undefined
+    selectedProgressionId: undefined,
+    itemIndex: undefined
   }
 
   componentDidMount(){
@@ -29,9 +28,7 @@ class StudentShowContainer extends Component {
     if (!myProgressions && progressions.allIds.length > 0 && student){
       const tempProgressions = getStudentProgressions(student, studentProgressions, progressions)
       this.setState({
-        myProgressions: [...tempProgressions],
-        assignedProgressions: [...tempProgressions.filter(prog => !prog.submitted)],
-        submittedProgressions: [...tempProgressions.filter(prog => prog.submitted)]
+        myProgressions: [...tempProgressions]
       })
     }
   }
@@ -49,47 +46,30 @@ class StudentShowContainer extends Component {
     }
   }
 
-  displayColors = () => {
-    return (
-      <div className="color-logo">
-         {["red", "orange", "green", "blue", "purple"].map((color, index) => {
-          return (
-            <div
-              key={index}
-              className={`select-color ${color}-title`}>
-            </div>
-          )
-          })}
-      </div>
-    )
-
+  handleProgressionClick = (progression, index) => {
+    this.setState({
+      ...this.state,
+      selectedProgressionId: `progression${progression.id}`,
+      itemIndex: progression.items.findIndex(el => el.includes("reflection"))
+    })
   }
 
+
   render(){
-    const { student, assignedProgressions, submittedProgressions, myProgressions } = this.state
+    const { student, myProgressions, selectedProgressionId, itemIndex } = this.state
     const { progressions, studentProgressions, reflections, videos } = this.props
-    if (student && assignedProgressions && submittedProgressions) {
+    if (student && myProgressions) {
       return (
-        <div className="student-show-wrapper">
-          <div className="student-show-agenda student-agenda">
-            <StudentShowAgenda progressions={myProgressions}/>
-          </div>
-          <div className="assigned-progressions">
-            <h2>Incomplete</h2>
-            {this.displayColors()}
-            <AssignedProgressions
-              reflections={reflections}
-              videos={videos}
-              progressions={assignedProgressions}/>
-          </div>
-          <div className="submitted-progressions">
-            <h2>Submitted</h2>
-            {this.displayColors()}
-            <SubmittedProgressions
-              videos={videos}
-              reflections={reflections}
-              progressions={submittedProgressions}/>
-          </div>
+        <div className="myagenda-wrapper student-show-wrapper">
+          <StudentShowAgenda
+            itemIndex={itemIndex}
+            selectedProgressionId={selectedProgressionId}
+            handleProgressionClick={this.handleProgressionClick}
+            progressions={myProgressions}/>
+          <StudentShowProgression
+              key={Math.random()}
+              itemIndex={itemIndex}
+              progression={myProgressions.find(prog => `progression${prog.id}` === selectedProgressionId)} />
         </div>
       )
     } else {
