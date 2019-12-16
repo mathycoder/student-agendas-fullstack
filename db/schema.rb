@@ -71,7 +71,9 @@ ActiveRecord::Schema.define(version: 2019_12_12_183409) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "submitted", default: false
+    t.boolean "graded", default: false
     t.string "question1_answer"
+    t.string "question1_comment"
   end
 
   create_table "students", force: :cascade do |t|

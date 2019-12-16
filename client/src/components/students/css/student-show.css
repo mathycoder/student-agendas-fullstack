@@ -5,12 +5,15 @@
 
 /* -------------------------StudentShowReflection------------------ */
 
+.student-show-wrapper .myprogression {
+  width: 95%;
+}
 .student-show-wrapper .myprogression-reflection {
   display: flex;
   flex-wrap: wrap;
   min-height: 250px;
-  padding: 20px;
-  justify-content: center;
+  padding: 20px 10px;
+  justify-content: space-around;
 }
 
 .student-show-wrapper  .myprogression-reflection .lined-paper {
@@ -19,9 +22,9 @@
   background-size: 300px 650px;
   background-repeat: no-repeat;
   height: 230px;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-bottom: 30px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 40px;
 }
 
 .student-show-wrapper  .myprogression-reflection-title {
@@ -45,27 +48,36 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: -20px;
 }
 
 .student-show-wrapper  .reflection-response h3 {
   margin-bottom: 0px;
 }
 
+.student-show-wrapper  .reflection-response p {
+  text-align: justify;
+}
+
 .student-show-wrapper  .teacher-comment {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .student-show-wrapper  .teacher-comment textarea {
   margin: 0 20px 20px 20px;
   min-width: 250px;
+  max-width: 600px;
   background: white;
   border-radius: 20px;
   border: 1px dashed black;
-  min-height: 220px;
-
-  font-size: 18px;
+  /* min-height: 220px; */
+  font-size: 14px;
   padding: 10px 15px 0px 10px;
   line-height: 24px;
   resize: none;

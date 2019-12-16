@@ -57,9 +57,9 @@ class StudentShowReflection extends Component {
           </div>
           <div className="reflection-response">
             <h3>{student.firstName}'s Response:</h3>
-            <p>{progression.question1Answer}</p>
+            <p>{progression.submitted ? progression.question1Answer : 'Not Yet Completed'}</p>
           </div>
-          {this.renderForm()}
+          {progression.submitted ? this.renderForm() : ''}
 
       </div>
       </form>
