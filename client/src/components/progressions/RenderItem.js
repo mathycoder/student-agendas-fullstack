@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgressionId, handleProgressionClick}) => {
+const RenderItem = ({progression, videos, reflections, itemIndex, selectedProgressionId, handleProgressionClick, studentShowSettings}) => {
   return progression.items.map((itemChildId, index) => {
     let item
     const highlighted = selectedProgressionId === `progression${progression.id}` && index === itemIndex ?
-      "highlighted" : (selectedProgressionId ? 'unhighlighted' : '')
+      "highlighted" : (selectedProgressionId && (!studentShowSettings || progression.submitted) ? 'unhighlighted' : '')
     if (itemChildId.includes("video")) {
       if (videos.allIds.length > 0){
         const video = videos.byId[itemChildId]

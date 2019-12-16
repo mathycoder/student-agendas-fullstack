@@ -57,6 +57,9 @@ class ProgressionsController < ApplicationController
       elsif params[:response]
         @student_progression.update(question1_answer: params[:response])
         render json: @student_progression
+      elsif params[:comment]
+        @student_progression.update(question1_comment: params[:comment], graded: true)
+        render json: @student_progression
       else
         @student_progressions = StudentProgression.rearrange_progressions(@student_progression, params[:student][:newIndex])
         render json: @student_progressions

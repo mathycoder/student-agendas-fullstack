@@ -17,6 +17,7 @@ const StudentShowAgenda = ({ progressions, handleProgressionClick, itemIndex, se
                     handleProgressionClick={handleProgressionClick}
                     itemIndex={itemIndex}
                     selectedProgressionId={selectedProgressionId}
+                    studentShowSettings={true}
                     progression={progression} />
                 </div>
               </div>

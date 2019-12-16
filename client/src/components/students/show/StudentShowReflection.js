@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { updateStudentProgression } from '../../../actions/studentProgressionActions'
 
 class StudentShowReflection extends Component {
   state = {
@@ -14,7 +16,9 @@ class StudentShowReflection extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { progression, currentUser, updateStudentProgression } = this.props
+    const { student, progression, currentUser, updateStudentProgression } = this.props
+    updateStudentProgression(student, progression, this.state)
+
   }
 
   handleEditClick = e => {
@@ -56,7 +60,7 @@ class StudentShowReflection extends Component {
             </div>
           </div>
           <div className="reflection-response">
-            <h3>{student.firstName}'s Response:</h3>
+            <h3>{student.firstName}s Response:</h3>
             <p>{progression.submitted ? progression.question1Answer : 'Not Yet Completed'}</p>
           </div>
           {progression.submitted ? this.renderForm() : ''}
@@ -67,6 +71,10 @@ class StudentShowReflection extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch){
+  return {
+    updateStudentProgression: (student, progression, attribute) => dispatch(updateStudentProgression(student, progression, attribute))
+  }
+}
 
-
-export default StudentShowReflection
+export default connect(null, mapDispatchToProps)(StudentShowReflection)

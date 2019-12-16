@@ -23,7 +23,9 @@ function studentProgressionsById(state = {}, action) {
         submitted: stProg.submitted,
         createdAt: stProg.created_at,
         updatedAt: stProg.updated_at,
-        question1Answer: stProg.question1_answer
+        question1Answer: stProg.question1_answer,
+        question1Comment: stProg.question1_comment,
+        graded: stProg.graded
       }
     })
     return {
@@ -36,7 +38,7 @@ function studentProgressionsById(state = {}, action) {
       }
 
     case 'ADD_STUDENT_PROGRESSION':
-      const { updated_at, question1_answer, id, agenda_index, student_id, progression_id, submitted, created_at } = action.studentProgression
+      const { question1_comment, graded, updated_at, question1_answer, id, agenda_index, student_id, progression_id, submitted, created_at } = action.studentProgression
       return {
         ...state,
         [`studentProgression${id}`]: {
@@ -47,7 +49,9 @@ function studentProgressionsById(state = {}, action) {
           submitted: submitted,
           createdAt: created_at,
           updatedAt: updated_at,
-          question1Answer: question1_answer
+          question1Answer: question1_answer,
+          question1Comment: question1_comment,
+          graded: graded
         }
       }
 
@@ -67,7 +71,9 @@ function studentProgressionsById(state = {}, action) {
           submitted: sp.submitted,
           createdAt: sp.created_at,
           updatedAt: sp.updated_at,
-          question1Answer: sp.question1_answer
+          question1Answer: sp.question1_answer,
+          question1Comment: sp.question1_comment,
+          graded: sp.graded
         }
       })
       return {...state, ...normalizedObj}
@@ -82,7 +88,9 @@ function studentProgressionsById(state = {}, action) {
         submitted: sp.submitted,
         createdAt: sp.created_at,
         updatedAt: sp.updated_at,
-        question1Answer: sp.question1_answer
+        question1Answer: sp.question1_answer,
+        question1Comment: sp.question1_comment,
+        graded: sp.graded
       }
       return {
         ...state,
