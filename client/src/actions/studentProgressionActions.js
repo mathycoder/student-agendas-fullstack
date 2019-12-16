@@ -61,24 +61,30 @@ export function switchStudentProgression(draggableId, newIndex){
 
 export function updateStudentProgression(student, progression, attribute){
   return (dispatch) => {
-    let params
-    if (attribute === "submitted"){
-      params = {
-        submitted: true
-      }
-    } else {
-      params = attribute
-    }
-
     fetch(`/students/${student.id}/progressions/${progression.id}`, {
       method: 'PATCH',
       credentials: "include",
-      body: JSON.stringify(params),
+      body: JSON.stringify(attribute),
       headers: {
         'Content-Type': 'application/json'
       }
     })
       .then(resp => resp.json())
       .then(studentProgression => dispatch({ type: 'UPDATE_STUDENT_PROGRESSION', studentProgression }))
+  }
+}
+
+export function updateStudentProgressionStatus(student, progression, status){
+  return (dispatch) => {
+    fetch(`/students/${student.id}/progressions/${progression.id}`, {
+      method: 'PATCH',
+      credentials: "include",
+      body: JSON.stringify(status),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(json => dispatch({ type: 'SWITCH_PROGRESSION', studentProgressions: json.studentProgressions }))
   }
 }

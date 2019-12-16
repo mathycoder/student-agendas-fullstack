@@ -13,23 +13,8 @@ function studentProgressionsById(state = {}, action) {
       return {}
 
     case 'ADD_STUDENTS':
-    const normalizedObject = {}
-    action.studentProgressions.forEach(stProg => {
-      normalizedObject[`studentProgression${stProg.id}`] = {
-        id: stProg.id,
-        agendaIndex: stProg.agenda_index,
-        studentId: `student${stProg.student_id}`,
-        progressionId: `progression${stProg.progression_id}`,
-        submitted: stProg.submitted,
-        createdAt: stProg.created_at,
-        updatedAt: stProg.updated_at,
-        question1Answer: stProg.question1_answer,
-        question1Comment: stProg.question1_comment,
-        graded: stProg.graded
-      }
-    })
     return {
-      ...normalizedObject
+      ...normalizedObjectCreator(action.studentProgressions)
     }
 
     case 'START_ADDING_STUDENT_PROGRESSION_REQUEST':
@@ -38,21 +23,9 @@ function studentProgressionsById(state = {}, action) {
       }
 
     case 'ADD_STUDENT_PROGRESSION':
-      const { question1_comment, graded, updated_at, question1_answer, id, agenda_index, student_id, progression_id, submitted, created_at } = action.studentProgression
       return {
         ...state,
-        [`studentProgression${id}`]: {
-          id: id,
-          agendaIndex: agenda_index,
-          studentId: `student${student_id}`,
-          progressionId: `progression${progression_id}`,
-          submitted: submitted,
-          createdAt: created_at,
-          updatedAt: updated_at,
-          question1Answer: question1_answer,
-          question1Comment: question1_comment,
-          graded: graded
-        }
+        ...normalizedObjectCreator([action.studentProgression])
       }
 
     case 'START_SWITCH_PROGRESSION_REQUEST':
@@ -62,39 +35,12 @@ function studentProgressionsById(state = {}, action) {
 
     case 'SWITCH_PROGRESSION':
       const normalizedObj = {}
-      action.studentProgressions.forEach(sp => {
-        normalizedObj[`studentProgression${sp.id}`] = {
-          id: sp.id,
-          agendaIndex: sp.agenda_index,
-          studentId: `student${sp.student_id}`,
-          progressionId: `progression${sp.progression_id}`,
-          submitted: sp.submitted,
-          createdAt: sp.created_at,
-          updatedAt: sp.updated_at,
-          question1Answer: sp.question1_answer,
-          question1Comment: sp.question1_comment,
-          graded: sp.graded
-        }
-      })
-      return {...state, ...normalizedObj}
+      return {...state, ...normalizedObjectCreator(action.studentProgressions)}
 
     case 'UPDATE_STUDENT_PROGRESSION':
-      const sp = action.studentProgression
-      const normalObj  = {
-        id: sp.id,
-        agendaIndex: sp.agenda_index,
-        studentId: `student${sp.student_id}`,
-        progressionId: `progression${sp.progression_id}`,
-        submitted: sp.submitted,
-        createdAt: sp.created_at,
-        updatedAt: sp.updated_at,
-        question1Answer: sp.question1_answer,
-        question1Comment: sp.question1_comment,
-        graded: sp.graded
-      }
       return {
         ...state,
-        [`studentProgression${sp.id}`]: normalObj
+        ...normalizedObjectCreator([action.studentProgression])
       }
 
     case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
@@ -165,4 +111,25 @@ function switchAgendaOrder(action, allSps){
     modifiedObj[`studentProgression${sp.id}`] = sp
   })
   return modifiedObj
+}
+
+function normalizedObjectCreator(studentProgressions){
+  const normalizedObject = {}
+  studentProgressions.forEach(stProg => {
+    normalizedObject[`studentProgression${stProg.id}`] = {
+      id: stProg.id,
+      agendaIndex: stProg.agenda_index,
+      studentId: `student${stProg.student_id}`,
+      progressionId: `progression${stProg.progression_id}`,
+      submitted: stProg.submitted,
+      submittedAt: stProg.submitted_at,
+      createdAt: stProg.created_at,
+      updatedAt: stProg.updated_at,
+      question1Answer: stProg.question1_answer,
+      question1Comment: stProg.question1_comment,
+      graded: stProg.graded,
+      gradedAt: stProg.graded_at
+    }
+  })
+  return normalizedObject
 }

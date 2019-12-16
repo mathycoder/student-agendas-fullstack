@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { fetchStudentData } from '../../actions/studentActions'
-import { updateStudentProgression } from '../../actions/studentProgressionActions'
+// import { updateStudentProgression } from '../../actions/studentProgressionActions'
 import MyAgenda from './MyAgenda'
 import MyProgression from './MyProgression'
 import { connect } from 'react-redux'
 import './myagenda.css'
 import { getStudentProgressions } from '../progressions/helpers/getStudentProgressions'
+import { updateStudentProgressionStatus } from '../../actions/studentProgressionActions'
 
 class AgendaContainer extends Component {
   state = {
@@ -60,8 +61,8 @@ class AgendaContainer extends Component {
   }
 
   handleProgressionSubmit = (progression) => {
-    const { updateStudentProgression, currentUser } = this.props
-    updateStudentProgression(currentUser, progression, "submitted")
+    const { updateStudentProgressionStatus, currentUser } = this.props
+    updateStudentProgressionStatus(currentUser, progression, {submitted: true})
     this.setState({
       ...this.state,
       itemIndex: 0,
@@ -102,7 +103,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return {
     fetchStudentData: (student) => dispatch(fetchStudentData(student)),
-    updateStudentProgression: (student, progression, attribute) => dispatch(updateStudentProgression(student, progression, attribute))
+    updateStudentProgressionStatus: (student, progression, status) => dispatch(updateStudentProgressionStatus(student, progression, status))
   }
 }
 

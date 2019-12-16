@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateStudentProgression } from '../../../actions/studentProgressionActions'
+// import { updateStudentProgression } from '../../../actions/studentProgressionActions'
+import { updateStudentProgressionStatus } from '../../../actions/studentProgressionActions'
 
 class StudentShowReflection extends Component {
   state = {
@@ -17,8 +18,8 @@ class StudentShowReflection extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { student, progression, currentUser, updateStudentProgression } = this.props
-    updateStudentProgression(student, progression, {comment: this.state.comment})
+    const { student, progression, currentUser, updateStudentProgressionStatus } = this.props
+    updateStudentProgressionStatus(student, progression, {comment: this.state.comment})
 
   }
 
@@ -93,7 +94,7 @@ class StudentShowReflection extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    updateStudentProgression: (student, progression, attribute) => dispatch(updateStudentProgression(student, progression, attribute))
+    updateStudentProgressionStatus: (student, progression, status) => dispatch(updateStudentProgressionStatus(student, progression, status))
   }
 }
 

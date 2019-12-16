@@ -43,7 +43,7 @@ const MyAgenda = ({ progressions, handleProgressionClick, itemIndex, selectedPro
                 </div>
                 <div className="progression-status">
                   <span className="dot green"></span>
-                    {`Submitted: ${progression.updatedAt}`}
+                    {`Submitted: ${progression.submittedAt}`}
                 </div>
               </div>
             )

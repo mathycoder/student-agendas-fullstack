@@ -24,8 +24,8 @@ const StudentShowAgenda = ({ progressions, handleProgressionClick, itemIndex, se
               <div className="progression-status">
                 <span className={`dot ${progression.submitted && !progression.graded ? 'yellow' :''} ${progression.graded ? 'green' :''}`}></span>
                 {progression.submitted ?
-                  (progression.graded ? `Graded: ${progression.updatedAt}`
-                    : `Submitted: ${progression.updatedAt}`)
+                  (progression.graded ? `Graded: ${progression.gradedAt}`
+                    : `Submitted: ${progression.submittedAt}`)
                     : `Assigned: ${progression.createdAt}`}
 
               </div>
