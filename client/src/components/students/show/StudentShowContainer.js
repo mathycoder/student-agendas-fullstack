@@ -10,7 +10,8 @@ class StudentShowContainer extends Component {
     student: undefined,
     myProgressions: undefined,
     selectedProgressionId: undefined,
-    itemIndex: undefined
+    itemIndex: undefined,
+    initialLoad: undefined
   }
 
   componentDidMount(){
@@ -20,6 +21,19 @@ class StudentShowContainer extends Component {
   componentDidUpdate(){
     this.setStudent()
     this.setProgressions()
+    this.setInitialLoad()
+  }
+
+  setInitialLoad = () => {
+    const { myProgressions, selectedProgressionId, itemIndex, initialLoad } = this.state
+    if (!initialLoad && myProgressions && myProgressions.length > 0){
+      this.setState({
+        ...this.state,
+        initialLoad: true,
+        selectedProgressionId: `progression${myProgressions[0].id}`,
+        itemIndex: myProgressions[0].items.findIndex(el => el.includes("reflection"))
+      })
+    }
   }
 
   setProgressions = () => {
