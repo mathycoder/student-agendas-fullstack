@@ -5,7 +5,7 @@ const StudentAgendaProgression = (props) => {
   const { progression, handleDeleteProgClick, innerRef } = props
   if (progression && !progression.submitted){
     return (
-      <div className="student-show-progression-container">
+      <div className="progression-wrapper">
         <div className={`student-show-progression ${progression.color}`} ref={node => innerRef(node)}>
           <div className={`student-show-progression-title ${progression.color}-title`}>
             <div onClick={event => handleDeleteProgClick(progression)} className="student-prog-x">x</div>
@@ -15,14 +15,19 @@ const StudentAgendaProgression = (props) => {
             <RenderItem progression={progression} />
           </div>
         </div>
-        <div className="color-bar-wrapper">
-          <div className="color-bar"></div>
+        <div className="progression-status">
+          <span className={`dot ${progression.submitted && !progression.graded ? 'yellow' :''} ${progression.graded ? 'green' :''}`}></span>
+          {progression.submitted ?
+            (progression.graded ? `Graded: ${progression.gradedAt}`
+              : `Submitted: ${progression.submittedAt}`)
+              : `Assigned: ${progression.createdAt}`}
+
         </div>
       </div>
     )
   } else if (progression && progression.submitted) {
     return (
-      <div className="student-show-progression-container">
+      <div className="progression-wrapper">
         <div className={`student-show-progression ${progression.color}`}>
           <div className={`student-show-progression-title ${progression.color}-title`}>
             {progression.name}
@@ -31,8 +36,13 @@ const StudentAgendaProgression = (props) => {
             <RenderItem progression={progression} />
           </div>
         </div>
-        <div className="color-bar-wrapper">
-          <div className={`color-bar ${progression.graded ? 'green' : 'yellow'}`}></div>
+        <div className="progression-status">
+          <span className={`dot ${progression.submitted && !progression.graded ? 'yellow' :''} ${progression.graded ? 'green' :''}`}></span>
+          {progression.submitted ?
+            (progression.graded ? `Graded: ${progression.gradedAt}`
+              : `Submitted: ${progression.submittedAt}`)
+              : `Assigned: ${progression.createdAt}`}
+
         </div>
       </div>
     )

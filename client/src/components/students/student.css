@@ -15,7 +15,10 @@
 .klass-show-title a {
   text-decoration: none;
   color: black;
+}
 
+.klass-show-title a:hover {
+  color: rgb(100, 100, 100);
 }
 
 .klass-show-title button:focus {
@@ -77,14 +80,43 @@
   margin-right: 10px;
 }
 
-div.student-agenda {
+
+/* ----------------modifying student agendas to match MyAgenda -------------- */
+.student-row {
+  display: flex;
+  margin: 10px;
+  height: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.student-agenda {
   width: 500px;
   height: inherit;
-  background-color: rgb(240, 240, 240);
-  border: 3px solid rgb(200, 200, 200);
-  /* background-color: rgb(81, 84, 92);
-  border: 3px solid black; */
+  /* background-color: rgb(240, 240, 240);
+  border: 3px solid rgb(200, 200, 200); */
+  background-color: rgb(81, 84, 92);
+  border: 3px solid black;
+}
 
+.student-agenda .progression-wrapper .progression-status {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 0 auto;
+  font-size: 9px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.student-agenda .progression-status .dot {
+  display: inline-block;
+  margin-left: 15px;
+  height: 8px;
+  width: 8px;
+  background-color: red;
+  border: 1px solid pink;
+  border-radius: 50%;
 }
 
 .new-student-form {
@@ -98,7 +130,7 @@ div.student-agenda {
   grid-template-rows: 50px 35px 1fr;
   margin-right: 20px;
   margin-top: 5px;
-  background-color: rgb(81, 84, 92);
+  background-color: lightgray;
   border: 3px rgb(41, 44, 52) solid;
   width: 440px;
   height: 500px;
