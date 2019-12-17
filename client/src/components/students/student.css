@@ -404,23 +404,11 @@
 /* -------------------Progressions Index Page -------------------------- */
 
 .student-show-progressions-container.index-page {
-  margin: 20px;
-}
-
-.student-show-progressions-container.index-page {
-  width: 96%;
-  height: auto;
+  width: 600px;
+  height: 570px;
   grid-template-rows: 70px 50px 1fr;
-  border: none;
-  background-color: white;
-}
-
-
-.index-page .search-filters  {
-  width: 540px;
   border: black solid 3px;
-  border-top: none;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 
@@ -431,14 +419,9 @@
 }
 
 
-
 .student-show-progressions-container.index-page .student-show-progressions-header {
   justify-content: center;
   font-size: 26px;
-  border: 3px rgb(41, 44, 52) solid;
-  border-bottom: none;
-  width: 500px;
-  margin: 0 auto;
   padding-bottom: 30px;
 }
 
@@ -449,15 +432,11 @@
 }
 
 
+
 .index-page .student-show-progressions-index {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 20px;
-  padding-top: 40px;
-  padding-left: 40px;
   overflow-y: scroll;
-  background-color: white;
+  background-color: lightgrey;
+  justify-content: center;
 }
 
 .index-page .student-show-progression .index-progression-x-out {
@@ -465,13 +444,10 @@
   top: 40px;
 }
 
-.index-page .student-progression-index-wrapper {
-  width: 520px;
-}
-
 .index-page .student-show-progression {
   grid-template-rows: 0px 0px 100px;
   border-radius: 30px;
+  margin-left: 30px;
 }
 
 .index-page .student-show-progression:hover {
@@ -580,4 +556,23 @@
   .klass-show-container .search-filters {
     display: none;
   }
+}
+
+@media screen and (max-width: 700px) {
+
+  .student-show-progressions-container.index-page .student-show-progressions-header {
+    font-size: 24px;
+    padding-left: 50px;
+  }
+
+  .index-page .student-show-progressions-color-choice div {
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
+  }
+
+  .student-show-progressions-container.index-page {
+    width: 460px;
+  }
+
 }
