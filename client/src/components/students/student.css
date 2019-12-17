@@ -14,7 +14,7 @@
 
 .klass-show-title a {
   text-decoration: none;
-  color:#666666;
+  color: black;
 
 }
 
@@ -271,7 +271,7 @@ div.student-agenda {
 /* --------------------progressions in student agendas------------------------- */
 .student-agenda {
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
 }
 
 .student-agenda::after { content: ' '; min-width: 15px; }
@@ -347,25 +347,26 @@ div.student-agenda {
   overflow: hidden;
 }
 
-
-/* This styling is repeated in myagenda.css.  Consider combining styling if they never diverge.  */
-/* .progression-wrapper {
-
+.color-bar-wrapper {
+  width: 100%;
 }
 
-.student-agenda .progression-wrapper {
-  display: grid;
-  grid-template-rows: 75px 20px;
-  grid-template-columns: min-content;
-}
-
-.student-agenda .progression-wrapper .progression-status {
-  color: black;
-  font-size: 10px;
-  font-weight: bold;
-  margin-left: 15px;
+.color-bar {
+  z-index: 5;
+  width: 100%;
+  height: 5px;
   margin-top: 3px;
-} */
+  background-color: red;
+  opacity: 0.5;
+}
+
+.color-bar.green {
+  background-color: rgb(21, 250, 17);
+}
+
+.color-bar.yellow {
+  background-color: rgb(251, 255, 0 );
+}
 
 /* -------------------Progressions Index Page -------------------------- */
 

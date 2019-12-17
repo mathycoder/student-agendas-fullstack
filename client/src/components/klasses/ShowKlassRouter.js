@@ -107,7 +107,7 @@ class ShowKlassRouter extends Component {
     if (!studentShowPage){
       return (
         <div className="klass-show-title">
-          <h1>{klass.name}</h1>
+          <h1><NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink></h1>
           {this.renderStudentDropdownContainer()}
           <button onClick={this.handleEditingStudents}>
             { editingStudents ? 'Return to Class': 'Edit Students' }
@@ -118,7 +118,7 @@ class ShowKlassRouter extends Component {
     } else {
       return (
         <div className="klass-show-title">
-          <h1>{klass.name}</h1>
+          <h1><NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink></h1>
           {this.renderStudentDropdownContainer()}
           <NavLink to={`/classes/${klass.id}`}><button>Return to Class</button></NavLink>
         </div>
