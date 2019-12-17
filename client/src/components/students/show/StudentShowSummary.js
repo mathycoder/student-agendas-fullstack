@@ -8,9 +8,9 @@ class StudentShowSummary extends Component {
       <div key={index} className="progression-row">
         <StudentProgression progression={progression}/>
         <div className="summary-dates">
-          <div>Assigned: <br/>{progression.createdAt} </div>
+          <div>Assigned: <br/><strong>{progression.createdAt}</strong> </div>
           <div>
-            Completed: <br/> <div className={`${progression.submittedAt === 'incomplete' ? 'incomplete' : ''}`}>{progression.submittedAt}</div>
+            Completed: <br/> <div className={`${progression.submittedAt === 'incomplete' ? 'incomplete' : ''}`}><strong>{progression.submittedAt}</strong></div>
           </div>
         </div>
         <div className="summary-reflection">
@@ -24,6 +24,14 @@ class StudentShowSummary extends Component {
         </div>
       </div>
     )
+  }
+
+  sortedProgs = (progressions) => {
+    return progressions.sort((a,b) => {
+      const dateA = new Date(a.createdAt)
+      const dateB = new Date(b.createdAt)
+      return dateB - dateA
+    })
   }
 
   renderReflection = (progression) => {
@@ -44,7 +52,7 @@ class StudentShowSummary extends Component {
           <div>{student.firstName}'s Answer</div>
           <div>Comment</div>
         </div>
-        {progressions.map((progression, index) => {
+        {this.sortedProgs(progressions).map((progression, index) => {
           return this.renderProgressionRow(progression, index)
         })}
       </div>

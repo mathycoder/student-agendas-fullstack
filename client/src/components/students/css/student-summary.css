@@ -1,5 +1,9 @@
 .student-summary-page {
   margin: 20px;
+  margin-top: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+  max-width: 1150px;
 }
 
 .student-summary-page .header {
@@ -7,8 +11,16 @@
   grid-template-columns: 300px 110px 200px 200px 200px;
   grid-column-gap: 30px;
   grid-template-rows: 50px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
+  background-color: rgb(101, 104, 112);
+  color: white;
+  padding: 0 10px;
+}
+
+.student-summary-page .header div  {
+  padding-top: 15px;
+  margin: 0 auto;
 }
 
 .student-summary-page .progression-row  {
@@ -17,6 +29,16 @@
   grid-template-rows: 150px;
   grid-column-gap: 30px;
   font-size: 14px;
+  padding: 0 10px;
+  background-color: rgb(225, 225, 225);
+}
+
+.student-summary-page .progression-row:nth-child(2n-1)  {
+  background-color: rgb(240, 240, 240);
+}
+
+.student-summary-page .progression-row .student-show-progression {
+  margin: auto;
 }
 
 .incomplete {
@@ -24,11 +46,19 @@
   font-weight: bold;
 }
 
-.summary-reflection, .summary-reflection-answer, .summary-reflection-comment {
-  overflow-y: scroll;
+.summary-dates {
+  margin: auto;
 }
 
-/* .summary-reflection h5 {
+.summary-reflection, .summary-reflection-answer, .summary-reflection-comment {
+  overflow-y: scroll;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-height: 130px;
+}
+
+.summary-reflection h5 {
   display: inline;
 }
 
@@ -41,8 +71,8 @@
   padding-left: 30px;
   padding-right: 10px;
   line-height: 17px;
-  margin-top: -20px;
-} */
+
+}
 
 .student-summary-page .progression-row .summary-dates div:first-child{
   margin-bottom: 12px;
@@ -50,4 +80,8 @@
 
 .student-summary-page .student-show-progression {
   height: 65px;
+}
+
+.student-summary-page .student-show-progression .student-show-progression-items {
+  max-width: 280px;
 }
