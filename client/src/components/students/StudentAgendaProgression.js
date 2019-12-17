@@ -15,35 +15,21 @@ const StudentAgendaProgression = (props) => {
             <RenderItem progression={progression} />
           </div>
         </div>
-        <div className="progression-status">
-          <span className={`dot ${progression.submitted && !progression.graded ? 'yellow' :''} ${progression.graded ? 'green' :''}`}></span>
-          {progression.submitted ?
-            (progression.graded ? `Graded: ${progression.gradedAt}`
-              : `Submitted: ${progression.submittedAt}`)
-              : `Assigned: ${progression.createdAt}`}
 
-        </div>
       </div>
     )
   } else if (progression && progression.submitted) {
     return (
       <div className="progression-wrapper">
-        <div className={`student-show-progression ${progression.color}`}>
+        <div className={`student-show-progression ${progression.color} submitted unhighlighted`}>
           <div className={`student-show-progression-title ${progression.color}-title`}>
             {progression.name}
           </div>
           <div className="student-show-progression-items">
-            <RenderItem progression={progression} />
+            <RenderItem progression={progression} klassShow={true}/>
           </div>
         </div>
-        <div className="progression-status">
-          <span className={`dot ${progression.submitted && !progression.graded ? 'yellow' :''} ${progression.graded ? 'green' :''}`}></span>
-          {progression.submitted ?
-            (progression.graded ? `Graded: ${progression.gradedAt}`
-              : `Submitted: ${progression.submittedAt}`)
-              : `Assigned: ${progression.createdAt}`}
 
-        </div>
       </div>
     )
   } else {

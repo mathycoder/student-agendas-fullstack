@@ -41,7 +41,7 @@
 }
 
 .student-agendas.slide-width .student-agenda {
-  width: 700px;
+  width: 800px;
   transition-property: width;
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(.56, 1, .56, 1);
@@ -85,7 +85,7 @@
 .student-row {
   display: flex;
   margin: 10px;
-  height: 100px;
+  height: 85px;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -130,6 +130,7 @@
   grid-template-rows: 50px 35px 1fr;
   margin-right: 20px;
   margin-top: 5px;
+  /* background-color: rgb(141, 144, 152); */
   background-color: lightgray;
   border: 3px rgb(41, 44, 52) solid;
   width: 440px;
