@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 import { fetchStudentData } from '../../actions/studentActions'
-// import { updateStudentProgression } from '../../actions/studentProgressionActions'
 import MyAgenda from './MyAgenda'
 import MyProgression from './MyProgression'
 import { connect } from 'react-redux'
 import './myagenda.css'
 import { getStudentProgressions } from '../progressions/helpers/getStudentProgressions'
 import { updateStudentProgressionStatus } from '../../actions/studentProgressionActions'
+import StudentShowSummary from '../students/show/StudentShowSummary'
+
 
 class AgendaContainer extends Component {
   state = {
     initialLoad: false,
     selectedProgressionId: null,
-    itemIndex: 0
+    itemIndex: 0,
+    summaryPage: false
   }
 
   componentDidMount(){
@@ -70,9 +72,33 @@ class AgendaContainer extends Component {
     })
   }
 
-  render(){
+  handleCurrentAgendaClick = (e) => {
+    this.setState({
+      ...this.state,
+      summaryPage: false
+    })
+  }
+
+  handleAllAssignmentsClick = (e) => {
+    this.setState({
+      ...this.state,
+      summaryPage: true
+    })
+  }
+
+  renderStudentSummary = () => {
+    const { reflections, currentUser, studentProgressions, progressions } = this.props
+    return <StudentShowSummary
+      currentUser={{name: "Teacher"}}
+      student={currentUser}
+      reflections={reflections}
+      progressions={getStudentProgressions(currentUser, studentProgressions, progressions)}
+    />
+  }
+
+  renderMyAgenda = () => {
     const { currentUser, studentProgressions, progressions } = this.props
-    const { selectedProgressionId, itemIndex } = this.state
+    const { selectedProgressionId, itemIndex, summaryPage } = this.state
     return (
       <div className="myagenda-wrapper">
         <MyAgenda
@@ -90,13 +116,27 @@ class AgendaContainer extends Component {
       </div>
     )
   }
+
+  render(){
+    const { summaryPage } = this.state
+    return (
+      <div>
+        <div className="myagenda-navbar">
+          <button onClick={this.handleCurrentAgendaClick}>Current Agenda</button>
+          <button onClick={this.handleAllAssignmentsClick}>All Assignments</button>
+        </div>
+        { !summaryPage ? this.renderMyAgenda() : this.renderStudentSummary()}
+      </div>
+    )
+  }
 }
 
 function mapStateToProps(state){
   return {
     currentUser: state.currentUser,
     studentProgressions: state.studentProgressions,
-    progressions: state.progressions
+    progressions: state.progressions,
+    reflections: state.reflections
   }
 }
 
