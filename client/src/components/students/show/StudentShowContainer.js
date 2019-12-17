@@ -60,11 +60,12 @@ class StudentShowContainer extends Component {
 
   renderStudentSummary = () => {
     const { student } = this.state
-    const { progressions, studentProgressions, reflections } = this.props
+    const { progressions, studentProgressions, reflections, currentUser } = this.props
     if (student) {
       const myProgs = getStudentProgressions(student, studentProgressions, progressions)
       return (
         <StudentShowSummary
+          currentUser={currentUser}
           student={student}
           reflections={reflections}
           progressions={myProgs}/>
@@ -111,6 +112,7 @@ class StudentShowContainer extends Component {
 
 function mapStateToProps(state){
   return {
+    currentUser: state.currentUser,
     students: state.students,
     progressions: state.progressions,
     studentProgressions: state.studentProgressions,

@@ -26,7 +26,7 @@
 .student-summary-page .progression-row  {
   display: grid;
   grid-template-columns: 300px 110px 200px 200px 200px;
-  grid-template-rows: 150px;
+  grid-template-rows: 180px;
   grid-column-gap: 30px;
   font-size: 14px;
   padding: 0 10px;
@@ -50,7 +50,7 @@
   margin: auto;
 }
 
-.summary-reflection, .summary-reflection-answer, .summary-reflection-comment {
+.summary-reflection, .summary-reflection-answer{
   overflow-y: scroll;
   margin: auto;
   padding-top: 10px;
@@ -71,7 +71,22 @@
   padding-left: 30px;
   padding-right: 10px;
   line-height: 17px;
+}
 
+.summary-reflection-comment.post-it {
+  background-image: url('/post-it.png');
+  background-size: 220px 185px;
+  background-repeat: no-repeat;
+  padding-top: 30px;
+  padding-left: 15px;
+  padding-right: 5px;
+  margin-top: -8px;
+}
+
+.summary-reflection-comment.post-it div {
+  overflow-y: scroll;
+  height: 140px;
+  transform: rotate(-3deg);
 }
 
 .student-summary-page .progression-row .summary-dates div:first-child{

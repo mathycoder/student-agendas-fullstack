@@ -19,8 +19,8 @@ class StudentShowSummary extends Component {
         <div className="summary-reflection-answer">
           {progression.question1Answer}
         </div>
-        <div className="summary-reflection-comment">
-          {progression.question1Comment}
+        <div className={`summary-reflection-comment ${progression.question1Comment ? 'post-it' : ''}`}>
+          <div>{progression.question1Comment}</div>
         </div>
       </div>
     )
@@ -42,7 +42,7 @@ class StudentShowSummary extends Component {
   }
 
   render(){
-    const { student, progressions } = this.props
+    const { student, progressions, currentUser } = this.props
     return (
       <div className="student-summary-page">
         <div className="header">
@@ -50,7 +50,7 @@ class StudentShowSummary extends Component {
           <div>Date</div>
           <div>Reflection</div>
           <div>{student.firstName}'s Answer</div>
-          <div>Comment</div>
+          <div>{currentUser.name}'s Comment</div>
         </div>
         {this.sortedProgs(progressions).map((progression, index) => {
           return this.renderProgressionRow(progression, index)
