@@ -5,7 +5,6 @@ const RenderItem = ({klassShow, progression, videos, reflections, itemIndex, sel
   return progression.items.map((itemChildId, index) => {
     let item
     let highlighted
-    console.log(klassShow)
     if (!studentShowSettings && !klassShow){
       highlighted = selectedProgressionId === `progression${progression.id}` && index === itemIndex ?
         "highlighted" : (selectedProgressionId ? 'unhighlighted' : '')

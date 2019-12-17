@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 class StudentShowProgression extends Component{
   renderProgressionItem = (itemId) => {
-    const { videos, reflections, progression, student } = this.props
+    const { reflections, progression, student } = this.props
     if (itemId.includes("video")){
       return <div></div>
     } else if (itemId.includes("reflection")){

@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { getStudentProgressions } from '../../progressions/helpers/getStudentProgressions'
 import StudentShowAgenda from './StudentShowAgenda'
 import StudentShowProgression from './StudentShowProgression'
+import StudentShowSummary from './StudentShowSummary'
 import '../css/student-show.css'
 
 class StudentShowContainer extends Component {
   state = {
     student: undefined,
-    myProgressions: undefined,
     selectedProgressionId: undefined,
     itemIndex: undefined,
     initialLoad: undefined
@@ -20,13 +20,12 @@ class StudentShowContainer extends Component {
 
   componentDidUpdate(){
     this.setStudent()
-    // this.setProgressions()
     this.setInitialLoad()
   }
 
   setInitialLoad = () => {
     const { progressions, studentProgressions } = this.props
-    const { selectedProgressionId, itemIndex, initialLoad, student } = this.state
+    const { initialLoad, student } = this.state
     if (!initialLoad && student && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
       const myProgressions = getStudentProgressions(student, studentProgressions, progressions)
       this.setState({
@@ -37,17 +36,6 @@ class StudentShowContainer extends Component {
       })
     }
   }
-
-  // setProgressions = () => {
-  //   const { progressions, studentProgressions } = this.props
-  //   const { student, incompleteProgressions, completeProgressions, myProgressions } = this.state
-  //   if (!myProgressions && progressions.allIds.length > 0 && student){
-  //     const tempProgressions = getStudentProgressions(student, studentProgressions, progressions)
-  //     this.setState({
-  //       myProgressions: [...tempProgressions]
-  //     })
-  //   }
-  // }
 
   setStudent = () => {
     const { students, handleSetStudent } = this.props
@@ -70,10 +58,23 @@ class StudentShowContainer extends Component {
     })
   }
 
+  renderStudentSummary = () => {
+    const { student } = this.state
+    const { progressions, studentProgressions, reflections } = this.props
+    if (student) {
+      const myProgs = getStudentProgressions(student, studentProgressions, progressions)
+      return (
+        <StudentShowSummary
+          student={student}
+          reflections={reflections}
+          progressions={myProgs}/>
+      )
+    }
+  }
 
-  render(){
-    const { student, myProgressions, selectedProgressionId, itemIndex } = this.state
-    const { progressions, studentProgressions, reflections, videos } = this.props
+  renderStudentAgenda = () => {
+    const { student, selectedProgressionId, itemIndex } = this.state
+    const { progressions, studentProgressions } = this.props
     if (student) {
       const myProgs = getStudentProgressions(student, studentProgressions, progressions)
       return (
@@ -95,6 +96,16 @@ class StudentShowContainer extends Component {
         <div></div>
       )
     }
+  }
+
+  render(){
+    const { summaryPage } = this.props
+    return (
+      <>
+        {summaryPage ?
+          this.renderStudentSummary() : this.renderStudentAgenda()}
+      </>
+    )
   }
 }
 

@@ -18,7 +18,8 @@ class ShowKlassRouter extends Component {
     showProgressions: true,
     studentShowPage: false,
     studentDropdown: false,
-    student: undefined
+    student: undefined,
+    summaryPage: false
   }
 
   componentDidMount(){
@@ -54,6 +55,13 @@ class ShowKlassRouter extends Component {
     this.setState({
       ...this.state,
       showProgressions: !this.state.showProgressions
+    })
+  }
+
+  handleSummaryPageClick = () => {
+    this.setState({
+      ...this.state,
+      summaryPage: !this.state.summaryPage
     })
   }
 
@@ -103,7 +111,7 @@ class ShowKlassRouter extends Component {
   }
 
   renderShowKlassMenuBar = (klass) => {
-    const { editingStudents, studentShowPage } = this.state
+    const { editingStudents, studentShowPage, summaryPage } = this.state
     if (!studentShowPage){
       return (
         <div className="klass-show-title">
@@ -120,7 +128,9 @@ class ShowKlassRouter extends Component {
         <div className="klass-show-title">
           <h1><NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink></h1>
           {this.renderStudentDropdownContainer()}
-          <NavLink to={`/classes/${klass.id}`}><button>Return to Class</button></NavLink>
+          <button onClick={this.handleSummaryPageClick}>
+            { summaryPage ? 'View Current Agenda': 'View Summary' }
+          </button>
         </div>
       )
     }
@@ -132,7 +142,7 @@ class ShowKlassRouter extends Component {
 
   render(){
     const { klasses, match } = this.props
-    const { editingStudents, showProgressions } = this.state
+    const { editingStudents, showProgressions, summaryPage } = this.state
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
     const klass = klasses.byId[klassId]
     return (
@@ -143,6 +153,7 @@ class ShowKlassRouter extends Component {
           <Route exact path={`${match.url}`} render={renderProps => <ShowKlassContainer klass={klass} showProgressions={showProgressions} editingStudents={editingStudents}/>}/>
           <Route exact path={`${match.url}/students/:id`} render={renderProps => {
               return <StudentShowContainer
+                      summaryPage={summaryPage}
                       handleSetStudent={this.handleSetStudent}
                       handleStudentShowPage={this.handleStudentShowPage}
                       {...renderProps} />}

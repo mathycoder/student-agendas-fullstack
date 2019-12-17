@@ -34,7 +34,6 @@ function studentProgressionsById(state = {}, action) {
       return {...state, modifiedObjs }
 
     case 'SWITCH_PROGRESSION':
-      const normalizedObj = {}
       return {...state, ...normalizedObjectCreator(action.studentProgressions)}
 
     case 'UPDATE_STUDENT_PROGRESSION':

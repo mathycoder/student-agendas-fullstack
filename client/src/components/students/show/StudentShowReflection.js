@@ -18,7 +18,7 @@ class StudentShowReflection extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { student, progression, currentUser, updateStudentProgressionStatus } = this.props
+    const { student, progression, updateStudentProgressionStatus } = this.props
     updateStudentProgressionStatus(student, progression, {comment: this.state.comment})
 
   }

@@ -1,0 +1,53 @@
+.student-summary-page {
+  margin: 20px;
+}
+
+.student-summary-page .header {
+  display: grid;
+  grid-template-columns: 300px 110px 200px 200px 200px;
+  grid-column-gap: 30px;
+  grid-template-rows: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.student-summary-page .progression-row  {
+  display: grid;
+  grid-template-columns: 300px 110px 200px 200px 200px;
+  grid-template-rows: 150px;
+  grid-column-gap: 30px;
+  font-size: 14px;
+}
+
+.incomplete {
+  color: red;
+  font-weight: bold;
+}
+
+.summary-reflection, .summary-reflection-answer, .summary-reflection-comment {
+  overflow-y: scroll;
+}
+
+/* .summary-reflection h5 {
+  display: inline;
+}
+
+.summary-reflection {
+  background-image: url('/lined-paper3.png');
+  background-size: 200px 140px;
+  background-repeat: no-repeat;
+  padding: 10px;
+  padding-top: 17px;
+  padding-left: 30px;
+  padding-right: 10px;
+  line-height: 17px;
+  margin-top: -20px;
+} */
+
+.student-summary-page .progression-row .summary-dates div:first-child{
+  margin-bottom: 12px;
+}
+
+.student-summary-page .student-show-progression {
+  height: 65px;
+}

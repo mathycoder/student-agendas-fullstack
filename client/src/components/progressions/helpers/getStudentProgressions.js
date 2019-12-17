@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const getStudentProgressions = (student, studentProgressions, progressions) => {
   if (progressions.allIds.length > 0){
     const myStudentProgressionIds = studentProgressions.allIds.filter(spId => {
@@ -33,6 +31,11 @@ const formatDate = (rawDate) => {
   "Apr", "May", "Jun", "Jul",
   "Aug", "Sep", "Oct",
   "Nov", "Dec"]
-  const date = new Date(rawDate)
-  return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+  if (rawDate) {
+    const date = new Date(rawDate)
+    return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+  } else {
+    return 'incomplete'
+  }
+
 }

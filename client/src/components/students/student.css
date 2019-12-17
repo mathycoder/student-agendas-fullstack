@@ -431,8 +431,6 @@
   border: 2px yellow solid;
 }
 
-
-
 .index-page .student-show-progressions-index {
   overflow-y: scroll;
   background-color: lightgrey;
@@ -465,17 +463,12 @@
   height: 18px;
 }
 
-
-
 .index-page .student-show-progression-items {
   display: flex;
-  max-width: 450px;
-
+  max-width: 500px;
   padding-left: 6px;
   padding-right: 6px;
 }
-
-
 
 .index-page .student-show-progression-item {
   width: 80px;
@@ -573,6 +566,10 @@
 
   .student-show-progressions-container.index-page {
     width: 460px;
+  }
+
+  .index-page .student-show-progression-items {
+    max-width: 370px;
   }
 
 }
