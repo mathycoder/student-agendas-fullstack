@@ -47,7 +47,7 @@
   padding: 0px;
 }
 
-.navbar a:hover, .navbar .klass-dropdown:hover, .klass-dropdown-menu a:hover {
+.navbar a:hover, .navbar .klass-dropdown:hover, .klass-dropdown-menu a:hover, .klass-dropdown-menu a:hover  {
   color: gray;
   cursor: pointer;
 }
@@ -91,7 +91,7 @@
   margin-left: 160px;
 }
 
-.dropdown-menu a {
+.dropdown-menu a, .dropdown-menu div {
   margin: 0;
   padding: 12px 15px;
   font-weight: 400;
@@ -101,12 +101,13 @@
   background-color: rgb(250, 250, 250);
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu a:hover, .dropdown-menu div:hover {
   background-color: lightgray;
   color: white;
+  cursor: pointer;
 }
 
-.dropdown-menu a:last-child {
+.dropdown-menu a:last-child, .dropdown-menu div:last-child  {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }

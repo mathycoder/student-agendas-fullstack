@@ -1,7 +1,34 @@
 /* ---------------------- show klass router page ------------------ */
 .student-dropdown {
   margin-left: 98px;
-  margin-top: -10px;
+  margin-top: -18px;
+}
+
+.settings-dropdown {
+  margin-left: 280px;
+  margin-top: -18px;
+}
+
+.gear {
+  display: block;
+}
+
+.gear img {
+  width: 28px;
+  height: 28px;
+  margin-left: 10px;
+}
+
+.gear .clock{
+  transform-origin: center;
+  transform: rotate(45deg);
+  transition: transform 250ms ease;
+}
+
+.gear .counterclock{
+  transform-origin: center;
+  transform: rotate(-45deg);
+  transition: transform 250ms ease;
 }
 
 

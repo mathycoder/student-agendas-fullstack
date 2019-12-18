@@ -11,7 +11,9 @@ class ShowKlassRouter extends Component {
   constructor(props){
     super(props)
     this.myRefStudentButton = React.createRef()
+    this.myRefGearIcon = React.createRef()
     this.myRefStudentDropdown = React.createRef()
+    this.myRefSettingsDropdown = React.createRef()
   }
 
   state = {
@@ -20,7 +22,8 @@ class ShowKlassRouter extends Component {
     studentShowPage: false,
     studentDropdown: false,
     student: undefined,
-    summaryPage: false
+    summaryPage: false,
+    settings: false
   }
 
   componentDidMount(){
@@ -38,6 +41,11 @@ class ShowKlassRouter extends Component {
     if (this.state.studentDropdown){
       if (this.myRefStudentButton.current.contains(e.target) || this.myRefStudentDropdown.current.contains(e.target)) { return }
       this.handleStudentDropdownClick()
+    }
+
+    if (this.state.settings){
+      if (this.myRefGearIcon.current.contains(e.target)) { return }
+      this.handleSettingsClick()
     }
   }
 
@@ -73,10 +81,18 @@ class ShowKlassRouter extends Component {
     })
   }
 
+  handleSettingsClick = () => {
+    this.setState({
+      ...this.state,
+      settings: !this.state.settings
+    })
+  }
+
   handleClearProgressionsClick = () => {
     const { archiveStudentProgressions, currentUser, match } = this.props
     const klassId = match.params.id
-    archiveStudentProgressions(currentUser, klassId)
+    const deleteCheck = window.confirm("Are you sure you want to archive all submitted progressions?  Submitted progressions will no longer be visible in student agendas.");
+    if (deleteCheck) { archiveStudentProgressions(currentUser, klassId) }
   }
 
   renderStudentDropdown = (klass) => {
@@ -100,6 +116,17 @@ class ShowKlassRouter extends Component {
     )
   }
 
+  renderSettingsDropdown = () => {
+    const { settings, editingStudents, showProgressions } = this.state
+    return (
+      <div className={`dropdown-menu settings-dropdown ${settings ? 'opened': 'closed'}`} ref={this.myRefSettingsDropdown}>
+        <div onClick={this.handleEditingStudents}>Edit Students</div>
+        <div onClick={this.handleShowProgressions}>{showProgressions ? 'Hide Progressions' : 'Show Progressions'}</div>
+        <div onClick={this.handleClearProgressionsClick}>Archive Submitted</div>
+      </div>
+    )
+  }
+
   renderStudentDropdownContainer = () => {
     const { student, studentDropdown } = this.state
     return (
@@ -111,17 +138,16 @@ class ShowKlassRouter extends Component {
   }
 
   renderShowKlassMenuBar = (klass) => {
-    const { editingStudents, studentShowPage, summaryPage } = this.state
+    const { editingStudents, studentShowPage, summaryPage, settings } = this.state
     if (!studentShowPage){
       return (
         <div className="klass-show-title">
           <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
           {this.renderStudentDropdownContainer()}
-          <button onClick={this.handleEditingStudents}>
-            { editingStudents ? 'Return to Class': 'Edit Students' }
-          </button>
-            {editingStudents ? '' : <button onClick={this.handleClearProgressionsClick}>Clear Submitted Progressions</button>}
-            { editingStudents ? '' : this.progressionsButton()}
+          {editingStudents ? '' :
+            <div className="gear" onClick={this.handleSettingsClick} ref={this.myRefGearIcon}>
+              <img className={settings ? 'clock':'counterclock'} src="/gear.png" />
+            </div>}
         </div>
       )
     } else {
@@ -144,10 +170,6 @@ class ShowKlassRouter extends Component {
     })
   }
 
-  progressionsButton = () =>  <button onClick={this.handleShowProgressions}>
-                                {this.state.showProgressions ? 'Hide Progressions' : 'Show Progressions'}
-                              </button>
-
   render(){
     const { klasses, match } = this.props
     const { editingStudents, showProgressions, summaryPage } = this.state
@@ -157,6 +179,7 @@ class ShowKlassRouter extends Component {
       <div>
         {this.renderShowKlassMenuBar(klass)}
         {this.renderStudentDropdown(klass)}
+        {this.renderSettingsDropdown()}
         <Switch>
           <Route exact path={`${match.url}`} render={renderProps => <ShowKlassContainer klass={klass} showProgressions={showProgressions} editingStudents={editingStudents}/>}/>
           <Route exact path={`${match.url}/students/:id`} render={renderProps => {
