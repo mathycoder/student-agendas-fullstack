@@ -3,6 +3,7 @@ import StudentProgression from '../StudentProgression'
 import PostItForm from './PostItForm'
 import { connect } from 'react-redux'
 import { updateStudentProgressionStatus } from '../../../actions/studentProgressionActions'
+import DisplayColors from '../../helpers/DisplayColors'
 import '../css/student-summary.css'
 
 class StudentShowSummary extends Component {
@@ -80,24 +81,13 @@ class StudentShowSummary extends Component {
     return reflections.byId[reflectionId]
   }
 
-  displayColors = () => {
-    return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
-      return (
-        <div
-          key={index}
-          className={`select-color ${color}-title`}>
-        </div>
-      )
-    })
-  }
-
   render(){
     const { student, progressions, currentUser } = this.props
     return (
       <div className="student-summary-wrapper">
         <div className="title-heading">
           <h2>All Progressions</h2>
-          <div className="color-logo">{this.displayColors()}</div>
+          <DisplayColors />
         </div>
         <div className="student-summary-page">
           {this.sortedProgs(progressions).map((progression, index) => {

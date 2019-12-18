@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 import './navbar.css'
+import DisplayColors from '../helpers/DisplayColors'
 
 class NavBar extends Component{
   constructor(props){
@@ -98,9 +99,7 @@ class NavBar extends Component{
         <div>
           <div className="navbar">
             <NavLink id="color-logo-link" to="/classes">
-              <div className="color-logo">
-                {this.displayColors()}
-              </div>
+              <DisplayColors />
             </NavLink>
             <div className="klass-dropdown" ref={this.klassDropdownRef} onClick={this.handleKlassDropdownClick}>
               Classes
@@ -126,9 +125,7 @@ class NavBar extends Component{
         <div>
           <div className="navbar">
             <NavLink id="color-logo-link" to="/myagenda">
-              <div className="color-logo">
-                {this.displayColors()}
-              </div>
+              <DisplayColors />
             </NavLink>
             <div className="title">
               {`Logged in as ${currentUser.firstName} ${currentUser.lastName}`}
@@ -144,9 +141,7 @@ class NavBar extends Component{
       return (
         <div>
           <div className="navbar">
-            <div className="color-logo">
-              {this.displayColors()}
-            </div>
+            <DisplayColors />
             <div className="title">
               Student Agendas
             </div>
@@ -161,17 +156,6 @@ class NavBar extends Component{
         </div>
       )
     }
-  }
-
-  displayColors = () => {
-    return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
-      return (
-        <div
-          key={index}
-          className={`select-color ${color}-title`}>
-        </div>
-      )
-    })
   }
 
   profilePic = () => {

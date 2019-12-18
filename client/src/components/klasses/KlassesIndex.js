@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { addKlass, removeKlass, editKlass } from '../../actions/klassActions'
 import { NavLink } from 'react-router-dom';
 import NewKlassForm from './NewKlassForm'
+import DisplayColors from '../helpers/DisplayColors'
 
 class KlassesIndex extends Component {
 
@@ -57,17 +58,6 @@ class KlassesIndex extends Component {
 
       </div>
     )
-  }
-
-  displayColors = () => {
-    return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
-      return (
-        <div
-          key={index}
-          className={`select-color ${color}-title`}>
-        </div>
-      )
-    })
   }
 
   handleAddKlassClick = () => {
@@ -129,7 +119,7 @@ class KlassesIndex extends Component {
         <div className="klass-index-container">
           <div className="klass-index-title">
             <div>{`${this.props.currentUser.name}'s Classes`}</div>
-            <div>{this.displayColors()}</div>
+            <DisplayColors header={true}/>
           </div>
           <div className="klass-index-klasses">
             {this.renderKlasses()}
