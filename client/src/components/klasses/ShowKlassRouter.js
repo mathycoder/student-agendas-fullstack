@@ -4,7 +4,7 @@ import ShowKlassContainer from './ShowKlassContainer'
 import StudentShowContainer from '../students/show/StudentShowContainer'
 import { connect } from 'react-redux'
 import { Route, Switch, NavLink } from "react-router-dom"
-
+import Toggle from '../agendas/Toggle'
 
 class ShowKlassRouter extends Component {
   constructor(props){
@@ -58,13 +58,6 @@ class ShowKlassRouter extends Component {
     })
   }
 
-  handleSummaryPageClick = () => {
-    this.setState({
-      ...this.state,
-      summaryPage: !this.state.summaryPage
-    })
-  }
-
   handleStudentDropdownClick = () => {
     this.setState({
       ...this.state,
@@ -115,7 +108,7 @@ class ShowKlassRouter extends Component {
     if (!studentShowPage){
       return (
         <div className="klass-show-title">
-          <h1><NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink></h1>
+          <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
           {this.renderStudentDropdownContainer()}
           <button onClick={this.handleEditingStudents}>
             { editingStudents ? 'Return to Class': 'Edit Students' }
@@ -126,14 +119,21 @@ class ShowKlassRouter extends Component {
     } else {
       return (
         <div className="klass-show-title">
-          <h1><NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink></h1>
+          <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
           {this.renderStudentDropdownContainer()}
-          <button onClick={this.handleSummaryPageClick}>
-            { summaryPage ? 'View Current Agenda': 'View Summary' }
-          </button>
+          <Toggle
+            handleToggleChange={this.handleToggleChange}
+            summaryPage={summaryPage}/>
         </div>
       )
     }
+  }
+
+  handleToggleChange = (e) => {
+    this.setState({
+      ...this.state,
+      summaryPage: !this.state.summaryPage
+    })
   }
 
   progressionsButton = () =>  <button onClick={this.handleShowProgressions}>

@@ -4,10 +4,10 @@ import MyAgenda from './MyAgenda'
 import MyProgression from './MyProgression'
 import { connect } from 'react-redux'
 import './myagenda.css'
-import './toggle.scss'
 import { getStudentProgressions } from '../progressions/helpers/getStudentProgressions'
 import { updateStudentProgressionStatus } from '../../actions/studentProgressionActions'
 import StudentShowSummary from '../students/show/StudentShowSummary'
+import Toggle from './Toggle'
 
 
 class AgendaContainer extends Component {
@@ -145,7 +145,9 @@ class AgendaContainer extends Component {
     const { summaryPage } = this.state
     return (
       <div className="student-home-wrapper">
-        { this.renderNavBar()}
+        <Toggle
+          handleToggleChange={this.handleToggleChange}
+          summaryPage={summaryPage}/>
         { !summaryPage ? this.renderMyAgenda() : this.renderStudentSummary()}
       </div>
     )
