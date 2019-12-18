@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getStudentProgressions } from '../../progressions/helpers/getStudentProgressions'
+import { getStudentProgressions, getActiveStudentProgressions } from '../../progressions/helpers/getStudentProgressions'
 import StudentShowAgenda from './StudentShowAgenda'
 import StudentShowProgression from './StudentShowProgression'
 import StudentShowSummary from './StudentShowSummary'
@@ -77,7 +77,7 @@ class StudentShowContainer extends Component {
     const { student, selectedProgressionId, itemIndex } = this.state
     const { progressions, studentProgressions } = this.props
     if (student) {
-      const myProgs = getStudentProgressions(student, studentProgressions, progressions)
+      const myProgs = getActiveStudentProgressions(student, studentProgressions, progressions)
       return (
         <div className="myagenda-wrapper student-show-wrapper">
           <StudentShowAgenda

@@ -6,5 +6,6 @@ class AddColumnToStudentProgressions < ActiveRecord::Migration[5.2]
     add_column :student_progressions, :graded_at, :date
     add_column :student_progressions, :question1_answer, :string
     add_column :student_progressions, :question1_comment, :string
+    add_column :student_progressions, :archived, :boolean, default: false
   end
 end

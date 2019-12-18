@@ -38,6 +38,12 @@ class KlassesController < ApplicationController
     render json: @klass
   end
 
+  def archive_student_progressions
+    @klass = Klass.find_by(id: params[:id])
+    @archived_student_progressions = @klass.archive_student_progressions
+    render json: @archived_student_progressions
+  end
+
   private
     def klass_params
       params.require(:klass).permit(:name, :id)

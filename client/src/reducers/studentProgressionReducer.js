@@ -127,7 +127,8 @@ function normalizedObjectCreator(studentProgressions){
       question1Answer: stProg.question1_answer,
       question1Comment: stProg.question1_comment,
       graded: stProg.graded,
-      gradedAt: stProg.graded_at
+      gradedAt: stProg.graded_at,
+      archived: stProg.archived
     }
   })
   return normalizedObject

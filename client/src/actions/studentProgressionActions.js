@@ -88,3 +88,17 @@ export function updateStudentProgressionStatus(student, progression, status){
       .then(json => dispatch({ type: 'SWITCH_PROGRESSION', studentProgressions: json.studentProgressions }))
   }
 }
+
+export function archiveStudentProgressions(currentUser, klassId){
+  return (dispatch) => {
+    fetch(`/klasses/${klassId}/archive_student_progressions`, {
+      method: 'PATCH',
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(studentProgressions => dispatch({ type: 'SWITCH_PROGRESSION', studentProgressions }))
+  }
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Student from './Student'
 import './student.css'
 import { connect } from 'react-redux'
-import { getStudentProgressions } from '../progressions/helpers/getStudentProgressions'
+import { getActiveStudentProgressions } from '../progressions/helpers/getStudentProgressions'
 
 class StudentContainer extends Component {
   displayStudents = () => {
@@ -14,7 +14,7 @@ class StudentContainer extends Component {
           key={index}
           student={student}
           klass={klass}
-          progressions={getStudentProgressions(student, studentProgressions, progressions)}
+          progressions={getActiveStudentProgressions(student, studentProgressions, progressions)}
           handleDragOver={handleDragOver}
           handleDragLeave={handleDragLeave}
           handleDragDrop={handleDragDrop} />

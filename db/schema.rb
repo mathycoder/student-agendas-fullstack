@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_12_12_183409) do
     t.date "graded_at"
     t.string "question1_answer"
     t.string "question1_comment"
+    t.boolean "archived", default: false
   end
 
   create_table "students", force: :cascade do |t|

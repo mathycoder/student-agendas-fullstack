@@ -4,7 +4,7 @@ import MyAgenda from './MyAgenda'
 import MyProgression from './MyProgression'
 import { connect } from 'react-redux'
 import './myagenda.css'
-import { getStudentProgressions } from '../progressions/helpers/getStudentProgressions'
+import { getStudentProgressions, getActiveStudentProgressions } from '../progressions/helpers/getStudentProgressions'
 import { updateStudentProgressionStatus } from '../../actions/studentProgressionActions'
 import StudentShowSummary from '../students/show/StudentShowSummary'
 import Toggle from './Toggle'
@@ -29,7 +29,7 @@ class AgendaContainer extends Component {
     const { currentUser, progressions, studentProgressions } = this.props
     const { initialLoad } = this.state
     if (!initialLoad && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
-      const progs = getStudentProgressions(currentUser, studentProgressions, progressions)
+      const progs = getActiveStudentProgressions(currentUser, studentProgressions, progressions)
       const firstIncomplete = progs.find(prog => !prog.submitted)
       this.setState({
         ...this.state,
@@ -107,7 +107,7 @@ class AgendaContainer extends Component {
           itemIndex={itemIndex}
           selectedProgressionId={selectedProgressionId}
           handleProgressionClick={this.handleProgressionClick}
-          progressions={getStudentProgressions(currentUser, studentProgressions, progressions)}/>
+          progressions={getActiveStudentProgressions(currentUser, studentProgressions, progressions)}/>
         <MyProgression
           key={Math.random()}
           itemIndex={itemIndex}

@@ -18,12 +18,18 @@ export const getStudentProgressions = (student, studentProgressions, progression
       prog.question1Answer = sp.question1Answer
       prog.question1Comment = sp.question1Comment
       prog.studentProgressionId = `studentProgression${sp.id}`
+      prog.archived = sp.archived
       return prog
     })
     return myProgressions
   } else {
     return []
   }
+}
+
+export const getActiveStudentProgressions = (student, studentProgressions, progressions) => {
+  const allSps = getStudentProgressions(student, studentProgressions, progressions)
+  return allSps.filter(sp => !sp.archived)
 }
 
 const formatDate = (rawDate) => {

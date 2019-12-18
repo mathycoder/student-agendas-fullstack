@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/get_current_user', to: 'sessions#get_current_user'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  patch '/klasses/:id/archive_student_progressions', to: 'klasses#archive_student_progressions'
 
   resources :progressions, only: [:index, :create, :show, :update, :destroy]
   resources :videos, only: [:index]

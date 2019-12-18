@@ -5,6 +5,7 @@ import StudentShowContainer from '../students/show/StudentShowContainer'
 import { connect } from 'react-redux'
 import { Route, Switch, NavLink } from "react-router-dom"
 import Toggle from '../agendas/Toggle'
+import { archiveStudentProgressions } from '../../actions/studentProgressionActions.js'
 
 class ShowKlassRouter extends Component {
   constructor(props){
@@ -72,6 +73,12 @@ class ShowKlassRouter extends Component {
     })
   }
 
+  handleClearProgressionsClick = () => {
+    const { archiveStudentProgressions, currentUser, match } = this.props
+    const klassId = match.params.id
+    archiveStudentProgressions(currentUser, klassId)
+  }
+
   renderStudentDropdown = (klass) => {
     const { students } = this.props
     const { studentDropdown } = this.state
@@ -113,6 +120,7 @@ class ShowKlassRouter extends Component {
           <button onClick={this.handleEditingStudents}>
             { editingStudents ? 'Return to Class': 'Edit Students' }
           </button>
+            {editingStudents ? '' : <button onClick={this.handleClearProgressionsClick}>Clear Submitted Progressions</button>}
             { editingStudents ? '' : this.progressionsButton()}
         </div>
       )
@@ -166,7 +174,8 @@ class ShowKlassRouter extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    fetchStudents: (klassId) => dispatch(addStudents(klassId))
+    fetchStudents: (klassId) => dispatch(addStudents(klassId)),
+    archiveStudentProgressions: (currentUser, klassId) => dispatch(archiveStudentProgressions(currentUser, klassId))
   }
 }
 
