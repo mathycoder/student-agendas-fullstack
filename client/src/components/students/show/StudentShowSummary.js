@@ -4,6 +4,7 @@ import '../css/student-summary.css'
 
 class StudentShowSummary extends Component {
   renderProgressionRow = (progression, index) => {
+    const { student } = this.props
     return (
       <div key={index} className="progression-row">
         <div className="summary-progression">
@@ -16,13 +17,13 @@ class StudentShowSummary extends Component {
           </div>
         </div>
         <div className="summary-reflection">
-          {this.renderReflection(progression).question1}
+          <p>{this.renderReflection(progression).question1}</p>
         </div>
         <div className="summary-reflection-answer">
-          {progression.question1Answer ? `"${progression.question1Answer}"` : ''}
+          <p><div className="answer-title">{student.firstName}s Response: </div>{progression.question1Answer ? `"${progression.question1Answer}"` : <span className="incomplete">incomplete</span>}</p>
         </div>
-        <div className={`summary-reflection-comment ${progression.question1Comment ? 'post-it' : ''}`}>
-          <div>{progression.question1Comment}</div>
+        <div className={`summary-reflection-comment ${progression.question1Comment ? 'post-it' : 'post-it'}`}>
+          <p>{progression.question1Comment ? progression.question1Comment : ''}</p>
         </div>
       </div>
     )
@@ -43,16 +44,19 @@ class StudentShowSummary extends Component {
     return reflections.byId[reflectionId]
   }
 
+
+  // <div className="header">
+  //   <div>Progression</div>
+  //   <div>Reflection</div>
+  //   <div>{student.firstName}'s Answer</div>
+  //   <div>{currentUser.name}'s Comment</div>
+  // </div>
+
   render(){
     const { student, progressions, currentUser } = this.props
     return (
       <div className="student-summary-page">
-        <div className="header">
-          <div>Progression</div>
-          <div>Reflection</div>
-          <div>{student.firstName}'s Answer</div>
-          <div>{currentUser.name}'s Comment</div>
-        </div>
+
         {this.sortedProgs(progressions).map((progression, index) => {
           return this.renderProgressionRow(progression, index)
         })}

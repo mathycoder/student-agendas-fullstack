@@ -1,18 +1,23 @@
 .student-summary-page {
   margin: 20px;
-
   border: 1px solid black;
-  overflow: hidden;
-  max-width: 1030px;
+  /* overflow: hidden;
+  max-width: 1030px; */
+  width: 90%;
+  max-width: 1000px;
   margin: 0 auto;
   margin-top: 10px;
 }
 
 .student-summary-page .header {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 250px 200px 250px 200px;
   grid-column-gap: 30px;
-  grid-template-rows: 50px;
+  grid-template-rows: 50px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
   font-weight: bold;
   background-color: rgb(101, 104, 112);
@@ -20,20 +25,56 @@
   padding: 0 10px;
 }
 
-.student-summary-page .header div  {
-  padding-top: 15px;
-  margin: 0 auto;
+.student-summary-page .header div:nth-child(2n-1)  {
+  width: 250px;
+  text-align:center;
+
+}
+
+.student-summary-page .header div:nth-child(2n)  {
+  width: 250px;
+  text-align:center;
 }
 
 .student-summary-page .progression-row  {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 250px 200px 250px 200px;
   grid-template-rows: 180px;
-  grid-column-gap: 30px;
+  grid-column-gap: 30px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   font-size: 14px;
   padding: 0 10px;
   background-color: rgb(225, 225, 225);
 }
+
+
+
+.student-summary-page .progression-row .summary-progression {
+  width: 250px;
+  height: 180px;
+  margin: 10px;
+}
+
+.student-summary-page .progression-row .summary-reflection  {
+  width: 200px;
+  height: 180px;
+  margin: 10px;
+}
+
+.student-summary-page .progression-row .summary-reflection-answer {
+  width: 250px;
+  max-height: 180px;
+  margin: 10px;
+}
+
+.student-summary-page .progression-row .summary-reflection-comment {
+  width: 200px;
+  height: 180px;
+  margin: 10px;
+}
+
 
 .student-summary-page .progression-row:nth-child(2n-1)  {
   background-color: rgb(240, 240, 240);
@@ -52,7 +93,6 @@
 
 .summary-dates .date-category {
   margin-left: 20px;
-
 }
 
 
@@ -65,47 +105,48 @@
   font-weight: bold;
 }
 
-.summary-dates {
-  margin: auto;
-}
-
-.summary-reflection, .summary-reflection-answer{
-  overflow-y: scroll;
-  margin: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  max-height: 130px;
-}
-
-.summary-reflection h5 {
-  display: inline;
-}
-
 .summary-reflection {
   background-image: url('/lined-paper2.png');
-  background-size: 200px 140px;
+  background-size: 200px 180px;
   background-repeat: no-repeat;
-  padding: 10px;
-  padding-top: 17px;
-  padding-left: 30px;
+
+}
+
+.summary-reflection p {
+  padding-top: 32px;
+  padding-left: 28px;
   padding-right: 10px;
-  line-height: 17px;
+  line-height: 21px;
+  overflow-y: scroll;
+}
+
+.summary-reflection-answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-reflection-answer .answer-title {
+  text-align: center;
+}
+
+.summary-reflection-answer p {
+  overflow-y: scroll;
 }
 
 .summary-reflection-comment.post-it {
   background-image: url('/post-it.png');
   background-size: 200px 185px;
   background-repeat: no-repeat;
-  padding-top: 30px;
-  padding-left: 15px;
-  padding-right: 20px;
-  margin-top: -8px;
 }
 
-.summary-reflection-comment.post-it div {
+.summary-reflection-comment.post-it p{
   overflow-y: scroll;
   height: 140px;
   transform: rotate(-3deg);
+  margin-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .student-summary-page .progression-row .summary-dates div:first-child{
@@ -119,24 +160,7 @@
 .student-summary-page .student-show-progression .student-show-progression-items {
   max-width: 240px;
 }
-
 /*
-@media screen and (max-width: 1050px) {
-  .student-summary-page {
-    max-width: 700px;
-  }
-
-  .student-summary-page .header {
-    grid-template-columns: 350px 300px;
-    grid-template-rows: 1fr 1fr;
-  }
-
-  .student-summary-page .progression-row  {
-    grid-template-columns: 350px 300px;
-    grid-template-rows: 1fr 1fr;
-  }
-} */
-
 
 @media screen and (max-width: 1050px) {
   .student-summary-page {
@@ -152,4 +176,4 @@
     grid-template-columns: 250px 200px;
     grid-template-rows: 1fr 1fr;
   }
-}
+} */
