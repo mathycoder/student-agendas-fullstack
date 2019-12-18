@@ -4,6 +4,7 @@ import MyAgenda from './MyAgenda'
 import MyProgression from './MyProgression'
 import { connect } from 'react-redux'
 import './myagenda.css'
+import './toggle.scss'
 import { getStudentProgressions } from '../progressions/helpers/getStudentProgressions'
 import { updateStudentProgressionStatus } from '../../actions/studentProgressionActions'
 import StudentShowSummary from '../students/show/StudentShowSummary'
@@ -117,14 +118,33 @@ class AgendaContainer extends Component {
     )
   }
 
+// this navbar was styled using code from freefrontend.com
+  renderNavBar = () => {
+    const { summaryPage } = this.state
+    return (
+      <div className="myagenda-navbar">
+        <input id="toggle-on" className="toggle toggle-left" name="toggle" value={"false"} type="radio"
+          checked={!summaryPage} onChange={this.handleToggleChange} />
+        <label htmlFor="toggle-on" className="btn">Current Agenda</label>
+        <input id="toggle-off" className="toggle toggle-right" name="toggle" value={"true"} type="radio"
+          checked={summaryPage} onChange={this.handleToggleChange}/>
+        <label htmlFor="toggle-off" className="btn">All Progressions</label>
+      </div>
+    )
+  }
+
+  handleToggleChange = (e) => {
+    this.setState({
+      ...this.state,
+      summaryPage: !this.state.summaryPage
+    })
+  }
+
   render(){
     const { summaryPage } = this.state
     return (
-      <div>
-        <div className="myagenda-navbar">
-          <button onClick={this.handleCurrentAgendaClick}>Current Agenda</button>
-          <button onClick={this.handleAllAssignmentsClick}>All Assignments</button>
-        </div>
+      <div className="student-home-wrapper">
+        { this.renderNavBar()}
         { !summaryPage ? this.renderMyAgenda() : this.renderStudentSummary()}
       </div>
     )
