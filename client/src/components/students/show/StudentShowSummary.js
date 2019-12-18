@@ -80,14 +80,30 @@ class StudentShowSummary extends Component {
     return reflections.byId[reflectionId]
   }
 
+  displayColors = () => {
+    return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
+      return (
+        <div
+          key={index}
+          className={`select-color ${color}-title`}>
+        </div>
+      )
+    })
+  }
+
   render(){
     const { student, progressions, currentUser } = this.props
     return (
-      <div className="student-summary-page">
-
-        {this.sortedProgs(progressions).map((progression, index) => {
-          return this.renderProgressionRow(progression, index)
-        })}
+      <div className="student-summary-wrapper">
+        <div className="title-heading">
+          <h2>All Progressions</h2>
+          <div className="color-logo">{this.displayColors()}</div>
+        </div>
+        <div className="student-summary-page">
+          {this.sortedProgs(progressions).map((progression, index) => {
+            return this.renderProgressionRow(progression, index)
+          })}
+        </div>
       </div>
     )
   }
