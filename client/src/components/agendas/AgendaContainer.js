@@ -90,6 +90,7 @@ class AgendaContainer extends Component {
   renderStudentSummary = () => {
     const { reflections, currentUser, studentProgressions, progressions } = this.props
     return <StudentShowSummary
+      myAgenda={true}
       currentUser={{name: "Teacher"}}
       student={currentUser}
       reflections={reflections}

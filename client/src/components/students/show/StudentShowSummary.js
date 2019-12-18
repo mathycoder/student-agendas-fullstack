@@ -35,7 +35,7 @@ class StudentShowSummary extends Component {
   }
 
   renderProgressionRow = (progression, index) => {
-    const { student } = this.props
+    const { student, myAgenda } = this.props
     const { editing, studentProgressionId } = this.state
     return (
       <div key={index} className="progression-row">
@@ -59,7 +59,7 @@ class StudentShowSummary extends Component {
             <PostItForm
               comment={progression.question1Comment}
               handleEditSubmit={this.handleEditSubmit}/>
-            : <p>{progression.question1Comment}{!editing && progression.submitted ? <button className="edit-comment-button" onClick={e => this.handleEditClick(e, progression)}>{progression.question1Comment ? 'Edit' : 'Add Feedback'}</button> : ''}</p>}
+            : <p>{progression.question1Comment}{!editing && progression.submitted && !myAgenda ? <button className="edit-comment-button" onClick={e => this.handleEditClick(e, progression)}>{progression.question1Comment ? 'Edit' : 'Add Feedback'}</button> : ''}</p>}
         </div>
       </div>
     )
