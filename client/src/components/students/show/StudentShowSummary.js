@@ -6,18 +6,20 @@ class StudentShowSummary extends Component {
   renderProgressionRow = (progression, index) => {
     return (
       <div key={index} className="progression-row">
-        <StudentProgression progression={progression}/>
-        <div className="summary-dates">
-          <div>Assigned: <br/><strong>{progression.createdAt}</strong> </div>
-          <div>
-            Completed: <br/> <div className={`${progression.submittedAt === 'incomplete' ? 'incomplete' : ''}`}><strong>{progression.submittedAt}</strong></div>
+        <div className="summary-progression">
+          <StudentProgression progression={progression}/>
+          <div className="summary-dates">
+            <div className="date-category">Assigned: <br/><strong>{progression.createdAt}</strong> </div>
+            <div className="date-category">
+              Completed: <br/> <div className={`${progression.submittedAt === 'incomplete' ? 'incomplete' : ''}`}><strong>{progression.submittedAt}</strong></div>
+            </div>
           </div>
         </div>
         <div className="summary-reflection">
           {this.renderReflection(progression).question1}
         </div>
         <div className="summary-reflection-answer">
-          {progression.question1Answer}
+          {progression.question1Answer ? `"${progression.question1Answer}"` : ''}
         </div>
         <div className={`summary-reflection-comment ${progression.question1Comment ? 'post-it' : ''}`}>
           <div>{progression.question1Comment}</div>
@@ -47,7 +49,6 @@ class StudentShowSummary extends Component {
       <div className="student-summary-page">
         <div className="header">
           <div>Progression</div>
-          <div>Date</div>
           <div>Reflection</div>
           <div>{student.firstName}'s Answer</div>
           <div>{currentUser.name}'s Comment</div>

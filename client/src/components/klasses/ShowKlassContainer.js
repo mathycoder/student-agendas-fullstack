@@ -12,13 +12,13 @@ class ShowKlassContainer extends Component {
   handleDragOver = event => {
     event.preventDefault()
     const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "#FFFF00"
+    agenda.style.backgroundColor = "rgb(211, 211, 211)"
   }
 
   handleDragLeave = event => {
     event.preventDefault()
     const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "rgb(240, 240, 240)"
+    agenda.style.backgroundColor = "rgb(81, 84, 92)"
   }
 
   handleDragStart = (event, progression) => {
@@ -29,7 +29,7 @@ class ShowKlassContainer extends Component {
   handleDragDrop = (event) => {
     const { studentProgressions, students, addStudentProgression, addFlashMessage } = this.props
     const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "rgb(240, 240, 240)"
+    agenda.style.backgroundColor = "rgb(81, 84, 92)"
     let progression = event.dataTransfer.getData("progression")
     progression = JSON.parse(progression)
     const student = students.byId[`student${event.currentTarget.dataset.studentId}`]
