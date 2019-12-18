@@ -17,6 +17,7 @@ export const getStudentProgressions = (student, studentProgressions, progression
       prog.createdAt = formatDate(sp.createdAt)
       prog.question1Answer = sp.question1Answer
       prog.question1Comment = sp.question1Comment
+      prog.studentProgressionId = `studentProgression${sp.id}`
       return prog
     })
     return myProgressions

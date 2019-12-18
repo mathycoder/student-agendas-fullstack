@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { updateStudentProgression } from '../../../actions/studentProgressionActions'
 import { updateStudentProgressionStatus } from '../../../actions/studentProgressionActions'
 
 class StudentShowReflection extends Component {
@@ -20,7 +19,6 @@ class StudentShowReflection extends Component {
     e.preventDefault()
     const { student, progression, updateStudentProgressionStatus } = this.props
     updateStudentProgressionStatus(student, progression, {comment: this.state.comment})
-
   }
 
   handleEditClick = e => {

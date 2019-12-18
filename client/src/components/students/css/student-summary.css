@@ -9,6 +9,23 @@
   margin-top: 10px;
 }
 
+.student-summary-page button, .student-summary-page input[type=submit] {
+  padding: 4px 8px;
+  color: black;
+  background-image: none;
+  background: transparent;
+  border: 2.5px solid black;
+}
+
+.student-summary-page button:focus, .student-summary-page input[type=submit]:focus {
+  outline: none;
+}
+
+.student-summary-page button:hover, .student-summary-page input[type=submit]:hover {
+  border: 2.5px solid rgb(80,80,80);
+  color: rgb(80,80,80);
+}
+
 .student-summary-page .header {
   /* display: grid;
   grid-template-columns: 250px 200px 250px 200px;
@@ -149,6 +166,12 @@
   padding-right: 15px;
 }
 
+.summary-reflection-comment .edit-comment-button {
+  display: block;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 .student-summary-page .progression-row .summary-dates div:first-child{
   margin-bottom: 12px;
 }
@@ -160,20 +183,3 @@
 .student-summary-page .student-show-progression .student-show-progression-items {
   max-width: 240px;
 }
-/*
-
-@media screen and (max-width: 1050px) {
-  .student-summary-page {
-    max-width: 500px;
-  }
-
-  .student-summary-page .header {
-    grid-template-columns: 250px 200px;
-    grid-template-rows: 1fr 1fr;
-  }
-
-  .student-summary-page .progression-row  {
-    grid-template-columns: 250px 200px;
-    grid-template-rows: 1fr 1fr;
-  }
-} */

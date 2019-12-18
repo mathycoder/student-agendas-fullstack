@@ -1,10 +1,42 @@
 import React, { Component } from 'react'
 import StudentProgression from '../StudentProgression'
+import PostItForm from './PostItForm'
+import { connect } from 'react-redux'
+import { updateStudentProgressionStatus } from '../../../actions/studentProgressionActions'
 import '../css/student-summary.css'
 
 class StudentShowSummary extends Component {
+  state = {
+    progression: null,
+    studentProgressionId: null,
+    editing: false
+  }
+
+  handleEditClick = (e, progression) => {
+    e.preventDefault()
+    this.setState({
+      ...this.state,
+      editing: true,
+      studentProgressionId: progression.studentProgressionId,
+      progression: progression
+    })
+  }
+
+  handleEditSubmit = (e, attributes) => {
+    const { progression } = this.state
+    const { student, progressions, updateStudentProgressionStatus} = this.props
+    debugger
+    updateStudentProgressionStatus(student, progression, attributes)
+    this.setState({
+      ...this.state,
+      editing: false,
+      studentProgressionId: undefined
+    })
+  }
+
   renderProgressionRow = (progression, index) => {
     const { student } = this.props
+    const { editing, studentProgressionId } = this.state
     return (
       <div key={index} className="progression-row">
         <div className="summary-progression">
@@ -22,8 +54,12 @@ class StudentShowSummary extends Component {
         <div className="summary-reflection-answer">
           <p><div className="answer-title">{student.firstName}s Response: </div>{progression.question1Answer ? `"${progression.question1Answer}"` : <span className="incomplete">incomplete</span>}</p>
         </div>
-        <div className={`summary-reflection-comment ${progression.question1Comment ? 'post-it' : 'post-it'}`}>
-          <p>{progression.question1Comment ? progression.question1Comment : ''}</p>
+        <div className={`summary-reflection-comment ${editing && progression.studentProgressionId === studentProgressionId ? '' : 'post-it'}`}>
+          {editing && progression.studentProgressionId === studentProgressionId ?
+            <PostItForm
+              comment={progression.question1Comment}
+              handleEditSubmit={this.handleEditSubmit}/>
+            : <p>{progression.question1Comment}{!editing && progression.submitted ? <button className="edit-comment-button" onClick={e => this.handleEditClick(e, progression)}>{progression.question1Comment ? 'Edit' : 'Add Feedback'}</button> : ''}</p>}
         </div>
       </div>
     )
@@ -44,14 +80,6 @@ class StudentShowSummary extends Component {
     return reflections.byId[reflectionId]
   }
 
-
-  // <div className="header">
-  //   <div>Progression</div>
-  //   <div>Reflection</div>
-  //   <div>{student.firstName}'s Answer</div>
-  //   <div>{currentUser.name}'s Comment</div>
-  // </div>
-
   render(){
     const { student, progressions, currentUser } = this.props
     return (
@@ -65,4 +93,10 @@ class StudentShowSummary extends Component {
   }
 }
 
-export default StudentShowSummary
+function mapDispatchToProps(dispatch){
+  return {
+    updateStudentProgressionStatus: (student, progression, status) => dispatch(updateStudentProgressionStatus(student, progression, status))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(StudentShowSummary)
