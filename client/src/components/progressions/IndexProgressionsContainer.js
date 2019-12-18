@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import StudentProgression from '../students/StudentProgression'
 import IndexProgression from './IndexProgression'
+import { NavLink } from 'react-router-dom'
 import { deleteProgression } from '../../actions/progressionActions'
 import { connect } from 'react-redux'
 
@@ -123,7 +124,7 @@ class IndexProgressionsContainer extends Component {
     return (
       <div className={`student-show-progressions-container ${indexPage ? 'index-page' : ''}`}>
         <div className="student-show-progressions-header">
-          <div>Progressions</div>
+          <div><NavLink to={'/progressions'}>Progressions</NavLink></div>
           <div>
             <form onSubmit={this.handleSubmit}>
               <div className="search-bar">

@@ -1,14 +1,16 @@
 .student-summary-page {
   margin: 20px;
-  margin-top: 10px;
+
   border: 1px solid black;
   overflow: hidden;
   max-width: 1030px;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
 .student-summary-page .header {
   display: grid;
-  grid-template-columns: 300px 200px 200px 200px;
+  grid-template-columns: 250px 200px 250px 200px;
   grid-column-gap: 30px;
   grid-template-rows: 50px;
   font-size: 16px;
@@ -25,7 +27,7 @@
 
 .student-summary-page .progression-row  {
   display: grid;
-  grid-template-columns: 300px 200px 200px 200px;
+  grid-template-columns: 250px 200px 250px 200px;
   grid-template-rows: 180px;
   grid-column-gap: 30px;
   font-size: 14px;
@@ -50,7 +52,7 @@
 
 .summary-dates .date-category {
   margin-left: 20px;
-  margin-top: -20px;
+
 }
 
 
@@ -80,7 +82,7 @@
 }
 
 .summary-reflection {
-  background-image: url('/lined-paper3.png');
+  background-image: url('/lined-paper2.png');
   background-size: 200px 140px;
   background-repeat: no-repeat;
   padding: 10px;
@@ -115,5 +117,39 @@
 }
 
 .student-summary-page .student-show-progression .student-show-progression-items {
-  max-width: 280px;
+  max-width: 240px;
+}
+
+/*
+@media screen and (max-width: 1050px) {
+  .student-summary-page {
+    max-width: 700px;
+  }
+
+  .student-summary-page .header {
+    grid-template-columns: 350px 300px;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .student-summary-page .progression-row  {
+    grid-template-columns: 350px 300px;
+    grid-template-rows: 1fr 1fr;
+  }
+} */
+
+
+@media screen and (max-width: 1050px) {
+  .student-summary-page {
+    max-width: 500px;
+  }
+
+  .student-summary-page .header {
+    grid-template-columns: 250px 200px;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .student-summary-page .progression-row  {
+    grid-template-columns: 250px 200px;
+    grid-template-rows: 1fr 1fr;
+  }
 }
