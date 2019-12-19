@@ -51,6 +51,7 @@ const MyAgenda = ({ progressions, handleProgressionClick, itemIndex, selectedPro
           return (<div key={index}></div>)
         }
       })}
+      <div className="empty-agenda">{ progressions.length === 0 ? 'This Agenda is empty.' : ''}</div>
     </div>
   )
 }

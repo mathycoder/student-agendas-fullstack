@@ -2,6 +2,11 @@
   margin-top: -15px;
 }
 
+.empty-agenda {
+  display: inline-block;
+  color: white;
+  margin: 0 auto;
+}
 
 /* -------------------------StudentShowReflection------------------ */
 

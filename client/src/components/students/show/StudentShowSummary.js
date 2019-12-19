@@ -59,7 +59,7 @@ class StudentShowSummary extends Component {
             <p>{this.renderReflection(progression).question1}</p>
           </div>
           <div className="summary-reflection-answer">
-            <p><div className="answer-title"><strong>{student.firstName} {student.lastName}</strong>s Response: </div>{progression.question1Answer ? `"${progression.question1Answer}"` : <span className="incomplete">incomplete</span>}</p>
+            <p><div className="answer-title"><strong>{student.firstName} {student.lastName}</strong>'s Response: </div>{progression.question1Answer ? `"${progression.question1Answer}"` : <span className="incomplete">incomplete</span>}</p>
           </div>
           <div className={`summary-reflection-comment ${editing && progression.studentProgressionId === studentProgressionId ? '' : 'post-it'}`}>
             {editing && progression.studentProgressionId === studentProgressionId ?

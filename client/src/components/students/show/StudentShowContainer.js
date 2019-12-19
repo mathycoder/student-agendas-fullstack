@@ -28,12 +28,19 @@ class StudentShowContainer extends Component {
     const { initialLoad, student } = this.state
     if (!initialLoad && student && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
       const myProgressions = getActiveStudentProgressions(student, studentProgressions, progressions)
-      this.setState({
-        ...this.state,
-        initialLoad: true,
-        selectedProgressionId: `progression${myProgressions[0].id}`,
-        itemIndex: myProgressions[0].items.findIndex(el => el.includes("reflection"))
-      })
+      if (myProgressions.length > 0){
+        this.setState({
+          ...this.state,
+          initialLoad: true,
+          selectedProgressionId: `progression${myProgressions[0].id}`,
+          itemIndex: myProgressions[0].items.findIndex(el => el.includes("reflection"))
+        })
+      } else {
+        this.setState({
+          ...this.state,
+          initialLoad: true
+        })
+      }
     }
   }
 
