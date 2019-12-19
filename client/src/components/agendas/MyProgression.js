@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MyProgressionVideo from './MyProgressionVideo'
 import MyProgressionReflection from './MyProgressionReflection'
+import '../helpers/tooltip-styling.css'
 import { connect } from 'react-redux'
 
 class MyProgression extends Component{

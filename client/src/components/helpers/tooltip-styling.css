@@ -1,0 +1,59 @@
+/* ----------------------tooltip styling -------------------------------*/
+
+.submit-progression.gray-button .tooltiptext, .tooltip-wrapper .tooltiptext {
+  /* display: none; */
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.submit-progression.gray-button:hover .tooltiptext, .tooltip-wrapper:hover .tooltiptext {
+  /* display: inline; */
+  visibility: visible;
+  width: 200px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  margin-left: -185px;
+  margin-top: -35px;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+.tooltip-wrapper:hover .tooltiptext {
+  visibility: visible;
+  width: 150px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  margin-left: -74px;
+  margin-top: -5px;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
