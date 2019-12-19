@@ -128,9 +128,9 @@ class ShowKlassRouter extends Component {
     const { settings, editingStudents, showProgressions } = this.state
     return (
       <div className={`dropdown-menu settings-dropdown ${settings ? 'opened': 'closed'}`} ref={this.myRefSettingsDropdown}>
+        <div onClick={this.handleClearProgressionsClick}>Archive Submitted</div>
         <div onClick={this.handleEditingStudents}>Edit Students</div>
         <div onClick={this.handleShowProgressions}>{showProgressions ? 'Hide Progressions' : 'Show Progressions'}</div>
-        <div onClick={this.handleClearProgressionsClick}>Archive Submitted</div>
         <div onClick={this.handleSubmittedClick}>To Be Graded</div>
       </div>
     )

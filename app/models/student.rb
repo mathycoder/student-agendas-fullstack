@@ -7,7 +7,9 @@ class Student < ApplicationRecord
   has_many :reflections, through: :items
 
   validates :firstName, presence: true, length: { maximum: 12, minimum: 3 }
+  validates :firstName, uniqueness: { scope: :lastName, message: "A student with that first and last name already exists in the database" }
   validates :lastName, presence: true, length: { maximum: 12, minimum: 3 }
+
 
   def generate_login
     self.username = self.firstName[0].downcase + self.lastName.downcase if self.firstName.length > 0 && self.lastName.length > 0
