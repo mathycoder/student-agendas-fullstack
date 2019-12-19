@@ -64,12 +64,12 @@
   border-radius: 50%;
 }
 
-.progression-status .dot.yellow {
+.dot.yellow {
   background-color: rgb(251, 255, 0 );
   border: 1px solid rgb(249, 250, 173);
 }
 
-.progression-status .dot.green {
+.dot.green {
   background-color: rgb(21, 250, 17);
   border: 1px solid rgb(176, 255, 175);
 }

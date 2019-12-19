@@ -39,7 +39,6 @@ const RenderItem = ({klassShow, progression, videos, reflections, itemIndex, sel
           onClick={handleProgressionClick ? (e => handleProgressionClick(progression, index)) : undefined}
           className={`student-show-progression-item reflection ${highlighted}`}>
           <img src="/paper-pencil.png" alt="learning reflection" />
-
           <div className="student-show-progression-item-title">{reflection.title}</div>
         </div>
        )
