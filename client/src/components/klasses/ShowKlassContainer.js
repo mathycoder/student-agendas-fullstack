@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { addStudents } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import { addFlashMessage } from '../../actions/flashActions'
+import ShowKlassAllProgressions from './ShowKlassAllProgressions'
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
@@ -55,13 +56,14 @@ class ShowKlassContainer extends Component {
   renderProgressions = () => <IndexProgressionsContainer handleDragStart={this.handleDragStart}/>
 
   render(){
-    const { klass, editingStudents, showProgressions } = this.props
+    const { klass, editingStudents, showProgressions, submitted } = this.props
 
     if (klass) {
       return (
         <div className="klass-show-container">
-          { editingStudents ? <EditStudents klass={klass} /> : this.renderStudents() }
-          { !editingStudents && showProgressions ? this.renderProgressions() : <div></div> }
+          { editingStudents ? <EditStudents klass={klass} />
+            : ( submitted ? <ShowKlassAllProgressions /> : this.renderStudents()) }
+          { !editingStudents && !submitted && showProgressions ? this.renderProgressions() : <div></div> }
         </div>
       )
     } else {

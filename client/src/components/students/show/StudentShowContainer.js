@@ -27,7 +27,7 @@ class StudentShowContainer extends Component {
     const { progressions, studentProgressions } = this.props
     const { initialLoad, student } = this.state
     if (!initialLoad && student && progressions.allIds.length > 0 && studentProgressions.allIds.length > 0){
-      const myProgressions = getStudentProgressions(student, studentProgressions, progressions)
+      const myProgressions = getActiveStudentProgressions(student, studentProgressions, progressions)
       this.setState({
         ...this.state,
         initialLoad: true,

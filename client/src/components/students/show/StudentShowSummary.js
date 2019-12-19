@@ -13,6 +13,10 @@ class StudentShowSummary extends Component {
     editing: false
   }
 
+  componentDidMount(){
+    console.log(this.props.progressions)
+  }
+
   handleEditClick = (e, progression) => {
     e.preventDefault()
     this.setState({
@@ -25,8 +29,8 @@ class StudentShowSummary extends Component {
 
   handleEditSubmit = (e, attributes) => {
     const { progression } = this.state
-    const { student, progressions, updateStudentProgressionStatus} = this.props
-    debugger
+    const { students, progressions, updateStudentProgressionStatus} = this.props
+    const student = students.byId[progression.studentId]
     updateStudentProgressionStatus(student, progression, attributes)
     this.setState({
       ...this.state,
@@ -36,34 +40,39 @@ class StudentShowSummary extends Component {
   }
 
   renderProgressionRow = (progression, index) => {
-    const { student, myAgenda } = this.props
+    const { myAgenda, students } = this.props
     const { editing, studentProgressionId } = this.state
-    return (
-      <div key={index} className="progression-row">
-        <div className="summary-progression">
-          <StudentProgression progression={progression}/>
-          <div className="summary-dates">
-            <div className="date-category">Assigned: <br/><strong>{progression.createdAt}</strong> </div>
-            <div className="date-category">
-              Completed: <br/> <div className={`${progression.submittedAt === 'incomplete' ? 'incomplete' : ''}`}><strong>{progression.submittedAt}</strong></div>
+    const student = students.byId[progression.studentId]
+    if (student){
+      return (
+        <div key={index} className="progression-row">
+          <div className="summary-progression">
+            <StudentProgression progression={progression}/>
+            <div className="summary-dates">
+              <div className="date-category">Assigned: <br/><strong>{progression.createdAt}</strong> </div>
+              <div className="date-category">
+                Completed: <br/> <div className={`${progression.submittedAt === 'incomplete' ? 'incomplete' : ''}`}><strong>{progression.submittedAt}</strong></div>
+              </div>
             </div>
           </div>
+          <div className="summary-reflection">
+            <p>{this.renderReflection(progression).question1}</p>
+          </div>
+          <div className="summary-reflection-answer">
+            <p><div className="answer-title"><strong>{student.firstName} {student.lastName}</strong>s Response: </div>{progression.question1Answer ? `"${progression.question1Answer}"` : <span className="incomplete">incomplete</span>}</p>
+          </div>
+          <div className={`summary-reflection-comment ${editing && progression.studentProgressionId === studentProgressionId ? '' : 'post-it'}`}>
+            {editing && progression.studentProgressionId === studentProgressionId ?
+              <PostItForm
+                comment={progression.question1Comment}
+                handleEditSubmit={this.handleEditSubmit}/>
+              : <p>{progression.question1Comment}{!editing && progression.submitted && !myAgenda ? <button className="edit-comment-button" onClick={e => this.handleEditClick(e, progression)}>{progression.question1Comment ? 'Edit' : 'Add Feedback'}</button> : ''}</p>}
+          </div>
         </div>
-        <div className="summary-reflection">
-          <p>{this.renderReflection(progression).question1}</p>
-        </div>
-        <div className="summary-reflection-answer">
-          <p><div className="answer-title">{student.firstName}s Response: </div>{progression.question1Answer ? `"${progression.question1Answer}"` : <span className="incomplete">incomplete</span>}</p>
-        </div>
-        <div className={`summary-reflection-comment ${editing && progression.studentProgressionId === studentProgressionId ? '' : 'post-it'}`}>
-          {editing && progression.studentProgressionId === studentProgressionId ?
-            <PostItForm
-              comment={progression.question1Comment}
-              handleEditSubmit={this.handleEditSubmit}/>
-            : <p>{progression.question1Comment}{!editing && progression.submitted && !myAgenda ? <button className="edit-comment-button" onClick={e => this.handleEditClick(e, progression)}>{progression.question1Comment ? 'Edit' : 'Add Feedback'}</button> : ''}</p>}
-        </div>
-      </div>
-    )
+      )
+    } else {
+      return <div key={index}></div>
+    }
   }
 
   sortedProgs = (progressions) => {
@@ -82,11 +91,11 @@ class StudentShowSummary extends Component {
   }
 
   render(){
-    const { student, progressions, currentUser } = this.props
+    const { student, progressions, currentUser, myAgenda } = this.props
     return (
       <div className="student-summary-wrapper">
         <div className="title-heading">
-          <h2>All Progressions</h2>
+          <h2>{myAgenda ? 'All Progressions' : 'Submitted Progressions'}</h2>
           <DisplayColors />
         </div>
         <div className="student-summary-page">
@@ -99,10 +108,16 @@ class StudentShowSummary extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return {
+    students: state.students
+  }
+}
+
 function mapDispatchToProps(dispatch){
   return {
     updateStudentProgressionStatus: (student, progression, status) => dispatch(updateStudentProgressionStatus(student, progression, status))
   }
 }
 
-export default connect(null, mapDispatchToProps)(StudentShowSummary)
+export default connect(mapStateToProps, mapDispatchToProps)(StudentShowSummary)

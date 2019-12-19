@@ -41,6 +41,10 @@
   overflow-y: scroll;
 }
 
+.summary-column {
+  grid-column: 1 / 3;
+}
+
 /* --------- when there's no progressions, agendas stretch here -------------- */
 .student-agendas.slide-width {
   grid-column: 1 / 3;

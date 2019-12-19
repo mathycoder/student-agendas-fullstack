@@ -19,6 +19,7 @@ export const getStudentProgressions = (student, studentProgressions, progression
       prog.question1Comment = sp.question1Comment
       prog.studentProgressionId = `studentProgression${sp.id}`
       prog.archived = sp.archived
+      prog.studentId = `student${student.id}`
       return prog
     })
     return myProgressions
@@ -30,6 +31,16 @@ export const getStudentProgressions = (student, studentProgressions, progression
 export const getActiveStudentProgressions = (student, studentProgressions, progressions) => {
   const allSps = getStudentProgressions(student, studentProgressions, progressions)
   return allSps.filter(sp => !sp.archived)
+}
+
+export const getSubmittedStudentProgressions = (student, studentProgressions, progressions) => {
+  const allSps = getStudentProgressions(student, studentProgressions, progressions)
+  return allSps.filter(sp => sp.archived)
+}
+
+export const getSubmittedAndUngradedStudentProgressions = (student, studentProgressions, progressions) => {
+  const allSps = getStudentProgressions(student, studentProgressions, progressions)
+  return allSps.filter(sp => sp.submitted && !sp.graded)
 }
 
 const formatDate = (rawDate) => {
@@ -44,5 +55,13 @@ const formatDate = (rawDate) => {
   } else {
     return 'incomplete'
   }
+}
 
+export const getAllSubmittedProgressions = (students, studentProgressions, progressions) => {
+  const allProgressions = []
+  students.allIds.forEach(studentId => {
+    const student = students.byId[studentId]
+    allProgressions.push(getSubmittedAndUngradedStudentProgressions(student, studentProgressions, progressions))
+  })
+  return allProgressions.flat()
 }

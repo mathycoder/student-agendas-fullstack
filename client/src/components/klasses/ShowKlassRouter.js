@@ -23,7 +23,8 @@ class ShowKlassRouter extends Component {
     studentDropdown: false,
     student: undefined,
     summaryPage: false,
-    settings: false
+    settings: false,
+    submitted: false
   }
 
   componentDidMount(){
@@ -95,6 +96,13 @@ class ShowKlassRouter extends Component {
     if (deleteCheck) { archiveStudentProgressions(currentUser, klassId) }
   }
 
+  handleSubmittedClick = () => {
+    this.setState({
+      ...this.state,
+      submitted: !this.state.submitted
+    })
+  }
+
   renderStudentDropdown = (klass) => {
     const { students } = this.props
     const { studentDropdown } = this.state
@@ -138,12 +146,13 @@ class ShowKlassRouter extends Component {
   }
 
   renderShowKlassMenuBar = (klass) => {
-    const { editingStudents, studentShowPage, summaryPage, settings } = this.state
+    const { editingStudents, studentShowPage, summaryPage, settings, submitted } = this.state
     if (!studentShowPage){
       return (
         <div className="klass-show-title">
           <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
           {this.renderStudentDropdownContainer()}
+          <button onClick={this.handleSubmittedClick}>{submitted ? 'View Agendas' :'View Submitted'}</button>
           {editingStudents ? '' :
             <div className="gear" onClick={this.handleSettingsClick} ref={this.myRefGearIcon}>
               <img className={settings ? 'clock':'counterclock'} src="/gear.png" />
@@ -172,7 +181,7 @@ class ShowKlassRouter extends Component {
 
   render(){
     const { klasses, match } = this.props
-    const { editingStudents, showProgressions, summaryPage } = this.state
+    const { editingStudents, showProgressions, summaryPage, submitted } = this.state
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
     const klass = klasses.byId[klassId]
     return (
@@ -181,13 +190,20 @@ class ShowKlassRouter extends Component {
         {this.renderStudentDropdown(klass)}
         {this.renderSettingsDropdown()}
         <Switch>
-          <Route exact path={`${match.url}`} render={renderProps => <ShowKlassContainer klass={klass} showProgressions={showProgressions} editingStudents={editingStudents}/>}/>
+          <Route exact path={`${match.url}`} render={renderProps => {
+              return <ShowKlassContainer
+                        klass={klass}
+                        submitted={submitted}
+                        showProgressions={showProgressions}
+                        editingStudents={editingStudents}/>}
+            }/>
+
           <Route exact path={`${match.url}/students/:id`} render={renderProps => {
               return <StudentShowContainer
-                      summaryPage={summaryPage}
-                      handleSetStudent={this.handleSetStudent}
-                      handleStudentShowPage={this.handleStudentShowPage}
-                      {...renderProps} />}
+                        summaryPage={summaryPage}
+                        handleSetStudent={this.handleSetStudent}
+                        handleStudentShowPage={this.handleStudentShowPage}
+                        {...renderProps} />}
             }/>
         </Switch>
       </div>
