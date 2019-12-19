@@ -113,6 +113,6 @@ export function addProgressionToKlass(klass, progression) {
       }
     })
       .then(resp => resp.json())
-      .then(studentProgressions => { console.log(studentProgressions) })
+      .then(studentProgressions => dispatch({ type: 'ADD_STUDENT_PROGRESSIONS', studentProgressions }))
   }
 }

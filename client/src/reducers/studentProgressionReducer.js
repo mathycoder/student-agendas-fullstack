@@ -28,6 +28,12 @@ function studentProgressionsById(state = {}, action) {
         ...normalizedObjectCreator([action.studentProgression])
       }
 
+    case 'ADD_STUDENT_PROGRESSIONS':
+    return {
+      ...state,
+      ...normalizedObjectCreator(action.studentProgressions)
+    }
+
     case 'START_SWITCH_PROGRESSION_REQUEST':
       const allSps = {...state}
       const modifiedObjs = switchAgendaOrder(action, allSps)
@@ -66,6 +72,12 @@ function allStudentProgressions(state = [], action) {
 
     case 'ADD_STUDENTS':
     return [
+      ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
+    ]
+
+    case 'ADD_STUDENT_PROGRESSIONS':
+    return [
+      ...state,
       ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
     ]
 

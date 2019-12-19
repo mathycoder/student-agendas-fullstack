@@ -258,6 +258,10 @@
   color: rgb(100, 100, 100);
 }
 
+.progression-container-box button:focus{
+  outline: none;
+}
+
 .student-show-progression {
   opacity: 0.999;
   border: 1px black dashed;
