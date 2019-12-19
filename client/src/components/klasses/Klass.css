@@ -1,11 +1,11 @@
 /* ---------------------- show klass router page ------------------ */
 .student-dropdown {
-  margin-left: 98px;
+  margin-left: 95px;
   margin-top: -18px;
 }
 
 .settings-dropdown {
-  margin-left: 280px;
+  margin-left: 300px;
   margin-top: -18px;
 }
 
@@ -14,9 +14,10 @@
 }
 
 .gear img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   margin-left: 10px;
+  margin-top: 3px;
 }
 
 .gear .clock{

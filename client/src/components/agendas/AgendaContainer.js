@@ -119,21 +119,6 @@ class AgendaContainer extends Component {
     )
   }
 
-// this navbar was styled using code from freefrontend.com
-  renderNavBar = () => {
-    const { summaryPage } = this.state
-    return (
-      <div className="myagenda-navbar">
-        <input id="toggle-on" className="toggle toggle-left" name="toggle" value={"false"} type="radio"
-          checked={!summaryPage} onChange={this.handleToggleChange} />
-        <label htmlFor="toggle-on" className="btn">Current Agenda</label>
-        <input id="toggle-off" className="toggle toggle-right" name="toggle" value={"true"} type="radio"
-          checked={summaryPage} onChange={this.handleToggleChange}/>
-        <label htmlFor="toggle-off" className="btn">All Progressions</label>
-      </div>
-    )
-  }
-
   handleToggleChange = (e) => {
     this.setState({
       ...this.state,
@@ -146,8 +131,10 @@ class AgendaContainer extends Component {
     return (
       <div className="student-home-wrapper">
         <Toggle
+          left={'Current Agenda'}
+          right={'All Progressions'}
           handleToggleChange={this.handleToggleChange}
-          summaryPage={summaryPage}/>
+          attribute={summaryPage}/>
         { !summaryPage ? this.renderMyAgenda() : this.renderStudentSummary()}
       </div>
     )

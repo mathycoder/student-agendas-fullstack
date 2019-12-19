@@ -95,7 +95,7 @@ class StudentShowSummary extends Component {
     return (
       <div className="student-summary-wrapper">
         <div className="title-heading">
-          <h2>{myAgenda ? 'All Progressions' : 'Submitted Progressions'}</h2>
+          <h2>{myAgenda || student ? 'All Progressions' : 'To Be Graded'}</h2>
           <DisplayColors />
         </div>
         <div className="student-summary-page">

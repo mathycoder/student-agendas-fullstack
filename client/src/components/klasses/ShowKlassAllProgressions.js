@@ -11,8 +11,6 @@ class ShowKlassAllProgressions extends Component {
       const myProgs = getAllSubmittedProgressions(students, studentProgressions, progressions)
       return (
         <StudentShowSummary
-          currentUser={{name: "some teacher"}}
-          student={{firstName: "Wha?"}}
           reflections={reflections}
           progressions={myProgs}/>
       )

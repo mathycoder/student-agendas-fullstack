@@ -15,7 +15,7 @@ input[type="radio"].toggle {
     display: none;
     & + label{
         cursor: pointer;
-        min-width: 60px;
+        min-width: 135px;
         &:hover{
             background: none;
             color: #1a1a1a;

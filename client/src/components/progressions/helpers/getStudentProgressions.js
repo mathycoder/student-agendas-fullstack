@@ -19,7 +19,7 @@ export const getStudentProgressions = (student, studentProgressions, progression
       prog.question1Comment = sp.question1Comment
       prog.studentProgressionId = `studentProgression${sp.id}`
       prog.archived = sp.archived
-      prog.studentId = `student${student.id}`
+      prog.studentId = sp.studentId
       return prog
     })
     return myProgressions
