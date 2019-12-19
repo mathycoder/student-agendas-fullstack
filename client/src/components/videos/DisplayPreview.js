@@ -21,7 +21,7 @@ const DisplayPreview = ({video, addToProgression, removeFromProgression, shiftup
         >
       </iframe>
       <p>{video.description}</p>
-      {addToProgression ? <button onClick={(event) => addToProgression(video)}>Add to Progression</button> : ''}
+      {addToProgression ? <button onClick={(event) => addToProgression(event, video)}>Add to Progression</button> : ''}
       {removeFromProgression ? <button onClick={(event) => removeFromProgression(video)}>Remove from Progression</button> : ''}
     </div>
   )

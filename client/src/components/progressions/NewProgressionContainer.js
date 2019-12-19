@@ -58,7 +58,7 @@ class NewProgressionContainer extends Component {
   }
 
   handleFormSubmit = (event) => {
-    const { addProgression, editProgression, history } = this.props
+    const { addProgression, editProgression, history, addFlashMessage } = this.props
     event.preventDefault()
     const progression = {
       progression: {
@@ -68,10 +68,11 @@ class NewProgressionContainer extends Component {
         items_attributes: [...this.state.currProgression]
       }
     }
-    if (!this.state.id) {
-      addProgression(progression, history)
+    const reflectionExists = progression.progression.items_attributes.find(item => item.question1)
+    if (reflectionExists){
+      !this.state.id ? addProgression(progression, history) : editProgression(progression, history)
     } else {
-      editProgression(progression, history)
+      addFlashMessage("Your progression must contain one reflection")
     }
   }
 
@@ -93,11 +94,14 @@ class NewProgressionContainer extends Component {
   handleOnDrop = (event) => {
     let video = event.dataTransfer.getData("video")
     video = JSON.parse(video)
-    this.addToProgression(video)
+    this.addToProgression(event, video)
     document.querySelector('.progression').classList.remove("drag-over-progression")
   }
 
-  addToProgression = (item) => {
+  addToProgression = (e, item) => {
+    e.preventDefault()
+    // if it's a video
+    const { addFlashMessage } = this.props
     if (item.videoId) {
       const any = this.state.currProgression.find(vid => vid.videoId === item.videoId)
       if (!any) {
@@ -106,14 +110,23 @@ class NewProgressionContainer extends Component {
           currProgression: [...this.state.currProgression, item]
         })
       } else {
-        this.props.addFlashMessage("Your progression already contains this video")
+        addFlashMessage("Your progression already contains this video")
       }
+    // if it's a reflection
     } else {
-      this.setState({
-        ...this.state,
-        menuSelect: '',
-        currProgression: [...this.state.currProgression, item]
-      })
+      if (this.containsReflection()) {
+        addFlashMessage("A progression can only contain one reflection")
+        this.setState({
+          ...this.state,
+          menuSelect: ''
+        })
+      } else {
+        this.setState({
+          ...this.state,
+          menuSelect: '',
+          currProgression: [...this.state.currProgression, item]
+        })
+      }
     }
   }
 
@@ -138,13 +151,20 @@ class NewProgressionContainer extends Component {
   }
 
   handleMenuClick = (event) => {
-    const index = event.target.innerText === "Edit Progression" && this.state.currProgression.length > 0 ? 0 : ""
-    this.setState({
-      ...this.state,
-      selectedIndex: index,
-      currProgression: [...this.state.currProgression],
-      menuSelect: event.target.innerText
-    })
+    const { addFlashMessage } = this.props
+    const selectedTab = event.target.innerText
+    const index = selectedTab === "Edit Progression" && this.state.currProgression.length > 0 ? 0 : ""
+
+    if (selectedTab === "Add Reflection" && this.containsReflection()){
+      addFlashMessage("Your progression already has a reflection (currently limited to one)")
+    } else {
+      this.setState({
+        ...this.state,
+        selectedIndex: index,
+        currProgression: [...this.state.currProgression],
+        menuSelect: event.target.innerText
+      })
+    }  
   }
 
   removeFromProgression = (movie) => {
@@ -248,12 +268,16 @@ class NewProgressionContainer extends Component {
         <NewProgressionMenuBar handleMenuClick={this.handleMenuClick} menuSelect={this.state.menuSelect} progressionEmpty={this.progressionEmpty}/>
         {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].videoId ? <DisplayPreview video={currProgression[selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
         {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].question1 ? <NewReflection key={selectedIndex} reflection={currProgression[selectedIndex]} addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
-
         {this.state.menuSelect === "Add YouTube Video" ? <VideoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
         {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
         {this.state.menuSelect === "Add Reflection" ? <NewReflection reflection='' addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
       </div>
     )
+  }
+
+  containsReflection = () => {
+    const { currProgression } = this.state
+    return !!currProgression.find(item => item.question1)
   }
 
   render(){

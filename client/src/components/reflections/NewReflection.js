@@ -45,7 +45,7 @@ class NewReflection extends Component {
           <div className="lined-paper">
             <div className="lined-paper-form">
               <form
-                onSubmit={e => editing ? editReflectionItem(this.state) : addToProgression(this.state)}
+                onSubmit={e => editing ? editReflectionItem(this.state) : addToProgression(e, this.state)}
                 >
                 <div className="paper-form-title">
                   <input
