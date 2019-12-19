@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   patch '/klasses/:id/archive_student_progressions', to: 'klasses#archive_student_progressions'
 
+
   resources :progressions, only: [:index, :create, :show, :update, :destroy]
   resources :videos, only: [:index]
   resources :reflections, only: [:index]
@@ -14,11 +15,10 @@ Rails.application.routes.draw do
 
   resources :klasses do
     resources :students, only: [:index, :show, :create, :update, :destroy]
+    resources :progressions, only: [:update]
   end
-
 
   resources :students do
     resources :progressions, only: [:create, :update, :destroy]
   end
-
 end

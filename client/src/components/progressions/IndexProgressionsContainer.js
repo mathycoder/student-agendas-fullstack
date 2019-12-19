@@ -4,6 +4,7 @@ import IndexProgression from './IndexProgression'
 import { NavLink } from 'react-router-dom'
 import { deleteProgression } from '../../actions/progressionActions'
 import { connect } from 'react-redux'
+import { addProgressionToKlass } from '../../actions/studentProgressionActions'
 
 class IndexProgressionsContainer extends Component {
   state = {
@@ -106,6 +107,11 @@ class IndexProgressionsContainer extends Component {
     if (deleteCheck) { deleteProgression(progression) }
   }
 
+  handlePlusClick = (event, progression) => {
+    const { klass, addProgressionToKlass } = this.props
+    addProgressionToKlass(klass, progression)
+  }
+
   displayColors = () => {
     return ["red", "orange", "green", "blue", "purple"].map((color, index) => {
       return (
@@ -157,6 +163,7 @@ class IndexProgressionsContainer extends Component {
               return <StudentProgression
                         key={index}
                         handleDragStart={handleDragStart}
+                        handlePlusClick={this.handlePlusClick}
                         progression={progression}
                         reflections={reflections}
                         videos={videos}/>
@@ -179,7 +186,8 @@ class IndexProgressionsContainer extends Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    deleteProgression: (progression) => dispatch(deleteProgression(progression))
+    deleteProgression: (progression) => dispatch(deleteProgression(progression)),
+    addProgressionToKlass: (klass, progression) => dispatch(addProgressionToKlass(klass, progression))
   }
 }
 

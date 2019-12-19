@@ -10,4 +10,17 @@ class Klass < ApplicationRecord
     progressions_to_be_archived.each{|sp| sp.update(archived: true)}
     progressions_to_be_archived
   end
+
+  def add_progression_to_all(progression)
+    new_sps = self.students.map do |student|
+      if student.student_progressions.none?{|sp| sp.progression_id == progression.id}
+        sp = student.student_progressions.build
+        sp.progression = progression
+        sp.agenda_index = student.student_progressions.length
+        sp.save
+        sp
+      end
+    end
+    new_sps.compact
+  end
 end

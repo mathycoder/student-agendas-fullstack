@@ -46,6 +46,12 @@ class EditStudents extends Component {
         editId: student.id
       })
     }
+  }
+
+  handleRemoveStudentClick = (student) => {
+    const { removeStudentFromKlass } = this.props
+    const deleteCheck = window.confirm("Are you sure you want to delete this student?  This will also delete all their data.");
+    if (deleteCheck) { removeStudentFromKlass(student) }
 
   }
 
@@ -64,7 +70,7 @@ class EditStudents extends Component {
             <div>{student.username}</div>
             <div>{student.password}</div>
             <div><button onClick={e => this.handleEditClick(student)}>Edit</button></div>
-            <div><button onClick={e => this.props.removeStudentFromKlass(student)}>Delete</button></div>
+            <div><button onClick={e => this.handleRemoveStudentClick(student)}>Delete</button></div>
           </div>
         )
       } else {

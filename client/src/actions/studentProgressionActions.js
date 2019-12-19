@@ -102,3 +102,17 @@ export function archiveStudentProgressions(currentUser, klassId){
       .then(studentProgressions => dispatch({ type: 'SWITCH_PROGRESSION', studentProgressions }))
   }
 }
+
+export function addProgressionToKlass(klass, progression) {
+  return (dispatch) => {
+    fetch(`/klasses/${klass.id}/progressions/${progression.id}`, {
+      method: "PATCH",
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(studentProgressions => { console.log(studentProgressions) })
+  }
+}

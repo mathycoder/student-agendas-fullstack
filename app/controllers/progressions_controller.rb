@@ -41,26 +41,28 @@ class ProgressionsController < ApplicationController
   def update
     if !params[:student_id]
       @progression = Progression.find_by(id: params[:id])
-      if @progression.update(progression_params)
-        render json: @progression.to_json(include: [items: { include: [:video, :reflection]}])
+      if params[:klass_id]
+        @klass = Klass.find_by(id: params[:klass_id])
+        render json: @klass.add_progression_to_all(@progression)
       else
-        render json: {
-          error: @progression.errors.full_messages[0]
-          }, status: 422
+        if @progression.update(progression_params)
+          render json: @progression.to_json(include: [items: { include: [:video, :reflection]}])
+        else
+          render json: {
+            error: @progression.errors.full_messages[0]
+            }, status: 422
+        end
       end
     else
       @student_progression = StudentProgression.find_by(progression_id: params[:id], student_id: params[:student_id])
       if params[:submitted]
         @student_progression.update(submitted: true, submitted_at: Time.now)
         render json: {studentProgressions: StudentProgression.rearrange_progressions_after_submit(@student_progression)}
-        # render json: @student_progression
       elsif params[:response]
         @student_progression.update(question1_answer: params[:response])
         render json: @student_progression
       elsif params[:comment]
         @student_progression.update(question1_comment: params[:comment], graded: true, graded_at: Time.now)
-        # StudentProgression.rearrange_progressions_after_submit(@student_progression)
-        # render json: @student_progression
         render json: {studentProgressions: StudentProgression.rearrange_progressions_after_submit(@student_progression)}
       else
         @student_progressions = StudentProgression.rearrange_progressions(@student_progression, params[:student][:newIndex])
