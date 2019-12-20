@@ -123,7 +123,7 @@
   margin-top: 5px;
 }
 
-.student-agenda .dot {
+/* .student-agenda .dot {
   height: 4px;
   width: 4px;
   display: block;
@@ -131,18 +131,24 @@
   margin-left: 12.5px;
   z-index: 2;
   position: relative;
-}
+} */
 
-.student-agenda .post-it-indicator{
+.post-it-indicator{
   display: block;
-  background-image: url('/post-it.png');
+  position: relative;
+  background-image: url('/post-it2.png');
   background-size: cover;
-  width: 15px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   z-index: 6;
-  float: left;
+  /* margin: -70px 0 0 95px; */
+  /* margin: -64px 5px 0 auto; */
+  margin: -24px 15px 0 auto;
+  /* margin: -60px 0px 0 15px; */
 
+  opacity: 0.8;
 
+  /* transform: rotate(3deg); */
 }
 
 .new-student-form {

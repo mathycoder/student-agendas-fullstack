@@ -131,10 +131,11 @@ class ShowKlassRouter extends Component {
         <div onClick={this.handleClearProgressionsClick}>Archive Submitted</div>
         <div onClick={this.handleEditingStudents}>Edit Students</div>
         <div onClick={this.handleShowProgressions}>{showProgressions ? 'Hide Progressions' : 'Show Progressions'}</div>
-        <div onClick={this.handleSubmittedClick}>To Be Graded</div>
       </div>
     )
   }
+
+  //         <div onClick={this.handleSubmittedClick}>To Be Graded</div>
 
   renderStudentDropdownContainer = () => {
     const { student, studentDropdown } = this.state
@@ -154,9 +155,12 @@ class ShowKlassRouter extends Component {
           <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
           {editingStudents ? '' : this.renderStudentDropdownContainer()}
           {editingStudents ? '' :
-          <div className="gear" onClick={this.handleSettingsClick} ref={this.myRefGearIcon}>
-            <img className={settings ? 'clock':'counterclock'} src="/gear.png" />
-          </div>}
+          <>
+            <div className={`post-it-icon`} onClick={this.handleSubmittedClick}></div>
+            <div className="gear" onClick={this.handleSettingsClick} ref={this.myRefGearIcon}>
+              <img className={settings ? 'clock':'counterclock'} src="/gear.png" />
+            </div>
+          </>}
         </div>
       )
     } else {

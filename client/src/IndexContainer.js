@@ -29,13 +29,13 @@ class IndexContainer extends Component {
       return (
         <>
           <Route exact path="/" component={Login} />
-          <Route exact path="/login" component={Login} />
-            <Route exact path="/login" render={(props) => (
-                currentUser === "none" ? <Login /> :
-                (currentUser.type === "teacher" ?
-                  <Redirect to="/classes"/> :
-                  <Redirect to="/myagenda"/>))}
-            />
+          <Route exact path="/login"
+            render={(props) => (
+              currentUser === "none" ? <Login /> :
+              (currentUser.type === "teacher" ?
+                <Redirect to="/classes"/> :
+                <Redirect to="/myagenda"/>))}
+          />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/logout" component={Logout} />
           <PrivateRoute type="student" path="/myagenda" component={AgendaContainer} />

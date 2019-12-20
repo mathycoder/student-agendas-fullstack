@@ -20,6 +20,21 @@
   margin-top: 3px;
 }
 
+.post-it-icon{
+  display: block;
+  position: relative;
+  background-image: url('/post-it.png');
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  z-index: 6;
+}
+
+.post-it-icon:hover {
+  cursor: pointer;
+}
+
 .gear .clock{
   transform-origin: center;
   transform: rotate(45deg);

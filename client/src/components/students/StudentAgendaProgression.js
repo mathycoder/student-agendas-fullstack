@@ -29,7 +29,7 @@ const StudentAgendaProgression = (props) => {
             <RenderItem progression={progression} klassShow={true}/>
           </div>
         </div>
-        <div className={`${progression.submitted && !progression.graded ?'dot yellow' :''}`}></div>
+        <div className={`${progression.submitted && progression.graded ?'post-it-indicator' :''}`}></div>
       </div>
     )
   } else {
