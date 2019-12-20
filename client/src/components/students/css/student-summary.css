@@ -1,7 +1,7 @@
 .student-summary-wrapper {
   width: 100%;
   display: grid;
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: 70px 1fr 100px;
 }
 
 .title-heading {
@@ -124,17 +124,18 @@
 }
 
 .summary-reflection {
-  background-image: url('/lined-paper2.png');
+  background-image: url('/lined-paper3.png');
   background-size: 200px 180px;
   background-repeat: no-repeat;
-
 }
 
 .summary-reflection p {
   padding-top: 32px;
   padding-left: 28px;
   padding-right: 10px;
+  padding-bottom: 10px;
   line-height: 21px;
+  height: 120px;
   overflow-y: scroll;
 }
 
@@ -150,6 +151,7 @@
 
 .summary-reflection-answer p {
   overflow-y: scroll;
+  max-height: 190px;
 }
 
 .summary-reflection-comment.post-it {

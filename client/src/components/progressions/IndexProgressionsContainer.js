@@ -109,7 +109,7 @@ class IndexProgressionsContainer extends Component {
 
   handlePlusClick = (event, progression) => {
     const { klass, addProgressionToKlass } = this.props
-    const deleteCheck = window.confirm("Are you sure you want to add this progression to each student agenda?  This will not add to students who have already completed this progression.");
+    const deleteCheck = window.confirm("Add this progression to each student agenda?");
     if (deleteCheck) { addProgressionToKlass(klass, progression) }
   }
 
