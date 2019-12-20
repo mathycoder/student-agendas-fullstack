@@ -99,7 +99,7 @@ class ShowKlassRouter extends Component {
   handleSubmittedClick = () => {
     this.setState({
       ...this.state,
-      submitted: !this.state.submitted
+      submitted: true
     })
   }
 
@@ -125,7 +125,7 @@ class ShowKlassRouter extends Component {
   }
 
   renderSettingsDropdown = () => {
-    const { settings, editingStudents, showProgressions } = this.state
+    const { settings, showProgressions } = this.state
     return (
       <div className={`dropdown-menu settings-dropdown ${settings ? 'opened': 'closed'}`} ref={this.myRefSettingsDropdown}>
         <div onClick={this.handleClearProgressionsClick}>Archive Submitted</div>
@@ -134,8 +134,6 @@ class ShowKlassRouter extends Component {
       </div>
     )
   }
-
-  //         <div onClick={this.handleSubmittedClick}>To Be Graded</div>
 
   renderStudentDropdownContainer = () => {
     const { student, studentDropdown } = this.state
@@ -147,8 +145,16 @@ class ShowKlassRouter extends Component {
     )
   }
 
+  numberToBeGraded = () => {
+        const { studentProgressions } = this.props
+        return studentProgressions.allIds.filter(spId => {
+          const sp = studentProgressions.byId[spId]
+          return sp.submitted && !sp.graded
+        }).length
+  }
+
   renderShowKlassMenuBar = (klass) => {
-    const { editingStudents, studentShowPage, summaryPage, settings, submitted } = this.state
+    const { editingStudents, studentShowPage, summaryPage, settings } = this.state
     if (!studentShowPage){
       return (
         <div className="klass-show-title">
@@ -156,9 +162,9 @@ class ShowKlassRouter extends Component {
           {editingStudents ? '' : this.renderStudentDropdownContainer()}
           {editingStudents ? '' :
           <>
-            <div className={`post-it-icon`} onClick={this.handleSubmittedClick}></div>
+            <div className={`post-it-icon`} onClick={this.handleSubmittedClick}><p>{this.numberToBeGraded()}</p></div>
             <div className="gear" onClick={this.handleSettingsClick} ref={this.myRefGearIcon}>
-              <img className={settings ? 'clock':'counterclock'} src="/gear.png" />
+              <img className={settings ? 'clock':'counterclock'} src="/gear.png" alt="gear icon" />
             </div>
           </>}
         </div>
@@ -227,7 +233,8 @@ function mapDispatchToProps(dispatch){
 function mapStateToProps(state){
   return {
     klasses: state.klasses,
-    students: state.students
+    students: state.students,
+    studentProgressions: state.studentProgressions
   }
 }
 

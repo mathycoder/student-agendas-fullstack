@@ -304,7 +304,8 @@
   display: flex;
   width: min-content;
   max-width: 400px;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .student-show-progression-item {

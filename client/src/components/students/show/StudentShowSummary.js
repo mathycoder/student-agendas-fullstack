@@ -13,10 +13,6 @@ class StudentShowSummary extends Component {
     editing: false
   }
 
-  componentDidMount(){
-    console.log(this.props.progressions)
-  }
-
   handleEditClick = (e, progression) => {
     e.preventDefault()
     this.setState({
@@ -29,7 +25,7 @@ class StudentShowSummary extends Component {
 
   handleEditSubmit = (e, attributes) => {
     const { progression } = this.state
-    const { students, progressions, updateStudentProgressionStatus} = this.props
+    const { students, updateStudentProgressionStatus} = this.props
     const student = students.byId[progression.studentId]
     updateStudentProgressionStatus(student, progression, attributes)
     this.setState({
@@ -91,7 +87,7 @@ class StudentShowSummary extends Component {
   }
 
   render(){
-    const { student, progressions, currentUser, myAgenda } = this.props
+    const { student, progressions, myAgenda } = this.props
     return (
       <div className="student-summary-wrapper">
         <div className="title-heading">

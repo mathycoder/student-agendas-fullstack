@@ -2,7 +2,7 @@ class KlassesController < ApplicationController
 
   def index
     @klasses = current_user.klasses.all
-    render json: @klasses
+    render json: {klasses: @klasses, counts: Klass.with_incomplete_count(@klasses)}
   end
 
   def create

@@ -5,6 +5,16 @@ class Klass < ApplicationRecord
   has_many :progressions, through: :student_progressions
   validates :name, presence: true, length: { maximum: 20, minimum: 3 }
 
+  def self.with_incomplete_count(klasses)
+    klasses.map do |klass|
+      klass_count = klass.student_progressions.filter{|sp| sp.submitted && !sp.graded}.length
+      {
+        id: klass.id,
+        count: klass_count
+      }
+    end
+  end
+
   def archive_student_progressions
     progressions_to_be_archived = self.student_progressions.select{|sp| sp.submitted && !sp.archived}
     progressions_to_be_archived.each{|sp| sp.update(archived: true)}

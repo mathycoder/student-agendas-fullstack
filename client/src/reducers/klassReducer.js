@@ -24,6 +24,10 @@ function klassesById(state = {}, action) {
         normalizedObject[`klass${klass.id}`] = klass
       })
 
+      action.counts.forEach(element => {
+        normalizedObject[`klass${element.id}`].count = element.count
+      })
+
       return {
         ...normalizedObject
       }

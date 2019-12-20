@@ -9,11 +9,11 @@ export function fetchKlasses() {
       }
     })
       .then(resp => resp.json())
-      .then(klasses => {
-        if (klasses.error){
+      .then(json => {
+        if (json.error){
           console.log("can't load klasses when not logged in")
         } else {
-          dispatch({ type: 'ADD_KLASSES', klasses })
+          dispatch({ type: 'ADD_KLASSES', klasses: json.klasses, counts: json.counts })
         }
       })
   }

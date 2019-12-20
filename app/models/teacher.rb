@@ -1,5 +1,8 @@
 class Teacher < ApplicationRecord
   has_many :klasses
+  has_many :students, through: :klasses
+  has_many :student_progressions, through: :students
+  
   has_many :progressions
   has_many :items, through: :progressions
   has_many :videos, through: :items

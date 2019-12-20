@@ -100,7 +100,7 @@ class AgendaContainer extends Component {
 
   renderMyAgenda = () => {
     const { currentUser, studentProgressions, progressions } = this.props
-    const { selectedProgressionId, itemIndex, summaryPage } = this.state
+    const { selectedProgressionId, itemIndex } = this.state
     return (
       <div className="myagenda-wrapper">
         <MyAgenda

@@ -57,6 +57,15 @@ const formatDate = (rawDate) => {
   }
 }
 
+export const numberToBeGraded = (students, studentProgressions, progressions) => {
+  const allProgressions = []
+  students.allIds.forEach(studentId => {
+    const student = students.byId[studentId]
+    allProgressions.push(getSubmittedAndUngradedStudentProgressions(student, studentProgressions, progressions))
+  })
+  return allProgressions.flat()
+}
+
 export const getAllSubmittedProgressions = (students, studentProgressions, progressions) => {
   const allProgressions = []
   students.allIds.forEach(studentId => {

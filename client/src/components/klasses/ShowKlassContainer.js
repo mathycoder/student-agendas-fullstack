@@ -28,7 +28,7 @@ class ShowKlassContainer extends Component {
   }
 
   handleDragDrop = (event) => {
-    const { studentProgressions, students, addStudentProgression, addFlashMessage, klass } = this.props
+    const { studentProgressions, students, addStudentProgression, addFlashMessage } = this.props
     const agenda = event.currentTarget.closest('.student-agenda')
     agenda.style.backgroundColor = "rgb(81, 84, 92)"
     let progression = event.dataTransfer.getData("progression")
