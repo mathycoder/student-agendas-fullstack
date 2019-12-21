@@ -41,6 +41,7 @@ class KlassesIndex extends Component {
                 <div>
                   <NavLink to={`/classes/${klass.id}`}>Class {klass.name}</NavLink>
                 </div>
+                <div className={`post-it-icon`}><p>{klass.count}</p></div>
                 <div>
                   <button onClick={e => this.handleEditKlassClick(klass.id)}>Edit</button>
                 </div>

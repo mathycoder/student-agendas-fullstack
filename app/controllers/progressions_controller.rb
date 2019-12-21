@@ -56,13 +56,13 @@ class ProgressionsController < ApplicationController
     else
       @student_progression = StudentProgression.find_by(progression_id: params[:id], student_id: params[:student_id])
       if params[:submitted]
-        @student_progression.update(submitted: true, submitted_at: Time.now)
+        @student_progression.update(submitted: true, submitted_at: Time.zone.now)
         render json: {studentProgressions: StudentProgression.rearrange_progressions_after_submit(@student_progression)}
       elsif params[:response]
         @student_progression.update(question1_answer: params[:response])
         render json: @student_progression
       elsif params[:comment]
-        @student_progression.update(question1_comment: params[:comment], graded: true, graded_at: Time.now)
+        @student_progression.update(question1_comment: params[:comment], graded: true, graded_at: Time.zone.now)
         render json: {studentProgressions: StudentProgression.rearrange_progressions_after_submit(@student_progression)}
       else
         @student_progressions = StudentProgression.rearrange_progressions(@student_progression, params[:student][:newIndex])

@@ -118,7 +118,7 @@
   display: grid;
   grid-template-rows: 100px auto 60px;
   border: 3px rgb(41, 44, 52) solid;
-  width: 400px;
+  width: 430px;
   background-color: rgb(81, 84, 92);
 }
 
@@ -155,13 +155,23 @@
 
 .klass-row {
   display: grid;
-  grid-template-columns: 200px 60px 60px;
+  grid-template-columns: 200px 40px 60px 60px;
 
   max-height: 60px;
   overflow-y: hidden;
   transition-property: max-height;
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(.56, 1, .56, 1);
+}
+
+.klass-row .post-it-icon {
+  position: relative;
+  color: black;
+  margin-top: 10px;
+}
+
+.klass-row .post-it-icon:hover {
+  cursor: default;
 }
 
 .klass-row div {

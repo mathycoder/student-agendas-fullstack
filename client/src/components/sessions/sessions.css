@@ -23,8 +23,10 @@
   outline-color: gray;
 }
 
-.login .klass-index-new-klass-button {
-  margin-right: 100px;
+.signup .klass-index-new-klass-button input[type=submit] {
+  width: 220px;
+  padding-right: 30px;
+  margin-right: 10px;
 
 }
 
