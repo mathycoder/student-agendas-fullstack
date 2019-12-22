@@ -164,7 +164,7 @@ class NewProgressionContainer extends Component {
         currProgression: [...this.state.currProgression],
         menuSelect: event.target.innerText
       })
-    }  
+    }
   }
 
   removeFromProgression = (movie) => {

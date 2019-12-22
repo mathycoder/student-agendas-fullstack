@@ -38,6 +38,8 @@ class VideoSearchContainer extends Component {
   }
 
   render() {
+    const { staticState, videoSearch, handleDragStart, addToProgression } = this.props
+    const { videoIndex } = this.state
     return (
       <div className="searched-videos-display">
         <form onSubmit={this.handleSubmit}>
@@ -52,11 +54,12 @@ class VideoSearchContainer extends Component {
           </div>
         </form>
         <div className="search-videos-container">
-          {this.props.staticState.loading ? <div className="loading"></div>: ''}
-          {this.props.videoSearch.length > 0 ? <DisplaySearchResults handleDragStart={this.props.handleDragStart} handleVideoClick={this.handleVideoClick} videos={this.props.videoSearch || []}/> : ''}
-          {this.state.videoIndex !== "" ?
-            <DisplayPreview shiftup={true} addToProgression={this.props.addToProgression} video={this.props.videoSearch[this.state.videoIndex]}/>
-            : (this.props.staticState.loading ? '' : <div className="video-icon"><img src="/projector.png" alt="video projector"/></div>)}        </div>
+          {staticState.loading ? <div className="loading"></div>: ''}
+          {videoSearch.length > 0 ? <DisplaySearchResults handleDragStart={handleDragStart} handleVideoClick={this.handleVideoClick} videos={videoSearch || []}/> : ''}
+          {videoIndex !== "" ?
+            <DisplayPreview shiftup={true} addToProgression={addToProgression} video={videoSearch[videoIndex]}/>
+            : (staticState.loading ? '' : <div className="video-icon"><img src="/projector.png" alt="video projector"/></div>)}
+        </div>
       </div>
     )
   }

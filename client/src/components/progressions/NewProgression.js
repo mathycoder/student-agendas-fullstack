@@ -68,8 +68,13 @@ class NewProgression extends Component {
   }
 
   render(){
+    const { innerRef, color, handleDragOver, handleDragLeave, handleOnDrop} = this.props
     return (
-      <div ref={node => this.props.innerRef(node)} className={`progression ${this.props.color}`} onDragOver={this.props.handleDragOver} onDragLeave={this.props.handleDragLeave} onDrop={this.props.handleOnDrop} >
+      <div ref={node => innerRef(node)}
+        className={`progression ${color}`}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleOnDrop} >
         {this.displayProgression()}
       </div>
     )
