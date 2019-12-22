@@ -1,26 +1,47 @@
-# README
+# Student Agendas
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Student Agendas!  This application is an educational tool for assigning video progressions into individualized student agendas.  Created using a React-Redux front end and a Rails API backend.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Clone this repository using
 
-* System dependencies
+  $ git clone git@github.com:mathycoder/student-agendas-fullstack.git
 
-* Configuration
+Then go into the directory
 
-* Database creation
+  $ cd student-agendas-fullstack
 
-* Database initialization
+From there, execute bundle
 
-* How to run the test suite
+  $ bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+You'll also need to install JS packages
 
-* ...
-# agendas-fullstack
-# student-agendas-fullstack
+  $ npm install
+
+You'll need to load up the database, so run:
+
+  $ rake db:migrate
+
+Finally, use a rake task to load up both the front-end and backend:
+
+  $ rake start
+
+## Usage
+
+Start by creating a new teacher account.
+* Create a new class.
+* Navigate to edit students in the settings menu, and create your first students.
+* Create your first progressions using 'New Progression'.
+* Drag the progressions into your student agendas.
+* Give students their usernames and passwords, and let them start their agendas!
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/mathycoder/student-agendas-fullstack. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The application is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
