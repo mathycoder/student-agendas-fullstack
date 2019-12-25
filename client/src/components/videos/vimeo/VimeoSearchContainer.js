@@ -20,15 +20,17 @@ class VimeoSearchContainer extends Component {
 
   handleChange = (event) => {
     this.setState({
-      videos: this.state.videos,
+      ...this.state,
       searchTerm: event.target.value
     })
   }
 
   handleSubmit = (event) => {
+    const { vimeoVideoSearch } = this.props
+    const { searchTerm } = this.state
     event.preventDefault()
     this.setState({...this.state, videoIndex: ''})
-    this.props.vimeoVideoSearch(this.state.searchTerm)
+    vimeoVideoSearch(searchTerm)
   }
 
   handleVideoClick = (index) => {
@@ -39,6 +41,8 @@ class VimeoSearchContainer extends Component {
   }
 
   render() {
+    const { staticState, videoSearch, handleDragStart, addToProgression } = this.props
+    const { videoIndex, searchTerm } = this.state
     return (
       <div className="searched-videos-display">
         <form onSubmit={this.handleSubmit}>
@@ -46,19 +50,18 @@ class VimeoSearchContainer extends Component {
             <div className="mag-glass"></div>
             <input
               type="text"
-              required
-              value={this.state.searchTerm}
+              value={searchTerm}
               onChange={this.handleChange}
               />
             <input type="submit" value="Search"/>
           </div>
         </form>
         <div className="search-videos-container">
-          {this.props.staticState.loading ? <div className="loading"></div>: ''}
-          {this.props.videoSearch.length > 0 ? <DisplaySearchResults handleDragStart={this.props.handleDragStart} handleVideoClick={this.handleVideoClick} videos={this.props.videoSearch || []}/> : ''}
-          {this.state.videoIndex !== "" ?
-            <DisplayPreview shiftup={true} addToProgression={this.props.addToProgression} video={this.props.videoSearch[this.state.videoIndex]}/>
-            : (this.props.staticState.loading ? '' : <div className="video-icon"><img src="/projector.png" alt="a projector"/></div>)}
+          {staticState.loading ? <div className="loading"></div>: ''}
+          {videoSearch.length > 0 ? <DisplaySearchResults handleDragStart={handleDragStart} handleVideoClick={this.handleVideoClick} videos={videoSearch || []}/> : ''}
+          {videoIndex !== "" ?
+            <DisplayPreview shiftup={true} addToProgression={addToProgression} video={videoSearch[videoIndex]}/>
+            : (staticState.loading ? '' : <div className="video-icon"><img src="/projector.png" alt="video projector"/></div>)}
         </div>
       </div>
     )
@@ -66,9 +69,10 @@ class VimeoSearchContainer extends Component {
 }
 
 function mapStateToProps(state){
+  const { vimeo } = state.videoSearch
   return {
-    videoSearch: state.videoSearch.vimeo.videos,
-    staticState: state.videoSearch.vimeo.static
+    videoSearch: vimeo.videos,
+    staticState: vimeo.static
   }
 }
 

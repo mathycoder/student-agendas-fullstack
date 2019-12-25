@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VideoSearchContainer from '../videos/youtube/VideoSearchContainer'
+import YouTubeSearchContainer from '../videos/youtube/YouTubeSearchContainer'
 import VimeoSearchContainer from '../videos/vimeo/VimeoSearchContainer'
 import NewProgressionMenuBar from './NewProgressionMenuBar'
 import NewProgression from './NewProgression'
@@ -268,7 +268,7 @@ class NewProgressionContainer extends Component {
         <NewProgressionMenuBar handleMenuClick={this.handleMenuClick} menuSelect={this.state.menuSelect} progressionEmpty={this.progressionEmpty}/>
         {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].videoId ? <DisplayPreview video={currProgression[selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
         {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].question1 ? <NewReflection key={selectedIndex} reflection={currProgression[selectedIndex]} addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
-        {this.state.menuSelect === "Add YouTube Video" ? <VideoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
+        {this.state.menuSelect === "Add YouTube Video" ? <YouTubeSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
         {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
         {this.state.menuSelect === "Add Reflection" ? <NewReflection reflection='' addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
       </div>

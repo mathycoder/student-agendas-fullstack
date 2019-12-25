@@ -41,7 +41,6 @@ export function login(credentials, history){
         }
       })
       .catch(console.log)
-
   }
 }
 
