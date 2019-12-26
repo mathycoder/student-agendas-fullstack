@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import DisplaySearchResults from './DisplaySearchResults'
 import DisplayPreview from './DisplayPreview'
-// import { connect } from 'react-redux'
-// import { vimeoVideoSearch, youTubeVideoSearch } from '../../actions/videoSearchActions'
-
 
 class SearchContainer extends Component {
   state = {
