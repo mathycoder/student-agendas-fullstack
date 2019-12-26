@@ -26,11 +26,11 @@ class VimeoSearchContainer extends Component {
   }
 
   handleSubmit = (event) => {
-    const { vimeoVideoSearch } = this.props
+    const { dispatchVideoSearch } = this.props
     const { searchTerm } = this.state
     event.preventDefault()
     this.setState({...this.state, videoIndex: ''})
-    vimeoVideoSearch(searchTerm)
+    dispatchVideoSearch(searchTerm)
   }
 
   handleVideoClick = (index) => {
@@ -78,7 +78,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    vimeoVideoSearch: (query) => dispatch(vimeoVideoSearch(query))
+    dispatchVideoSearch: (query) => dispatch(vimeoVideoSearch(query))
   }
 }
 

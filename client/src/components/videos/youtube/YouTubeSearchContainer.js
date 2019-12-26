@@ -26,9 +26,11 @@ class YouTubeSearchContainer extends Component {
   }
 
   handleSubmit = (event) => {
+    const { dispatchVideoSearch } = this.props
+    const { searchTerm } = this.state
     event.preventDefault()
     this.setState({...this.state, videoIndex: ''})
-    this.props.youTubeVideoSearch(this.state.searchTerm)
+    dispatchVideoSearch(searchTerm)
   }
 
   handleVideoClick = (index) => {
@@ -76,7 +78,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    youTubeVideoSearch: (query) => dispatch(youTubeVideoSearch(query))
+    dispatchVideoSearch: (query) => dispatch(youTubeVideoSearch(query))
   }
 }
 

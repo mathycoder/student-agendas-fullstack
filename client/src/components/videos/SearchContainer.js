@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import DisplaySearchResults from './DisplaySearchResults'
 import DisplayPreview from './DisplayPreview'
-import { connect } from 'react-redux'
-import { vimeoVideoSearch, youTubeVideoSearch } from '../../actions/videoSearchActions'
+// import { connect } from 'react-redux'
+// import { vimeoVideoSearch, youTubeVideoSearch } from '../../actions/videoSearchActions'
 
 
 class SearchContainer extends Component {
@@ -26,11 +26,11 @@ class SearchContainer extends Component {
   }
 
   handleSubmit = (event) => {
-    const { vimeoVideoSearch } = this.props
+    const { dispatchVideoSearch } = this.props
     const { searchTerm } = this.state
     event.preventDefault()
     this.setState({...this.state, videoIndex: ''})
-    vimeoVideoSearch(searchTerm)
+    dispatchVideoSearch(searchTerm)
   }
 
   handleVideoClick = (index) => {
@@ -42,7 +42,7 @@ class SearchContainer extends Component {
 
   render() {
     const { staticState, videoSearch, handleDragStart, addToProgression } = this.props
-    const { videoIndex } = this.state
+    const { videoIndex, searchTerm } = this.state
     return (
       <div className="searched-videos-display">
         <form onSubmit={this.handleSubmit}>
@@ -50,7 +50,7 @@ class SearchContainer extends Component {
             <div className="mag-glass"></div>
             <input
               type="text"
-              value={this.state.searchTerm}
+              value={searchTerm}
               onChange={this.handleChange}
               />
             <input type="submit" value="Search"/>
@@ -68,17 +68,4 @@ class SearchContainer extends Component {
   }
 }
 
-function mapStateToProps(state){
-  return {
-    videoSearch: state.videoSearch.vimeo.videos,
-    staticState: state.videoSearch.vimeo.static
-  }
-}
-
-function mapDispatchToProps(dispatch){
-  return {
-    vimeoVideoSearch: (query) => dispatch(vimeoVideoSearch(query))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer)
+export default SearchContainer
