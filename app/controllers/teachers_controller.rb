@@ -6,7 +6,7 @@ class TeachersController < ApplicationController
     @teacher.password = params[:password]
     if @teacher.save
       session[:user_id] = @teacher.id
-      render json: @teacher.to_json(only: [:name, :email, :id, :image_url]), status: 201
+      render json: {user: @teacher, type: "teacher"}, status: 201
     else
       render json: {
         error: @teacher.errors.full_messages.first

@@ -12,7 +12,7 @@ import NavBar from './components/navbar/NavBar'
 import { connect } from 'react-redux'
 import { Route, Redirect, BrowserRouter as Router } from "react-router-dom";
 import PrivateRoute from './components/routes/PrivateRoute'
-
+import PublicRoute from './components/routes/PublicRoute'
 
 class App extends Component {
   componentDidMount(){
@@ -25,14 +25,8 @@ class App extends Component {
       return (
         <>
           <Route exact path="/" component={Login} />
-          <Route exact path="/login"
-            render={(props) => (
-              currentUser === "none" ? <Login /> :
-              (currentUser.type === "teacher" ?
-                <Redirect to="/classes"/> :
-                <Redirect to="/myagenda"/>))}
-          />
-          <Route exact path="/signup" component={Signup} />
+          <PublicRoute path="/login" component={Login} />
+          <PublicRoute path="/signup" component={Signup} />
           <Route exact path="/logout" component={Logout} />
           <PrivateRoute type="student" path="/myagenda" component={AgendaContainer} />
           <PrivateRoute type="teacher" path="/profile" component={TeacherProfile} />
