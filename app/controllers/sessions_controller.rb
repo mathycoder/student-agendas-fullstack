@@ -23,10 +23,14 @@ class SessionsController < ApplicationController
       @student = Student.find_by(username: params[:session][:username])
       if @student && @student.password == params[:session][:password]
         session[:student_id] = @student.id
-        render json: {user: @student, type: "student"}, status: 201
-        #render json: [@student.to_json(only: [:firstName, :lastName, :username, :id]), {type: "student"}], status: 201
-        #render json: @student.to_json(only: [:firstName, :lastName, :username, :id]), status: 201
-
+        #render json: {user: @student, type: "student"}, status: 201
+        render json: {
+          user: {
+            firstName: @student.firstName,
+            lastName: @student.lastName,
+            klass_id: @student.klass_id,
+            id: @student.id
+          }, type: "student"}, status: 201
       else
         render json: {
           error: "Invalid Credentials", status: 422
@@ -45,7 +49,13 @@ class SessionsController < ApplicationController
           id: current_user.id
         }, type: "teacher"}, status: 201
     elsif current_user && current_user.is_a?(Student)
-      render json: {user: current_user, type: "student"}
+      render json: {
+        user: {
+          firstName: current_user.firstName,
+          lastName: current_user.lastName,
+          klass_id: current_user.klass_id,
+          id: current_user.id
+        }, type: "student"}, status: 201
     else
       render json: {
         error: "No one logged in"
