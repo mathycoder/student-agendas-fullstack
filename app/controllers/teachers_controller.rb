@@ -31,7 +31,13 @@ class TeachersController < ApplicationController
       end
 
       if @teacher.update(image_url: filename)
-        render json: {user: @teacher, type: "teacher"}, status: 201
+        render json: {
+          user: {
+            name: @teacher.name,
+            email: @teacher.email,
+            image_url: @teacher.image_url,
+            id: @teacher.id
+          }, type: "teacher"}, status: 201
       else
         render json: {
           error: @teacher.errors.full_messages.first
@@ -39,7 +45,13 @@ class TeachersController < ApplicationController
       end
     else
       if @teacher.update(name: params[:teacher][:name])
-        render json: {user: @teacher, type: "teacher"}, status: 201
+        render json: {
+          user: {
+            name: @teacher.name,
+            email: @teacher.email,
+            image_url: @teacher.image_url,
+            id: @teacher.id
+          }, type: "teacher"}, status: 201
       else
         render json: {
           error: @teacher.errors.full_messages.first
