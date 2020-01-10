@@ -1,3 +1,7 @@
+.favorite-me {
+  padding:20px;
+}
+
 .klass-show-container {
   display: grid;
   grid-template-rows: 1fr;
