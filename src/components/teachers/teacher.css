@@ -1,0 +1,39 @@
+.home-page-wrapper.profile .form-input-fields {
+  height: 300px;
+}
+
+.home-page-wrapper.profile .form-input-fields input[type=text] {
+  width: 250px;
+  text-align: center;
+}
+
+.home-page-wrapper.profile .profile-pic-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgray;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-left: -20px;
+}
+
+
+.profile-pic-form .file-submit input[type=submit] {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+
+.profile-pic-form img {
+  height: 100px;
+  width: 80px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.profile-pic-form input[type=file]{
+  width: 180px;
+}

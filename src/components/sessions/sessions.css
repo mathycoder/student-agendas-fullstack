@@ -1,0 +1,59 @@
+.login .form-input-fields, .signup .form-input-fields, .profile .form-input-fields {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 140px;
+  justify-content: center;
+}
+
+.form-input-fields input[type=text], .form-input-fields input[type=password] {
+  min-width: 220px;
+  font-size: 16px;
+  height: 24px;
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin: 10px 0px;
+  border: 2px gray solid;
+
+}
+
+.form-input-fields input[type=text]:focus, .form-input-fields input[type=password]:focus {
+  outline-color: gray;
+}
+
+.signup .klass-index-new-klass-button input[type=submit] {
+  width: 220px;
+  padding-right: 30px;
+  margin-right: 10px;
+
+}
+
+.signup .klass-index-container {
+  height: 370px;
+}
+
+
+.signup .form-input-fields div:first-child {
+  margin-top: 40px;
+}
+
+.radio-input {
+  display: flex;
+  color: white;
+}
+
+
+
+.radio-input div {
+  margin: 0 8px;
+}
+
+.radio-input input[type=radio] {
+  margin: 0 5px;
+}
+
+.radio-input input[type=radio]:checked {
+  background-color: grey;
+}

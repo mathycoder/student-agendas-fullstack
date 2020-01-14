@@ -1,0 +1,356 @@
+.new-progression-container {
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 40px 170px 50px 400px;
+}
+
+.create-progression-form {
+  display: flex;
+  align-items: center;
+
+}
+
+
+.color-container {
+  display: flex;
+}
+
+.select-color {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  z-index: 3;
+}
+
+.selected-color.selected-color {
+  border: 2px yellow solid;
+  width: 16px;
+  height: 16px;
+}
+
+.red {
+  background-color: rgb(250, 224, 224);
+}
+
+.red-title {
+  background-color: rgb(233, 43, 43);
+}
+
+.orange {
+  background-color: rgb(250, 242, 224);
+}
+
+.orange-title {
+  /* background-color: rgb(233, 162, 43); */
+  background-color: rgb(217, 139, 8);
+}
+
+.green {
+  background-color: rgb(227, 250, 224);
+}
+
+.green-title {
+  /* background-color: rgb(105, 232, 45); */
+  background-color: rgb(37, 189, 21);
+}
+
+.blue {
+  background-color: rgb(221, 237, 245);
+}
+
+.blue-title {
+  background-color: rgb(46, 185, 227);
+}
+
+.purple {
+  background-color: rgb(233, 224, 250);
+}
+
+.purple-title {
+  background-color: rgb(116, 45, 232);
+}
+
+.new-progression-title {
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-left: 30px;
+  display: inline-block;
+  /* background-color: rgb(117, 27, 238); */
+  border: 0.5px solid rgb(235, 225, 253);
+  color: white;
+  font-weight: bold;
+  padding: 2px 10px;
+  padding-bottom: 3px;
+  width: fit-content;
+  z-index: 2;
+  font-size: 11px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.create-progression-form input[type=text] {
+  margin-right: 10px;
+  width: 250px;
+  height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: inherit;
+  color: white;
+  border: none;
+}
+
+.create-progression-form input[type=text]:focus {
+  outline: none;
+}
+
+.create-progression-form input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  font-weight: lighter;
+  font-style: italic;
+  opacity: 1; /* Firefox */
+}
+
+.create-progression-form input[type=text]:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.create-progression-form input[type=text]::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.create-progression-form input[type=submit], input[type=submit], button {
+  margin-left: 10px;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	background-color:#f9f9f9;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+
+}
+
+.create-progression-form input[type=submit]:hover, input[type=submit]:hover, button:hover {
+  /* background-color: rgb(27, 153, 234); */
+  background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	background-color:#e9e9e9;
+  cursor: pointer;
+}
+
+.progression {
+  margin: 0px 30px;
+  padding: 10px;
+  display: flex;
+  overflow-x: scroll;
+  /* background-color: rgb(221, 237, 245);*/
+  border: 2px dashed black;
+  border-radius: 20px;
+}
+
+.progression::after { content: ' '; min-width: 50px; }
+
+.progression-item {
+  width: 160px;
+  min-width: 160px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: -15px;
+  background-color: white;
+  box-shadow: 2px 5px 9px #888888;
+}
+
+.reflection-item {
+
+}
+
+.progression .progression-item:hover {
+  border: 1px gray solid;
+  cursor: pointer;
+}
+
+.progression .progression-item .progression-item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  height: 35px;
+  overflow: hidden;
+}
+
+.progression-item img {
+  width: 140px;
+  height: 75px;
+  object-fit: cover;
+}
+
+.x-out {
+  display: inline;
+  position: relative;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 0px 4px;
+  color: white;
+  background-color: rgb(234, 130, 120);
+  border-radius: 3px;
+  left: 5px;
+  bottom: 5px;
+}
+
+.x-out:hover {
+  background-color: rgb(235, 81, 66);
+  cursor: pointer;
+}
+
+.progression .progression-item h4 {
+  display: inline;
+}
+
+.progression-menu-bar ul {
+  display: flex;
+  list-style-type: none;
+  margin-left: -40px;
+}
+
+.progression-menu-bar ul li {
+  padding: 2px 10px;
+  margin-right: 5px;
+  border: 1px black solid;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.progression-menu-bar ul li:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.progression-menu-bar a {
+  text-decoration: none;
+  color: black;
+}
+
+.progression-menu-bar .selected {
+  background-color: gray;
+}
+
+.drag-over-progression {
+  border: 3px gray solid;
+  padding: 8px;
+}
+
+.item-dragging {
+  border: 3px solid gray;
+  padding: 8px;
+}
+
+
+/* index progressions page */
+
+.progressions-index-container {
+  padding: 10px 20px;
+}
+
+.index-progression {
+  display: grid;
+  margin: 20px 0;
+  grid-template-columns: 150px 10px 1fr;
+}
+
+.index-progression-items {
+  display: flex;
+  border: 1px black dashed;
+  padding: 5px;
+  padding-right: 15px;
+  width: min-content;
+  max-width: 600px;
+  border-radius: 15px;
+  overflow: scroll;
+}
+
+.index-progression-item {
+  width: 80px;
+  min-width: 80px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+  margin-left: 10px;
+  background-color: white;
+  box-shadow: 2px 3px 3px #888888;
+}
+
+.index-progression-item img {
+  width: 70px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.index-progression-item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 10px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.index-progression-x-out {
+  display: block;
+  height: 20px;
+  width: 10px;
+  position: relative;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 0px 4px;
+  color: white;
+  background-color: rgb(234, 130, 120);
+  border-radius: 3px;
+  top: -10px;
+}
+
+.index-progression-x-out:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+
+  .new-progression-container {
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 55px 170px 65px 350px;
+  }
+
+  .create-progression-form {
+    margin-left: -30px;
+  }
+
+  .color-container {
+    position: absolute;
+    left: 330px;
+    top: 50px;
+  }
+
+  .create-progression-form input[type=submit]{
+    margin-top: 15px;
+    padding: 3px 10px;
+  }
+
+
+}

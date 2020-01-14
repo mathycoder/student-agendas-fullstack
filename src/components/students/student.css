@@ -1,0 +1,644 @@
+.favorite-me {
+  padding:20px;
+}
+
+.klass-show-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 3fr 2fr;
+}
+
+.klass-show-title {
+  grid-column: 1 / 3;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.klass-show-title a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.klass-show-title a:hover {
+  color: rgb(100, 100, 100);
+}
+
+.klass-show-title button:focus {
+  outline: none;
+}
+
+.klass-show-title .myagenda-navbar {
+  margin-left: 15px;
+  margin-top: 0px;
+}
+
+.student-agendas {
+  padding: 0 20px;
+  height: 530px;
+  overflow-y: scroll;
+}
+
+.summary-column {
+  grid-column: 1 / 3;
+}
+
+/* --------- when there's no progressions, agendas stretch here -------------- */
+.student-agendas.slide-width {
+  grid-column: 1 / 3;
+}
+
+.student-agendas .student-agenda {
+  width: 540px;
+}
+
+.student-agendas.slide-width .student-agenda {
+  width: 800px;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(.56, 1, .56, 1);
+}
+
+
+/* --------------------------------------------------------------------------- */
+
+.student-row {
+  display: flex;
+  margin: 10px;
+  height: 85px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.student-row .student-name {
+  display: flex;
+  min-width: 100px;
+  max-width: 100px;
+  font-size: 12px;
+  padding-right: 10px;
+}
+
+.student-name a {
+  text-decoration: none;
+  color: black;
+}
+
+.student-name a:hover {
+  color: gray;
+}
+
+.student-name .index-progression-x-out {
+  top: 23px;
+  margin-right: 10px;
+}
+
+
+/* ----------------modifying student agendas to match MyAgenda -------------- */
+.student-row {
+  display: flex;
+  margin: 10px;
+  height: 85px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.student-agenda {
+  width: 500px;
+  height: inherit;
+  /* background-color: rgb(240, 240, 240);
+  border: 3px solid rgb(200, 200, 200); */
+  background-color: rgb(81, 84, 92);
+  border: 3px solid black;
+}
+
+.student-agenda .progression-wrapper .progression-status {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 0 auto;
+  font-size: 9px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* .student-agenda .dot {
+  height: 4px;
+  width: 4px;
+  display: block;
+  margin-top: -67px;
+  margin-left: 12.5px;
+  z-index: 2;
+  position: relative;
+} */
+
+.post-it-indicator{
+  display: block;
+  position: relative;
+  background-image: url('/post-it2.png');
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  z-index: 6;
+  /* margin: -70px 0 0 95px; */
+  /* margin: -64px 5px 0 auto; */
+  margin: -24px 15px 0 auto;
+  /* margin: -60px 0px 0 15px; */
+
+  opacity: 0.8;
+
+  /* transform: rotate(3deg); */
+}
+
+.new-student-form {
+  margin-left: 20px;
+}
+
+/* ---------------progressions container on show page------------------------------ */
+
+.student-show-progressions-container {
+  display: grid;
+  grid-template-rows: 50px 35px 1fr;
+  margin-right: 20px;
+  margin-top: 5px;
+  /* background-color: rgb(141, 144, 152); */
+  background-color: lightgray;
+  border: 3px rgb(41, 44, 52) solid;
+  width: 440px;
+  height: 500px;
+}
+
+.search-filters {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(101, 104, 112);
+}
+
+.search-filters button {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.search-filters button.recent {
+  border: 3px solid yellow;
+  padding: 3px 8px;
+}
+
+.search-filters button:focus {
+  outline: none;
+}
+
+.student-show-progressions-color-choice {
+  display: flex;
+  padding-left: 12px;
+
+}
+
+.student-show-progressions-header {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  background-color: rgb(101, 104, 112);
+  padding: 20px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.student-show-progressions-header a {
+  text-decoration: none;
+  color: white;
+}
+
+.student-show-progressions-header div:first-child {
+  margin-right: 25px;
+}
+
+.student-show-progressions-header div:nth-child(2) {
+  margin-top: 5px;
+}
+
+.student-show-progressions-header .search-bar {
+  width: 240px;
+  background-color: white;
+}
+
+.student-show-progressions-header .search-bar .mag-glass {
+  width: 18px;
+  height: 18px;
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.student-show-progressions-header .search-bar input[type=text]{
+  width: 150px;
+}
+
+.student-show-progressions-index {
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.progression-container-box {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+}
+
+.progression-container-box button {
+  background: none;
+  color: black;
+  border: 1px solid black;
+  padding: 0px;
+  width: 20px;
+  height: 20px;
+  margin-left: -7px;
+  margin-top: 30px;
+  box-shadow: none;
+  shadow: none;
+}
+
+.progression-container-box button:hover{
+  border: 1px solid rgb(100, 100, 100);
+  color: rgb(100, 100, 100);
+}
+
+.progression-container-box button:focus{
+  outline: none;
+}
+
+.student-show-progression {
+  opacity: 0.999;
+  border: 1px black dashed;
+  display: grid;
+  grid-template-rows: 0px 62px;
+  margin-bottom: 15px;
+  padding: 8px;
+  padding-left: 0px;
+  padding-right: 10px;
+  border-radius: 20px;
+  /* background-color: rgb(235, 225, 253); */
+  width: min-content;
+}
+
+.student-show-progression-title {
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  padding: 2px 10px;
+  padding-bottom: 3px;
+  width: fit-content;
+  z-index: 2;
+  margin-left: -2px;
+  margin-top: -18px;
+  margin-bottom: auto;
+  font-size: 11px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  height: 12px;
+}
+
+.student-show-progression-items {
+  display: flex;
+  width: min-content;
+  max-width: 400px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.student-show-progression-item {
+  height: 38px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+  margin-left: 10px;
+  background-color: white;
+  box-shadow: 1px 2px 2px #888888;
+}
+
+.student-show-progression-item.reflection {
+  padding: 5px 4px 0px 8px;
+  width: 35px;
+  min-width: 35px;
+  height: 52px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.student-show-progression-item img {
+  height: 30px;
+  margin-left: -3px;
+  object-fit: cover;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.student-show-progression-item.reflection img {
+  width: 37px;
+  height: 37px;
+}
+
+
+.student-show-progression-item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 7px;
+  height: 9px;
+  overflow: hidden;
+}
+
+.student-show-progression-item.reflection .student-show-progression-item-title {
+  margin-left: -3px;
+}
+
+.student-show-progression-item.student-show-progression-reflection .student-show-progression-item-title {
+  max-height: 12px;
+}
+
+.drag-over-student-agenda {
+  background-color: red;
+}
+
+/* --------------------progressions in student agendas------------------------- */
+.student-agenda {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.student-agenda::after { content: ' '; min-width: 15px; }
+
+.student-agenda .student-show-progression {
+  margin-top: 15px;
+  margin-left: 12px;
+  margin-right: 4px;
+  grid-template-rows: 0px 45px;
+  margin-bottom: 0px;
+}
+
+
+.student-agenda .student-show-progression-title {
+  font-size: 10px;
+  overflow: hidden;
+  height: 11px;
+}
+
+.student-agenda .student-show-progression-title .student-prog-x {
+  display: inline-block;
+  margin-right: 3px;
+  margin-left: -5px;
+  top: -3px;
+  font-weight: 200;
+}
+
+.student-prog-x:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.student-agenda .student-show-progression-items {
+  max-width: 400px;
+}
+
+.student-agenda .student-show-progression-item {
+  width: 30px;
+  min-width: 30px;
+  height: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.student-agenda .student-show-progression-item.reflection {
+  padding: 5px 0px 0px 4px;
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.student-agenda .student-show-progression-item img {
+  width: 35px;
+  height: 20px;
+
+}
+
+.student-agenda .student-show-progression-item.reflection img {
+  width: 30px;
+  height: 30px;
+
+}
+
+.student-agenda .student-show-progression-item-title {
+  font-weight: bold;
+  font-size: 0px;
+  height: 9px;
+  overflow: hidden;
+}
+
+/* .color-bar-wrapper {
+  width: 100%;
+}
+
+.color-bar {
+  z-index: 5;
+  width: 100%;
+  height: 5px;
+  margin-top: 3px;
+  background-color: red;
+  opacity: 0.5;
+}
+
+.color-bar.green {
+  background-color: rgb(21, 250, 17);
+}
+
+.color-bar.yellow {
+  background-color: rgb(251, 255, 0 );
+} */
+
+/* -------------------Progressions Index Page -------------------------- */
+
+.student-show-progressions-container.index-page {
+  width: 600px;
+  height: 570px;
+  grid-template-rows: 70px 50px 1fr;
+  border: black solid 3px;
+  margin: 20px auto;
+}
+
+
+.index-page .student-show-progressions-color-choice div {
+  margin-left: 10px;
+  height: 25px;
+  width: 25px;
+}
+
+
+.student-show-progressions-container.index-page .student-show-progressions-header {
+  justify-content: center;
+  font-size: 26px;
+  padding-bottom: 30px;
+}
+
+.student-show-progressions-container.index-page .selected-color {
+  width: 21px;
+  height: 21px;
+  border: 2px yellow solid;
+}
+
+.index-page .student-show-progressions-index {
+  overflow-y: scroll;
+  background-color: lightgrey;
+  justify-content: center;
+}
+
+.index-page .student-show-progression .index-progression-x-out {
+  left: -30px;
+  top: 40px;
+}
+
+.index-page .student-show-progression {
+  grid-template-rows: 0px 0px 100px;
+  border-radius: 30px;
+  margin-left: 30px;
+}
+
+.index-page .student-show-progression:hover {
+  cursor: pointer;
+}
+
+
+.index-page .student-show-progression-title {
+  font-size: 14px;
+  padding: 3px 12px;
+  padding-right: 20px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+  height: 18px;
+}
+
+.index-page .student-show-progression-items {
+  display: flex;
+  max-width: 500px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.index-page .student-show-progression-item {
+  width: 80px;
+  min-width: 80px;
+  height: 60px;
+  margin-top: 10px;
+}
+
+.index-page .student-show-progression-item.reflection {
+  padding: 5px 5px 0px 8px;
+  width: 55px;
+  min-width: 55px;
+  height: 74px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.index-page .student-show-progression-item img {
+  width: 70px;
+  height: 40px;
+}
+
+.index-page .student-show-progression-item.reflection img {
+  height: 60px;
+  width: 50px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.index-page .student-show-progression-item-title {
+  font-size: 10px;
+  height: 25px;
+
+}
+
+.index-page .student-show-progression-item.reflection .student-show-progression-item-title {
+  margin-top: -5px;
+  margin-left: -4px;
+  font-size: 10px;
+  height: 12px;
+  overflow: none;
+}
+
+
+@media screen and (max-width: 900px) {
+
+  .klass-show-container {
+
+  }
+
+  .student-show-progressions-container {
+    grid-row: 2;
+    grid-column: 1 / 3;
+    margin: 0 auto;
+    height: 200px;
+  }
+
+  .student-agendas {
+    grid-row: 3;
+    grid-column: 1 / 3;
+    margin-top: 20px;
+    height: 320px;
+  }
+
+  .student-agendas .student-agenda {
+    width: 700px;
+  }
+
+  .student-agendas.slide-width {
+    margin-top: 0px;
+    height: 550px;
+  }
+
+  .klass-show-container .student-show-progressions-container {
+    grid-template-rows: 50px 1fr;
+  }
+
+  .klass-show-container .search-filters {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .student-show-progressions-container.index-page .student-show-progressions-header {
+    font-size: 24px;
+    padding-left: 50px;
+  }
+
+  .index-page .student-show-progressions-color-choice div {
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
+  }
+
+  .student-show-progressions-container.index-page {
+    width: 460px;
+  }
+
+  .index-page .student-show-progression-items {
+    max-width: 370px;
+  }
+
+}

@@ -1,0 +1,20 @@
+.post-it-form textarea {
+  width: 180px;
+  height: 130px;
+  background: white;
+  border-radius: 20px;
+  border: 1px dashed black;
+  font-size: 14px;
+  padding: 10px 15px 0px 10px;
+  line-height: 24px;
+  resize: none;
+}
+
+.post-it-form textarea:focus {
+  outline: none;
+}
+
+.post-it-form input[type=submit] {
+  margin-left: 30px;
+  margin-top: 5px;
+}

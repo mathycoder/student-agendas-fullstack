@@ -1,0 +1,26 @@
+.flash-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgb(64, 190, 203);
+  color: white;
+  height: 40px;
+  z-index: 8;
+}
+
+.flash-message {
+  display: inline-block;
+}
+
+.flash-x {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+}
+
+.flash-x:hover {
+  color: grey;
+  cursor: pointer;
+}

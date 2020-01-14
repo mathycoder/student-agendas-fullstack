@@ -1,0 +1,188 @@
+.student-summary-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 70px 1fr 100px;
+}
+
+.title-heading {
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 0px;
+}
+
+.title-heading .color-logo {
+  margin-left: 22%;
+  margin-top: -15px;
+}
+
+.title-heading .color-logo div {
+  margin-left: 10px;
+  height: 8px;
+  width: 8px;
+}
+
+.student-summary-page {
+  margin: 20px;
+  border: 1px solid black;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.student-summary-page button, .student-summary-page input[type=submit] {
+  padding: 4px 8px;
+  color: black;
+  background-image: none;
+  background: transparent;
+  border: 2.5px solid black;
+}
+
+.student-summary-page button:focus, .student-summary-page input[type=submit]:focus {
+  outline: none;
+}
+
+.student-summary-page button:hover, .student-summary-page input[type=submit]:hover {
+  border: 2.5px solid rgb(80,80,80);
+  color: rgb(80,80,80);
+}
+
+.student-summary-page .header div:nth-child(2n-1)  {
+  width: 250px;
+  text-align:center;
+
+}
+
+.student-summary-page .header div:nth-child(2n)  {
+  width: 250px;
+  text-align:center;
+}
+
+.student-summary-page .progression-row  {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 14px;
+  padding: 0 10px;
+  background-color: rgb(225, 225, 225);
+}
+
+
+
+.student-summary-page .progression-row .summary-progression {
+  width: 250px;
+  height: 180px;
+  margin: 10px;
+}
+
+.student-summary-page .progression-row .summary-reflection  {
+  width: 200px;
+  height: 180px;
+  margin: 10px;
+}
+
+.student-summary-page .progression-row .summary-reflection-answer {
+  width: 250px;
+  max-height: 180px;
+  margin: 10px;
+}
+
+.student-summary-page .progression-row .summary-reflection-comment {
+  width: 200px;
+  height: 180px;
+  margin: 10px;
+}
+
+
+.student-summary-page .progression-row:nth-child(2n-1)  {
+  background-color: rgb(240, 240, 240);
+}
+
+.student-summary-page .summary-progression {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+
+.summary-dates {
+  display: flex;
+  justify-content: center;
+
+}
+
+.summary-dates .date-category {
+  margin-left: 20px;
+}
+
+
+.student-summary-page .progression-row .student-show-progression {
+  margin: auto;
+}
+
+.incomplete {
+  color: red;
+  font-weight: bold;
+}
+
+.summary-reflection {
+  background-image: url('/lined-paper3.png');
+  background-size: 200px 180px;
+  background-repeat: no-repeat;
+}
+
+.summary-reflection p {
+  padding-top: 32px;
+  padding-left: 28px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  line-height: 21px;
+  height: 120px;
+  overflow-y: scroll;
+}
+
+.summary-reflection-answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-reflection-answer .answer-title {
+  text-align: center;
+}
+
+.summary-reflection-answer p {
+  overflow-y: scroll;
+  max-height: 190px;
+}
+
+.summary-reflection-comment.post-it {
+  background-image: url('/post-it.png');
+  background-size: 200px 185px;
+  background-repeat: no-repeat;
+}
+
+.summary-reflection-comment.post-it p{
+  overflow-y: scroll;
+  height: 140px;
+  transform: rotate(-3deg);
+  margin-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.summary-reflection-comment .edit-comment-button {
+  display: block;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.student-summary-page .progression-row .summary-dates div:first-child{
+  margin-bottom: 12px;
+}
+
+.student-summary-page .student-show-progression {
+  height: 65px;
+}
+
+.student-summary-page .student-show-progression .student-show-progression-items {
+  max-width: 240px;
+}

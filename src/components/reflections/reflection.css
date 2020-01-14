@@ -1,0 +1,151 @@
+.new-reflection {
+  display: flex;
+  height: 300px;
+}
+
+.new-reflection-left {
+  flex: 5;
+
+}
+
+.lined-paper {
+  background-image: url("/lined-paper3.png");
+  background-size: cover;
+  width: 95%;
+  max-width: 580px;
+  height: 90%;
+}
+
+.lined-paper .lined-paper-form {
+  margin: 20px;
+}
+
+.lined-paper .lined-paper-form .paper-form-title {
+  display: inline-block;
+  margin-top: 40px;
+  margin-left: 60px;
+  /* font-weight: bold;
+  font-size: 22px; */
+}
+
+.paper-form-title-input{
+  font-weight: bold;
+  font-size: 18px;
+  width: 250px;
+  border: none;
+}
+
+.paper-form-title-input:focus{
+  outline: none;
+}
+
+
+.new-reflection-right {
+  flex: 2;
+    align-self: center;
+}
+
+.reflection-question textarea {
+  resize: none;
+  width: 420px;
+  height: 175px;
+  max-height: 182px;
+  overflow: none;
+  margin-top: 3px;
+  margin-left: 80px;
+  font-size: 18px;
+  padding: 10px 15px 0px 10px;
+  border: none;
+  background-color: inherit;
+  line-height: 32px;
+
+}
+
+.reflection-question textarea:focus {
+  outline: none;
+  background-color: white;
+  border: 1px dashed black;
+  border-radius: 15px;
+}
+
+input[type=submit].add-prog-button {
+  position: absolute;
+  margin-top: 36px;
+  margin-left: 30px;
+  padding: 5px 10px;
+}
+
+.progression-item.reflection-item {
+  width: 120px;
+  min-width: 120px;
+  padding: 8px 1px 5px 1px;
+}
+
+.progression-item.reflection-item.item-dragging {
+  border: 2px solid gray;
+  padding: 7px 0px 4px 0px;
+}
+
+
+.reflection-item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  height: 20px;
+  overflow: hidden;
+}
+
+
+.progression-item.reflection-item img {
+  margin-left: -4px;
+  height: 97px;
+  object-fit: contain;
+}
+
+
+
+
+@media screen and (max-width: 890px) {
+  .new-reflection-right {
+    flex: 0;
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .lined-paper {
+    width: 450px;
+    height: 200px;
+  }
+
+  .lined-paper .lined-paper-form .paper-form-title {
+    margin-top: 22px;
+    margin-left: 50px;
+    font-size: 20px;
+  }
+
+  .paper-form-title-input {
+    font-weight: bold;
+    font-size: 16px;
+    width: 200px;
+    border: none;
+  }
+
+  .reflection-question textarea {
+    width: 320px;
+    height: 130px;
+    max-height: 130px;
+    margin-left: 50px;
+    margin-top: 3px;
+    font-size: 15px;
+    max-height: 150px;
+    line-height: 25px;
+  }
+
+  input[type=submit].add-prog-button {
+    margin-top: 26px;
+    margin-left: 12px;
+    padding: 2px 6px;
+    font-size: 12px;
+  }
+}
