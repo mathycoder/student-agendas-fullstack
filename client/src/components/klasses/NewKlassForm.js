@@ -48,7 +48,7 @@ class NewKlassForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          Class <input
+          <span>Class</span> <input
             type="text"
             value={this.state.klass.name}
             onChange={this.handleNameChange}

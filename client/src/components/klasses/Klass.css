@@ -107,7 +107,7 @@
   display: flex;
   background-image: url('/classroom2.png');
   background-size: cover;
-  height: 94vh;
+  height: 630px;
   align-items: center;
   justify-content: center;
 }
@@ -257,6 +257,12 @@
   transition-property: max-height;
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(.56, 1, .56, 1);
+}
+
+@media screen and (max-width: 500px) {
+  .add-klass-form span {
+    margin-left: -20px;
+  }
 }
 
 .slide-open {
