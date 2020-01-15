@@ -135,7 +135,7 @@ function createVimeoVideoObjects(videos){
 
 function createYouTubeVideoObjects(videos){
   return videos.map(video => {
-    const url = 'http://www.youtube.com/embed/' + video.id.videoId
+    const url = 'https://www.youtube.com/embed/' + video.id.videoId
     return {
       title: formatTitle(video.snippet.title),
       videoId: video.id.videoId,

@@ -31,9 +31,7 @@ class ShowKlassRouter extends Component {
     document.addEventListener('mousedown', this.handleClick)
     const { match, fetchStudents } = this.props
     const klassId = match.params.id
-    console.log("A")
     fetchStudents(klassId)
-    console.log("B")
   }
 
   componentWillUnmount(){
