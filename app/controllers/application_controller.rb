@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
     # render :file => 'index.html'
     #render file: "#{Rails.root}/public/index.html", layout: false
     #render :file => 'public/index.html'
-    render :file=>'/public/index.html', :layout=>false
+    render :file=>'index.html', :layout=>false
   end
 
   def current_user
