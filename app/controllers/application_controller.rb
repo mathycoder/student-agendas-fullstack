@@ -4,7 +4,8 @@ class ApplicationController < ActionController::API
 
   def fallback_index_html
     # render :file => 'index.html'
-    render file: "#{Rails.root}/public/index.html", layout: false
+    #render file: "#{Rails.root}/public/index.html", layout: false
+    render :file => 'public/index.html'
   end
 
   def current_user
