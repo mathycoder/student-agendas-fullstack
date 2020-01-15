@@ -506,6 +506,19 @@
   margin: 20px auto;
 }
 
+@media screen and (max-width: 500px) {
+  .student-show-progressions-container.index-page {
+    max-width: 340px;
+    height: 85vh;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .student-show-progressions-container.index-page {
+    height: 75vh;
+  }
+}
+
 
 .index-page .student-show-progressions-color-choice div {
   margin-left: 10px;
@@ -540,7 +553,13 @@
 .index-page .student-show-progression {
   grid-template-rows: 0px 0px 100px;
   border-radius: 30px;
-  margin-left: 30px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .index-page .student-show-progression {
+    max-width: 280px;
+  }
 }
 
 .index-page .student-show-progression:hover {
@@ -665,6 +684,15 @@
 
   .index-page .student-show-progression-items {
     max-width: 370px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+
+  .index-page .student-show-progression-items {
+    max-width: 270px;
   }
 
 }
