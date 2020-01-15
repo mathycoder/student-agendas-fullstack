@@ -115,11 +115,15 @@
 
 /* ---------------------- klass index page ------------------------ */
 
+html, body {
+  height: 100%;
+}
+
 .home-page-wrapper {
   display: flex;
   background-image: url('/classroom2.png');
   background-size: cover;
-  height: 630px;
+  height: 94vh;
   align-items: center;
   justify-content: center;
 }
