@@ -166,11 +166,16 @@
   grid-template-rows: 50px 35px 1fr;
   margin-right: 20px;
   margin-top: 5px;
-  /* background-color: rgb(141, 144, 152); */
   background-color: lightgray;
   border: 3px rgb(41, 44, 52) solid;
   width: 440px;
   height: 500px;
+}
+
+@media screen and (max-width: 500px) {
+  .student-show-progressions-container {
+    width: 330px;
+  }
 }
 
 .search-filters {
@@ -210,6 +215,12 @@
   font-weight: bold;
 }
 
+@media screen and (max-width: 500px) {
+  .student-show-progressions-header {
+    padding-left: 10px;
+  }
+}
+
 .student-show-progressions-header a {
   text-decoration: none;
   color: white;
@@ -219,6 +230,12 @@
   margin-right: 25px;
 }
 
+@media screen and (max-width: 500px) {
+  .student-show-progressions-header div:first-child {
+    margin-right: 15px;
+  }
+}
+
 .student-show-progressions-header div:nth-child(2) {
   margin-top: 5px;
 }
@@ -226,6 +243,12 @@
 .student-show-progressions-header .search-bar {
   width: 240px;
   background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .student-show-progressions-header .search-bar {
+    width: 155px;
+  }
 }
 
 .student-show-progressions-header .search-bar .mag-glass {
@@ -238,6 +261,12 @@
 
 .student-show-progressions-header .search-bar input[type=text]{
   width: 150px;
+}
+
+@media screen and (max-width: 500px) {
+  .student-show-progressions-header .search-bar input[type=text]{
+    width: 80px;
+  }
 }
 
 .student-show-progressions-index {
