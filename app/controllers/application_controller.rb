@@ -2,12 +2,16 @@ class ApplicationController < ActionController::API
   include ::ActionController::Cookies
   before_action :require_login
 
+  def fallback_index_html
+    render :file => 'client/public/index.html'
+  end
+
   def current_user
     if session[:user_id]
       Teacher.find_by(id: session[:user_id])
     elsif session[:student_id]
       Student.find_by(id: session[:student_id])
-    end 
+    end
   end
 
   def logged_in?
