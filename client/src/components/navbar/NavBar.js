@@ -105,7 +105,7 @@ class NavBar extends Component{
               Classes
             </div>
             <div className="klass-dropdown" ref={this.progressionDropdownRef} onClick={this.handleProgressionDropdownClick}>
-              Progressions
+              <span className="prog-or-progression"></span>
             </div>
             <div className="profile-pic">
               <NavLink id="profile-link" to="/profile">

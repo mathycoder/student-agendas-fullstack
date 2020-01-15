@@ -126,8 +126,10 @@
 }
 
 @media screen and (max-width: 500px) {
+
   .klass-index-container, .klass-index-container.index-marker {
     width: 330px;
+    margin-top: -50px;
   }
 }
 
