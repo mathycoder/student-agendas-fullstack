@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
   before_action :require_login
 
   def fallback_index_html
-    render :file => '/client/public/index.html'
+    render :file => 'index.html'
   end
 
   def current_user
