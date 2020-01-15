@@ -114,12 +114,22 @@
 }
 
 .klass-index-container {
-
   display: grid;
   grid-template-rows: 100px auto 60px;
+  grid-template-columns: 100%;
   border: 3px rgb(41, 44, 52) solid;
-  width: 430px;
+  width: 380px;
   background-color: rgb(81, 84, 92);
+}
+
+.klass-index-container.index-marker {
+  width: 430px;
+}
+
+@media screen and (max-width: 500px) {
+  .klass-index-container, .klass-index-container.index-marker {
+    width: 330px;
+  }
 }
 
 .klass-index-container button:focus {
@@ -135,7 +145,13 @@
   font-weight: bold;
   font-size: 28px;
   justify-content: center;
+}
 
+@media screen and (max-width: 500px) {
+  .klass-index-title {
+    font-size: 28px;
+    text-align: center;
+  }
 }
 
 .klass-index-title div {
@@ -144,24 +160,26 @@
   justify-content: center;
 }
 
-.klass-index-title div div:first-child {
-
-}
 
 .klass-rows {
-  padding: 20px;
+  padding: 0px;
   color: white;
 }
 
 .klass-row {
   display: grid;
-  grid-template-columns: 200px 40px 60px 60px;
-
+  grid-template-columns: 220px 40px 60px 60px;
   max-height: 60px;
   overflow-y: hidden;
   transition-property: max-height;
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(.56, 1, .56, 1);
+}
+
+@media screen and (max-width: 500px) {
+  .klass-row {
+    grid-template-columns: 140px 40px 60px 60px;
+  }
 }
 
 .klass-row .post-it-icon {
@@ -186,7 +204,15 @@
   padding-top: 0px;
   margin-left: 30px;
   font-size: 20px;
+}
 
+@media screen and (max-width: 500px) {
+  .klass-row div:first-child {
+    font-weight: bold;
+    padding-top: 0px;
+    margin-left: 10px;
+    font-size: 20px;
+  }
 }
 
 .klass-row a {

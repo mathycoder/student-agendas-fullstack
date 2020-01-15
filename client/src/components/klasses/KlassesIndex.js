@@ -117,7 +117,7 @@ class KlassesIndex extends Component {
   render(){
     return (
       <div className="home-page-wrapper">
-        <div className="klass-index-container">
+        <div className="klass-index-container index-marker">
           <div className="klass-index-title">
             <div>{`${this.props.currentUser.name}'s Classes`}</div>
             <DisplayColors header={true}/>
