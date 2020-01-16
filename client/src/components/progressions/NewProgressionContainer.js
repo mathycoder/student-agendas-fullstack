@@ -221,7 +221,7 @@ class NewProgressionContainer extends Component {
           <div className="select-color blue-title" onClick={event => this.handleColorClick("blue")}></div>
           <div className="select-color purple-title" onClick={event => this.handleColorClick("purple")}></div>
         </div>
-        <input type="submit" value="save progression" />
+        <input type="submit" value="save" />
       </form>
     )
   }
