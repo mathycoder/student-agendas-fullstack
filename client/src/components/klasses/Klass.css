@@ -1,7 +1,14 @@
 /* ---------------------- show klass router page ------------------ */
-.student-dropdown {
+
+/* .student-dropdown {
   margin-left: 95px;
   margin-top: -18px;
+} */
+
+.student-dropdown {
+  position: absolute;
+  left: 95px;
+  top: 92px;
 }
 
 .settings-dropdown {

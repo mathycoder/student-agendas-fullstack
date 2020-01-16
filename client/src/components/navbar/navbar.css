@@ -19,7 +19,7 @@
   -ms-user-select: none; /* IE10+ */
 }
 
-.navbar .title {
+.navbar .title, .student-login-title {
   font-weight: bold;
   color: rgb(100, 100, 100);
   font-size: 17px;

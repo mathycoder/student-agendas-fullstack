@@ -127,7 +127,7 @@ class NavBar extends Component{
             <NavLink id="color-logo-link" to="/myagenda">
               <DisplayColors />
             </NavLink>
-            <div className="title">
+            <div className="student-login-title">
               {`Logged in as ${currentUser.firstName} ${currentUser.lastName}`}
             </div>
             <div className="profile-pic">

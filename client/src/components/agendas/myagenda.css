@@ -12,10 +12,6 @@
   margin-top: 10px;
 }
 
-.myagenda-navbar button {
-
-}
-
 .myagenda-navbar div {
   display: block;
 }
@@ -23,7 +19,6 @@
 .myagenda {
   display: flex;
   width: 90%;
-  min-width: 450px;
   max-width: 800px;
   height: 180px;
   margin: 0 auto;
@@ -105,8 +100,9 @@
 
 
 /* -----------------------------------my progression---------------------------------- */
-.myprogression {
 
+.myprogression {
+  width: 90%;
 }
 
 .nav-buttons {
