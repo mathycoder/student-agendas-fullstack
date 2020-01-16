@@ -58,7 +58,7 @@ class NewReflection extends Component {
                 <input
                   className="add-prog-button"
                   type="submit"
-                  value={editing ? 'Submit Edits' : 'Add to Progression'}
+                  value={editing ? 'Update' : 'Add to Progression'}
                 />
                 <div className="reflection-question">
                   <textarea
