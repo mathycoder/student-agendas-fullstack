@@ -125,7 +125,7 @@
   border: 2px dashed black;
   border-radius: 20px;
   flex: 1;
-  max-width: 100vw;
+  max-width: 90%;
 }
 
 @media screen and (max-width: 500px) {
@@ -218,6 +218,12 @@
 
 .progression-menu-bar .selected {
   background-color: gray;
+}
+
+@media screen and (max-width: 500px) {
+  .progression-menu-bar {
+    font-size: 12px;
+  }
 }
 
 .drag-over-progression {
