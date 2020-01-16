@@ -116,7 +116,7 @@
 /* -----------------------------------my progression---------------------------------- */
 
 .myprogression {
-  
+
 }
 
 .nav-buttons {
@@ -252,9 +252,6 @@
   margin-bottom: 0px;
 }
 
-.reflection-response p {
-
-}
 
 .myprogression-reflection-title {
   text-align: center;
@@ -284,6 +281,14 @@
   line-height: 24px;
   resize: none;
 }
+
+@media screen and (max-width: 500px) {
+  .myprogression-reflection textarea {
+    max-width: 90%;
+    min-width: 90%;
+  }
+}
+
 
 .myprogression-reflection textarea:focus {
   outline: none;
