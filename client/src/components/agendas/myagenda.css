@@ -6,6 +6,14 @@
   grid-template-rows: 210px 1fr;
 }
 
+@media screen and (max-width: 500px) {
+  .myagenda-wrapper {
+    display: block;
+    padding: 5px;
+    padding-top: 10px;
+  }
+}
+
 .myagenda-navbar {
   display: flex;
   justify-content: center;
@@ -18,7 +26,7 @@
 
 .myagenda {
   display: flex;
-  width: 90%;
+  width: 95%;
   max-width: 800px;
   height: 180px;
   margin: 0 auto;
@@ -26,6 +34,12 @@
   border: 3px rgb(41, 44, 52) solid;
   align-items: center;
   overflow: scroll;
+}
+
+@media screen and (max-width: 500px) {
+  .myagenda {
+    margin-bottom: 20px;
+  }
 }
 
 .myagenda .progression-wrapper {
@@ -102,7 +116,7 @@
 /* -----------------------------------my progression---------------------------------- */
 
 .myprogression {
-  width: 90%;
+  
 }
 
 .nav-buttons {
@@ -273,11 +287,4 @@
 
 .myprogression-reflection textarea:focus {
   outline: none;
-}
-
-@media screen and (min-width: 1000px) {
-  .myprogression {
-    width: 90%;
-    margin: 0 auto;
-  }
 }
