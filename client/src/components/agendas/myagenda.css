@@ -22,6 +22,7 @@
 
 .myagenda-navbar div {
   display: block;
+
 }
 
 .myagenda {
@@ -110,9 +111,6 @@
 }
 
 
-
-
-
 /* -----------------------------------my progression---------------------------------- */
 
 .myprogression {
@@ -143,6 +141,12 @@
 .nav-buttons .submit-progression {
   margin-top: -10px;
   margin-left: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .tooltiptext {
+    display: none;
+  }
 }
 
 
