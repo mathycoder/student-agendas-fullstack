@@ -9,7 +9,6 @@
   align-items: center;
 }
 
-
 .color-container {
   display: flex;
 }
@@ -25,46 +24,6 @@
   border: 2px yellow solid;
   width: 16px;
   height: 16px;
-}
-
-.red {
-  background-color: rgb(250, 224, 224);
-}
-
-.red-title {
-  background-color: rgb(233, 43, 43);
-}
-
-.orange {
-  background-color: rgb(250, 242, 224);
-}
-
-.orange-title {
-  background-color: rgb(217, 139, 8);
-}
-
-.green {
-  background-color: rgb(227, 250, 224);
-}
-
-.green-title {
-  background-color: rgb(37, 189, 21);
-}
-
-.blue {
-  background-color: rgb(221, 237, 245);
-}
-
-.blue-title {
-  background-color: rgb(46, 185, 227);
-}
-
-.purple {
-  background-color: rgb(233, 224, 250);
-}
-
-.purple-title {
-  background-color: rgb(116, 45, 232);
 }
 
 .new-progression-title {
@@ -155,7 +114,7 @@
 .new-progression-wrapper {
   display: flex;
   justify-content: center;
-  width: 100%;
+  overflow: hidden;
 }
 
 .progression {
@@ -166,7 +125,7 @@
   border: 2px dashed black;
   border-radius: 20px;
   flex: 1;
-  max-width: 800px;
+  max-width: 100vw;
 }
 
 @media screen and (max-width: 500px) {
@@ -174,8 +133,6 @@
 
   }
 }
-
-
 
 /* .progression::after { content: ' '; min-width: 30px; } */
 
@@ -191,10 +148,6 @@
   margin-top: -15px;
   background-color: white;
   box-shadow: 2px 5px 9px #888888;
-}
-
-.reflection-item {
-
 }
 
 .progression .progression-item:hover {
@@ -379,4 +332,44 @@
   .create-progression-form input[type=submit]{
     margin-left: 0px;
   }
+}
+
+.red {
+  background-color: rgb(250, 224, 224);
+}
+
+.red-title {
+  background-color: rgb(233, 43, 43);
+}
+
+.orange {
+  background-color: rgb(250, 242, 224);
+}
+
+.orange-title {
+  background-color: rgb(217, 139, 8);
+}
+
+.green {
+  background-color: rgb(227, 250, 224);
+}
+
+.green-title {
+  background-color: rgb(37, 189, 21);
+}
+
+.blue {
+  background-color: rgb(221, 237, 245);
+}
+
+.blue-title {
+  background-color: rgb(46, 185, 227);
+}
+
+.purple {
+  background-color: rgb(233, 224, 250);
+}
+
+.purple-title {
+  background-color: rgb(116, 45, 232);
 }
