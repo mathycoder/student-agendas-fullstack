@@ -236,28 +236,30 @@ class NewProgressionContainer extends Component {
 
   renderProgressionTemplate = () => {
     return (
-      <DragDropContext
-        onDragEnd={this.handleDNDDragEnd}
-        onDragStart={this.handleDNDDragStart}
-        >
-        <Droppable droppableId="droppable-1" direction="horizontal">
-          {(provided) => (
-            <NewProgression
-              placeholder={provided.placeholder}
-              color={this.state.color}
-              innerRef={provided.innerRef}
-              {...provided.droppableProps}
-              removeFromProgression={this.removeFromProgression}
-              currProgression={this.state.currProgression}
-              handleProgressionItemClick={this.handleProgressionItemClick}
-              handleDragOver={this.handleDragOver}
-              handleDragLeave={this.handleDragLeave}
-              handleOnDrop={this.handleOnDrop} >
-                {provided.placeholder}
-            </NewProgression>
-          )}
-        </Droppable>
-      </DragDropContext>
+      <div className="new-progression-wrapper">
+        <DragDropContext
+          onDragEnd={this.handleDNDDragEnd}
+          onDragStart={this.handleDNDDragStart}
+          >
+          <Droppable droppableId="droppable-1" direction="horizontal">
+            {(provided) => (
+              <NewProgression
+                placeholder={provided.placeholder}
+                color={this.state.color}
+                innerRef={provided.innerRef}
+                {...provided.droppableProps}
+                removeFromProgression={this.removeFromProgression}
+                currProgression={this.state.currProgression}
+                handleProgressionItemClick={this.handleProgressionItemClick}
+                handleDragOver={this.handleDragOver}
+                handleDragLeave={this.handleDragLeave}
+                handleOnDrop={this.handleOnDrop} >
+                  {provided.placeholder}
+              </NewProgression>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </div>
     )
   }
 

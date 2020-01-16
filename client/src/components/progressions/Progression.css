@@ -40,7 +40,6 @@
 }
 
 .orange-title {
-  /* background-color: rgb(233, 162, 43); */
   background-color: rgb(217, 139, 8);
 }
 
@@ -49,7 +48,6 @@
 }
 
 .green-title {
-  /* background-color: rgb(105, 232, 45); */
   background-color: rgb(37, 189, 21);
 }
 
@@ -154,6 +152,12 @@
   cursor: pointer;
 }
 
+.new-progression-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .progression {
   margin: 0px auto;
   padding: 10px;
@@ -161,18 +165,19 @@
   overflow-x: scroll;
   border: 2px dashed black;
   border-radius: 20px;
-  max-width: 90vw;
+  flex: 1;
+  max-width: 800px;
 }
 
 @media screen and (max-width: 500px) {
   .progression {
-    max-width: 80vw;
+
   }
 }
 
 
 
-.progression::after { content: ' '; min-width: 50px; }
+/* .progression::after { content: ' '; min-width: 30px; } */
 
 .progression-item {
   width: 160px;
