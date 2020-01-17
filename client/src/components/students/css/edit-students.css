@@ -1,5 +1,3 @@
-
-
 .edit-students {
   margin: 20px;
   grid-column: 1 / 3;
@@ -12,19 +10,40 @@
 .edit-table {
   margin: 0 auto;
   border: 1px solid black;
-  width: 640px;
+  width: 100%;
+  max-width: 750px;
 }
 
 .edit-table > div, .edit-table form > div {
-  display: grid;
-  grid-template-columns: 120px 120px 120px 120px 70px 90px;
   font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-student-data {
+  width: 120px;
+}
+
+.edit-student-edit-button {
+  width: 20px;
+}
+
+.edit-student-delete-button {
+  width: 50px;
+}
+
+.add-student-button {
+  width: 120px;
+  text-align: center;
+}
+
+.edit-table-header {
+  background-color: rgb(101, 104, 112);
+  font-weight: bolder;
+  color: white;
 }
 
 .edit-table-header div {
-  font-weight: bolder;
-  background-color: rgb(101, 104, 112);
-  color: white;
   padding: 15px;
 }
 
@@ -48,45 +67,10 @@
 
 .student-form input[type=text] {
   font-size: 16px;
-  width: 100px;
+  width: 120px;
   padding: 1px 0;
   padding-left: 5px;
   margin-left: -7px;
   margin-top: -5px;
   color: rgb(100, 100, 100);
-}
-
-.add-student-button {
-  grid-column: 5/7;
-  text-align: center;
-}
-
-@media screen and (max-width: 680px) {
-  .edit-table {
-    width: 450px;
-  }
-
-  .edit-table > div, .edit-table form > div {
-    grid-template-columns: 80px 80px 80px 80px 50px 50px;
-    font-size: 16px;
-  }
-
-
-  .edit-table button {
-    padding: 2px 8px;
-    margin: 0px;
-    margin-top: -2px;
-    font-size: 14px;
-  }
-
-  .add-student-button {
-    grid-column: 5/7;
-    text-align: center;
-    width: 100px;
-  }
-
-  .student-form input[type=text] {
-    font-size: 12px;
-    width: 70px;
-  }
 }

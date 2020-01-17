@@ -65,12 +65,12 @@ class EditStudents extends Component {
             key={index}
             className={`edit-table-student-row ${index % 2 === 0 ? 'even' : 'odd'}`}
             >
-            <div>{student.firstName}</div>
-            <div>{student.lastName}</div>
-            <div>{student.username}</div>
-            <div>{student.password}</div>
-            <div><button onClick={e => this.handleEditClick(student)}>Edit</button></div>
-            <div><button onClick={e => this.handleRemoveStudentClick(student)}>Delete</button></div>
+            <div className="edit-student-data">{student.firstName}</div>
+            <div className="edit-student-data">{student.lastName}</div>
+            <div className="edit-student-data">{student.username}</div>
+            <div className="edit-student-data">{student.password}</div>
+            <div className="edit-student-edit-button"><button onClick={e => this.handleEditClick(student)}>Edit</button></div>
+            <div className="edit-student-delete-button"><button onClick={e => this.handleRemoveStudentClick(student)}>Delete</button></div>
           </div>
         )
       } else {
@@ -86,10 +86,10 @@ class EditStudents extends Component {
       <div className="edit-students">
         <div className="edit-table">
           <div className="edit-table-header">
-            <div>First Name</div>
-            <div>Last Name</div>
-            <div>Username</div>
-            <div>Password</div>
+            <div className="edit-student-data">First Name</div>
+            <div className="edit-student-data">Last Name</div>
+            <div className="edit-student-data">Username</div>
+            <div className="edit-student-data">Password</div>
             <div className="add-student-button">
               {addingStudent ? '' : <button onClick={this.handleAddStudent}>Add Student</button>}
             </div>
