@@ -69,9 +69,11 @@ class EditStudents extends Component {
             <div className="edit-student-data">{student.lastName}</div>
             <div className="edit-student-data">{student.username}</div>
             <div className="edit-student-data">{student.password}</div>
-            <div className="edit-student-edit-button"><button onClick={e => this.handleEditClick(student)}>Edit</button></div>
-            <div className="edit-student-delete-button"><button onClick={e => this.handleRemoveStudentClick(student)}>Delete</button></div>
-          </div>
+            <div className="edit-student-buttons">
+              <div className="edit-student-edit-button"><button onClick={e => this.handleEditClick(student)}>Edit</button></div>
+              <div className="edit-student-delete-button"><button onClick={e => this.handleRemoveStudentClick(student)}>Delete</button></div>
+            </div>
+        </div>
         )
       } else {
         return <CreateStudentForm key={index} student={student} handleCancelStudent={this.handleCancelStudent} handleStudentSubmit={this.handleStudentSubmit}/>

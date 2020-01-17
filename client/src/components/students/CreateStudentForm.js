@@ -86,8 +86,8 @@ class CreateStudentForm extends Component {
     } else {
       return (
         < >
-          <div>XXXXXXX</div>
-          <div>XXXXXXX</div>
+          <div className="xxxxxx">XXXXXXX</div>
+          <div className="xxxxxx">XXXXXXX</div>
         </>
       )
     }
@@ -112,13 +112,15 @@ class CreateStudentForm extends Component {
             value={lastName} />
         </div>
         {this.renderUsernamePassword()}
-        <div>
-          <button onClick={event => this.handleLocalSubmit(event)}>
-            {id ? 'Save' : 'Add'}
-          </button>
-        </div>
-        <div>
-          <button onClick={this.props.handleCancelStudent}>Close</button>
+        <div className="edit-student-buttons">
+          <div className="edit-student-edit-button">
+            <button onClick={event => this.handleLocalSubmit(event)}>
+              {id ? 'Save' : 'Add'}
+            </button>
+          </div>
+          <div className="edit-student-delete-button">
+            <button onClick={this.props.handleCancelStudent}>Close</button>
+          </div>
         </div>
       </div>
     )
