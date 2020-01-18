@@ -10,43 +10,25 @@ const DisplaySearchResults = ({ videos, handleDragStart, handleVideoClick }) => 
         return (
           <Droppable droppableId={`droppable-${index+10}`} isDropDisabled={true} direction="horizontal">
             {(provided) => (
-              <div
-                ref={node => provided.innerRef(node)}
-                {...provided.droppableProps}
-                >
-                <Draggable draggableId={`query-${videoId}`} index={index} key={`query-${videoId}`}>
-                  {(provided2, snapshot) => {
-                    return (
-                      <>
-                        <div
-                          {...provided2.dragHandleProps}
-                          {...provided2.draggableProps}
-                          >
-                          <div
-                            ref={node => provided2.innerRef(node)}
-                            className="search-video"
-                            key={index}
-                            onClick={(event) => handleVideoClick(index)}>
-                            <img alt="searched video result" src={video.thumbnailUrl} />
-                            <div className="title-text">{video.title}</div>
-                            <div className="creator-text">by {video.channelTitle}</div>
-                            <div className="created-date">{video.date}</div>
+              <div ref={node => provided.innerRef(node)} {...provided.droppableProps}>
+                <div className="search-video" key={index} onClick={(event) => handleVideoClick(index)}>
+                  <Draggable draggableId={`query-${videoId}`} index={index} key={`query-${videoId}`}>
+                    {(provided2, snapshot) => {
+                      return (
+                        <>
+                          <div {...provided2.dragHandleProps} {...provided2.draggableProps}>
+                              <img ref={node => provided2.innerRef(node)} alt="searched video result" src={video.thumbnailUrl} />
                           </div>
-                        </div>
-                        {snapshot.isDragging && (
-                            <div
-                              className="search-video"
-                              key={index}
-                              onClick={(event) => handleVideoClick(index)}>
-                              <img alt="searched video result" src={video.thumbnailUrl} />
-                              <div className="title-text">{video.title}</div>
-                              <div className="creator-text">by {video.channelTitle}</div>
-                              <div className="created-date">{video.date}</div>
-                            </div>
-                    		)}
-                      </>
-                  )}}
-                </Draggable>
+                          {snapshot.isDragging && (
+                            <img alt="searched video result" src={video.thumbnailUrl} />
+                          )}
+                        </>
+                      )}}
+                  </Draggable>
+                  <div className="title-text">{video.title}</div>
+                  <div className="creator-text">by {video.channelTitle}</div>
+                  <div className="created-date">{video.date}</div>
+                </div>
               </div>
             )}
           </Droppable>
@@ -55,16 +37,5 @@ const DisplaySearchResults = ({ videos, handleDragStart, handleVideoClick }) => 
     </div>
   )
 }
-
-// <Droppable droppableId="droppable-2" isDropDisabled={true} direction="horizontal">
-//   {(provided) => (
-//     <DisplaySearchResults
-//       handleDragStart={handleDragStart}
-//       handleVideoClick={this.handleVideoClick}
-//       innerRef={provided.innerRef}
-//       {...provided.droppableProps}
-//       videos={videoSearch || []}/>
-//   )}
-// </Droppable>
 
 export default DisplaySearchResults
