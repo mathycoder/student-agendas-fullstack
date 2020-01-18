@@ -237,10 +237,7 @@ class NewProgressionContainer extends Component {
   renderProgressionTemplate = () => {
     return (
       <div className="new-progression-wrapper">
-        <DragDropContext
-          onDragEnd={this.handleDNDDragEnd}
-          onDragStart={this.handleDNDDragStart}
-          >
+
           <Droppable droppableId="droppable-1" direction="horizontal">
             {(provided) => (
               <NewProgression
@@ -258,7 +255,7 @@ class NewProgressionContainer extends Component {
               </NewProgression>
             )}
           </Droppable>
-        </DragDropContext>
+
       </div>
     )
   }
@@ -284,11 +281,16 @@ class NewProgressionContainer extends Component {
 
   render(){
     return (
-      <div className="new-progression-container">
-        {this.renderForm()}
-        {this.renderProgressionTemplate()}
-        {this.renderAddingItemsTemplate()}
-      </div>
+      <DragDropContext
+        onDragEnd={this.handleDNDDragEnd}
+        onDragStart={this.handleDNDDragStart}
+        >
+        <div className="new-progression-container">
+          {this.renderForm()}
+          {this.renderProgressionTemplate()}
+          {this.renderAddingItemsTemplate()}
+        </div>
+      </DragDropContext>
     )
   }
 }
