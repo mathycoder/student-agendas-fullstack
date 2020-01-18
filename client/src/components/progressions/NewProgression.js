@@ -25,7 +25,7 @@ class NewProgression extends Component {
               />
             </div>
         )}}
-    </Draggable>
+      </Draggable>
     )
   }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DisplaySearchResults from './DisplaySearchResults'
 import DisplayPreview from './DisplayPreview'
+import { Droppable } from 'react-beautiful-dnd';
 
 class SearchContainer extends Component {
   state = {
@@ -55,7 +56,18 @@ class SearchContainer extends Component {
         </form>
         <div className="search-videos-container">
           {staticState.loading ? <div className="loading"></div>: ''}
-          {videoSearch.length > 0 ? <DisplaySearchResults handleDragStart={handleDragStart} handleVideoClick={this.handleVideoClick} videos={videoSearch || []}/> : ''}
+          {videoSearch.length > 0 ?
+            <Droppable droppableId="droppable-2" direction="horizontal">
+              {(provided) => (
+                <DisplaySearchResults
+                  handleDragStart={handleDragStart}
+                  handleVideoClick={this.handleVideoClick}
+                  innerRef={provided.innerRef}
+                  {...provided.droppableProps}
+                  videos={videoSearch || []}/>
+              )}
+            </Droppable>
+            : ''}
           {videoIndex !== "" ?
             <DisplayPreview shiftup={true} addToProgression={addToProgression} video={videoSearch[videoIndex]}/>
             : (staticState.loading ? '' : <div className="video-icon"><img src="/projector.png" alt="video projector"/></div>)}

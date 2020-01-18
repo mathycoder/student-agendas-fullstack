@@ -182,26 +182,35 @@ class NewProgressionContainer extends Component {
 
   handleDNDDragStart = attributes => {
     const {draggableId} = attributes
-    document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
+    //document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
   }
 
   handleDNDDragEnd = result => {
     const { destination, source, draggableId } = result
-    document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
+    const testArray = [...this.state.currProgression]
+    //document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
     if (!destination) {
       return
     }
 
-    if (destination.index !== source.index) {
-      const testArray = [...this.state.currProgression]
-      testArray.splice(source.index, 1)
-      testArray.splice(destination.index, 0, this.state.currProgression[source.index])
-      this.setState({
-        ...this.state,
-        currProgression: testArray
-      })
+    if (result.source.droppableId === "droppable-1") {
+      if (destination.index !== source.index) {
+        testArray.splice(source.index, 1)
+        testArray.splice(destination.index, 0, this.state.currProgression[source.index])
+        this.setState({
+          ...this.state,
+          currProgression: testArray
+        })
+      }
+    } else if (source.droppableId === "droppable-2" && destination.droppableId === "droppable-1"){
+        debugger
+        const newVideo = this.props.youTubeVideos.find(vid => vid.videoId === result.draggableId)
+        testArray.splice(destination.index, 0, newVideo)
+        this.setState({
+          ...this.state,
+          currProgression: testArray
+        })
     }
-
   }
 
   renderForm = () => {
@@ -299,7 +308,9 @@ function mapStateToProps(state){
   return {
     progressions: state.progressions,
     videos: state.videos,
-    reflections: state.reflections
+    reflections: state.reflections,
+    youTubeVideos: state.videoSearch.youTube.videos,
+    vimeoVideos: state.videoSearch.vimeo.videos
   }
 }
 
