@@ -2,7 +2,7 @@ import React from 'react';
 import './VideoSearch.css';
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 
-const DisplaySearchResults = ({ videos, handleDragStart, handleVideoClick }) => {
+const DisplaySearchResults = ({ videos, handleVideoClick }) => {
   return (
     <div className="search-videos">
       {videos.slice(0,24).map((video, index) => {

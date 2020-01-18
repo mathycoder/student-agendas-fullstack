@@ -29,7 +29,6 @@ class NewProgressionContainer extends Component {
       const progressionItems = progression.items.map(videoOrReflectionId => (
         videoOrReflectionId.includes("video") ? videos.byId[videoOrReflectionId] : reflections.byId[videoOrReflectionId]
       ))
-
       this.setState({
         ...this.state,
         currProgression: [...progressionItems],
@@ -37,7 +36,6 @@ class NewProgressionContainer extends Component {
         id: progression.id,
         color: progression.color
       })
-
     }
   }
 
@@ -74,28 +72,6 @@ class NewProgressionContainer extends Component {
     } else {
       addFlashMessage("Your progression must contain one reflection")
     }
-  }
-
-  handleDragOver = event => {
-    event.preventDefault()
-    document.querySelector('.progression').classList.add("drag-over-progression")
-  }
-
-  handleDragLeave = event => {
-    event.preventDefault()
-    document.querySelector('.progression').classList.remove("drag-over-progression")
-  }
-
-  handleDragStart = (event, video) => {
-    let data = JSON.stringify(video)
-    event.dataTransfer.setData("video", data)
-  }
-
-  handleOnDrop = (event) => {
-    let video = event.dataTransfer.getData("video")
-    video = JSON.parse(video)
-    this.addToProgression(event, video)
-    document.querySelector('.progression').classList.remove("drag-over-progression")
   }
 
   addToProgression = (e, item) => {
@@ -182,14 +158,19 @@ class NewProgressionContainer extends Component {
 
   handleDNDDragStart = attributes => {
     const {draggableId} = attributes
-    //document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
+    if (!attributes.draggableId.startsWith("query")) {
+      document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
+    }
   }
 
   handleDNDDragEnd = result => {
     const { destination, source, draggableId } = result
     const { currProgression } = this.state
     const testArray = [...currProgression]
-    //document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
+    if (!result.draggableId.startsWith("query")) {
+      document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
+    }
+
     if (!destination) {
       return
     }
@@ -265,9 +246,7 @@ class NewProgressionContainer extends Component {
                 removeFromProgression={this.removeFromProgression}
                 currProgression={this.state.currProgression}
                 handleProgressionItemClick={this.handleProgressionItemClick}
-                handleDragOver={this.handleDragOver}
-                handleDragLeave={this.handleDragLeave}
-                handleOnDrop={this.handleOnDrop} >
+                >
                   {provided.placeholder}
               </NewProgression>
             )}
@@ -283,9 +262,9 @@ class NewProgressionContainer extends Component {
       <div>
         <NewProgressionMenuBar handleMenuClick={this.handleMenuClick} menuSelect={this.state.menuSelect} progressionEmpty={this.progressionEmpty}/>
         {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].videoId ? <DisplayPreview video={currProgression[selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
-        {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].question1 ? <NewReflection key={selectedIndex} reflection={currProgression[selectedIndex]} addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
-        {this.state.menuSelect === "Add YouTube Video" ? <YouTubeSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
-        {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} handleDragStart={this.handleDragStart} /> : ''}
+        {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].question1 ? <NewReflection key={selectedIndex} reflection={currProgression[selectedIndex]} addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} /> : ''}
+        {this.state.menuSelect === "Add YouTube Video" ? <YouTubeSearchContainer addToProgression={this.addToProgression} /> : ''}
+        {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} /> : ''}
         {this.state.menuSelect === "Add Reflection" ? <NewReflection reflection='' addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
       </div>
     )

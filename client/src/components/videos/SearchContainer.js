@@ -38,7 +38,7 @@ class SearchContainer extends Component {
   }
 
   render() {
-    const { staticState, videoSearch, handleDragStart, addToProgression } = this.props
+    const { staticState, videoSearch, addToProgression } = this.props
     const { videoIndex, searchTerm } = this.state
     return (
       <div className="searched-videos-display">
@@ -57,7 +57,6 @@ class SearchContainer extends Component {
           {staticState.loading ? <div className="loading"></div>: ''}
           {videoSearch.length > 0 ?
             <DisplaySearchResults
-              handleDragStart={handleDragStart}
               handleVideoClick={this.handleVideoClick}
               videos={videoSearch || []}/>
             : ''}

@@ -3,11 +3,10 @@ import SearchContainer from '../SearchContainer'
 import { connect } from 'react-redux'
 import { youTubeVideoSearch } from '../../../actions/videoSearchActions'
 
-const YouTubeSearchContainer = ({ staticState, videoSearch, handleDragStart, addToProgression, dispatchVideoSearch }) => (
+const YouTubeSearchContainer = ({ staticState, videoSearch, addToProgression, dispatchVideoSearch }) => (
       <SearchContainer
         staticState={staticState}
         videoSearch={videoSearch}
-        handleDragStart={handleDragStart}
         addToProgression={addToProgression}
         dispatchVideoSearch={dispatchVideoSearch}
         />
