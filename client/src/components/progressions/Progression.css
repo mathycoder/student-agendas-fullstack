@@ -20,14 +20,6 @@
   z-index: 3;
 }
 
-@media screen and (max-width: 370px) {
-  .select-color {
-    width: 14px;
-    height: 14px;
-    margin: 3px;
-  }
-}
-
 .selected-color.selected-color {
   border: 2px yellow solid;
   width: 16px;
@@ -63,12 +55,6 @@
   background-color: inherit;
   color: white;
   border: none;
-}
-
-@media screen and (max-width: 500px) {
-  .create-progression-form input[type=text] {
-    width: 150px;
-  }
 }
 
 .create-progression-form input[type=text]:focus {
@@ -136,7 +122,7 @@
   max-width: 900px;
 }
 
-/* .progression::after { content: ' '; min-width: 30px; } */
+.progression::after { content: ' '; min-width: 30px; }
 
 .progression-item {
   width: 160px;
@@ -151,8 +137,6 @@
   background-color: white;
   box-shadow: 2px 5px 9px #888888;
 }
-
-
 
 .progression .progression-item:hover {
   border: 1px gray solid;
@@ -224,12 +208,6 @@
   background-color: gray;
 }
 
-@media screen and (max-width: 500px) {
-  .progression-menu-bar {
-    font-size: 12px;
-  }
-}
-
 .drag-over-progression {
   border: 3px gray solid;
   padding: 8px;
@@ -238,74 +216,6 @@
 .item-dragging {
   border: 3px solid gray;
   padding: 8px;
-}
-
-
-/* index progressions page */
-
-.progressions-index-container {
-  padding: 10px 20px;
-}
-
-.index-progression {
-  display: grid;
-  margin: 20px 0;
-  grid-template-columns: 150px 10px 1fr;
-}
-
-.index-progression-items {
-  display: flex;
-  border: 1px black dashed;
-  padding: 5px;
-  padding-right: 15px;
-  width: min-content;
-  max-width: 600px;
-  border-radius: 15px;
-  overflow: scroll;
-}
-
-.index-progression-item {
-  width: 80px;
-  min-width: 80px;
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 25px;
-  text-align: center;
-  margin-left: 10px;
-  background-color: white;
-  box-shadow: 2px 3px 3px #888888;
-}
-
-.index-progression-item img {
-  width: 70px;
-  height: 40px;
-  object-fit: cover;
-}
-
-.index-progression-item-title {
-  display: block;
-  font-weight: bold;
-  font-size: 10px;
-  height: 25px;
-  overflow: hidden;
-}
-
-.index-progression-x-out {
-  display: block;
-  height: 20px;
-  width: 10px;
-  position: relative;
-  font-weight: bold;
-  border: 1px solid black;
-  padding: 0px 4px;
-  color: white;
-  background-color: rgb(234, 130, 120);
-  border-radius: 3px;
-  top: -10px;
-}
-
-.index-progression-x-out:hover {
-  cursor: pointer;
 }
 
 .red {
@@ -405,5 +315,21 @@
     margin-top: 20px;
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  .progression-menu-bar {
+    font-size: 12px;
+  }
+
+  .create-progression-form input[type=text] {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .select-color {
+    width: 14px;
+    height: 14px;
+    margin: 3px;
   }
 }

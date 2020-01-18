@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { deleteProgression } from '../../actions/progressionActions'
 import { connect } from 'react-redux'
 import { addProgressionToKlass } from '../../actions/studentProgressionActions'
+import './css/progression-index.css'
 
 class IndexProgressionsContainer extends Component {
   state = {

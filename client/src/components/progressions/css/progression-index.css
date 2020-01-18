@@ -1,0 +1,66 @@
+/* index progressions page */
+
+.progressions-index-container {
+  padding: 10px 20px;
+}
+
+.index-progression {
+  display: grid;
+  margin: 20px 0;
+  grid-template-columns: 150px 10px 1fr;
+}
+
+.index-progression-items {
+  display: flex;
+  border: 1px black dashed;
+  padding: 5px;
+  padding-right: 15px;
+  width: min-content;
+  max-width: 600px;
+  border-radius: 15px;
+  overflow: scroll;
+}
+
+.index-progression-item {
+  width: 80px;
+  min-width: 80px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+  margin-left: 10px;
+  background-color: white;
+  box-shadow: 2px 3px 3px #888888;
+}
+
+.index-progression-item img {
+  width: 70px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.index-progression-item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 10px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.index-progression-x-out {
+  display: block;
+  height: 20px;
+  width: 10px;
+  position: relative;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 0px 4px;
+  color: white;
+  background-color: rgb(234, 130, 120);
+  border-radius: 3px;
+  top: -10px;
+}
+
+.index-progression-x-out:hover {
+  cursor: pointer;
+}
