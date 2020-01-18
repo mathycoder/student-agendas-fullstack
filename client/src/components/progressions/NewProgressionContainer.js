@@ -187,7 +187,8 @@ class NewProgressionContainer extends Component {
 
   handleDNDDragEnd = result => {
     const { destination, source, draggableId } = result
-    const testArray = [...this.state.currProgression]
+    const { currProgression } = this.state
+    const testArray = [...currProgression]
     //document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
     if (!destination) {
       return
@@ -202,14 +203,19 @@ class NewProgressionContainer extends Component {
           currProgression: testArray
         })
       }
-    } else if (source.droppableId === "droppable-2" && destination.droppableId === "droppable-1"){
-        debugger
-        const newVideo = this.props.youTubeVideos.find(vid => vid.videoId === result.draggableId)
-        testArray.splice(destination.index, 0, newVideo)
-        this.setState({
-          ...this.state,
-          currProgression: testArray
-        })
+    } else if (destination.droppableId === "droppable-1"){
+        const { addFlashMessage } = this.props
+        const newVideo = this.props.youTubeVideos.find(vid => vid.videoId === result.draggableId.split("-")[1])
+        const any = currProgression.find(vid => vid.videoId === newVideo.videoId)
+        if (!any) {
+          testArray.splice(destination.index, 0, newVideo)
+          this.setState({
+            ...this.state,
+            currProgression: testArray
+          })
+        } else {
+          addFlashMessage("Your progression already contains this video")
+        }
     }
   }
 

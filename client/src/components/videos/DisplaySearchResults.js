@@ -14,7 +14,7 @@ const DisplaySearchResults = ({ videos, handleDragStart, handleVideoClick }) => 
                 ref={node => provided.innerRef(node)}
                 {...provided.droppableProps}
                 >
-                <Draggable draggableId={videoId} index={index} key={videoId}>
+                <Draggable draggableId={`query-${videoId}`} index={index} key={`query-${videoId}`}>
                   {(provided2, snapshot) => {
                     return (
                       <>
