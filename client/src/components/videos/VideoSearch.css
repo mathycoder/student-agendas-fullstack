@@ -137,7 +137,6 @@ iframe {
 
 .search-video img {
   width: 200px;
-
 }
 
 .search-video-preview {
@@ -194,4 +193,27 @@ iframe {
     height: 195px;
     margin: 0 auto;
   }
+
+  .search-videos {
+    height: 150px;
+  }
+
+  .search-video {
+    width: 145px;
+    height: 145px;
+  }
+
+  .search-video img {
+    width: 140px;
+  }
+
+  .search-video .title-text {
+    font-size: 12px;
+    height: 30px;
+  }
+
+  .search-video .creator-text {
+    height: 14px;
+  }
+
 }
