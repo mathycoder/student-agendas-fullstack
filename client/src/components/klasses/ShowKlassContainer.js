@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { addStudents } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import { addFlashMessage } from '../../actions/flashActions'
+import { deleteStudentProgression, switchStudentProgression } from '../../actions/studentProgressionActions'
 import ShowKlassAllProgressions from './ShowKlassAllProgressions'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import '../students/student.css'
@@ -54,6 +55,15 @@ class ShowKlassContainer extends Component {
   }
 
   handleDNDDragEnd = result => {
+    const { switchStudentProgression } = this.props
+    const { destination, source, draggableId } = result
+    debugger
+    if (!destination || !source) { return }
+
+    if (source.droppableId === destination.droppableId && destination.index !== source.index) {
+      switchStudentProgression(draggableId, destination.index)
+    }
+
     // const { destination, source, draggableId } = result
     // const { currProgression } = this.state
     // const testArray = [...currProgression]
@@ -127,7 +137,8 @@ function mapDispatchToProps(dispatch){
   return {
     fetchStudents: (klassId) => dispatch(addStudents(klassId)),
     addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression)),
-    addFlashMessage: (message) => dispatch(addFlashMessage(message))
+    addFlashMessage: (message) => dispatch(addFlashMessage(message)),
+    switchStudentProgression: (draggableId, newIndex) => dispatch(switchStudentProgression(draggableId, newIndex))
   }
 }
 

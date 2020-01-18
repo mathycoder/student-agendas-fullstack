@@ -6,6 +6,7 @@ import { deleteProgression } from '../../actions/progressionActions'
 import { connect } from 'react-redux'
 import { addProgressionToKlass } from '../../actions/studentProgressionActions'
 import './css/progression-index.css'
+import { Droppable, Draggable } from 'react-beautiful-dnd'
 
 class IndexProgressionsContainer extends Component {
   state = {
@@ -162,13 +163,21 @@ class IndexProgressionsContainer extends Component {
           {this.state.searchedProgressions.map((progressionId, index) => {
             const progression = progressions.byId[progressionId]
             if (!indexPage) {
-              return <StudentProgression
-                        key={index}
-                        handleDragStart={handleDragStart}
-                        handlePlusClick={this.handlePlusClick}
-                        progression={progression}
-                        reflections={reflections}
-                        videos={videos}/>
+              return (
+                <Droppable droppableId={`droppable-${progressionId}`} direction="horizontal">
+                  {(provided) => (
+                    <StudentProgression
+                      innerRef={provided.innerRef}
+                      placeholder={provided.placeholder}
+                      {...provided.droppableProps}
+                      key={index}
+                      handlePlusClick={this.handlePlusClick}
+                      progression={progression}
+                      reflections={reflections}
+                      videos={videos}/>
+                  )}
+                </Droppable>
+              )
             } else {
               return <IndexProgression
                         key={index}

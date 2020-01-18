@@ -3,7 +3,7 @@ import StudentAgenda from './StudentAgenda'
 import './student.css'
 import { connect } from 'react-redux'
 import { NavLink } from "react-router-dom"
-import { deleteStudentProgression, switchStudentProgression } from '../../actions/studentProgressionActions'
+import { deleteStudentProgression } from '../../actions/studentProgressionActions'
 import { Droppable } from 'react-beautiful-dnd'
 
 class Student extends Component {
@@ -12,20 +12,20 @@ class Student extends Component {
     deleteStudentProgression(student, progression)
   }
 
-  handleDNDDragEnd = result => {
-    const { destination, source, draggableId } = result
-    if (!destination || !source) { return }
-
-    if (destination.index !== source.index) {
-      this.props.switchStudentProgression(draggableId, destination.index)
-    }
-  }
+  // handleDNDDragEnd = result => {
+  //   const { destination, source, draggableId } = result
+  //   if (!destination || !source) { return }
+  //
+  //   if (destination.index !== source.index) {
+  //     this.props.switchStudentProgression(draggableId, destination.index)
+  //   }
+  // }
 
   renderStudentAgenda = () => {
     const { student, progressions, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return (
 
-        <Droppable droppableId={`droppable-${student.id}`} direction="horizontal">
+        <Droppable droppableId={`droppable-${student.id}`} direction="horizontal" type={student.id}>
           {(provided) => (
             <StudentAgenda
               {...provided.droppableProps}
@@ -63,7 +63,6 @@ class Student extends Component {
 function mapDispatchToProps(dispatch){
   return {
     deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression)),
-    switchStudentProgression: (draggableId, newIndex) => dispatch(switchStudentProgression(draggableId, newIndex))
   }
 }
 
