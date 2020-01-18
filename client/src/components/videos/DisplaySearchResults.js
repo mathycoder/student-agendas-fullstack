@@ -9,23 +9,36 @@ const DisplaySearchResults = ({ videos, handleDragStart, handleVideoClick, inner
         const videoId = video.videoId
         return (
           <Draggable draggableId={videoId} index={index} key={videoId}>
-            {(provided) => {
+            {(provided, snapshot) => {
               return (
-                <div
-                  {...provided.dragHandleProps}
-                  {...provided.draggableProps}
-                  >
+                <>
                   <div
-                    ref={node => provided.innerRef(node)}
-                    className="search-video"
-                    key={index}
-                    onClick={(event) => handleVideoClick(index)}>
-                    <img alt="searched video result" src={video.thumbnailUrl} />
-                    <div className="title-text">{video.title}</div>
-                    <div className="creator-text">by {video.channelTitle}</div>
-                    <div className="created-date">{video.date}</div>
+                    {...provided.dragHandleProps}
+                    {...provided.draggableProps}
+                    >
+                    <div
+                      ref={node => provided.innerRef(node)}
+                      className="search-video"
+                      key={index}
+                      onClick={(event) => handleVideoClick(index)}>
+                      <img alt="searched video result" src={video.thumbnailUrl} />
+                      <div className="title-text">{video.title}</div>
+                      <div className="creator-text">by {video.channelTitle}</div>
+                      <div className="created-date">{video.date}</div>
+                    </div>
                   </div>
-                </div>
+                  {snapshot.isDragging && (
+                      <div
+                        className="search-video"
+                        key={index}
+                        onClick={(event) => handleVideoClick(index)}>
+                        <img alt="searched video result" src={video.thumbnailUrl} />
+                        <div className="title-text">{video.title}</div>
+                        <div className="creator-text">by {video.channelTitle}</div>
+                        <div className="created-date">{video.date}</div>
+                      </div>
+              		)}
+                </>
             )}}
           </Draggable>
         )

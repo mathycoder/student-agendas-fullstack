@@ -57,7 +57,7 @@ class SearchContainer extends Component {
         <div className="search-videos-container">
           {staticState.loading ? <div className="loading"></div>: ''}
           {videoSearch.length > 0 ?
-            <Droppable droppableId="droppable-2" direction="horizontal">
+            <Droppable droppableId="droppable-2" isDropDisabled={true} direction="horizontal">
               {(provided) => (
                 <DisplaySearchResults
                   handleDragStart={handleDragStart}
