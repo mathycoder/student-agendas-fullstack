@@ -101,6 +101,38 @@ input[type=submit].add-prog-button {
   object-fit: contain;
 }
 
+@media screen and (max-width: 500px) {
+  .progression-item  {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .progression-item.reflection-item {
+    width: 80px;
+    min-width: 80px;
+  }
+
+  .progression .progression-item .progression-item-title {
+    font-size: 12px;
+    height: 30px;
+  }
+
+  .reflection-item-title {
+    font-size: 12px;
+    height: 18px;
+  }
+
+  .progression-item img {
+    width: 90px;
+    height: 50px;
+    object-fit: cover;
+  }
+
+  .progression-item.reflection-item img {
+    height: 69px;
+  }
+}
+
 
 
 

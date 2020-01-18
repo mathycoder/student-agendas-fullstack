@@ -133,7 +133,7 @@
   border: 2px dashed black;
   border-radius: 20px;
   flex: 1;
-  max-width: 90%;
+  max-width: 900px;
 }
 
 /* .progression::after { content: ' '; min-width: 30px; } */
@@ -151,6 +151,8 @@
   background-color: white;
   box-shadow: 2px 5px 9px #888888;
 }
+
+
 
 .progression .progression-item:hover {
   border: 1px gray solid;
@@ -306,45 +308,6 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 750px) {
-
-  .new-progression-container {
-    padding: 20px;
-    display: grid;
-    grid-template-rows: 55px 170px 65px 350px;
-  }
-
-  .create-progression-form {
-    margin-left: -30px;
-  }
-
-  .color-container {
-    position: absolute;
-    left: 330px;
-    top: 50px;
-  }
-
-  .create-progression-form input[type=submit]{
-    margin-top: 15px;
-    padding: 3px 10px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .color-container {
-    position: absolute;
-    left: 220px;
-    top: 50px;
-  }
-
-  .create-progression-form input[type=submit]{
-    margin: 0 auto;
-    margin-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-}
-
 .red {
   background-color: rgb(250, 224, 224);
 }
@@ -383,4 +346,64 @@
 
 .purple-title {
   background-color: rgb(116, 45, 232);
+}
+
+@media screen and (max-width: 750px) {
+
+  .new-progression-container {
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 55px 170px 65px 350px;
+  }
+
+  .create-progression-form {
+    margin-left: -30px;
+  }
+
+  .color-container {
+    position: absolute;
+    left: 330px;
+    top: 50px;
+  }
+
+  .create-progression-form input[type=submit]{
+    margin-top: 15px;
+    padding: 3px 10px;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .new-progression-container {
+    grid-template-rows: 55px 135px 65px 350px;
+  }
+
+  .progression-item  {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .progression .progression-item .progression-item-title {
+    font-size: 12px;
+    height: 30px;
+  }
+
+  .progression-item img {
+    width: 90px;
+    height: 50px;
+    object-fit: cover;
+  }
+
+  .color-container {
+    position: absolute;
+    left: 220px;
+    top: 50px;
+  }
+
+  .create-progression-form input[type=submit]{
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
