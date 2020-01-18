@@ -53,7 +53,7 @@ class NewReflection extends Component {
                     className="paper-form-title-input"
                     onChange={this.handleTitleChange}
                     value={title}
-                    placeholder='Enter a Reflection title'/>
+                    placeholder='Enter a title'/>
                 </div>
                 <input
                   className="add-prog-button"
@@ -67,6 +67,13 @@ class NewReflection extends Component {
                     placeholder="Enter your question here"
                     value={this.state.question1}>
                   </textarea>
+                </div>
+                <div className="add-prog-button-mini-wrapper">
+                  <input
+                    className="add-prog-button-mini"
+                    type="submit"
+                    value={editing ? 'Update' : 'Add to Progression'}
+                  />
                 </div>
               </form>
             </div>

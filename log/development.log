@@ -23192,3 +23192,1022 @@ Processing by ProgressionsController#destroy as */*
 Completed 201 Created in 15ms (Views: 0.6ms | ActiveRecord: 4.1ms)
 
 
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:01:53 -0500
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adamsarli/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (1.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 64ms (Views: 0.5ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:01:54 -0500
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:01:54 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+  [1m[36mTeacher Load (0.7ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mKlass Load (15.7ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/models/klass.rb:9
+Processing by ProgressionsController#index as */*
+  Parameters: {"progression"=>{}}
+  [1m[36mTeacher Load (1.5ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mProgression Load (1.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mStudentProgression Load (26.3ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/models/klass.rb:10
+  [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mStudentProgression Load (13.8ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  ↳ app/models/klass.rb:10
+Completed 200 OK in 215ms (Views: 1.8ms | ActiveRecord: 98.1ms)
+
+
+  [1m[36mVideo Load (2.2ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.4ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.4ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.4ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.3ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.4ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.3ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.3ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (1.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 236ms (Views: 8.9ms | ActiveRecord: 163.7ms)
+
+
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:06:52 -0500
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (0.9ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 11ms (Views: 0.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:06:52 -0500
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:06:52 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+  [1m[36mTeacher Load (0.9ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mKlass Load (2.0ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+Processing by ProgressionsController#index as */*
+  ↳ app/models/klass.rb:9
+  Parameters: {"progression"=>{}}
+  [1m[36mTeacher Load (0.9ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mProgression Load (1.1ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  [1m[36mStudentProgression Load (2.2ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  ↳ app/models/klass.rb:10
+  [1m[36mStudentProgression Load (1.1ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  ↳ app/models/klass.rb:10
+Completed 200 OK in 35ms (Views: 1.4ms | ActiveRecord: 6.2ms)
+
+
+  [1m[36mVideo Load (3.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.9ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.8ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.4ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.8ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.1ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (2.0ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (2.5ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 134ms (Views: 38.9ms | ActiveRecord: 26.7ms)
+
+
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:07:25 -0500
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (0.7ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:07:26 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:07:26 -0500
+  [1m[36mTeacher Load (1.4ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mKlass Load (1.9ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+Processing by ProgressionsController#index as */*
+  ↳ app/models/klass.rb:9
+  Parameters: {"progression"=>{}}
+  [1m[36mStudentProgression Load (1.5ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/models/klass.rb:10
+  [1m[36mTeacher Load (3.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudentProgression Load (1.7ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  ↳ app/controllers/application_controller.rb:14
+  ↳ app/models/klass.rb:10
+  [1m[36mProgression Load (2.3ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+Completed 200 OK in 20ms (Views: 1.1ms | ActiveRecord: 6.5ms)
+
+
+  [1m[36mItem Load (2.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (2.0ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (1.3ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 139ms (Views: 61.9ms | ActiveRecord: 23.7ms)
+
+
+Started GET "/videos/getYouTubeVideoMetadata/?q=math" for 127.0.0.1 at 2020-01-18 17:07:41 -0500
+Processing by VideosController#youtube_request as */*
+  Parameters: {"q"=>"math", "video"=>{}}
+  [1m[36mTeacher Load (0.9ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 603ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:08:05 -0500
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (0.9ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 9ms (Views: 0.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:08:05 -0500
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:08:05 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+Processing by ProgressionsController#index as */*
+  [1m[36mTeacher Load (2.2ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Parameters: {"progression"=>{}}
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeacher Load (1.4ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mKlass Load (0.9ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/models/klass.rb:9
+  [1m[36mProgression Load (3.0ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mStudentProgression Load (3.5ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/models/klass.rb:10
+  [1m[36mStudentProgression Load (0.9ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  ↳ app/models/klass.rb:10
+Completed 200 OK in 24ms (Views: 1.2ms | ActiveRecord: 7.6ms)
+
+
+  [1m[36mItem Load (10.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (10.5ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (1.4ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 118ms (Views: 15.2ms | ActiveRecord: 40.5ms)
+
+
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:09:28 -0500
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (0.5ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:09:28 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:09:28 -0500
+Processing by ProgressionsController#index as */*
+  Parameters: {"progression"=>{}}
+  [1m[36mTeacher Load (0.5ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.1ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mProgression Load (0.7ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mTeacher Load (12.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (2.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  [1m[36mKlass Load (10.6ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  ↳ app/models/klass.rb:9
+  [1m[36mReflection Load (2.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mStudentProgression Load (2.5ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/models/klass.rb:10
+  [1m[36mStudentProgression Load (1.1ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  ↳ app/models/klass.rb:10
+Completed 200 OK in 42ms (Views: 1.0ms | ActiveRecord: 26.2ms)
+
+
+  [1m[36mVideo Load (10.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.2ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (2.9ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (2.5ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 114ms (Views: 14.7ms | ActiveRecord: 34.5ms)
+
+
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:15:21 -0500
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (1.2ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 10ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:15:21 -0500
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:15:21 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+  [1m[36mTeacher Load (0.7ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mKlass Load (0.9ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/models/klass.rb:9
+  [1m[36mStudentProgression Load (10.8ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/models/klass.rb:10
+  [1m[36mStudentProgression Load (2.3ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  ↳ app/models/klass.rb:10
+Completed 200 OK in 30ms (Views: 0.7ms | ActiveRecord: 14.7ms)
+
+
+Processing by ProgressionsController#index as */*
+  Parameters: {"progression"=>{}}
+  [1m[36mTeacher Load (1.1ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mProgression Load (1.1ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (2.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (1.0ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.8ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.3ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (2.3ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (1.5ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 102ms (Views: 13.0ms | ActiveRecord: 27.2ms)
+
+
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:17:33 -0500
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (0.9ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.1ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 10ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:17:33 -0500
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:17:33 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+Processing by ProgressionsController#index as */*
+  Parameters: {"progression"=>{}}
+  [1m[36mTeacher Load (2.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mTeacher Load (4.5ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mKlass Load (1.2ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  ↳ app/models/klass.rb:9
+  [1m[36mProgression Load (1.0ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.8ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mStudentProgression Load (11.9ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/models/klass.rb:10
+  [1m[36mStudentProgression Load (1.0ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  ↳ app/models/klass.rb:10
+Completed 200 OK in 31ms (Views: 1.1ms | ActiveRecord: 16.1ms)
+
+
+  [1m[36mReflection Load (1.1ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.2ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (1.0ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.2ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (1.0ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.2ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.3ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.9ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.8ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (2.1ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (3.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (2.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (1.2ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 129ms (Views: 12.3ms | ActiveRecord: 35.4ms)
+
+
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:22:59 -0500
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (1.8ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 17ms (Views: 0.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:22:59 -0500
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:22:59 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+  [1m[36mTeacher Load (0.8ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mKlass Load (7.6ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/models/klass.rb:9
+  [1m[36mStudentProgression Load (1.7ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/models/klass.rb:10
+  [1m[36mStudentProgression Load (0.9ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  ↳ app/models/klass.rb:10
+Completed 200 OK in 24ms (Views: 1.1ms | ActiveRecord: 11.0ms)
+
+
+Processing by ProgressionsController#index as */*
+  Parameters: {"progression"=>{}}
+  [1m[36mTeacher Load (1.1ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mProgression Load (1.0ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (2.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.8ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.3ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.8ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (1.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.9ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (1.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (2.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.8ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (2.5ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (1.2ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 110ms (Views: 13.3ms | ActiveRecord: 29.4ms)
+
+
+Started GET "/get_current_user" for 127.0.0.1 at 2020-01-18 17:23:40 -0500
+Processing by SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mTeacher Load (0.7ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/klasses" for 127.0.0.1 at 2020-01-18 17:23:41 -0500
+Processing by KlassesController#index as */*
+  Parameters: {"klass"=>{}}
+Started GET "/progressions" for 127.0.0.1 at 2020-01-18 17:23:41 -0500
+  [1m[36mTeacher Load (1.6ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Processing by ProgressionsController#index as */*
+  Parameters: {"progression"=>{}}
+  [1m[36mTeacher Load (0.8ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mKlass Load (1.5ms)[0m  [1m[34mSELECT "klasses".* FROM "klasses" WHERE "klasses"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/klass.rb:9
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mProgression Load (0.9ms)[0m  [1m[34mSELECT "progressions".* FROM "progressions" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  [1m[36mStudentProgression Load (2.0ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  ↳ app/models/klass.rb:10
+  [1m[36mStudentProgression Load (1.0ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" INNER JOIN "students" ON "student_progressions"."student_id" = "students"."id" WHERE "students"."klass_id" = $1[0m  [["klass_id", 2]]
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 5]]
+  ↳ app/models/klass.rb:10
+  ↳ app/controllers/progressions_controller.rb:6
+Completed 200 OK in 28ms (Views: 1.3ms | ActiveRecord: 6.1ms)
+
+
+  [1m[36mVideo Load (2.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (1.0ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.6ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 6]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (1.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 7]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.8ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:6
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mVideo Load (2.1ms)[0m  [1m[34mSELECT "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" INNER JOIN "items" ON "item_videos"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+  [1m[36mReflection Load (1.1ms)[0m  [1m[34mSELECT "reflections".* FROM "reflections" INNER JOIN "items" ON "reflections"."item_id" = "items"."id" INNER JOIN "progressions" ON "items"."progression_id" = "progressions"."id" WHERE "progressions"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/progressions_controller.rb:5
+Completed 200 OK in 142ms (Views: 41.1ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/videos/getYouTubeVideoMetadata/?q=great" for 127.0.0.1 at 2020-01-18 17:28:51 -0500
+Processing by VideosController#youtube_request as */*
+  Parameters: {"q"=>"great", "video"=>{}}
+  [1m[36mTeacher Load (1.4ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 614ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/progressions" for 127.0.0.1 at 2020-01-18 17:28:56 -0500
+Processing by ProgressionsController#create as */*
+  Parameters: {"progression"=>{"name"=>"test", "color"=>"blue", "items_attributes"=>[{"title"=>"5 YR OLD Scuba Dives with GREAT WHITE SHARKS in Mexico!!", "videoId"=>"GswI5TjS8PU", "channelTitle"=>"The Bucket List Family", "description"=>"SALE! We have an exciting announcement! Today we are launching our ZERO WASTE KITS! https://limlifestyle.com/ The ocean is so precious to us and there's ...", "date"=>"Nov 24, 2019", "thumbnailUrl"=>"https://i.ytimg.com/vi/GswI5TjS8PU/mqdefault.jpg", "url"=>"https://www.youtube.com/embed/GswI5TjS8PU"}, {"title"=>"test", "question1"=>"teststese", "tempId"=>"33gqi", "editing"=>false}]}}
+  [1m[36mTeacher Load (0.7ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Unpermitted parameters: :tempId, :editing
+  [1m[36mVideo Load (1.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1 AND "videos"."title" = $2 AND "videos"."videoId" = $3 AND "videos"."channelTitle" = $4 AND "videos"."date" = $5 AND "videos"."description" = $6 AND "videos"."thumbnailUrl" = $7 LIMIT $8[0m  [["url", "https://www.youtube.com/embed/GswI5TjS8PU"], ["title", "5 YR OLD Scuba Dives with GREAT WHITE SHARKS in Mexico!!"], ["videoId", "GswI5TjS8PU"], ["channelTitle", "The Bucket List Family"], ["date", "Nov 24, 2019"], ["description", "SALE! We have an exciting announcement! Today we are launching our ZERO WASTE KITS! https://limlifestyle.com/ The ocean is so precious to us and there's ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/GswI5TjS8PU/mqdefault.jpg"], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:19
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/progression.rb:19
+  [1m[36mVideo Create (1.2ms)[0m  [1m[32mINSERT INTO "videos" ("channelTitle", "title", "date", "description", "thumbnailUrl", "videoId", "url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["channelTitle", "The Bucket List Family"], ["title", "5 YR OLD Scuba Dives with GREAT WHITE SHARKS in Mexico!!"], ["date", "Nov 24, 2019"], ["description", "SALE! We have an exciting announcement! Today we are launching our ZERO WASTE KITS! https://limlifestyle.com/ The ocean is so precious to us and there's ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/GswI5TjS8PU/mqdefault.jpg"], ["videoId", "GswI5TjS8PU"], ["url", "https://www.youtube.com/embed/GswI5TjS8PU"], ["created_at", "2020-01-18 22:28:56.783756"], ["updated_at", "2020-01-18 22:28:56.783756"]]
+  ↳ app/models/progression.rb:19
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/progression.rb:19
+  [1m[36mReflection Load (0.7ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."title" = $1 AND "reflections"."question1" = $2 LIMIT $3[0m  [["title", "test"], ["question1", "teststese"], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/progression.rb:22
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/progression.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/progressions_controller.rb:15
+  [1m[36mProgression Create (2.6ms)[0m  [1m[32mINSERT INTO "progressions" ("name", "teacher_id", "created_at", "updated_at", "color") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "test"], ["teacher_id", 1], ["created_at", "2020-01-18 22:28:56.814806"], ["updated_at", "2020-01-18 22:28:56.814806"], ["color", "blue"]]
+  ↳ app/controllers/progressions_controller.rb:15
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("progression_index", "progression_id") VALUES ($1, $2) RETURNING "id"[0m  [["progression_index", 0], ["progression_id", 9]]
+  ↳ app/controllers/progressions_controller.rb:15
+  [1m[36mItemVideo Create (0.8ms)[0m  [1m[32mINSERT INTO "item_videos" ("item_id", "video_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 52], ["video_id", 19]]
+  ↳ app/controllers/progressions_controller.rb:15
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("progression_index", "progression_id") VALUES ($1, $2) RETURNING "id"[0m  [["progression_index", 1], ["progression_id", 9]]
+  ↳ app/controllers/progressions_controller.rb:15
+  [1m[36mReflection Create (0.6ms)[0m  [1m[32mINSERT INTO "reflections" ("question1", "title", "item_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["question1", "teststese"], ["title", "test"], ["item_id", 53]]
+  ↳ app/controllers/progressions_controller.rb:15
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/progressions_controller.rb:15
+  [1m[36mReflection Load (0.4ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:16
+  [1m[36mVideo Load (0.8ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 53], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:16
+Completed 200 OK in 61ms (Views: 0.1ms | ActiveRecord: 20.8ms)
+
+
+Started PATCH "/progressions/9" for 127.0.0.1 at 2020-01-18 17:29:05 -0500
+Processing by ProgressionsController#update as */*
+  Parameters: {"progression"=>{"id"=>9, "name"=>"test", "color"=>"blue", "items_attributes"=>[{"id"=>19, "channelTitle"=>"The Bucket List Family", "title"=>"5 YR OLD Scuba Dives with GREAT WHITE SHARKS in Mexico!!", "date"=>"Nov 24, 2019", "description"=>"SALE! We have an exciting announcement! Today we are launching our ZERO WASTE KITS! https://limlifestyle.com/ The ocean is so precious to us and there's ...", "thumbnailUrl"=>"https://i.ytimg.com/vi/GswI5TjS8PU/mqdefault.jpg", "videoId"=>"GswI5TjS8PU", "url"=>"https://www.youtube.com/embed/GswI5TjS8PU", "created_at"=>"2020-01-18T22:28:56.783Z", "updated_at"=>"2020-01-18T22:28:56.783Z"}, {"id"=>9, "question1"=>"teststese", "title"=>"test", "item_id"=>53}]}, "id"=>"9"}
+  [1m[36mTeacher Load (0.5ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mProgression Load (0.6ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:43
+Unpermitted parameters: :created_at, :updated_at
+Unpermitted parameter: :item_id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/progressions_controller.rb:48
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."progression_id" = $1[0m  [["progression_id", 9]]
+  ↳ app/models/progression.rb:15
+  [1m[36mItem Destroy (2.3ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 52]]
+  ↳ app/models/progression.rb:15
+  [1m[36mItem Destroy (0.5ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 53]]
+  ↳ app/models/progression.rb:15
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 AND "videos"."url" = $2 AND "videos"."title" = $3 AND "videos"."videoId" = $4 AND "videos"."channelTitle" = $5 AND "videos"."date" = $6 AND "videos"."description" = $7 AND "videos"."thumbnailUrl" = $8 LIMIT $9[0m  [["id", 19], ["url", "https://www.youtube.com/embed/GswI5TjS8PU"], ["title", "5 YR OLD Scuba Dives with GREAT WHITE SHARKS in Mexico!!"], ["videoId", "GswI5TjS8PU"], ["channelTitle", "The Bucket List Family"], ["date", "Nov 24, 2019"], ["description", "SALE! We have an exciting announcement! Today we are launching our ZERO WASTE KITS! https://limlifestyle.com/ The ocean is so precious to us and there's ..."], ["thumbnailUrl", "https://i.ytimg.com/vi/GswI5TjS8PU/mqdefault.jpg"], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:19
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("progression_index", "progression_id") VALUES ($1, $2) RETURNING "id"[0m  [["progression_index", 0], ["progression_id", 9]]
+  ↳ app/models/progression.rb:26
+  [1m[36mItemVideo Create (0.5ms)[0m  [1m[32mINSERT INTO "item_videos" ("item_id", "video_id") VALUES ($1, $2) RETURNING "id"[0m  [["item_id", 54], ["video_id", 19]]
+  ↳ app/models/progression.rb:26
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."id" = $1 AND "reflections"."title" = $2 AND "reflections"."question1" = $3 LIMIT $4[0m  [["id", 9], ["title", "test"], ["question1", "teststese"], ["LIMIT", 1]]
+  ↳ app/models/progression.rb:22
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("progression_index", "progression_id") VALUES ($1, $2) RETURNING "id"[0m  [["progression_index", 1], ["progression_id", 9]]
+  ↳ app/models/progression.rb:26
+  [1m[36mReflection Update (0.6ms)[0m  [1m[33mUPDATE "reflections" SET "item_id" = $1 WHERE "reflections"."id" = $2[0m  [["item_id", 55], ["id", 9]]
+  ↳ app/models/progression.rb:26
+  [1m[36mTeacher Load (0.5ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:48
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/progressions_controller.rb:48
+  [1m[36mReflection Load (0.5ms)[0m  [1m[34mSELECT  "reflections".* FROM "reflections" WHERE "reflections"."item_id" = $1 LIMIT $2[0m  [["item_id", 54], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:49
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" INNER JOIN "item_videos" ON "videos"."id" = "item_videos"."video_id" WHERE "item_videos"."item_id" = $1 LIMIT $2[0m  [["item_id", 55], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:49
+Completed 200 OK in 47ms (Views: 0.1ms | ActiveRecord: 10.5ms)
+
+
+Started DELETE "/progressions/9" for 127.0.0.1 at 2020-01-18 17:29:09 -0500
+Processing by ProgressionsController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mTeacher Load (1.1ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mProgression Load (0.6ms)[0m  [1m[34mSELECT  "progressions".* FROM "progressions" WHERE "progressions"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/progressions_controller.rb:76
+  [1m[36mStudentProgression Load (1.3ms)[0m  [1m[34mSELECT "student_progressions".* FROM "student_progressions" WHERE "student_progressions"."progression_id" = $1[0m  [["progression_id", 9]]
+  ↳ app/controllers/progressions_controller.rb:77
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/progressions_controller.rb:79
+  [1m[36mProgression Destroy (1.9ms)[0m  [1m[31mDELETE FROM "progressions" WHERE "progressions"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/progressions_controller.rb:79
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/progressions_controller.rb:79
+Completed 201 Created in 19ms (Views: 0.6ms | ActiveRecord: 9.2ms)
+
+
