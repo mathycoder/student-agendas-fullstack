@@ -179,31 +179,6 @@
   display: inline;
 }
 
-.progression-menu-bar ul {
-  display: flex;
-  list-style-type: none;
-  margin-left: -40px;
-}
-
-.progression-menu-bar ul li {
-  padding: 2px 10px;
-  margin-right: 5px;
-  border: 1px black solid;
-  border-bottom: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.progression-menu-bar ul li:hover {
-  background-color: gray;
-  cursor: pointer;
-}
-
-.progression-menu-bar a {
-  text-decoration: none;
-  color: black;
-}
-
 .progression-menu-bar .selected {
   background-color: gray;
 }

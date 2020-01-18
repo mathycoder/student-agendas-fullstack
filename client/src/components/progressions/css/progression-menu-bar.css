@@ -1,0 +1,49 @@
+.progression-menu-bar ul {
+  display: flex;
+  list-style-type: none;
+  margin-left: -40px;
+  justify-content: center;
+}
+
+.progression-menu-bar ul li {
+  padding: 4px 10px;
+  margin-right: 5px;
+  border: 1px black solid;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 10%;
+  text-align: center;
+}
+
+.progression-menu-bar ul li:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.progression-menu-bar a {
+  text-decoration: none;
+  color: black;
+}
+
+.progression-menu-bar .video-logo {
+  display: block;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.progression-menu-bar .edit-button {
+  padding-top: 8px;
+}
+
+@media screen and (max-width: 600px){
+  .progression-menu-bar ul li {
+    width: 20%;
+  }
+
+  .progression-menu-bar .edit-button {
+    font-size: 16px;
+  }
+}

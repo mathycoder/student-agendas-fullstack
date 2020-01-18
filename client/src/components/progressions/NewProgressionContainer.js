@@ -152,7 +152,7 @@ class NewProgressionContainer extends Component {
 
   handleMenuClick = (event) => {
     const { addFlashMessage } = this.props
-    const selectedTab = event.target.innerText
+    const selectedTab = event.target.dataset.option || event.target.parentElement.dataset.option
     const index = selectedTab === "Edit Progression" && this.state.currProgression.length > 0 ? 0 : ""
 
     if (selectedTab === "Add Reflection" && this.containsReflection()){
@@ -162,7 +162,7 @@ class NewProgressionContainer extends Component {
         ...this.state,
         selectedIndex: index,
         currProgression: [...this.state.currProgression],
-        menuSelect: event.target.innerText
+        menuSelect: selectedTab
       })
     }
   }
