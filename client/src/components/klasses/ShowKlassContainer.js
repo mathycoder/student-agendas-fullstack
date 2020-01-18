@@ -7,6 +7,7 @@ import { addStudents } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import { addFlashMessage } from '../../actions/flashActions'
 import ShowKlassAllProgressions from './ShowKlassAllProgressions'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
@@ -45,6 +46,52 @@ class ShowKlassContainer extends Component {
     }
   }
 
+  handleDNDDragStart = attributes => {
+    // const {draggableId} = attributes
+    // if (!attributes.draggableId.startsWith("query")) {
+    //   document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
+    // }
+  }
+
+  handleDNDDragEnd = result => {
+    // const { destination, source, draggableId } = result
+    // const { currProgression } = this.state
+    // const testArray = [...currProgression]
+    // if (!result.draggableId.startsWith("query")) {
+    //   document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
+    // }
+    //
+    // if (!destination) {
+    //   return
+    // }
+    //
+    // if (result.source.droppableId === "droppable-1") {
+    //   if (destination.index !== source.index) {
+    //     testArray.splice(source.index, 1)
+    //     testArray.splice(destination.index, 0, this.state.currProgression[source.index])
+    //     this.setState({
+    //       ...this.state,
+    //       currProgression: testArray
+    //     })
+    //   }
+    // } else if (destination.droppableId === "droppable-1"){
+    //     const { addFlashMessage, youTubeVideos, vimeoVideos } = this.props
+    //     const newVideo = youTubeVideos.find(vid => vid.videoId === result.draggableId.split("query-")[1]) || vimeoVideos.find(vid => vid.videoId === result.draggableId.split("query-")[1])
+    //     if (newVideo){
+    //       const any = currProgression.find(vid => vid.videoId === newVideo.videoId)
+    //       if (!any) {
+    //         testArray.splice(destination.index, 0, newVideo)
+    //         this.setState({
+    //           ...this.state,
+    //           currProgression: testArray
+    //         })
+    //       } else {
+    //         addFlashMessage("Your progression already contains this video")
+    //       }
+    //     }
+    // }
+  }
+
   renderStudents = () => <StudentsContainer
                           klass={this.props.klass}
                           handleDragOver={this.handleDragOver}
@@ -57,14 +104,18 @@ class ShowKlassContainer extends Component {
 
   render(){
     const { klass, editingStudents, showProgressions, submitted } = this.props
-
     if (klass) {
       return (
-        <div className="klass-show-container">
-          { editingStudents ? <EditStudents klass={klass} />
-            : ( submitted ? <ShowKlassAllProgressions /> : this.renderStudents()) }
-          { !editingStudents && !submitted && showProgressions ? this.renderProgressions() : <div></div> }
-        </div>
+        <DragDropContext
+          onDragEnd={this.handleDNDDragEnd}
+          onDragStart={this.handleDNDDragStart}
+          >
+          <div className="klass-show-container">
+            { editingStudents ? <EditStudents klass={klass} />
+              : ( submitted ? <ShowKlassAllProgressions /> : this.renderStudents()) }
+            { !editingStudents && !submitted && showProgressions ? this.renderProgressions() : <div></div> }
+          </div>
+        </DragDropContext>
       )
     } else {
       return <div></div>

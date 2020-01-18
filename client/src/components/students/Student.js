@@ -4,7 +4,7 @@ import './student.css'
 import { connect } from 'react-redux'
 import { NavLink } from "react-router-dom"
 import { deleteStudentProgression, switchStudentProgression } from '../../actions/studentProgressionActions'
-import { Droppable, DragDropContext } from 'react-beautiful-dnd'
+import { Droppable } from 'react-beautiful-dnd'
 
 class Student extends Component {
   handleDeleteProgClick = (progression) => {
@@ -24,10 +24,7 @@ class Student extends Component {
   renderStudentAgenda = () => {
     const { student, progressions, handleDragOver, handleDragLeave, handleDragDrop } = this.props
     return (
-      <DragDropContext
-        onDragEnd={this.handleDNDDragEnd}
-        onDragStart={this.handleDNDDragStart}
-        >
+
         <Droppable droppableId={`droppable-${student.id}`} direction="horizontal">
           {(provided) => (
             <StudentAgenda
@@ -43,7 +40,7 @@ class Student extends Component {
               />
           )}
         </Droppable>
-      </DragDropContext>
+
     )
   }
 

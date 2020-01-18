@@ -89,28 +89,29 @@
   max-width: 100px;
   font-size: 12px;
   padding-right: 10px;
-  font-weight: lighter;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 500px) {
   .student-row .student-name {
     display: flex;
-    min-width: 70px;
-    max-width: 70px;
+    min-width: 80px;
+    max-width: 80px;
     font-size: 10px;
     padding-right: 10px;
     text-align:center;
     line-height: 24px;
+    overflow: hidden;
+  }
+
+  .student-name a h2 {
+    font-weight: normal;
   }
 }
 
 .student-name a {
   text-decoration: none;
   color: black;
-}
-
-.student-name a h2 {
-  font-weight: normal;
 }
 
 .student-name a:hover {
