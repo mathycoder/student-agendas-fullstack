@@ -55,7 +55,7 @@ export function editStudentInKlass(klassId, studentData){
         if (student.error){
           dispatch({ type: 'ADD_FLASH_MESSAGE', message: student.error })
         } else {
-          dispatch({ type: 'EDIT_STUDENT_TO_KLASS', student })
+          dispatch({ type: 'EDIT_STUDENT_IN_KLASS', student })
         }
       })
   }
