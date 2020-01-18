@@ -204,17 +204,19 @@ class NewProgressionContainer extends Component {
         })
       }
     } else if (destination.droppableId === "droppable-1"){
-        const { addFlashMessage } = this.props
-        const newVideo = this.props.youTubeVideos.find(vid => vid.videoId === result.draggableId.split("-")[1])
-        const any = currProgression.find(vid => vid.videoId === newVideo.videoId)
-        if (!any) {
-          testArray.splice(destination.index, 0, newVideo)
-          this.setState({
-            ...this.state,
-            currProgression: testArray
-          })
-        } else {
-          addFlashMessage("Your progression already contains this video")
+        const { addFlashMessage, youTubeVideos } = this.props
+        const newVideo = youTubeVideos.find(vid => vid.videoId === result.draggableId.split("query-")[1])
+        if (newVideo){
+          const any = currProgression.find(vid => vid.videoId === newVideo.videoId)
+          if (!any) {
+            testArray.splice(destination.index, 0, newVideo)
+            this.setState({
+              ...this.state,
+              currProgression: testArray
+            })
+          } else {
+            addFlashMessage("Your progression already contains this video")
+          }
         }
     }
   }
