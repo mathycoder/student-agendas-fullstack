@@ -55,7 +55,12 @@ class SearchContainer extends Component {
         </form>
         <div className="search-videos-container">
           {staticState.loading ? <div className="loading"></div>: ''}
-          {videoSearch.length > 0 ? <DisplaySearchResults handleDragStart={handleDragStart} handleVideoClick={this.handleVideoClick} videos={videoSearch || []}/> : ''}
+          {videoSearch.length > 0 ?
+            <DisplaySearchResults
+              handleDragStart={handleDragStart}
+              handleVideoClick={this.handleVideoClick}
+              videos={videoSearch || []}/>
+            : ''}
           {videoIndex !== "" ?
             <DisplayPreview shiftup={true} addToProgression={addToProgression} video={videoSearch[videoIndex]}/>
             : (staticState.loading ? '' : <div className="video-icon"><img src="/projector.png" alt="video projector"/></div>)}

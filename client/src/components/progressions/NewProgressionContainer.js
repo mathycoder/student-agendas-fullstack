@@ -182,26 +182,41 @@ class NewProgressionContainer extends Component {
 
   handleDNDDragStart = attributes => {
     const {draggableId} = attributes
-    document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
+    //document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
   }
 
   handleDNDDragEnd = result => {
     const { destination, source, draggableId } = result
-    document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
+    const { currProgression } = this.state
+    const testArray = [...currProgression]
+    //document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
     if (!destination) {
       return
     }
 
-    if (destination.index !== source.index) {
-      const testArray = [...this.state.currProgression]
-      testArray.splice(source.index, 1)
-      testArray.splice(destination.index, 0, this.state.currProgression[source.index])
-      this.setState({
-        ...this.state,
-        currProgression: testArray
-      })
+    if (result.source.droppableId === "droppable-1") {
+      if (destination.index !== source.index) {
+        testArray.splice(source.index, 1)
+        testArray.splice(destination.index, 0, this.state.currProgression[source.index])
+        this.setState({
+          ...this.state,
+          currProgression: testArray
+        })
+      }
+    } else if (destination.droppableId === "droppable-1"){
+        const { addFlashMessage } = this.props
+        const newVideo = this.props.youTubeVideos.find(vid => vid.videoId === result.draggableId.split("-")[1])
+        const any = currProgression.find(vid => vid.videoId === newVideo.videoId)
+        if (!any) {
+          testArray.splice(destination.index, 0, newVideo)
+          this.setState({
+            ...this.state,
+            currProgression: testArray
+          })
+        } else {
+          addFlashMessage("Your progression already contains this video")
+        }
     }
-
   }
 
   renderForm = () => {
@@ -299,7 +314,9 @@ function mapStateToProps(state){
   return {
     progressions: state.progressions,
     videos: state.videos,
-    reflections: state.reflections
+    reflections: state.reflections,
+    youTubeVideos: state.videoSearch.youTube.videos,
+    vimeoVideos: state.videoSearch.vimeo.videos
   }
 }
 
