@@ -204,8 +204,8 @@ class NewProgressionContainer extends Component {
         })
       }
     } else if (destination.droppableId === "droppable-1"){
-        const { addFlashMessage, youTubeVideos } = this.props
-        const newVideo = youTubeVideos.find(vid => vid.videoId === result.draggableId.split("query-")[1])
+        const { addFlashMessage, youTubeVideos, vimeoVideos } = this.props
+        const newVideo = youTubeVideos.find(vid => vid.videoId === result.draggableId.split("query-")[1]) || vimeoVideos.find(vid => vid.videoId === result.draggableId.split("query-")[1])
         if (newVideo){
           const any = currProgression.find(vid => vid.videoId === newVideo.videoId)
           if (!any) {
