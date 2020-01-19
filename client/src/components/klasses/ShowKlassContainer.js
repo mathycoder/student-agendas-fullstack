@@ -60,13 +60,31 @@ class ShowKlassContainer extends Component {
 
     if (!destination || !source) { return }
 
-    // handles shifting progressions around within a progression
-    if (source.droppableId === destination.droppableId && destination.index !== source.index) {
-      switchStudentProgression(draggableId, destination.index)
-    }
+    if (source.index !== destination.index && source.droppableId === destination.droppableId && destination.index !== source.index) {
+      // handles shifting progressions around within a progression
+      debugger
+      const student = students.byId[draggableId.split("-")[0]]
+      const progression = progressions.byId[draggableId.split("-")[1]]
+      switchStudentProgression(student, progression, destination.index)
+    } else if (source.droppableId.includes("progression") && destination.droppableId.includes("student")){
+        // handles moving a progression from index to a student agenda
+        const index = destination.index
+        const student = students.byId[destination.droppableId.split("-")[1]]
+        const progression = progressions.byId[source.droppableId.split("-")[1]]
+        const any = studentProgressions.allIds.filter(spId => {
+          const sp = studentProgressions.byId[spId]
+          return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
+        })
+        if (any.length === 0){
+          addStudentProgression(student, progression, index)
+        } else {
+          addFlashMessage("This student agenda already has this progression")
+        }
+    } else if (source.droppableId !== destination.droppableId && source.droppableId.includes("student") && destination.droppableId.includes("student")) {
+      // handles shifting progressions around within agendas
 
-    // if you drag a new progression over to a student container
-    if (source.droppableId.includes("progression") && destination.droppableId.includes("student")){
+      // IDENTICAL CODE: so, one of the agendas will go through the process of adding a new progression
+      debugger
       const index = destination.index
       const student = students.byId[destination.droppableId.split("-")[1]]
       const progression = progressions.byId[source.droppableId.split("-")[1]]
@@ -81,42 +99,7 @@ class ShowKlassContainer extends Component {
       }
     }
 
-    // const { destination, source, draggableId } = result
-    // const { currProgression } = this.state
-    // const testArray = [...currProgression]
-    // if (!result.draggableId.startsWith("query")) {
-    //   document.querySelector(`#item-${draggableId}`).classList.remove("item-dragging")
-    // }
-    //
-    // if (!destination) {
-    //   return
-    // }
-    //
-    // if (result.source.droppableId === "droppable-1") {
-    //   if (destination.index !== source.index) {
-    //     testArray.splice(source.index, 1)
-    //     testArray.splice(destination.index, 0, this.state.currProgression[source.index])
-    //     this.setState({
-    //       ...this.state,
-    //       currProgression: testArray
-    //     })
-    //   }
-    // } else if (destination.droppableId === "droppable-1"){
-    //     const { addFlashMessage, youTubeVideos, vimeoVideos } = this.props
-    //     const newVideo = youTubeVideos.find(vid => vid.videoId === result.draggableId.split("query-")[1]) || vimeoVideos.find(vid => vid.videoId === result.draggableId.split("query-")[1])
-    //     if (newVideo){
-    //       const any = currProgression.find(vid => vid.videoId === newVideo.videoId)
-    //       if (!any) {
-    //         testArray.splice(destination.index, 0, newVideo)
-    //         this.setState({
-    //           ...this.state,
-    //           currProgression: testArray
-    //         })
-    //       } else {
-    //         addFlashMessage("Your progression already contains this video")
-    //       }
-    //     }
-    // }
+
   }
 
   renderStudents = () => <StudentsContainer
@@ -155,7 +138,7 @@ function mapDispatchToProps(dispatch){
     fetchStudents: (klassId) => dispatch(addStudents(klassId)),
     addStudentProgression: (student, progression, index) => dispatch(addStudentProgression(student, progression, index)),
     addFlashMessage: (message) => dispatch(addFlashMessage(message)),
-    switchStudentProgression: (draggableId, newIndex) => dispatch(switchStudentProgression(draggableId, newIndex))
+    switchStudentProgression: (student, progression, newIndex) => dispatch(switchStudentProgression(student, progression, newIndex))
   }
 }
 

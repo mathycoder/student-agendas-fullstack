@@ -102,8 +102,8 @@ function allStudentProgressions(state = [], action) {
 function switchAgendaOrder(action, allSps){
   let currStProgression
   let myStudentProgressions = []
-  const studId = `student${action.draggableId.split("-")[1]}`
-  const progId = `progression${action.draggableId.split("-")[3]}`
+  const studId = `student${action.student.id}`
+  const progId = `progression${action.progression.id}`
   for(const sp in allSps){
     if (allSps[sp].studentId === studId) {
       myStudentProgressions.push(allSps[sp])

@@ -37,17 +37,16 @@ export function deleteStudentProgression(student, progression){
   }
 }
 
-export function switchStudentProgression(draggableId, newIndex){
+export function switchStudentProgression(student, progression, newIndex){
   return (dispatch) => {
-    dispatch({type: 'START_SWITCH_PROGRESSION_REQUEST', draggableId, newIndex})
+    dispatch({type: 'START_SWITCH_PROGRESSION_REQUEST', student, progression, newIndex})
     const params = {
       student: {
         newIndex: newIndex
       }
     }
-    const studentId = draggableId.split("-")[1]
-    const progressionId = draggableId.split("-")[3]
-    fetch(`/students/${studentId}/progressions/${progressionId}`, {
+
+    fetch(`/students/${student.id}/progressions/${progression.id}`, {
       method: 'PATCH',
       credentials: "include",
       body: JSON.stringify(params),

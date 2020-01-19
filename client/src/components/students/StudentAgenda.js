@@ -14,7 +14,7 @@ const StudentAgenda = ({ placeholder, innerRef, handleDragOver, handleDragLeave,
       {progressions.map((progression, index) => {
         if (progression && !progression.submitted) {
           return (
-              <Draggable draggableId={`student-${student.id}-progression-${progression.id}`} index={index} key={`student-${student.id}-progression-${progression.id}`}>
+              <Draggable draggableId={`student${student.id}-progression${progression.id}`} index={index} key={`student-${student.id}-progression-${progression.id}`}>
                 {(provided) => (
                   <div {...provided.draggableProps} {...provided.dragHandleProps}>
                     <StudentAgendaProgression
