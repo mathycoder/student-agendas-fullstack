@@ -55,13 +55,29 @@ class ShowKlassContainer extends Component {
   }
 
   handleDNDDragEnd = result => {
-    const { switchStudentProgression } = this.props
+    const { switchStudentProgression, progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
     const { destination, source, draggableId } = result
-    debugger
+
     if (!destination || !source) { return }
 
+    // handles shifting progressions around within a progression
     if (source.droppableId === destination.droppableId && destination.index !== source.index) {
       switchStudentProgression(draggableId, destination.index)
+    }
+
+    // if you drag a new progression over to a student container
+    if (source.droppableId.includes("progression") && destination.droppableId.includes("student")){
+      const student = students.byId[destination.droppableId.split("-")[1]]
+      const progression = progressions.byId[source.droppableId.split("-")[1]]
+      const any = studentProgressions.allIds.filter(spId => {
+        const sp = studentProgressions.byId[spId]
+        return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
+      })
+      if (any.length === 0){
+        addStudentProgression(student, progression)
+      } else {
+        addFlashMessage("This student agenda already has this progression")
+      }
     }
 
     // const { destination, source, draggableId } = result
@@ -146,7 +162,8 @@ function mapStateToProps(state){
   return {
     klasses: state.klasses,
     students: state.students,
-    studentProgressions: state.studentProgressions
+    studentProgressions: state.studentProgressions,
+    progressions: state.progressions
   }
 }
 

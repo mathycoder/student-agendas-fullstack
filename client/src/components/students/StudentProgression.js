@@ -12,7 +12,7 @@ const StudentProgression = ({ progression, handlePlusClick, index, innerRef }) =
           </div>
           : ''
         }
-        <Draggable draggableId={`progression-${progression.id}`} index={index} key={`progression-${progression.id}`}>
+        <Draggable draggableId={`progression${progression.id}`} index={index} key={`progression${progression.id}`}>
           {(provided2, snapshot) => {
             return (
               <>
