@@ -1,25 +1,33 @@
 import React from 'react'
 import RenderItem from '../progressions/RenderItem.js'
+import { Draggable } from 'react-beautiful-dnd'
 
-const StudentProgression = (props) => {
-  const { progression, handlePlusClick } = props
+const StudentProgression = ({ progression, handlePlusClick, index, innerRef }) => {
   if (progression){
     return (
-      <div className="progression-container-box">
+      <div className="progression-container-box" ref={node => innerRef(node)}>
         {handlePlusClick ?
           <div onClick={e => handlePlusClick(e, progression)}>
             <button>+</button>
           </div>
           : ''
         }
-        <div
-          className={`student-show-progression ${progression.color}`}
-          >
-          <div className={`student-show-progression-title ${progression.color}-title`}>{progression.name}</div>
-          <div className="student-show-progression-items">
-            <RenderItem progression={progression} />
-          </div>
-        </div>
+        <Draggable draggableId={`progression-${progression.id}`} index={index} key={`progression-${progression.id}`}>
+          {(provided2) => {
+            return (
+              <div {...provided2.dragHandleProps} {...provided2.draggableProps}>
+                <div
+                  className={`student-show-progression ${progression.color}`}
+                  ref={node => provided2.innerRef(node)} 
+                  >
+                  <div className={`student-show-progression-title ${progression.color}-title`}>{progression.name}</div>
+                  <div className="student-show-progression-items">
+                    <RenderItem progression={progression} />
+                  </div>
+                </div>
+              </div>
+          )}}
+        </Draggable>
       </div>
     )
   } else {

@@ -167,6 +167,7 @@ class IndexProgressionsContainer extends Component {
                 <Droppable droppableId={`droppable-${progressionId}`} direction="horizontal">
                   {(provided) => (
                     <StudentProgression
+                      index={index}
                       innerRef={provided.innerRef}
                       placeholder={provided.placeholder}
                       {...provided.droppableProps}
