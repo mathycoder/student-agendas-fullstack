@@ -23,6 +23,7 @@ function studentProgressionsById(state = {}, action) {
       }
 
     case 'ADD_STUDENT_PROGRESSION':
+
       return {
         ...state,
         ...normalizedObjectCreator([action.studentProgression])

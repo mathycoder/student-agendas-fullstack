@@ -22,14 +22,8 @@ class ProgressionsController < ApplicationController
     else
       student = Student.find_by(id: params[:student_id])
       progression = Progression.find_by(id: params[:student][:progressionId])
-      student.progressions << progression
-      @sp = StudentProgression.last
-      @sp.agenda_index = student.progressions.length - 1
-      if @sp.save
-        render json: @sp, status: 201
-      else
-        render json: @sp.errors.full_messages, status: 422
-      end
+      index = params[:student][:index]
+      render json: {studentProgressions: StudentProgression.new_sp(progression, student, index)}
     end
   end
 

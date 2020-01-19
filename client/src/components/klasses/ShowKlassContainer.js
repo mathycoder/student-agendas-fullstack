@@ -67,6 +67,7 @@ class ShowKlassContainer extends Component {
 
     // if you drag a new progression over to a student container
     if (source.droppableId.includes("progression") && destination.droppableId.includes("student")){
+      const index = destination.index
       const student = students.byId[destination.droppableId.split("-")[1]]
       const progression = progressions.byId[source.droppableId.split("-")[1]]
       const any = studentProgressions.allIds.filter(spId => {
@@ -74,7 +75,7 @@ class ShowKlassContainer extends Component {
         return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
       })
       if (any.length === 0){
-        addStudentProgression(student, progression)
+        addStudentProgression(student, progression, index)
       } else {
         addFlashMessage("This student agenda already has this progression")
       }
@@ -152,7 +153,7 @@ class ShowKlassContainer extends Component {
 function mapDispatchToProps(dispatch){
   return {
     fetchStudents: (klassId) => dispatch(addStudents(klassId)),
-    addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression)),
+    addStudentProgression: (student, progression, index) => dispatch(addStudentProgression(student, progression, index)),
     addFlashMessage: (message) => dispatch(addFlashMessage(message)),
     switchStudentProgression: (draggableId, newIndex) => dispatch(switchStudentProgression(draggableId, newIndex))
   }

@@ -1,9 +1,10 @@
-export function addStudentProgression(student, progression) {
+export function addStudentProgression(student, progression, index) {
   return (dispatch) => {
     dispatch({type: 'START_ADDING_STUDENT_PROGRESSION_REQUEST'})
     const params = {
       student: {
-        progressionId: progression.id
+        progressionId: progression.id,
+        index: index
       }
     }
     fetch(`/students/${student.id}/progressions`, {
@@ -15,7 +16,7 @@ export function addStudentProgression(student, progression) {
       }
     })
       .then(resp => resp.json())
-      .then(studentProgression => dispatch({ type: 'ADD_STUDENT_PROGRESSION', studentProgression }))
+      .then(studentProgressions => dispatch({ type: 'ADD_STUDENT_PROGRESSION', studentProgressions }))
   }
 }
 
