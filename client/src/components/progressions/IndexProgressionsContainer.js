@@ -164,7 +164,7 @@ class IndexProgressionsContainer extends Component {
             const progression = progressions.byId[progressionId]
             if (!indexPage) {
               return (
-                <Droppable droppableId={`droppable-${progressionId}`} direction="horizontal">
+                <Droppable droppableId={`droppable-${progressionId}`} direction="vertical" isDropDisabled={true}>
                   {(provided) => (
                     <StudentProgression
                       index={index}
