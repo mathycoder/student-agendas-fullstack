@@ -23,10 +23,9 @@ function studentProgressionsById(state = {}, action) {
       }
 
     case 'ADD_STUDENT_PROGRESSION':
-
       return {
         ...state,
-        ...normalizedObjectCreator([action.studentProgression])
+        ...normalizedObjectCreator(action.studentProgressions)
       }
 
     case 'ADD_STUDENT_PROGRESSIONS':
@@ -72,20 +71,20 @@ function allStudentProgressions(state = [], action) {
       return []
 
     case 'ADD_STUDENTS':
-    return [
-      ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
-    ]
+      return [
+        ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
+      ]
 
     case 'ADD_STUDENT_PROGRESSIONS':
-    return [
-      ...state,
-      ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
-    ]
+      return [
+        ...state,
+        ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
+      ]
 
     case 'ADD_STUDENT_PROGRESSION':
-    return [
-      ...state, `studentProgression${action.studentProgression.id}`
-    ]
+      return [
+        ...state, `studentProgression${action.studentProgression.id}`
+      ]
 
     case 'REMOVE_STUDENT_FROM_PROGRESSION':
       const stProgIdToDelete = `studentProgression${action.studentProgression.id}`
@@ -94,6 +93,7 @@ function allStudentProgressions(state = [], action) {
     case 'DELETE_PROGRESSION':
       const spsToRemove = action.studentProgressions.map(sp => `studentProgression${sp.id}`)
       return state.filter(sp => !spsToRemove.includes(sp))
+
     default:
       return state
   }

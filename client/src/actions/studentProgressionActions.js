@@ -16,7 +16,7 @@ export function addStudentProgression(student, progression, index) {
       }
     })
       .then(resp => resp.json())
-      .then(studentProgressions => dispatch({ type: 'ADD_STUDENT_PROGRESSION', studentProgressions }))
+      .then(json => dispatch({ type: 'ADD_STUDENT_PROGRESSION', studentProgressions: json.studentProgressions, studentProgression: json.studentProgression }))
   }
 }
 

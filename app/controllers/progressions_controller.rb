@@ -23,7 +23,10 @@ class ProgressionsController < ApplicationController
       student = Student.find_by(id: params[:student_id])
       progression = Progression.find_by(id: params[:student][:progressionId])
       index = params[:student][:index]
-      render json: {studentProgressions: StudentProgression.new_sp(progression, student, index)}
+      render json: {
+        studentProgressions: StudentProgression.new_sp(progression, student, index),
+        studentProgression: StudentProgression.find_by(progression_id: progression.id, student_id: student.id)
+      }
     end
   end
 
