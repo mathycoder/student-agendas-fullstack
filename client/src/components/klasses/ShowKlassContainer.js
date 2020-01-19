@@ -12,47 +12,41 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
-  handleDragOver = event => {
-    event.preventDefault()
-    const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "rgb(211, 211, 211)"
-  }
+  // handleDragOver = event => {
+  //   event.preventDefault()
+  //   const agenda = event.currentTarget.closest('.student-agenda')
+  //   agenda.style.backgroundColor = "rgb(211, 211, 211)"
+  // }
+  //
+  // handleDragLeave = event => {
+  //   event.preventDefault()
+  //   const agenda = event.currentTarget.closest('.student-agenda')
+  //   agenda.style.backgroundColor = "rgb(81, 84, 92)"
+  // }
+  //
+  // handleDragStart = (event, progression) => {
+  //   let data = JSON.stringify(progression)
+  //   event.dataTransfer.setData("progression", data)
+  // }
+  //
+  // handleDragDrop = (event) => {
+  //   const { studentProgressions, students, addStudentProgression, addFlashMessage } = this.props
+  //   const agenda = event.currentTarget.closest('.student-agenda')
+  //   agenda.style.backgroundColor = "rgb(81, 84, 92)"
+  //   let progression = event.dataTransfer.getData("progression")
+  //   progression = JSON.parse(progression)
+  //   const student = students.byId[`student${event.currentTarget.dataset.studentId}`]
+  //   const any = studentProgressions.allIds.filter(spId => {
+  //     const sp = studentProgressions.byId[spId]
+  //     return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
+  //   })
+  //   if (any.length === 0){
+  //     addStudentProgression(student, progression)
+  //   } else {
+  //     addFlashMessage("This student agenda already has this progression")
+  //   }
+  // }
 
-  handleDragLeave = event => {
-    event.preventDefault()
-    const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "rgb(81, 84, 92)"
-  }
-
-  handleDragStart = (event, progression) => {
-    let data = JSON.stringify(progression)
-    event.dataTransfer.setData("progression", data)
-  }
-
-  handleDragDrop = (event) => {
-    const { studentProgressions, students, addStudentProgression, addFlashMessage } = this.props
-    const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "rgb(81, 84, 92)"
-    let progression = event.dataTransfer.getData("progression")
-    progression = JSON.parse(progression)
-    const student = students.byId[`student${event.currentTarget.dataset.studentId}`]
-    const any = studentProgressions.allIds.filter(spId => {
-      const sp = studentProgressions.byId[spId]
-      return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
-    })
-    if (any.length === 0){
-      addStudentProgression(student, progression)
-    } else {
-      addFlashMessage("This student agenda already has this progression")
-    }
-  }
-
-  handleDNDDragStart = attributes => {
-    // const {draggableId} = attributes
-    // if (!attributes.draggableId.startsWith("query")) {
-    //   document.querySelector(`#item-${draggableId}`).classList.add("item-dragging")
-    // }
-  }
 
   handleDNDDragEnd = result => {
     const { switchStudentProgression, deleteStudentProgression, progressions, students, studentProgressions } = this.props
@@ -69,9 +63,23 @@ class ShowKlassContainer extends Component {
     } else if (source.droppableId !== destination.droppableId && source.droppableId.includes("student") && destination.droppableId.includes("student")) {
         // handles shifting progressions around within agendas
         if (this.addProgressionToAgenda(result)) {
-          deleteStudentProgression(students.byId[draggableId.split("-")[0]], progressions.byId[draggableId.split("-")[1]])
+          this.deleteProgressionFromAgenda(result)
         }
     }
+  }
+
+  deleteProgressionFromAgenda = (result) => {
+    const { switchStudentProgression, deleteStudentProgression, progressions, students, studentProgressions } = this.props
+    const { destination, source, draggableId } = result
+
+    const studentId = draggableId.split("-")[0]
+    const progressionId = draggableId.split("-")[1]
+    const studentProgId = studentProgressions.allIds.find(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === studentId && sp.progressionId === progressionId
+    })
+    const studentProg = studentProgressions.byId[studentProgId]
+    deleteStudentProgression(studentProg)
   }
 
 
@@ -132,7 +140,7 @@ function mapDispatchToProps(dispatch){
     addStudentProgression: (student, progression, index) => dispatch(addStudentProgression(student, progression, index)),
     addFlashMessage: (message) => dispatch(addFlashMessage(message)),
     switchStudentProgression: (student, progression, newIndex) => dispatch(switchStudentProgression(student, progression, newIndex)),
-    deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression))
+    deleteStudentProgression: (studentProgression) => dispatch(deleteStudentProgression(studentProgression))
   }
 }
 

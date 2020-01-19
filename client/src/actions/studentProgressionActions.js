@@ -21,11 +21,12 @@ export function addStudentProgression(student, progression, index) {
   }
 }
 
-export function deleteStudentProgression(student, progression){
+export function deleteStudentProgression(studentProgression){
   return (dispatch) => {
-    dispatch({type: 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST', student, progression})
-
-    fetch(`/students/${student.id}/progressions/${progression.id}`, {
+    dispatch({type: 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST', studentProgression})
+    const studentId = studentProgression.studentId.split("student")[1]
+    const progressionId = studentProgression.progressionId.split("progression")[1]
+    fetch(`/students/${studentId}/progressions/${progressionId}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {

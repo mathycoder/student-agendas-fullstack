@@ -48,24 +48,35 @@ function studentProgressionsById(state = {}, action) {
         ...normalizedObjectCreator([action.studentProgression])
       }
 
-    case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
-      // const stateCopy = {...state}
-      // let targetSp
-      // for (const key in stateCopy){
-      //   if (stateCopy[key].studentId === `student${action.student.id}` &&
-      //       stateCopy[key].progressionId === `progression${action.progression.id}`) {
-      //         targetSp = stateCopy[key]
-      //   }
-      // }
-      //
-      // const stuProgId = `studentProgression${targetSp.id}`
-      // const { [stuProgId]: valu, ...newestState  } = state
-      //
-      // return {
-      //   ...newestState
-      // }
-
-      return { ...state }
+    // case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
+    //   const stateCopy = {...state}
+    //   let targetSp
+    //   let studentSps = []
+    //   for (const key in stateCopy){
+    //     if (stateCopy[key].studentId === `student${action.student.id}` &&
+    //         stateCopy[key].progressionId !== `progression${action.progression.id}`) {
+    //       studentSps.push(stateCopy[key])
+    //     }
+    //     if (stateCopy[key].studentId === `student${action.student.id}` &&
+    //         stateCopy[key].progressionId === `progression${action.progression.id}`) {
+    //           targetSp = stateCopy[key]
+    //     }
+    //   }
+    //
+    //   studentSps = studentSps.sort((a,b) => a.agendaIndex - b.agendaIndex)
+    //
+    //   const modifiedState = {}
+    //   studentSps.forEach((sp, index) => {
+    //     sp.agendaIndex = index
+    //     modifiedState[`studentProgression${sp.id}`] = sp
+    //   })
+    //
+    //   const stuProgId = `studentProgression${targetSp.id}`
+    //   const { [stuProgId]: valu, ...newestState  } = state
+    //
+    //   return {
+    //     ...newestState, studentSps
+    //   }
 
     case 'REMOVE_STUDENT_FROM_PROGRESSION':
       const studentProgId = `studentProgression${action.studentProgression.id}`
@@ -101,6 +112,10 @@ function allStudentProgressions(state = [], action) {
       return [
         ...state, `studentProgression${action.studentProgression.id}`
       ]
+
+    case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
+      const stProgIdToDel = `studentProgression${action.studentProgression.id}`
+      return state.filter(pId => pId !== stProgIdToDel)
 
     case 'REMOVE_STUDENT_FROM_PROGRESSION':
       const stProgIdToDelete = `studentProgression${action.studentProgression.id}`

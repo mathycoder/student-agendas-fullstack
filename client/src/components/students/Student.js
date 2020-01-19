@@ -8,8 +8,15 @@ import { Droppable } from 'react-beautiful-dnd'
 
 class Student extends Component {
   handleDeleteProgClick = (progression) => {
-    const { deleteStudentProgression, student } = this.props
-    deleteStudentProgression(student, progression)
+    const { deleteStudentProgression, student, studentProgressions } = this.props
+    const studentId = `student${student.id}`
+    const progressionId = `progression${progression.id}`
+    const studentProgId = studentProgressions.allIds.find(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === studentId && sp.progressionId === progressionId
+    })
+    const studentProg = studentProgressions.byId[studentProgId]
+    deleteStudentProgression(studentProg)
   }
 
   renderStudentAgenda = () => {
@@ -51,10 +58,16 @@ class Student extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return {
+    studentProgressions: state.studentProgressions
+  }
+}
+
 function mapDispatchToProps(dispatch){
   return {
     deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression)),
   }
 }
 
-export default connect(null, mapDispatchToProps)(Student)
+export default connect(mapStateToProps, mapDispatchToProps)(Student)
