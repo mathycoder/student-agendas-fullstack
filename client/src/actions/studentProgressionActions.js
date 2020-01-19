@@ -1,7 +1,6 @@
 export function addStudentProgression(student, progression, index) {
   return (dispatch) => {
     dispatch({type: 'START_ADDING_STUDENT_PROGRESSION_REQUEST', student, progression, index})
-    // dispatch({type: 'START_SWITCH_PROGRESSION_REQUEST', student, progression, index})
     const params = {
       student: {
         progressionId: progression.id,
