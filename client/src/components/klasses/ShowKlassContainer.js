@@ -55,51 +55,46 @@ class ShowKlassContainer extends Component {
   }
 
   handleDNDDragEnd = result => {
-    const { switchStudentProgression, progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
+    const { switchStudentProgression, deleteStudentProgression, progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
     const { destination, source, draggableId } = result
 
     if (!destination || !source) { return }
 
     if (source.index !== destination.index && source.droppableId === destination.droppableId && destination.index !== source.index) {
       // handles shifting progressions around within a progression
-      debugger
       const student = students.byId[draggableId.split("-")[0]]
       const progression = progressions.byId[draggableId.split("-")[1]]
       switchStudentProgression(student, progression, destination.index)
     } else if (source.droppableId.includes("progression") && destination.droppableId.includes("student")){
         // handles moving a progression from index to a student agenda
-        const index = destination.index
-        const student = students.byId[destination.droppableId.split("-")[1]]
-        const progression = progressions.byId[source.droppableId.split("-")[1]]
-        const any = studentProgressions.allIds.filter(spId => {
-          const sp = studentProgressions.byId[spId]
-          return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
-        })
-        if (any.length === 0){
-          addStudentProgression(student, progression, index)
-        } else {
-          addFlashMessage("This student agenda already has this progression")
-        }
+        this.addProgressionToAgenda(result)
     } else if (source.droppableId !== destination.droppableId && source.droppableId.includes("student") && destination.droppableId.includes("student")) {
-      // handles shifting progressions around within agendas
-
-      // IDENTICAL CODE: so, one of the agendas will go through the process of adding a new progression
-      debugger
-      const index = destination.index
-      const student = students.byId[destination.droppableId.split("-")[1]]
-      const progression = progressions.byId[source.droppableId.split("-")[1]]
-      const any = studentProgressions.allIds.filter(spId => {
-        const sp = studentProgressions.byId[spId]
-        return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
-      })
-      if (any.length === 0){
-        addStudentProgression(student, progression, index)
-      } else {
-        addFlashMessage("This student agenda already has this progression")
-      }
+        // handles shifting progressions around within agendas
+        if (this.addProgressionToAgenda(result)) {
+          deleteStudentProgression(students.byId[draggableId.split("-")[0]], progressions.byId[draggableId.split("-")[1]])
+        }
     }
+  }
 
 
+  addProgressionToAgenda = (result) => {
+    const { switchStudentProgression, progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
+    const { destination, source, draggableId } = result
+
+    const index = destination.index
+    const student = students.byId[destination.droppableId.split("-")[1]]
+    const progression = draggableId.includes("student") ? progressions.byId[draggableId.split("-")[1]] : progressions.byId[source.droppableId.split("-")[1]]
+    const any = studentProgressions.allIds.filter(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
+    })
+    if (any.length === 0){
+      addStudentProgression(student, progression, index)
+      return true
+    } else {
+      addFlashMessage("This student agenda already has this progression")
+      return false
+    }
   }
 
   renderStudents = () => <StudentsContainer
@@ -138,7 +133,8 @@ function mapDispatchToProps(dispatch){
     fetchStudents: (klassId) => dispatch(addStudents(klassId)),
     addStudentProgression: (student, progression, index) => dispatch(addStudentProgression(student, progression, index)),
     addFlashMessage: (message) => dispatch(addFlashMessage(message)),
-    switchStudentProgression: (student, progression, newIndex) => dispatch(switchStudentProgression(student, progression, newIndex))
+    switchStudentProgression: (student, progression, newIndex) => dispatch(switchStudentProgression(student, progression, newIndex)),
+    deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression))
   }
 }
 
