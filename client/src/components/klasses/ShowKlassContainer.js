@@ -8,48 +8,12 @@ import { addStudentProgression } from '../../actions/studentProgressionActions'
 import { addFlashMessage } from '../../actions/flashActions'
 import { deleteStudentProgression, switchStudentProgression } from '../../actions/studentProgressionActions'
 import ShowKlassAllProgressions from './ShowKlassAllProgressions'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
-  // handleDragOver = event => {
-  //   event.preventDefault()
-  //   const agenda = event.currentTarget.closest('.student-agenda')
-  //   agenda.style.backgroundColor = "rgb(211, 211, 211)"
-  // }
-  //
-  // handleDragLeave = event => {
-  //   event.preventDefault()
-  //   const agenda = event.currentTarget.closest('.student-agenda')
-  //   agenda.style.backgroundColor = "rgb(81, 84, 92)"
-  // }
-  //
-  // handleDragStart = (event, progression) => {
-  //   let data = JSON.stringify(progression)
-  //   event.dataTransfer.setData("progression", data)
-  // }
-  //
-  // handleDragDrop = (event) => {
-  //   const { studentProgressions, students, addStudentProgression, addFlashMessage } = this.props
-  //   const agenda = event.currentTarget.closest('.student-agenda')
-  //   agenda.style.backgroundColor = "rgb(81, 84, 92)"
-  //   let progression = event.dataTransfer.getData("progression")
-  //   progression = JSON.parse(progression)
-  //   const student = students.byId[`student${event.currentTarget.dataset.studentId}`]
-  //   const any = studentProgressions.allIds.filter(spId => {
-  //     const sp = studentProgressions.byId[spId]
-  //     return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
-  //   })
-  //   if (any.length === 0){
-  //     addStudentProgression(student, progression)
-  //   } else {
-  //     addFlashMessage("This student agenda already has this progression")
-  //   }
-  // }
-
-
   handleDNDDragEnd = result => {
-    const { switchStudentProgression, deleteStudentProgression, progressions, students, studentProgressions } = this.props
+    const { switchStudentProgression, progressions, students } = this.props
     const { destination, source, draggableId } = result
 
     if (!destination || !source) { return }
@@ -69,8 +33,8 @@ class ShowKlassContainer extends Component {
   }
 
   deleteProgressionFromAgenda = (result) => {
-    const { switchStudentProgression, deleteStudentProgression, progressions, students, studentProgressions } = this.props
-    const { destination, source, draggableId } = result
+    const { deleteStudentProgression, studentProgressions } = this.props
+    const { draggableId } = result
 
     const studentId = draggableId.split("-")[0]
     const progressionId = draggableId.split("-")[1]
@@ -84,7 +48,7 @@ class ShowKlassContainer extends Component {
 
 
   addProgressionToAgenda = (result) => {
-    const { switchStudentProgression, progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
+    const { progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
     const { destination, source, draggableId } = result
 
     const index = destination.index

@@ -2,7 +2,7 @@ import React from 'react'
 import RenderItem from '../progressions/RenderItem.js'
 import { Draggable } from 'react-beautiful-dnd'
 
-const StudentProgression = ({ progression, handlePlusClick, index, innerRef }) => {
+const StudentProgression = ({ progression, handlePlusClick, index, innerRef, placeholder }) => {
   if (progression){
     return (
       <div className="progression-container-box" ref={node => innerRef(node)}>
