@@ -8,7 +8,11 @@ class StudentProgression < ApplicationRecord
     progression = Progression.find_by(id: progression.id)
     original_order = student.student_progressions.sort_by{|sp| sp.agenda_index}
     new_sp = self.create(student_id: student.id, progression_id: progression.id)
-    new_order = original_order.insert(index, new_sp)
+
+    number_of_submitted = original_order.select{|sp| sp.submitted}.length
+    inserted_index = index < number_of_submitted ? number_of_submitted : index
+
+    new_order = original_order.insert(inserted_index, new_sp)
     new_order.each_with_index do |sp, index|
       sp.update(agenda_index: index)
     end
