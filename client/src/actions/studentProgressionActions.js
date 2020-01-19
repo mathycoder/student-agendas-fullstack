@@ -1,6 +1,7 @@
 export function addStudentProgression(student, progression, index) {
   return (dispatch) => {
-    dispatch({type: 'START_ADDING_STUDENT_PROGRESSION_REQUEST'})
+    dispatch({type: 'START_ADDING_STUDENT_PROGRESSION_REQUEST', student, progression, index})
+    // dispatch({type: 'START_SWITCH_PROGRESSION_REQUEST', student, progression, index})
     const params = {
       student: {
         progressionId: progression.id,
@@ -22,7 +23,7 @@ export function addStudentProgression(student, progression, index) {
 
 export function deleteStudentProgression(student, progression){
   return (dispatch) => {
-    dispatch({type: 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST'})
+    dispatch({type: 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST', student, progression})
 
     fetch(`/students/${student.id}/progressions/${progression.id}`, {
       method: 'DELETE',

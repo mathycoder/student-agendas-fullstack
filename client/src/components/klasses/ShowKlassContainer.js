@@ -55,16 +55,14 @@ class ShowKlassContainer extends Component {
   }
 
   handleDNDDragEnd = result => {
-    const { switchStudentProgression, deleteStudentProgression, progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
+    const { switchStudentProgression, deleteStudentProgression, progressions, students, studentProgressions } = this.props
     const { destination, source, draggableId } = result
 
     if (!destination || !source) { return }
 
     if (source.index !== destination.index && source.droppableId === destination.droppableId && destination.index !== source.index) {
       // handles shifting progressions around within a progression
-      const student = students.byId[draggableId.split("-")[0]]
-      const progression = progressions.byId[draggableId.split("-")[1]]
-      switchStudentProgression(student, progression, destination.index)
+      switchStudentProgression(students.byId[draggableId.split("-")[0]], progressions.byId[draggableId.split("-")[1]], destination.index)
     } else if (source.droppableId.includes("progression") && destination.droppableId.includes("student")){
         // handles moving a progression from index to a student agenda
         this.addProgressionToAgenda(result)

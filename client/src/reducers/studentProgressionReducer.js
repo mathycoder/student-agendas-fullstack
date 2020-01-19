@@ -49,7 +49,23 @@ function studentProgressionsById(state = {}, action) {
       }
 
     case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
-      return {...state}
+      // const stateCopy = {...state}
+      // let targetSp
+      // for (const key in stateCopy){
+      //   if (stateCopy[key].studentId === `student${action.student.id}` &&
+      //       stateCopy[key].progressionId === `progression${action.progression.id}`) {
+      //         targetSp = stateCopy[key]
+      //   }
+      // }
+      //
+      // const stuProgId = `studentProgression${targetSp.id}`
+      // const { [stuProgId]: valu, ...newestState  } = state
+      //
+      // return {
+      //   ...newestState
+      // }
+
+      return { ...state }
 
     case 'REMOVE_STUDENT_FROM_PROGRESSION':
       const studentProgId = `studentProgression${action.studentProgression.id}`
