@@ -140,7 +140,12 @@ function orderedWithTemporarySp(action, allSps){
       myStudentProgressions.push(allSps[sp])
     }
   }
+
   myStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
+  const numberOfSubmitted = myStudentProgressions.filter(sp => sp.submitted).length
+  const insertedIndex = numberOfSubmitted ? numberOfSubmitted : action.index
+  myStudentProgressions.splice(insertedIndex, 0, tempSp)
+
   const modifiedObj = {}
   myStudentProgressions.forEach((sp, index) => {
     sp.agendaIndex = index
@@ -155,10 +160,10 @@ function orderedWithTemporarySp(action, allSps){
 }
 
 function createTemporarySp(action, allSps){
-  const { student, progression, index } = action
+  const { student, progression } = action
   return {
     id: 'Temp',
-    agendaIndex: index,
+    agendaIndex: null,
     studentId: `student${student.id}`,
     progressionId: `progression${progression.id}`,
     submitted: false,
