@@ -18,11 +18,11 @@ const StudentAgenda = ({ handleDeleteProgClick, progressions, student }) => {
         </div>
 
         <Droppable droppableId={`droppable-student${student.id}`} direction="horizontal">
-          {(provided2) => (
+          {(provided2, snapshot2) => (
             <div
               ref={node => provided2.innerRef(node)}
               {...provided2.droppableProps}
-              className="droppable-area">
+              className={`droppable-area ${snapshot2.isDraggingOver ? 'dragging-over' : ''}`}>
               {progressions.filter(pr => !pr.submitted).map((progression, index) => {
                 return (
                   <Draggable draggableId={`student${student.id}-progression${progression.id}`} index={index} key={`student-${student.id}-progression-${progression.id}-${index}`}>

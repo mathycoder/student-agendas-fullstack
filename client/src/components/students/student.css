@@ -158,7 +158,10 @@
 
 .droppable-area::after { content: ' '; min-width: 15px; }
 
-
+.droppable-area.dragging-over {
+  background-color: gray;
+  z-index: 5;
+}
 
 
 /* ---------------------end of attempt ---------------------*/
