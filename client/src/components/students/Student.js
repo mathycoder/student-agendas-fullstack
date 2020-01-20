@@ -4,7 +4,6 @@ import './student.css'
 import { connect } from 'react-redux'
 import { NavLink } from "react-router-dom"
 import { deleteStudentProgression } from '../../actions/studentProgressionActions'
-import { Droppable } from 'react-beautiful-dnd'
 
 class Student extends Component {
   handleDeleteProgClick = (progression) => {
@@ -22,15 +21,11 @@ class Student extends Component {
   renderStudentAgenda = () => {
     const { student, progressions } = this.props
     return (
-
-
-            <StudentAgenda
-              student={student}
-              progressions={progressions}
-              handleDeleteProgClick={this.handleDeleteProgClick}
-              />
-
-
+      <StudentAgenda
+        student={student}
+        progressions={progressions}
+        handleDeleteProgClick={this.handleDeleteProgClick}
+        />
     )
   }
 

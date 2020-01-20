@@ -146,6 +146,22 @@
   border: 3px solid black;
 }
 
+/* ---------My attempt to make a draggable and undraggable area -------*/
+.student-agenda .undroppable-area, .student-agenda .droppable-area{
+  display: flex;
+}
+
+.student-agenda .droppable-area {
+  height: 85px;
+}
+
+.droppable-area::after { content: ' '; min-width: 15px; }
+
+
+
+
+/* ---------------------end of attempt ---------------------*/
+
 .student-agenda .progression-wrapper .progression-status {
   display: flex;
   align-items: center;
@@ -424,7 +440,7 @@
   overflow-x: scroll;
 }
 
-.student-agenda::after { content: ' '; min-width: 15px; }
+/* .student-agenda::after { content: ' '; min-width: 15px; } */
 
 .student-agenda .student-show-progression {
   margin-top: 15px;
