@@ -23,18 +23,13 @@ class Student extends Component {
     const { student, progressions } = this.props
     return (
 
-        <Droppable droppableId={`droppable-student${student.id}`} direction="horizontal">
-          {(provided) => (
+
             <StudentAgenda
-              {...provided.droppableProps}
-              placeholder={provided.placeholder}
-              innerRef={provided.innerRef}
               student={student}
               progressions={progressions}
               handleDeleteProgClick={this.handleDeleteProgClick}
               />
-          )}
-        </Droppable>
+
 
     )
   }

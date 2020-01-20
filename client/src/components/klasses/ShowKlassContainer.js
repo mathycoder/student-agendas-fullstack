@@ -51,8 +51,6 @@ class ShowKlassContainer extends Component {
     const { progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
     const { destination, source, draggableId } = result
 
-    debugger
-
     const index = destination.index
     const student = students.byId[destination.droppableId.split("-")[1]]
     const progression = draggableId.includes("student") ? progressions.byId[draggableId.split("-")[1]] : progressions.byId[source.droppableId.split("-")[1]]
