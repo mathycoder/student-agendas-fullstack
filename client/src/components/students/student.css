@@ -184,14 +184,8 @@
   width: 20px;
   height: 20px;
   z-index: 6;
-  /* margin: -70px 0 0 95px; */
-  /* margin: -64px 5px 0 auto; */
   margin: -24px 15px 0 auto;
-  /* margin: -60px 0px 0 15px; */
-
   opacity: 0.8;
-
-  /* transform: rotate(3deg); */
 }
 
 .new-student-form {
@@ -209,12 +203,6 @@
   border: 3px rgb(41, 44, 52) solid;
   width: 440px;
   height: 500px;
-}
-
-@media screen and (max-width: 500px) {
-  .student-show-progressions-container {
-    width: 330px;
-  }
 }
 
 .search-filters {
@@ -254,12 +242,6 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 500px) {
-  .student-show-progressions-header {
-    padding-left: 10px;
-  }
-}
-
 .student-show-progressions-header a {
   text-decoration: none;
   color: white;
@@ -270,6 +252,15 @@
 }
 
 @media screen and (max-width: 500px) {
+
+  .student-show-progressions-header {
+    padding-left: 10px;
+  }
+
+  .student-show-progressions-container {
+    width: 330px;
+  }
+
   .student-show-progressions-header div:first-child {
     margin-right: 15px;
   }
@@ -404,12 +395,12 @@
   height: 30px;
   margin-left: -3px;
   object-fit: cover;
-  user-drag: none;
+  /* user-drag: none;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
-  -ms-user-select: none;
+  -ms-user-select: none; */
 }
 
 .student-show-progression-item.reflection img {
