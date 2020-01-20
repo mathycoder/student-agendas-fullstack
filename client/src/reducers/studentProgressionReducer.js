@@ -30,10 +30,10 @@ function studentProgressionsById(state = {}, action) {
       }
 
     case 'ADD_STUDENT_PROGRESSIONS':
-    return {
-      ...state,
-      ...normalizedObjectCreator(action.studentProgressions)
-    }
+      return {
+        ...state,
+        ...normalizedObjectCreator(action.studentProgressions)
+      }
 
     case 'START_SWITCH_PROGRESSION_REQUEST':
       const allSps = {...state}
@@ -142,8 +142,8 @@ function orderedWithTemporarySp(action, allSps){
   }
 
   myStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
-  const numberOfSubmitted = myStudentProgressions.filter(sp => sp.submitted).length
-  const insertedIndex = numberOfSubmitted ? numberOfSubmitted : action.index
+  const numberOfSubmitted = myStudentProgressions.filter(sp => sp.submitted && !sp.archived).length
+  const insertedIndex = action.index < numberOfSubmitted ? numberOfSubmitted : action.index
   myStudentProgressions.splice(insertedIndex, 0, tempSp)
 
   const modifiedObj = {}

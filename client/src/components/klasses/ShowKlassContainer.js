@@ -51,8 +51,12 @@ class ShowKlassContainer extends Component {
     const { progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
     const { destination, source, draggableId } = result
 
-    const index = destination.index
     const student = students.byId[destination.droppableId.split("-")[1]]
+    const mySubmittedSps = studentProgressions.allIds.filter(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === `student${student.id}` && sp.submitted && !sp.archived
+    })
+    const index = destination.index + mySubmittedSps.length
     const progression = draggableId.includes("student") ? progressions.byId[draggableId.split("-")[1]] : progressions.byId[source.droppableId.split("-")[1]]
     const any = studentProgressions.allIds.filter(spId => {
       const sp = studentProgressions.byId[spId]

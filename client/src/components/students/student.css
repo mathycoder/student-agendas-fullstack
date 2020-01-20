@@ -153,6 +153,7 @@
 
 .student-agenda .droppable-area {
   height: 85px;
+  width: 1000px;
 }
 
 .droppable-area::after { content: ' '; min-width: 15px; }
