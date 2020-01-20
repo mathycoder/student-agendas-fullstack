@@ -18,9 +18,13 @@ class ShowKlassContainer extends Component {
 
     if (!destination || !source) { return }
 
+
     if (source.index !== destination.index && source.droppableId === destination.droppableId && destination.index !== source.index) {
       // handles shifting progressions around within a progression
-      switchStudentProgression(students.byId[draggableId.split("-")[0]], progressions.byId[draggableId.split("-")[1]], destination.index)
+      const student = students.byId[draggableId.split("-")[0]]
+      const progression = progressions.byId[draggableId.split("-")[1]]
+      const mySubmittedSps = this.submittedSps(student)
+      switchStudentProgression(student, progression, destination.index + mySubmittedSps.length)
     } else if (source.droppableId.includes("progression") && destination.droppableId.includes("student")){
         // handles moving a progression from index to a student agenda
         this.addProgressionToAgenda(result)
@@ -46,16 +50,20 @@ class ShowKlassContainer extends Component {
     deleteStudentProgression(studentProg)
   }
 
+  submittedSps = (student) => {
+    const { studentProgressions } = this.props
+    return studentProgressions.allIds.filter(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === `student${student.id}` && sp.submitted && !sp.archived
+    })
+  }
 
   addProgressionToAgenda = (result) => {
     const { progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
     const { destination, source, draggableId } = result
 
     const student = students.byId[destination.droppableId.split("-")[1]]
-    const mySubmittedSps = studentProgressions.allIds.filter(spId => {
-      const sp = studentProgressions.byId[spId]
-      return sp.studentId === `student${student.id}` && sp.submitted && !sp.archived
-    })
+    const mySubmittedSps = this.submittedSps(student)
     const index = destination.index + mySubmittedSps.length
     const progression = draggableId.includes("student") ? progressions.byId[draggableId.split("-")[1]] : progressions.byId[source.droppableId.split("-")[1]]
     const any = studentProgressions.allIds.filter(spId => {
