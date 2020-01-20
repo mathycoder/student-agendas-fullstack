@@ -75,7 +75,7 @@ function allStudents(state = [], action) {
   switch(action.type) {
     case 'CLEAR_CURRENT_USER':
       return []
-      
+
     case 'ADD_STUDENTS':
       return [
         ...sortedStudents(action.students).map(student => `student${student.id}`)

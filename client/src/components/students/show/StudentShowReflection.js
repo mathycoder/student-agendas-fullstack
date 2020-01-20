@@ -26,7 +26,7 @@ class StudentShowReflection extends Component {
     this.setState({
       ...this.state,
       editing: true,
-      comment: progression.question1Comment
+      comment: progression.question1Comment || ''
     })
   }
 

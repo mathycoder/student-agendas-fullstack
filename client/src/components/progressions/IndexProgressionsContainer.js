@@ -6,6 +6,7 @@ import { deleteProgression } from '../../actions/progressionActions'
 import { connect } from 'react-redux'
 import { addProgressionToKlass } from '../../actions/studentProgressionActions'
 import './css/progression-index.css'
+import { Droppable } from 'react-beautiful-dnd'
 
 class IndexProgressionsContainer extends Component {
   state = {
@@ -127,7 +128,7 @@ class IndexProgressionsContainer extends Component {
   }
 
   render(){
-    const { progressions, videos, reflections, handleDragStart, indexPage, history } = this.props
+    const { progressions, videos, reflections, indexPage, history } = this.props
 
     return (
       <div className={`student-show-progressions-container ${indexPage ? 'index-page' : ''}`}>
@@ -162,13 +163,21 @@ class IndexProgressionsContainer extends Component {
           {this.state.searchedProgressions.map((progressionId, index) => {
             const progression = progressions.byId[progressionId]
             if (!indexPage) {
-              return <StudentProgression
-                        key={index}
-                        handleDragStart={handleDragStart}
-                        handlePlusClick={this.handlePlusClick}
-                        progression={progression}
-                        reflections={reflections}
-                        videos={videos}/>
+              return (
+                <Droppable key={index} droppableId={`droppable-${progressionId}`} direction="vertical" isDropDisabled={true}>
+                  {(provided) => (
+                    <StudentProgression
+                      index={index}
+                      innerRef={provided.innerRef}
+                      placeholder={provided.placeholder}
+                      {...provided.droppableProps}
+                      handlePlusClick={this.handlePlusClick}
+                      progression={progression}
+                      reflections={reflections}
+                      videos={videos}/>
+                  )}
+                </Droppable>
+              )
             } else {
               return <IndexProgression
                         key={index}

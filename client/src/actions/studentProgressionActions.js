@@ -1,9 +1,10 @@
-export function addStudentProgression(student, progression) {
+export function addStudentProgression(student, progression, index) {
   return (dispatch) => {
-    dispatch({type: 'START_ADDING_STUDENT_PROGRESSION_REQUEST'})
+    dispatch({type: 'START_ADDING_STUDENT_PROGRESSION_REQUEST', student, progression, index})
     const params = {
       student: {
-        progressionId: progression.id
+        progressionId: progression.id,
+        index: index
       }
     }
     fetch(`/students/${student.id}/progressions`, {
@@ -15,15 +16,16 @@ export function addStudentProgression(student, progression) {
       }
     })
       .then(resp => resp.json())
-      .then(studentProgression => dispatch({ type: 'ADD_STUDENT_PROGRESSION', studentProgression }))
+      .then(json => dispatch({ type: 'ADD_STUDENT_PROGRESSION', studentProgressions: json.studentProgressions, studentProgression: json.studentProgression }))
   }
 }
 
-export function deleteStudentProgression(student, progression){
+export function deleteStudentProgression(studentProgression){
   return (dispatch) => {
-    dispatch({type: 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST'})
-
-    fetch(`/students/${student.id}/progressions/${progression.id}`, {
+    dispatch({type: 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST', studentProgression})
+    const studentId = studentProgression.studentId.split("student")[1]
+    const progressionId = studentProgression.progressionId.split("progression")[1]
+    fetch(`/students/${studentId}/progressions/${progressionId}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
@@ -36,17 +38,16 @@ export function deleteStudentProgression(student, progression){
   }
 }
 
-export function switchStudentProgression(draggableId, newIndex){
+export function switchStudentProgression(student, progression, newIndex){
   return (dispatch) => {
-    dispatch({type: 'START_SWITCH_PROGRESSION_REQUEST', draggableId, newIndex})
+    dispatch({type: 'START_SWITCH_PROGRESSION_REQUEST', student, progression, newIndex})
     const params = {
       student: {
         newIndex: newIndex
       }
     }
-    const studentId = draggableId.split("-")[1]
-    const progressionId = draggableId.split("-")[3]
-    fetch(`/students/${studentId}/progressions/${progressionId}`, {
+
+    fetch(`/students/${student.id}/progressions/${progression.id}`, {
       method: 'PATCH',
       credentials: "include",
       body: JSON.stringify(params),

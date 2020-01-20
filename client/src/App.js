@@ -10,7 +10,7 @@ import Signup from './components/sessions/Signup'
 import { getCurrentUser } from './actions/currentUserActions'
 import NavBar from './components/navbar/NavBar'
 import { connect } from 'react-redux'
-import { Route, Redirect, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import PrivateRoute from './components/routes/PrivateRoute'
 import PublicRoute from './components/routes/PublicRoute'
 

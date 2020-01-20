@@ -2,7 +2,7 @@ import React from 'react'
 import RenderItem from '../progressions/RenderItem.js'
 
 const StudentAgendaProgression = (props) => {
-  const { progression, handleDeleteProgClick, innerRef } = props
+  const { progression, handleDeleteProgClick, innerRef, placeholder } = props
   if (progression && !progression.submitted){
     return (
       <div className="progression-wrapper">
@@ -15,7 +15,7 @@ const StudentAgendaProgression = (props) => {
             <RenderItem progression={progression} />
           </div>
         </div>
-
+        {placeholder}
       </div>
     )
   } else if (progression && progression.submitted) {

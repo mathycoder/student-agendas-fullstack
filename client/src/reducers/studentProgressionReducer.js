@@ -19,25 +19,26 @@ function studentProgressionsById(state = {}, action) {
 
     case 'START_ADDING_STUDENT_PROGRESSION_REQUEST':
       return {
-        ...state
+        ...state, ...orderedWithTemporarySp(action, {...state})
       }
 
     case 'ADD_STUDENT_PROGRESSION':
+      const { ['studentProgressionTemp']: deletedValue, ...modifiedState  } = state
       return {
-        ...state,
-        ...normalizedObjectCreator([action.studentProgression])
+        ...modifiedState,
+        ...normalizedObjectCreator(action.studentProgressions)
       }
 
     case 'ADD_STUDENT_PROGRESSIONS':
-    return {
-      ...state,
-      ...normalizedObjectCreator(action.studentProgressions)
-    }
+      return {
+        ...state,
+        ...normalizedObjectCreator(action.studentProgressions)
+      }
 
     case 'START_SWITCH_PROGRESSION_REQUEST':
       const allSps = {...state}
       const modifiedObjs = switchAgendaOrder(action, allSps)
-      return {...state, modifiedObjs }
+      return {...state, ...modifiedObjs }
 
     case 'SWITCH_PROGRESSION':
       return {...state, ...normalizedObjectCreator(action.studentProgressions)}
@@ -47,9 +48,6 @@ function studentProgressionsById(state = {}, action) {
         ...state,
         ...normalizedObjectCreator([action.studentProgression])
       }
-
-    case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
-      return {...state}
 
     case 'REMOVE_STUDENT_FROM_PROGRESSION':
       const studentProgId = `studentProgression${action.studentProgression.id}`
@@ -71,20 +69,29 @@ function allStudentProgressions(state = [], action) {
       return []
 
     case 'ADD_STUDENTS':
-    return [
-      ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
-    ]
+      return [
+        ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
+      ]
 
     case 'ADD_STUDENT_PROGRESSIONS':
-    return [
-      ...state,
-      ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
-    ]
+      return [
+        ...state,
+        ...action.studentProgressions.map(stPr => `studentProgression${stPr.id}`)
+      ]
+
+    case 'START_ADDING_STUDENT_PROGRESSION_REQUEST':
+      return [
+        ...state, 'studentProgressionTemp'
+      ]
 
     case 'ADD_STUDENT_PROGRESSION':
-    return [
-      ...state, `studentProgression${action.studentProgression.id}`
-    ]
+      return [
+        ...state.filter(spId => spId !== 'studentProgressionTemp'), `studentProgression${action.studentProgression.id}`
+      ]
+
+    case 'START_REMOVE_PROGRESSION_FROM_STUDENT_REQUEST':
+      const stProgIdToDel = `studentProgression${action.studentProgression.id}`
+      return state.filter(pId => pId !== stProgIdToDel)
 
     case 'REMOVE_STUDENT_FROM_PROGRESSION':
       const stProgIdToDelete = `studentProgression${action.studentProgression.id}`
@@ -93,6 +100,7 @@ function allStudentProgressions(state = [], action) {
     case 'DELETE_PROGRESSION':
       const spsToRemove = action.studentProgressions.map(sp => `studentProgression${sp.id}`)
       return state.filter(sp => !spsToRemove.includes(sp))
+
     default:
       return state
   }
@@ -101,8 +109,8 @@ function allStudentProgressions(state = [], action) {
 function switchAgendaOrder(action, allSps){
   let currStProgression
   let myStudentProgressions = []
-  const studId = `student${action.draggableId.split("-")[1]}`
-  const progId = `progression${action.draggableId.split("-")[3]}`
+  const studId = `student${action.student.id}`
+  const progId = `progression${action.progression.id}`
   for(const sp in allSps){
     if (allSps[sp].studentId === studId) {
       myStudentProgressions.push(allSps[sp])
@@ -122,6 +130,51 @@ function switchAgendaOrder(action, allSps){
     modifiedObj[`studentProgression${sp.id}`] = sp
   })
   return modifiedObj
+}
+
+function orderedWithTemporarySp(action, allSps){
+  const tempSp = createTemporarySp(action)
+  let myStudentProgressions = []
+  for(const sp in allSps){
+    if (allSps[sp].studentId === tempSp.studentId) {
+      myStudentProgressions.push(allSps[sp])
+    }
+  }
+
+  myStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
+  const numberOfSubmitted = myStudentProgressions.filter(sp => sp.submitted && !sp.archived).length
+  const insertedIndex = action.index < numberOfSubmitted ? numberOfSubmitted : action.index
+  myStudentProgressions.splice(insertedIndex, 0, tempSp)
+
+  const modifiedObj = {}
+  myStudentProgressions.forEach((sp, index) => {
+    sp.agendaIndex = index
+    if (sp.id === 'Temp'){
+      modifiedObj[`studentProgressionTemp`] = sp
+    } else {
+      modifiedObj[`studentProgression${sp.id}`] = sp
+    }
+  })
+  return modifiedObj
+}
+
+function createTemporarySp(action, allSps){
+  const { student, progression } = action
+  return {
+    id: 'Temp',
+    agendaIndex: null,
+    studentId: `student${student.id}`,
+    progressionId: `progression${progression.id}`,
+    submitted: false,
+    submittedAt: null,
+    createdAt: null,
+    updatedAt: null,
+    question1Answer: null,
+    question1Comment: null,
+    graded: false,
+    gradedAt: null,
+    archived: false
+  }
 }
 
 function normalizedObjectCreator(studentProgressions){

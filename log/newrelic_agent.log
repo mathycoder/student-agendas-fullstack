@@ -99,63 +99,709 @@
 [2020-01-18 18:01:32 -0500 Adams-MBP.home (28237)] INFO : Doing deferred dependency-detection before Rack startup
 [2020-01-18 18:01:35 -0500 Adams-MBP.home (28237)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
 [2020-01-18 18:02:10 -0500 Adams-MBP.home (28237)] INFO : Starting Agent shutdown
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Environment: development
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : No known dispatcher detected.
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Application: My Application (Development)
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing ActiveStorage 5 instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing notifications based Active Record instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing Rails 3+ middleware instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing Net instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing deferred Rack::Builder instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing Rack::Builder middleware instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing ActiveJob instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing notifications based Action Controller instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing notification based Action View instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Installing notifications based Action Cable instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Finished instrumentation
-[2020-01-19 16:10:49 -0500 Adams-MBP.home (35563)] INFO : Doing deferred dependency-detection before Rack startup
-[2020-01-19 16:10:52 -0500 Adams-MBP.home (35563)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
-[2020-01-19 16:11:58 -0500 Adams-MBP.home (35563)] INFO : Starting Agent shutdown
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Environment: development
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : No known dispatcher detected.
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Application: My Application (Development)
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing ActiveStorage 5 instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing notifications based Active Record instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing Rails 3+ middleware instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing Net instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing deferred Rack::Builder instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing Rack::Builder middleware instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing ActiveJob instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing notifications based Action Controller instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing notification based Action View instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Installing notifications based Action Cable instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Finished instrumentation
-[2020-01-19 17:51:48 -0500 Adams-MBP.home (36871)] INFO : Doing deferred dependency-detection before Rack startup
-[2020-01-19 17:51:51 -0500 Adams-MBP.home (36871)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
-[2020-01-19 17:54:50 -0500 Adams-MBP.home (36871)] INFO : Starting Agent shutdown
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Environment: development
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : No known dispatcher detected.
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Application: My Application (Development)
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing ActiveStorage 5 instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing notifications based Active Record instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing Rails 3+ middleware instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing Net instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing deferred Rack::Builder instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing Rack::Builder middleware instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing ActiveJob instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing notifications based Action Controller instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing notification based Action View instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Installing notifications based Action Cable instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Finished instrumentation
-[2020-01-19 19:55:04 -0500 Adams-MBP.home (38099)] INFO : Doing deferred dependency-detection before Rack startup
-[2020-01-19 19:55:06 -0500 Adams-MBP.home (38099)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
-[2020-01-19 19:56:35 -0500 Adams-MBP.home (38099)] INFO : Starting Agent shutdown
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Environment: development
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : No known dispatcher detected.
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Application: My Application (Development)
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing Net instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Finished instrumentation
+[2020-01-18 18:06:05 -0500 Adams-MBP.home (28353)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 18:06:08 -0500 Adams-MBP.home (28353)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 18:22:55 -0500 Adams-MBP.home (28353)] INFO : Starting Agent shutdown
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Environment: development
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : No known dispatcher detected.
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Application: My Application (Development)
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing Net instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Finished instrumentation
+[2020-01-18 18:23:49 -0500 Adams-MBP.home (28624)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 18:23:51 -0500 Adams-MBP.home (28624)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 18:52:53 -0500 Adams-MBP.home (28624)] INFO : Starting Agent shutdown
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Environment: development
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : No known dispatcher detected.
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Application: My Application (Development)
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing Net instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 18:53:22 -0500 Adams-MBP.home (29135)] INFO : Finished instrumentation
+[2020-01-18 18:53:23 -0500 Adams-MBP.home (29135)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 18:53:25 -0500 Adams-MBP.home (29135)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 19:06:41 -0500 Adams-MBP.home (29135)] INFO : Starting Agent shutdown
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Environment: development
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : No known dispatcher detected.
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Application: My Application (Development)
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing Net instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Finished instrumentation
+[2020-01-18 19:07:14 -0500 Adams-MBP.home (29377)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 19:07:15 -0500 Adams-MBP.home (29377)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 19:14:33 -0500 Adams-MBP.home (29377)] INFO : Starting Agent shutdown
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Environment: development
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : No known dispatcher detected.
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Application: My Application (Development)
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing Net instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Finished instrumentation
+[2020-01-18 19:15:04 -0500 Adams-MBP.home (29523)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 19:15:07 -0500 Adams-MBP.home (29523)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 20:01:42 -0500 Adams-MBP.home (29523)] INFO : Starting Agent shutdown
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Environment: development
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : No known dispatcher detected.
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Application: My Application (Development)
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing Net instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Finished instrumentation
+[2020-01-18 20:02:18 -0500 Adams-MBP.home (30155)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 20:02:21 -0500 Adams-MBP.home (30155)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 20:29:33 -0500 Adams-MBP.home (30155)] INFO : Starting Agent shutdown
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Environment: development
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : No known dispatcher detected.
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Application: My Application (Development)
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing Net instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Finished instrumentation
+[2020-01-18 20:29:53 -0500 Adams-MBP.home (30546)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 20:29:54 -0500 Adams-MBP.home (30546)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 20:47:48 -0500 Adams-MBP.home (30546)] INFO : Starting Agent shutdown
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Environment: development
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : No known dispatcher detected.
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Application: My Application (Development)
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing Net instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Finished instrumentation
+[2020-01-18 20:48:12 -0500 Adams-MBP.home (30811)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 20:48:15 -0500 Adams-MBP.home (30811)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 21:18:37 -0500 Adams-MBP.home (30811)] INFO : Starting Agent shutdown
+[2020-01-18 21:19:14 -0500 Adams-MBP.home (31298)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 21:19:14 -0500 Adams-MBP.home (31298)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 21:19:14 -0500 Adams-MBP.home (31298)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 21:19:14 -0500 Adams-MBP.home (31298)] INFO : Environment: development
+[2020-01-18 21:19:14 -0500 Adams-MBP.home (31298)] INFO : No known dispatcher detected.
+[2020-01-18 21:19:14 -0500 Adams-MBP.home (31298)] INFO : Application: My Application (Development)
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing Net instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Finished instrumentation
+[2020-01-18 21:19:15 -0500 Adams-MBP.home (31298)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 21:19:18 -0500 Adams-MBP.home (31298)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 21:34:02 -0500 Adams-MBP.home (31298)] INFO : Starting Agent shutdown
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Environment: development
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : No known dispatcher detected.
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Application: My Application (Development)
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing Net instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Finished instrumentation
+[2020-01-18 21:34:28 -0500 Adams-MBP.home (31543)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 21:34:31 -0500 Adams-MBP.home (31543)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-18 22:22:36 -0500 Adams-MBP.home (31543)] INFO : Starting Agent shutdown
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Environment: development
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : No known dispatcher detected.
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Application: My Application (Development)
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing Net instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing ActiveJob instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing notification based Action View instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Finished instrumentation
+[2020-01-18 22:22:54 -0500 Adams-MBP.home (32229)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-18 22:22:57 -0500 Adams-MBP.home (32229)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 04:56:50 -0500 Adams-MBP.home (32229)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 04:56:50 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.004219 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:50 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 04:56:50 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002512 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:50 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.007953 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:50 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.005131 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:53 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 04:56:53 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001904 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:53 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.003023 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:53 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001158 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:58 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 04:56:58 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001793 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:58 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001151 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 04:56:58 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001099 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 05:51:47 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 05:51:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 3284.308588 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 05:51:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001862 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 05:51:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001468 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 05:51:47 -0500 Adams-MBP.home (32229)] ERROR : 2 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 05:51:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002951 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 05:51:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001702 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 05:51:48 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 05:51:48 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001839 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 05:51:48 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001184 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 05:51:48 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001183 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 06:47:25 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 06:47:25 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 3330.879976 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 06:47:25 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 1.603568 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 06:47:25 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.007062 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 06:47:25 -0500 Adams-MBP.home (32229)] ERROR : 2 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 06:47:25 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002024 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 06:47:25 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.005403 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 06:47:28 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 06:47:28 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001565 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 06:47:28 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001197 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 06:47:28 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.003004 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:47 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 09:46:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 10752.811012 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 1.535862 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.008661 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:47 -0500 Adams-MBP.home (32229)] ERROR : 2 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 09:46:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.004023 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:47 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002552 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:48 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 09:46:48 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002957 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:48 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.006212 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:48 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.006824 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:53 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 09:46:53 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.151307 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:53 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001974 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 09:46:53 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002141 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 11:21:07 -0500 Adams-MBP.home (32229)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 11:21:07 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002021 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 11:21:07 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 11:21:07 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.004277 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 11:21:07 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.00219 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 11:21:07 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.004044 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 11:21:12 -0500 Adams-MBP.home (32229)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 11:21:12 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001996 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 11:21:12 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001233 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 11:21:12 -0500 Adams-MBP.home (32229)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001185 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 11:40:59 -0500 Adams-MBP.home (32229)] INFO : Starting Agent shutdown
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Environment: development
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : No known dispatcher detected.
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Application: My Application (Development)
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing Net instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 11:41:58 -0500 Adams-MBP.home (33155)] INFO : Finished instrumentation
+[2020-01-19 11:41:59 -0500 Adams-MBP.home (33155)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 11:42:01 -0500 Adams-MBP.home (33155)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 12:35:11 -0500 Adams-MBP.home (33155)] INFO : Starting Agent shutdown
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Environment: development
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : No known dispatcher detected.
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Application: My Application (Development)
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing Net instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Finished instrumentation
+[2020-01-19 12:35:47 -0500 Adams-MBP.home (33960)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 12:35:49 -0500 Adams-MBP.home (33960)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 13:12:55 -0500 Adams-MBP.home (33960)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 13:12:55 -0500 Adams-MBP.home (33960)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001538 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 13:12:55 -0500 Adams-MBP.home (33960)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 13:12:55 -0500 Adams-MBP.home (33960)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001584 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 13:12:55 -0500 Adams-MBP.home (33960)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001425 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 13:12:55 -0500 Adams-MBP.home (33960)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001311 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 14:07:01 -0500 Adams-MBP.home (33960)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 14:07:02 -0500 Adams-MBP.home (33960)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001041 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 14:07:02 -0500 Adams-MBP.home (33960)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 14:07:02 -0500 Adams-MBP.home (33960)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.007986 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 14:07:02 -0500 Adams-MBP.home (33960)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.003109 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 14:07:02 -0500 Adams-MBP.home (33960)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001866 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 15:14:39 -0500 Adams-MBP.home (33960)] INFO : Starting Agent shutdown
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Environment: development
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : No known dispatcher detected.
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Application: My Application (Development)
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing Net instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 15:15:03 -0500 Adams-MBP.home (34717)] INFO : Finished instrumentation
+[2020-01-19 15:15:04 -0500 Adams-MBP.home (34717)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 15:15:06 -0500 Adams-MBP.home (34717)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 15:37:09 -0500 Adams-MBP.home (34717)] INFO : Starting Agent shutdown
+[2020-01-19 15:37:40 -0500 Adams-MBP.home (35046)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 15:37:40 -0500 Adams-MBP.home (35046)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 15:37:40 -0500 Adams-MBP.home (35046)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 15:37:40 -0500 Adams-MBP.home (35046)] INFO : Environment: development
+[2020-01-19 15:37:40 -0500 Adams-MBP.home (35046)] INFO : No known dispatcher detected.
+[2020-01-19 15:37:40 -0500 Adams-MBP.home (35046)] INFO : Application: My Application (Development)
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing Net instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Finished instrumentation
+[2020-01-19 15:37:41 -0500 Adams-MBP.home (35046)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 15:37:44 -0500 Adams-MBP.home (35046)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 15:57:25 -0500 Adams-MBP.home (35046)] INFO : Starting Agent shutdown
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Environment: development
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : No known dispatcher detected.
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Application: My Application (Development)
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing Net instrumentation
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 15:58:03 -0500 Adams-MBP.home (35315)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 15:58:04 -0500 Adams-MBP.home (35315)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 15:58:04 -0500 Adams-MBP.home (35315)] INFO : Finished instrumentation
+[2020-01-19 15:58:04 -0500 Adams-MBP.home (35315)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 15:58:05 -0500 Adams-MBP.home (35315)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 16:05:10 -0500 Adams-MBP.home (35315)] INFO : Starting Agent shutdown
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Environment: development
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : No known dispatcher detected.
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Application: My Application (Development)
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing Net instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Finished instrumentation
+[2020-01-19 16:05:35 -0500 Adams-MBP.home (35458)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 16:05:38 -0500 Adams-MBP.home (35458)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 16:10:27 -0500 Adams-MBP.home (35458)] INFO : Starting Agent shutdown
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Environment: development
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : No known dispatcher detected.
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Application: My Application (Development)
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing Net instrumentation
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 16:12:36 -0500 Adams-MBP.home (35639)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 16:12:37 -0500 Adams-MBP.home (35639)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 16:12:37 -0500 Adams-MBP.home (35639)] INFO : Finished instrumentation
+[2020-01-19 16:12:37 -0500 Adams-MBP.home (35639)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 16:12:38 -0500 Adams-MBP.home (35639)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 16:52:46 -0500 Adams-MBP.home (35639)] INFO : Starting Agent shutdown
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Environment: development
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : No known dispatcher detected.
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Application: My Application (Development)
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing Net instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Finished instrumentation
+[2020-01-19 16:52:55 -0500 Adams-MBP.home (36186)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 16:52:58 -0500 Adams-MBP.home (36186)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 17:04:15 -0500 Adams-MBP.home (36186)] INFO : Starting Agent shutdown
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Environment: development
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : No known dispatcher detected.
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Application: My Application (Development)
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing Net instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Finished instrumentation
+[2020-01-19 17:04:35 -0500 Adams-MBP.home (36371)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 17:04:38 -0500 Adams-MBP.home (36371)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 17:16:53 -0500 Adams-MBP.home (36371)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 17:16:53 -0500 Adams-MBP.home (36371)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.000848 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 17:16:53 -0500 Adams-MBP.home (36371)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 17:16:53 -0500 Adams-MBP.home (36371)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.000845 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 17:16:53 -0500 Adams-MBP.home (36371)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.000873 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 17:16:53 -0500 Adams-MBP.home (36371)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.000836 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 17:17:09 -0500 Adams-MBP.home (36371)] INFO : Starting Agent shutdown
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Environment: development
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : No known dispatcher detected.
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Application: My Application (Development)
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing Net instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Finished instrumentation
+[2020-01-19 17:40:09 -0500 Adams-MBP.home (36711)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 17:40:12 -0500 Adams-MBP.home (36711)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 17:48:52 -0500 Adams-MBP.home (36711)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 17:48:52 -0500 Adams-MBP.home (36711)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001083 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 17:48:52 -0500 Adams-MBP.home (36711)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 17:48:52 -0500 Adams-MBP.home (36711)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001828 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 17:48:52 -0500 Adams-MBP.home (36711)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001612 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 17:48:52 -0500 Adams-MBP.home (36711)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001363 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 17:51:26 -0500 Adams-MBP.home (36711)] INFO : Starting Agent shutdown
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Environment: development
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : No known dispatcher detected.
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Application: My Application (Development)
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing Net instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Finished instrumentation
+[2020-01-19 17:55:22 -0500 Adams-MBP.home (36964)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 17:55:25 -0500 Adams-MBP.home (36964)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 18:37:58 -0500 Adams-MBP.home (36964)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 18:37:58 -0500 Adams-MBP.home (36964)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.004521 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 18:37:58 -0500 Adams-MBP.home (36964)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 18:37:58 -0500 Adams-MBP.home (36964)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.00195 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 18:37:58 -0500 Adams-MBP.home (36964)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.004276 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 18:37:58 -0500 Adams-MBP.home (36964)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001757 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 18:38:01 -0500 Adams-MBP.home (36964)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 18:38:01 -0500 Adams-MBP.home (36964)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001938 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 18:38:01 -0500 Adams-MBP.home (36964)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001335 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 18:38:01 -0500 Adams-MBP.home (36964)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001168 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 19:03:26 -0500 Adams-MBP.home (36964)] INFO : Starting Agent shutdown
+[2020-01-19 19:04:01 -0500 Adams-MBP.home (37352)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 19:04:01 -0500 Adams-MBP.home (37352)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 19:04:01 -0500 Adams-MBP.home (37352)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 19:04:01 -0500 Adams-MBP.home (37352)] INFO : Environment: development
+[2020-01-19 19:04:01 -0500 Adams-MBP.home (37352)] INFO : No known dispatcher detected.
+[2020-01-19 19:04:01 -0500 Adams-MBP.home (37352)] INFO : Application: My Application (Development)
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing Net instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Finished instrumentation
+[2020-01-19 19:04:02 -0500 Adams-MBP.home (37352)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 19:04:05 -0500 Adams-MBP.home (37352)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 19:11:06 -0500 Adams-MBP.home (37352)] INFO : Starting Agent shutdown
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Environment: development
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : No known dispatcher detected.
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Application: My Application (Development)
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing Net instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Finished instrumentation
+[2020-01-19 19:11:36 -0500 Adams-MBP.home (37499)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 19:11:39 -0500 Adams-MBP.home (37499)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 19:54:30 -0500 Adams-MBP.home (37499)] INFO : Starting Agent shutdown
+[2020-01-19 19:57:24 -0500 Adams-MBP.home (38183)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 19:57:24 -0500 Adams-MBP.home (38183)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 19:57:24 -0500 Adams-MBP.home (38183)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 19:57:24 -0500 Adams-MBP.home (38183)] INFO : Environment: development
+[2020-01-19 19:57:24 -0500 Adams-MBP.home (38183)] INFO : No known dispatcher detected.
+[2020-01-19 19:57:24 -0500 Adams-MBP.home (38183)] INFO : Application: My Application (Development)
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing Net instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Finished instrumentation
+[2020-01-19 19:57:25 -0500 Adams-MBP.home (38183)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 19:57:27 -0500 Adams-MBP.home (38183)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 20:03:06 -0500 Adams-MBP.home (38183)] INFO : Starting Agent shutdown
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Environment: development
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : No known dispatcher detected.
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Application: My Application (Development)
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing Net instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Finished instrumentation
+[2020-01-19 20:03:33 -0500 Adams-MBP.home (38297)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 20:03:36 -0500 Adams-MBP.home (38297)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 21:05:02 -0500 Adams-MBP.home (38297)] INFO : Starting Agent shutdown
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Environment: development
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : No known dispatcher detected.
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Application: My Application (Development)
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing Net instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Finished instrumentation
+[2020-01-19 21:15:42 -0500 Adams-MBP.home (39326)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 21:15:43 -0500 Adams-MBP.home (39326)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 21:30:10 -0500 Adams-MBP.home (39326)] INFO : Starting Agent shutdown
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Environment: development
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : No known dispatcher detected.
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Application: My Application (Development)
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing Net instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing ActiveJob instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing notification based Action View instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Finished instrumentation
+[2020-01-19 21:30:47 -0500 Adams-MBP.home (39550)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-19 21:30:50 -0500 Adams-MBP.home (39550)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-19 22:26:53 -0500 Adams-MBP.home (39550)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-19 22:26:53 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001187 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 22:26:53 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-19 22:26:53 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001158 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 22:26:53 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001156 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-19 22:26:53 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.0012 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:49 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 04:56:49 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 23390.589667 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:49 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.092084 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:49 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.08259 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:49 -0500 Adams-MBP.home (39550)] ERROR : 2 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-20 04:56:49 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001615 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:49 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001405 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:53 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 04:56:53 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.004978 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:53 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.00314 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:53 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001641 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:58 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 04:56:58 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.003541 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:58 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001275 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 04:56:58 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001059 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:28 -0500 Adams-MBP.home (39550)] ERROR : 2 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-20 05:23:28 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.003099 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:28 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001183 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:28 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 05:23:28 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001067 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:28 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002683 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:28 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001185 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:40 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 05:23:40 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001634 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:40 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001252 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:40 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001284 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:45 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 05:23:45 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001408 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:45 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001212 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 05:23:45 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001151 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:30 -0500 Adams-MBP.home (39550)] ERROR : 2 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-20 10:13:30 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.01719 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:30 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.024255 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:30 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 10:13:30 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.009543 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:30 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.008438 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:30 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.006184 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:33 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 10:13:33 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.003347 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:33 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.003543 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:33 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.00619 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:38 -0500 Adams-MBP.home (39550)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-20 10:13:38 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.003465 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:38 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001729 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:13:38 -0500 Adams-MBP.home (39550)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.004857 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-20 10:35:34 -0500 Adams-MBP.home (39550)] INFO : Starting Agent shutdown

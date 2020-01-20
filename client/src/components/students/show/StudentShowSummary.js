@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import StudentProgression from '../StudentProgression'
+import StudentProgressionUndraggable from '../StudentProgressionUndraggable'
 import PostItForm from './PostItForm'
 import { connect } from 'react-redux'
 import { updateStudentProgressionStatus } from '../../../actions/studentProgressionActions'
@@ -43,7 +43,7 @@ class StudentShowSummary extends Component {
       return (
         <div key={index} className="progression-row">
           <div className="summary-progression">
-            <StudentProgression progression={progression}/>
+            <StudentProgressionUndraggable progression={progression}/>
             <div className="summary-dates">
               <div className="date-category">Assigned: <br/><strong>{progression.createdAt}</strong> </div>
               <div className="date-category">

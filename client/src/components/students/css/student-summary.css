@@ -106,13 +106,19 @@
 .summary-dates {
   display: flex;
   justify-content: center;
-
+  text-align: center;
+  margin-left: -20px;
 }
 
 .summary-dates .date-category {
   margin-left: 20px;
 }
 
+.student-summary-page .progression-container-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .student-summary-page .progression-row .student-show-progression {
   margin: auto;

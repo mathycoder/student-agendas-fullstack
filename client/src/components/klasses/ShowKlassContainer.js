@@ -6,42 +6,76 @@ import { connect } from 'react-redux'
 import { addStudents } from '../../actions/studentActions'
 import { addStudentProgression } from '../../actions/studentProgressionActions'
 import { addFlashMessage } from '../../actions/flashActions'
+import { deleteStudentProgression, switchStudentProgression } from '../../actions/studentProgressionActions'
 import ShowKlassAllProgressions from './ShowKlassAllProgressions'
+import { DragDropContext } from 'react-beautiful-dnd';
 import '../students/student.css'
 
 class ShowKlassContainer extends Component {
-  handleDragOver = event => {
-    event.preventDefault()
-    const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "rgb(211, 211, 211)"
+  handleDNDDragEnd = result => {
+    const { switchStudentProgression, progressions, students } = this.props
+    const { destination, source, draggableId } = result
+
+    if (!destination || !source) { return }
+
+
+    if (source.index !== destination.index && source.droppableId === destination.droppableId && destination.index !== source.index) {
+      // handles shifting progressions around within a progression
+      const student = students.byId[draggableId.split("-")[0]]
+      const progression = progressions.byId[draggableId.split("-")[1]]
+      const mySubmittedSps = this.submittedSps(student)
+      switchStudentProgression(student, progression, destination.index + mySubmittedSps.length)
+    } else if (source.droppableId.includes("progression") && destination.droppableId.includes("student")){
+        // handles moving a progression from index to a student agenda
+        this.addProgressionToAgenda(result)
+    } else if (source.droppableId !== destination.droppableId && source.droppableId.includes("student") && destination.droppableId.includes("student")) {
+        // handles shifting progressions around within agendas
+        if (this.addProgressionToAgenda(result)) {
+          this.deleteProgressionFromAgenda(result)
+        }
+    }
   }
 
-  handleDragLeave = event => {
-    event.preventDefault()
-    const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "rgb(81, 84, 92)"
+  deleteProgressionFromAgenda = (result) => {
+    const { deleteStudentProgression, studentProgressions } = this.props
+    const { draggableId } = result
+
+    const studentId = draggableId.split("-")[0]
+    const progressionId = draggableId.split("-")[1]
+    const studentProgId = studentProgressions.allIds.find(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === studentId && sp.progressionId === progressionId
+    })
+    const studentProg = studentProgressions.byId[studentProgId]
+    deleteStudentProgression(studentProg)
   }
 
-  handleDragStart = (event, progression) => {
-    let data = JSON.stringify(progression)
-    event.dataTransfer.setData("progression", data)
+  submittedSps = (student) => {
+    const { studentProgressions } = this.props
+    return studentProgressions.allIds.filter(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === `student${student.id}` && sp.submitted && !sp.archived
+    })
   }
 
-  handleDragDrop = (event) => {
-    const { studentProgressions, students, addStudentProgression, addFlashMessage } = this.props
-    const agenda = event.currentTarget.closest('.student-agenda')
-    agenda.style.backgroundColor = "rgb(81, 84, 92)"
-    let progression = event.dataTransfer.getData("progression")
-    progression = JSON.parse(progression)
-    const student = students.byId[`student${event.currentTarget.dataset.studentId}`]
+  addProgressionToAgenda = (result) => {
+    const { progressions, students, studentProgressions, addStudentProgression, addFlashMessage } = this.props
+    const { destination, source, draggableId } = result
+
+    const student = students.byId[destination.droppableId.split("-")[1]]
+    const mySubmittedSps = this.submittedSps(student)
+    const index = destination.index + mySubmittedSps.length
+    const progression = draggableId.includes("student") ? progressions.byId[draggableId.split("-")[1]] : progressions.byId[source.droppableId.split("-")[1]]
     const any = studentProgressions.allIds.filter(spId => {
       const sp = studentProgressions.byId[spId]
       return sp.studentId === `student${student.id}` && sp.progressionId === `progression${progression.id}`
     })
     if (any.length === 0){
-      addStudentProgression(student, progression)
+      addStudentProgression(student, progression, index)
+      return true
     } else {
       addFlashMessage("This student agenda already has this progression")
+      return false
     }
   }
 
@@ -57,14 +91,18 @@ class ShowKlassContainer extends Component {
 
   render(){
     const { klass, editingStudents, showProgressions, submitted } = this.props
-
     if (klass) {
       return (
-        <div className="klass-show-container">
-          { editingStudents ? <EditStudents klass={klass} />
-            : ( submitted ? <ShowKlassAllProgressions /> : this.renderStudents()) }
-          { !editingStudents && !submitted && showProgressions ? this.renderProgressions() : <div></div> }
-        </div>
+        <DragDropContext
+          onDragEnd={this.handleDNDDragEnd}
+          onDragStart={this.handleDNDDragStart}
+          >
+          <div className="klass-show-container">
+            { editingStudents ? <EditStudents klass={klass} />
+              : ( submitted ? <ShowKlassAllProgressions /> : this.renderStudents()) }
+            { !editingStudents && !submitted && showProgressions ? this.renderProgressions() : <div></div> }
+          </div>
+        </DragDropContext>
       )
     } else {
       return <div></div>
@@ -75,8 +113,10 @@ class ShowKlassContainer extends Component {
 function mapDispatchToProps(dispatch){
   return {
     fetchStudents: (klassId) => dispatch(addStudents(klassId)),
-    addStudentProgression: (student, progression) => dispatch(addStudentProgression(student, progression)),
-    addFlashMessage: (message) => dispatch(addFlashMessage(message))
+    addStudentProgression: (student, progression, index) => dispatch(addStudentProgression(student, progression, index)),
+    addFlashMessage: (message) => dispatch(addFlashMessage(message)),
+    switchStudentProgression: (student, progression, newIndex) => dispatch(switchStudentProgression(student, progression, newIndex)),
+    deleteStudentProgression: (studentProgression) => dispatch(deleteStudentProgression(studentProgression))
   }
 }
 
@@ -84,7 +124,8 @@ function mapStateToProps(state){
   return {
     klasses: state.klasses,
     students: state.students,
-    studentProgressions: state.studentProgressions
+    studentProgressions: state.studentProgressions,
+    progressions: state.progressions
   }
 }
 

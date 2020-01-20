@@ -89,28 +89,29 @@
   max-width: 100px;
   font-size: 12px;
   padding-right: 10px;
-  font-weight: lighter;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 500px) {
   .student-row .student-name {
     display: flex;
-    min-width: 70px;
-    max-width: 70px;
+    min-width: 80px;
+    max-width: 80px;
     font-size: 10px;
     padding-right: 10px;
     text-align:center;
     line-height: 24px;
+    overflow: hidden;
+  }
+
+  .student-name a h2 {
+    font-weight: normal;
   }
 }
 
 .student-name a {
   text-decoration: none;
   color: black;
-}
-
-.student-name a h2 {
-  font-weight: normal;
 }
 
 .student-name a:hover {
@@ -144,6 +145,26 @@
   background-color: rgb(81, 84, 92);
   border: 3px solid black;
 }
+
+/* ---------My attempt to make a draggable and undraggable area -------*/
+.student-agenda .undroppable-area, .student-agenda .droppable-area{
+  display: flex;
+}
+
+.student-agenda .droppable-area {
+  height: 85px;
+  width: 1000px;
+}
+
+.droppable-area::after { content: ' '; min-width: 15px; }
+
+.droppable-area.dragging-over {
+  background-color: gray;
+  z-index: 5;
+}
+
+
+/* ---------------------end of attempt ---------------------*/
 
 .student-agenda .progression-wrapper .progression-status {
   display: flex;
@@ -423,7 +444,7 @@
   overflow-x: scroll;
 }
 
-.student-agenda::after { content: ' '; min-width: 15px; }
+/* .student-agenda::after { content: ' '; min-width: 15px; } */
 
 .student-agenda .student-show-progression {
   margin-top: 15px;

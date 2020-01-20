@@ -3,47 +3,29 @@ import StudentAgenda from './StudentAgenda'
 import './student.css'
 import { connect } from 'react-redux'
 import { NavLink } from "react-router-dom"
-import { deleteStudentProgression, switchStudentProgression } from '../../actions/studentProgressionActions'
-import { Droppable, DragDropContext } from 'react-beautiful-dnd'
+import { deleteStudentProgression } from '../../actions/studentProgressionActions'
 
 class Student extends Component {
   handleDeleteProgClick = (progression) => {
-    const { deleteStudentProgression, student } = this.props
-    deleteStudentProgression(student, progression)
-  }
-
-  handleDNDDragEnd = result => {
-    const { destination, source, draggableId } = result
-    if (!destination || !source) { return }
-
-    if (destination.index !== source.index) {
-      this.props.switchStudentProgression(draggableId, destination.index)
-    }
+    const { deleteStudentProgression, student, studentProgressions } = this.props
+    const studentId = `student${student.id}`
+    const progressionId = `progression${progression.id}`
+    const studentProgId = studentProgressions.allIds.find(spId => {
+      const sp = studentProgressions.byId[spId]
+      return sp.studentId === studentId && sp.progressionId === progressionId
+    })
+    const studentProg = studentProgressions.byId[studentProgId]
+    deleteStudentProgression(studentProg)
   }
 
   renderStudentAgenda = () => {
-    const { student, progressions, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    const { student, progressions } = this.props
     return (
-      <DragDropContext
-        onDragEnd={this.handleDNDDragEnd}
-        onDragStart={this.handleDNDDragStart}
-        >
-        <Droppable droppableId={`droppable-${student.id}`} direction="horizontal">
-          {(provided) => (
-            <StudentAgenda
-              {...provided.droppableProps}
-              placeholder={provided.placeholder}
-              innerRef={provided.innerRef}
-              student={student}
-              progressions={progressions}
-              handleDragOver={handleDragOver}
-              handleDragLeave={handleDragLeave}
-              handleDragDrop={handleDragDrop}
-              handleDeleteProgClick={this.handleDeleteProgClick}
-              />
-          )}
-        </Droppable>
-      </DragDropContext>
+      <StudentAgenda
+        student={student}
+        progressions={progressions}
+        handleDeleteProgClick={this.handleDeleteProgClick}
+        />
     )
   }
 
@@ -63,11 +45,16 @@ class Student extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch){
+function mapStateToProps(state){
   return {
-    deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression)),
-    switchStudentProgression: (draggableId, newIndex) => dispatch(switchStudentProgression(draggableId, newIndex))
+    studentProgressions: state.studentProgressions
   }
 }
 
-export default connect(null, mapDispatchToProps)(Student)
+function mapDispatchToProps(dispatch){
+  return {
+    deleteStudentProgression: (student, progression) => dispatch(deleteStudentProgression(student, progression)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Student)

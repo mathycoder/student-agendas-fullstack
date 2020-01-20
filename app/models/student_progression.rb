@@ -2,6 +2,23 @@ class StudentProgression < ApplicationRecord
   belongs_to :student
   belongs_to :progression
 
+
+  def self.new_sp(progression, student, index)
+    student = Student.find_by(id: student.id)
+    progression = Progression.find_by(id: progression.id)
+    original_order = student.student_progressions.sort_by{|sp| sp.agenda_index}
+    new_sp = self.create(student_id: student.id, progression_id: progression.id)
+
+    number_of_submitted = original_order.select{|sp| sp.submitted && !sp.archived}.length
+    inserted_index = index < number_of_submitted ? number_of_submitted : index
+
+    new_order = original_order.insert(inserted_index, new_sp)
+    new_order.each_with_index do |sp, ind|
+      sp.update(agenda_index: ind)
+    end
+    new_order
+  end
+
   def self.rearrange_progressions(student_progression, new_index)
     student = Student.find_by(id: student_progression.student_id)
     original_order = student.student_progressions.sort_by{|sp| sp.agenda_index}
