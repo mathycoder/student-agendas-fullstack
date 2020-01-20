@@ -1,6 +1,6 @@
 import React from 'react'
 import StudentAgendaProgression from './StudentAgendaProgression'
-import { Draggable } from 'react-beautiful-dnd'
+import { Droppable, Draggable } from 'react-beautiful-dnd'
 
 const StudentAgenda = ({ placeholder, innerRef, handleDragOver, handleDragLeave, handleDragDrop, handleDeleteProgClick, progressions, student }) => {
   return (

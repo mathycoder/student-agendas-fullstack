@@ -20,7 +20,7 @@ class Student extends Component {
   }
 
   renderStudentAgenda = () => {
-    const { student, progressions, handleDragOver, handleDragLeave, handleDragDrop } = this.props
+    const { student, progressions } = this.props
     return (
 
         <Droppable droppableId={`droppable-student${student.id}`} direction="horizontal">
@@ -31,9 +31,6 @@ class Student extends Component {
               innerRef={provided.innerRef}
               student={student}
               progressions={progressions}
-              handleDragOver={handleDragOver}
-              handleDragLeave={handleDragLeave}
-              handleDragDrop={handleDragDrop}
               handleDeleteProgClick={this.handleDeleteProgClick}
               />
           )}
