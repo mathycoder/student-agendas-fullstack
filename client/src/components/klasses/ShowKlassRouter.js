@@ -197,7 +197,7 @@ class ShowKlassRouter extends Component {
     const klassId = klasses.allIds.find(klassId => klassId === `klass${match.params.id}`) || ""
     const klass = klasses.byId[klassId]
     return (
-      <div>
+      <div className="entire-klass-show-wrapper noselect">
         {this.renderShowKlassMenuBar(klass)}
         {this.renderStudentDropdown(klass)}
         {this.renderSettingsDropdown()}
