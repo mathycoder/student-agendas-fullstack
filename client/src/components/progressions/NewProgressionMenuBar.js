@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/progression-menu-bar.css'
 
-const NewProgressionMenuBar = ({ menuSelect, progressionEmpty, handleMenuClick }) => {
+const NewProgressionMenuBar = ({ menuSelect, progressionEmpty, handleMenuClick, containsReflection }) => {
   return (
     <div className="progression-menu-bar">
       <ul>
@@ -21,13 +21,14 @@ const NewProgressionMenuBar = ({ menuSelect, progressionEmpty, handleMenuClick }
             <img className="video-logo" alt="vimeo logo" src="/video-logos/vimeo-logo.png"/>
         </li>
 
-        <li
+        {!containsReflection ? <li
           onClick={handleMenuClick}
           data-option="Add Reflection"
           className={menuSelect === "Add Reflection" ? "selected" : ''}
           >
             <img className="video-logo" alt="vimeo logo" src="/paper-pencil.png"/>
-          </li>
+          </li> : ''}
+
         {progressionEmpty() ? '' :
           <li
             onClick={handleMenuClick}

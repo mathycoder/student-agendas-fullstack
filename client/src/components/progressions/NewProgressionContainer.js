@@ -235,23 +235,21 @@ class NewProgressionContainer extends Component {
   renderProgressionTemplate = () => {
     return (
       <div className="new-progression-wrapper">
-
-          <Droppable droppableId="droppable-1" direction="horizontal">
-            {(provided) => (
-              <NewProgression
-                placeholder={provided.placeholder}
-                color={this.state.color}
-                innerRef={provided.innerRef}
-                {...provided.droppableProps}
-                removeFromProgression={this.removeFromProgression}
-                currProgression={this.state.currProgression}
-                handleProgressionItemClick={this.handleProgressionItemClick}
-                >
-                  {provided.placeholder}
-              </NewProgression>
-            )}
-          </Droppable>
-
+        <Droppable droppableId="droppable-1" direction="horizontal">
+          {(provided) => (
+            <NewProgression
+              placeholder={provided.placeholder}
+              color={this.state.color}
+              innerRef={provided.innerRef}
+              {...provided.droppableProps}
+              removeFromProgression={this.removeFromProgression}
+              currProgression={this.state.currProgression}
+              handleProgressionItemClick={this.handleProgressionItemClick}
+              >
+                {provided.placeholder}
+            </NewProgression>
+          )}
+        </Droppable>
       </div>
     )
   }
@@ -260,12 +258,12 @@ class NewProgressionContainer extends Component {
     const {selectedIndex, currProgression} = this.state
     return (
       <div>
-        <NewProgressionMenuBar handleMenuClick={this.handleMenuClick} menuSelect={this.state.menuSelect} progressionEmpty={this.progressionEmpty}/>
+        <NewProgressionMenuBar handleMenuClick={this.handleMenuClick} menuSelect={this.state.menuSelect} progressionEmpty={this.progressionEmpty} containsReflection={this.containsReflection()}/>
         {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].videoId ? <DisplayPreview video={currProgression[selectedIndex]} removeFromProgression={this.removeFromProgression}/> : ''}
         {this.state.menuSelect === "Edit Progression" && selectedIndex !== '' && currProgression[selectedIndex].question1 ? <NewReflection key={selectedIndex} reflection={currProgression[selectedIndex]} addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} /> : ''}
         {this.state.menuSelect === "Add YouTube Video" ? <YouTubeSearchContainer addToProgression={this.addToProgression} /> : ''}
         {this.state.menuSelect === "Add Vimeo Video" ? <VimeoSearchContainer addToProgression={this.addToProgression} /> : ''}
-        {this.state.menuSelect === "Add Reflection" ? <NewReflection reflection='' addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} handleDragStart={this.handleDragStart} /> : ''}
+        {this.state.menuSelect === "Add Reflection" ? <NewReflection reflection='' addToProgression={this.addToProgression} editReflectionItem={this.editReflectionItem} /> : ''}
       </div>
     )
   }

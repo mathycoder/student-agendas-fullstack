@@ -55,11 +55,6 @@ class NewReflection extends Component {
                     value={title}
                     placeholder='Enter a title'/>
                 </div>
-                <input
-                  className="add-prog-button"
-                  type="submit"
-                  value={editing ? 'Update' : 'Add to Progression'}
-                />
                 <div className="reflection-question">
                   <textarea
                     required

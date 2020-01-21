@@ -102,7 +102,9 @@ input[type=submit].add-prog-button {
 }
 
 .add-prog-button-mini-wrapper {
-  display: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 890px) {
@@ -150,11 +152,7 @@ input[type=submit].add-prog-button {
     display: none;
   }
 
-  .add-prog-button-mini-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-  }
+
 
 }
 
