@@ -27,7 +27,7 @@
 
 .myagenda {
   display: flex;
-  width: 95%;
+  width: 95vw;
   max-width: 800px;
   height: 180px;
   margin: 0 auto;
@@ -114,7 +114,8 @@
 /* -----------------------------------my progression---------------------------------- */
 
 .myprogression {
-
+  display: block;
+  margin: 0 auto;
 }
 
 .nav-buttons {
