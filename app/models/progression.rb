@@ -4,7 +4,7 @@ class Progression < ApplicationRecord
   has_many :videos, through: :items
   has_many :reflections, through: :items
 
-  has_many :student_progressions
+  has_many :student_progressions, dependent: :destroy
   has_many :students, through: :student_progressions
   has_many :klasses, through: :students
 

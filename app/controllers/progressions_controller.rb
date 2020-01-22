@@ -72,7 +72,7 @@ class ProgressionsController < ApplicationController
     if (!params[:student_id])
       @progression = Progression.find_by(id: params[:id])
       @student_progressions = @progression.student_progressions.map{|sp| sp}
-      @progression.student_progressions.destroy_all
+      # @progression.student_progressions.destroy_all
       @progression.destroy
       render json: {progression: @progression, studentProgressions: @student_progressions}, status: 201
     else

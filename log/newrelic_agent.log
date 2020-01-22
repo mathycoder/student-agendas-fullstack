@@ -1227,3 +1227,23 @@
 [2020-01-22 12:10:32 -0500 Adams-MBP.home (47243)] INFO : Doing deferred dependency-detection before Rack startup
 [2020-01-22 12:10:34 -0500 Adams-MBP.home (47243)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
 [2020-01-22 12:21:36 -0500 Adams-MBP.home (47243)] INFO : Starting Agent shutdown
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Environment: development
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : No known dispatcher detected.
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Application: My Application (Development)
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing Net instrumentation
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing ActiveJob instrumentation
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-22 12:23:42 -0500 Adams-MBP.home (47458)] INFO : Installing notification based Action View instrumentation
+[2020-01-22 12:23:43 -0500 Adams-MBP.home (47458)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-22 12:23:43 -0500 Adams-MBP.home (47458)] INFO : Finished instrumentation
+[2020-01-22 12:23:43 -0500 Adams-MBP.home (47458)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-22 12:23:44 -0500 Adams-MBP.home (47458)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-22 12:32:50 -0500 Adams-MBP.home (47458)] INFO : Starting Agent shutdown
