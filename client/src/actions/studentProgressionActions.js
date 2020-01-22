@@ -100,7 +100,7 @@ export function archiveStudentProgressions(currentUser, klassId){
       }
     })
       .then(resp => resp.json())
-      .then(studentProgressions => dispatch({ type: 'SWITCH_PROGRESSION', studentProgressions }))
+      .then(studentProgressions => dispatch({ type: 'RELOAD_ALL_STUDENT_AGENDAS', studentProgressions }))
   }
 }
 

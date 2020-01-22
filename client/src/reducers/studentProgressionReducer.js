@@ -13,9 +13,14 @@ function studentProgressionsById(state = {}, action) {
       return {}
 
     case 'ADD_STUDENTS':
-    return {
-      ...normalizedObjectCreator(action.studentProgressions)
-    }
+      return {
+        ...normalizedObjectCreator(action.studentProgressions)
+      }
+
+    case 'RELOAD_ALL_STUDENT_AGENDAS':
+      return {
+        ...normalizedObjectCreator(action.studentProgressions)
+      }
 
     case 'START_ADDING_STUDENT_PROGRESSION_REQUEST':
       return {
