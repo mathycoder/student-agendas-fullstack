@@ -120,6 +120,7 @@ function switchAgendaOrder(action, allSps){
     }
   }
 
+  myStudentProgressions = myStudentProgressions.filter(sp => !sp.archived)
   myStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
   myStudentProgressions = myStudentProgressions.filter(sp => sp.id !== currStProgression.id)
   myStudentProgressions.splice(action.newIndex, 0, currStProgression)
@@ -141,6 +142,7 @@ function orderedWithTemporarySp(action, allSps){
     }
   }
 
+  myStudentProgressions = myStudentProgressions.filter(sp => !sp.archived)
   myStudentProgressions = myStudentProgressions.sort((a,b) => a.agendaIndex - b.agendaIndex)
   const numberOfSubmitted = myStudentProgressions.filter(sp => sp.submitted && !sp.archived).length
   const insertedIndex = action.index < numberOfSubmitted ? numberOfSubmitted : action.index

@@ -18,7 +18,15 @@ class Klass < ApplicationRecord
   def archive_student_progressions
     progressions_to_be_archived = self.student_progressions.select{|sp| sp.submitted && !sp.archived}
     progressions_to_be_archived.each{|sp| sp.update(archived: true)}
-    progressions_to_be_archived
+
+    self.students.each do |student|
+      sps = student.student_progressions
+      sps = sps.select{ |sp| !sp.archived }
+      sps = sps.sort_by{ |sp| sp.agenda_index }
+      sps.each_with_index{ |sp, index| sp.update(agenda_index: index) }
+    end
+
+    self.student_progressions
   end
 
   def add_progression_to_all(progression)

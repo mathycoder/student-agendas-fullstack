@@ -6,7 +6,8 @@ class StudentProgression < ApplicationRecord
   def self.new_sp(progression, student, index)
     student = Student.find_by(id: student.id)
     progression = Progression.find_by(id: progression.id)
-    original_order = student.student_progressions.sort_by{|sp| sp.agenda_index}
+    original_order = student.student_progressions.filter{|sp| !sp.archived}
+    original_order = original_order.sort_by{|sp| sp.agenda_index}
     new_sp = self.create(student_id: student.id, progression_id: progression.id)
 
     number_of_submitted = original_order.select{|sp| sp.submitted && !sp.archived}.length
@@ -21,7 +22,8 @@ class StudentProgression < ApplicationRecord
 
   def self.rearrange_progressions(student_progression, new_index)
     student = Student.find_by(id: student_progression.student_id)
-    original_order = student.student_progressions.sort_by{|sp| sp.agenda_index}
+    original_order = student.student_progressions.filter{|sp| !sp.archived}
+    original_order = original_order.sort_by{|sp| sp.agenda_index}
     original_order.delete(student_progression)
     new_order = original_order.insert(new_index, student_progression)
     new_order.each_with_index do |sp, index|
@@ -32,7 +34,8 @@ class StudentProgression < ApplicationRecord
 
   def self.rearrange_progressions_after_submit(student_progression)
     student = Student.find_by(id: student_progression.student_id)
-    original_order = student.student_progressions.sort_by{|sp| sp.agenda_index}
+    original_order = student.student_progressions.filter{|sp| !sp.archived}
+    original_order = original_order.sort_by{|sp| sp.agenda_index}
     original_order.delete(student_progression)
 
     # I want to arrange the newly submitted student_progression after all of the other

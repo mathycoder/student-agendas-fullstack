@@ -20,7 +20,7 @@ class ShowKlassContainer extends Component {
 
 
     if (source.index !== destination.index && source.droppableId === destination.droppableId && destination.index !== source.index) {
-      // handles shifting progressions around within a progression
+      // handles shifting progressions around within an agenda
       const student = students.byId[draggableId.split("-")[0]]
       const progression = progressions.byId[draggableId.split("-")[1]]
       const mySubmittedSps = this.submittedSps(student)
@@ -29,7 +29,7 @@ class ShowKlassContainer extends Component {
         // handles moving a progression from index to a student agenda
         this.addProgressionToAgenda(result)
     } else if (source.droppableId !== destination.droppableId && source.droppableId.includes("student") && destination.droppableId.includes("student")) {
-        // handles shifting progressions around within agendas
+        // handles moving a progression from one agenda to another
         if (this.addProgressionToAgenda(result)) {
           this.deleteProgressionFromAgenda(result)
         }
