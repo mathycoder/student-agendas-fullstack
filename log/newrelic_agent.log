@@ -1287,3 +1287,9 @@
 [2020-01-22 14:19:07 -0500 Adams-MBP.home (48164)] INFO : Doing deferred dependency-detection before Rack startup
 [2020-01-22 14:19:08 -0500 Adams-MBP.home (48164)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
 [2020-01-22 14:23:57 -0500 Adams-MBP.home (48164)] INFO : Starting Agent shutdown
+[2020-01-22 14:36:35 -0500 Adams-MBP.home (45283)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-22 14:36:35 -0500 Adams-MBP.home (45283)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001839 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-22 14:36:35 -0500 Adams-MBP.home (45283)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-22 14:36:35 -0500 Adams-MBP.home (45283)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001808 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-22 14:36:35 -0500 Adams-MBP.home (45283)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.002258 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-22 14:36:35 -0500 Adams-MBP.home (45283)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001639 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
