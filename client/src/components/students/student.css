@@ -705,12 +705,6 @@
 }
 
 @media screen and (max-width: 500px) {
-  .klass-show-container {
-    display: grid;
-    grid-template-rows: 0px 1fr 2fr;
-    grid-template-columns: 3fr 2fr;
-  }
-
   .student-agendas {
     padding-left: 10px;
     padding-right: 0px;
