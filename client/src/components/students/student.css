@@ -93,19 +93,29 @@
 }
 
 @media screen and (max-width: 500px) {
+  .student-row {
+    flex-wrap: wrap;
+    min-height: 105px;
+    justify-content: center;
+  }
+
   .student-row .student-name {
-    display: flex;
-    min-width: 80px;
-    max-width: 80px;
+    display: block;
+    min-width: 200px;
     font-size: 10px;
-    padding-right: 10px;
-    text-align:center;
-    line-height: 24px;
+    text-align: center;
     overflow: hidden;
+    padding: 0px 5px 0px 5px;
+    height: 32px;
+    margin-top: -5px;
   }
 
   .student-name a h2 {
-    font-weight: normal;
+    font-weight: bold;
+  }
+
+  .student-agenda {
+
   }
 }
 
