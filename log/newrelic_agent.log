@@ -1481,3 +1481,29 @@
 [2020-01-23 11:50:04 -0500 Adams-MBP.home (52933)] INFO : Doing deferred dependency-detection before Rack startup
 [2020-01-23 11:50:06 -0500 Adams-MBP.home (52933)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
 [2020-01-23 12:04:24 -0500 Adams-MBP.home (52933)] INFO : Starting Agent shutdown
+[2020-01-23 12:04:52 -0500 Adams-MBP.home (53164)] INFO : Starting the New Relic agent version 6.8.0.360 in "development" environment.
+[2020-01-23 12:04:52 -0500 Adams-MBP.home (53164)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2020-01-23 12:04:52 -0500 Adams-MBP.home (53164)] INFO : Reading configuration from newrelic.yml (/Users/adamsarli/Coding/student-agendas-fullstack)
+[2020-01-23 12:04:52 -0500 Adams-MBP.home (53164)] INFO : Environment: development
+[2020-01-23 12:04:52 -0500 Adams-MBP.home (53164)] INFO : No known dispatcher detected.
+[2020-01-23 12:04:52 -0500 Adams-MBP.home (53164)] INFO : Application: My Application (Development)
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing ActiveStorage 5 instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing notifications based Active Record instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing Rails 3+ middleware instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing Net instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing ActiveJob instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing notifications based Action Controller instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing notification based Action View instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Installing notifications based Action Cable instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Finished instrumentation
+[2020-01-23 12:04:53 -0500 Adams-MBP.home (53164)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-01-23 12:04:55 -0500 Adams-MBP.home (53164)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2593028/applications/234475639
+[2020-01-23 12:09:20 -0500 Adams-MBP.home (53164)] ERROR : 1 error(s) running task for event '60_second_harvest' in Agent Event Loop:
+[2020-01-23 12:09:22 -0500 Adams-MBP.home (53164)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.006614 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (Network is down - connect(2) for "collector-005.newrelic.com" port 443)
+[2020-01-23 12:09:22 -0500 Adams-MBP.home (53164)] ERROR : 3 error(s) running task for event '5_second_harvest' in Agent Event Loop:
+[2020-01-23 12:09:22 -0500 Adams-MBP.home (53164)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.049651 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (Can't assign requested address - connect(2) for "collector-005.newrelic.com" port 443)
+[2020-01-23 12:09:22 -0500 Adams-MBP.home (53164)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.127217 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-23 12:09:22 -0500 Adams-MBP.home (53164)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-005.newrelic.com:443 after 0.001919 seconds: Failed to open TCP connection to collector-005.newrelic.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+[2020-01-23 12:33:33 -0500 Adams-MBP.home (53164)] INFO : Starting Agent shutdown

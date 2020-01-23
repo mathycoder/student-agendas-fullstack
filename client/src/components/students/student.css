@@ -677,20 +677,46 @@ and (max-height: 450px) {
 
   .student-show-progressions-container {
     height: 66vh;
+    width: 280px;
+  }
+
+  .student-show-progressions-header .search-bar .mag-glass {
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin-top: 5px;
   }
 
   .student-show-progressions-header .search-bar {
-    `width: 155px;
-    padding: 4px 0 0 8px;
+    width: 125px;
+    padding: 2px 0px 2px 8px;
   }
 
   .student-show-progressions-header .search-bar input[type=text]{
-    width: 95px;
+    max-width: 75px;
     height: 19px;
+    font-size: 13px;
+  }
+
+  .student-show-progressions-header .search-bar input[type=submit]{
+    display: none;
   }
 
   .student-show-progressions-header {
     font-size: 18px;
+  }
+
+  .search-filters button {
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  .student-show-progression-items {
+    display: flex;
+    width: min-content;
+    max-width: 220px;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
 }
 
