@@ -2,6 +2,13 @@
   padding:20px;
 }
 
+.no-students {
+  display: block;
+  margin: 0px auto;
+  padding: 20px;
+  line-height: 30px;
+}
+
 .klass-show-container {
   display: grid;
   grid-template-rows: 1fr;

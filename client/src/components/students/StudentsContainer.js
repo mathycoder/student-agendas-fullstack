@@ -7,18 +7,27 @@ import { getActiveStudentProgressions } from '../progressions/helpers/getStudent
 class StudentContainer extends Component {
   displayStudents = () => {
     const { students, klass, handleDragOver, handleDragLeave, handleDragDrop, progressions, studentProgressions } = this.props
-    return students.allIds.map((stId, index) => {
-      const student = students.byId[stId]
+    if (students.allIds.length > 0){
+      return students.allIds.map((stId, index) => {
+        const student = students.byId[stId]
+        return (
+          <Student
+            key={index}
+            student={student}
+            klass={klass}
+            progressions={getActiveStudentProgressions(student, studentProgressions, progressions)}
+            handleDragOver={handleDragOver}
+            handleDragLeave={handleDragLeave}
+            handleDragDrop={handleDragDrop} />
+      )})
+    } else {
       return (
-        <Student
-          key={index}
-          student={student}
-          klass={klass}
-          progressions={getActiveStudentProgressions(student, studentProgressions, progressions)}
-          handleDragOver={handleDragOver}
-          handleDragLeave={handleDragLeave}
-          handleDragDrop={handleDragDrop} />
-    )})
+        <div className="no-students">
+          This class has no students yet! <br/>  Click the gear icon above and select 'Edit Students' to get started.
+        </div>
+      )
+    }
+
   }
 
   render(){
