@@ -678,6 +678,20 @@ and (max-height: 450px) {
   .student-show-progressions-container {
     height: 66vh;
   }
+
+  .student-show-progressions-header .search-bar {
+    `width: 155px;
+    padding: 4px 0 0 8px;
+  }
+
+  .student-show-progressions-header .search-bar input[type=text]{
+    width: 95px;
+    height: 19px;
+  }
+
+  .student-show-progressions-header {
+    font-size: 18px;
+  }
 }
 
 
