@@ -9,6 +9,7 @@ import videoSearchReducer from './reducers/videoSearchReducer.js'
 import studentProgressionReducer from './reducers/studentProgressionReducer.js'
 import currentUserReducer from './reducers/currentUserReducer.js'
 import flashReducer from './reducers/flashReducer.js'
+import loadingReducer from './reducers/loadingReducer.js'
 import { combineReducers } from 'redux'
 
 
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   videoSearch: videoSearchReducer,
   studentProgressions: studentProgressionReducer,
   currentUser: currentUserReducer,
-  flash: flashReducer
+  flash: flashReducer,
+  loading: loadingReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

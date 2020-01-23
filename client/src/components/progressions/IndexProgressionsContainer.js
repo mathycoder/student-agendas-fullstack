@@ -128,7 +128,7 @@ class IndexProgressionsContainer extends Component {
   }
 
   render(){
-    const { progressions, videos, reflections, indexPage, history } = this.props
+    const { loading, progressions, videos, reflections, indexPage, history } = this.props
 
     return (
       <div className={`student-show-progressions-container ${indexPage ? 'index-page' : ''}`}>
@@ -160,6 +160,7 @@ class IndexProgressionsContainer extends Component {
           </div>
         </div>
         <div className="student-show-progressions-index">
+          { !loading && progressions.allIds.length === 0 ? "You don't have any progressions yet!  In the menu above, select 'Progressions' and then 'Create New' to add your first progression!" : ''}
           {this.state.searchedProgressions.map((progressionId, index) => {
             const progression = progressions.byId[progressionId]
             if (!indexPage) {
@@ -206,7 +207,8 @@ function mapStateToProps(state){
   return {
     progressions: state.progressions,
     videos: state.videos,
-    reflections: state.reflections
+    reflections: state.reflections,
+    loading: state.loading
   }
 }
 
