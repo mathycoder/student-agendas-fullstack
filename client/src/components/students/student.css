@@ -583,7 +583,8 @@
   }
 
   .klass-show-container .search-filters {
-    display: none;
+    /* display: none; */
+    height: 40px;
   }
 }
 
@@ -675,7 +676,7 @@ and (max-height: 450px) {
   }
 
   .student-show-progressions-container {
-    height: 60vh;
+    height: 66vh;
   }
 }
 
