@@ -6,7 +6,8 @@ import { getActiveStudentProgressions } from '../progressions/helpers/getStudent
 
 class StudentContainer extends Component {
   displayStudents = () => {
-    const { students, klass, handleDragOver, handleDragLeave, handleDragDrop, progressions, studentProgressions } = this.props
+    const { loading, students, klass, handleDragOver, handleDragLeave, handleDragDrop, progressions, studentProgressions } = this.props
+    console.log(loading)
     if (students.allIds.length > 0){
       return students.allIds.map((stId, index) => {
         const student = students.byId[stId]
@@ -20,11 +21,15 @@ class StudentContainer extends Component {
             handleDragLeave={handleDragLeave}
             handleDragDrop={handleDragDrop} />
       )})
-    } else {
+    } else if (!loading) {
       return (
         <div className="no-students">
           This class has no students yet! <br/>  Click the gear icon above and select 'Edit Students' to get started.
         </div>
+      )
+    } else{
+      return (
+        <div></div>
       )
     }
 
@@ -43,7 +48,8 @@ function mapStateToProps(state){
   return {
     students: state.students,
     studentProgressions: state.studentProgressions,
-    progressions: state.progressions
+    progressions: state.progressions,
+    loading: state.loading.loadingStudents
   }
 }
 

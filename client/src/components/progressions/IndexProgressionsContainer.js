@@ -208,7 +208,7 @@ function mapStateToProps(state){
     progressions: state.progressions,
     videos: state.videos,
     reflections: state.reflections,
-    loading: state.loading
+    loading: state.loading.loadingProgressions
   }
 }
 
