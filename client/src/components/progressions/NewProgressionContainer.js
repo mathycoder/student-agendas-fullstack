@@ -299,12 +299,12 @@ function mapStateToProps(state){
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return {
-    addProgression: (progression, history) => dispatch(addProgression(progression, history)),
-    editProgression: (progression, history) => dispatch(editProgression(progression, history)),
-    addFlashMessage: (message) => dispatch(addFlashMessage(message))
-  }
-}
+// function mapDispatchToProps(dispatch){
+//   return {
+//     addProgression: (progression, history) => dispatch(addProgression(progression, history)),
+//     editProgression: (progression, history) => dispatch(editProgression(progression, history)),
+//     addFlashMessage: (message) => dispatch(addFlashMessage(message))
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewProgressionContainer)
+export default connect(mapStateToProps, {addProgression, editProgression, addFlashMessage})(NewProgressionContainer)
