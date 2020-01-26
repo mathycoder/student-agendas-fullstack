@@ -44,11 +44,11 @@ class KlassesContainer extends Component {
   }
 }
 
-function mapStateToProps(state){
-  return {
-    klasses: state.klasses
-  }
-}
+// function mapStateToProps(state){
+//   return {
+//     klasses: state.klasses
+//   }
+// }
 
 function mapDispatchToProps(dispatch){
   return {
@@ -58,4 +58,4 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(KlassesContainer)
+export default connect(state => ({klasses: state.klasses}), mapDispatchToProps)(KlassesContainer)
