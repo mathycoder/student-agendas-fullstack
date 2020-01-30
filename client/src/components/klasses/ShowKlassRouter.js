@@ -155,33 +155,63 @@ class ShowKlassRouter extends Component {
 
   renderShowKlassMenuBar = (klass) => {
     const { editingStudents, studentShowPage, summaryPage, settings } = this.state
-    if (!studentShowPage){
-      return (
-        <div className="klass-show-title">
-          <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
-          {editingStudents ? '' : this.renderStudentDropdownContainer()}
-          {editingStudents ? '' :
-          <>
-            <div className={`post-it-icon`} onClick={this.handleSubmittedClick}><p>{this.numberToBeGraded()}</p></div>
-            <div className="gear" onClick={this.handleSettingsClick} ref={this.myRefGearIcon}>
-              <img className={settings ? 'clock':'counterclock'} src="/gear.png" alt="gear icon" />
-            </div>
-          </>}
-        </div>
-      )
-    } else {
-      return (
-        <div className="klass-show-title">
-          <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
-          {this.renderStudentDropdownContainer()}
-          <Toggle
-            left={'Current Agenda'}
-            right={'All Progressions'}
-            handleToggleChange={this.handleToggleChange}
-            attribute={summaryPage}/>
-        </div>
-      )
-    }
+    const menuForStudentShowPage = (
+      <div className="klass-show-title">
+        <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
+        {this.renderStudentDropdownContainer()}
+        <Toggle
+          left={'Current Agenda'}
+          right={'All Progressions'}
+          handleToggleChange={this.handleToggleChange}
+          attribute={summaryPage}/>
+      </div>
+    )
+
+    const menuForKlassShowPage = (
+      <div className="klass-show-title">
+        <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
+        {editingStudents ? '' : this.renderStudentDropdownContainer()}
+        {editingStudents ? '' :
+        <>
+          <div className={`post-it-icon`} onClick={this.handleSubmittedClick}><p>{this.numberToBeGraded()}</p></div>
+          <div className="gear" onClick={this.handleSettingsClick} ref={this.myRefGearIcon}>
+            <img className={settings ? 'clock':'counterclock'} src="/gear.png" alt="gear icon" />
+          </div>
+        </>}
+      </div>
+    )
+
+    return (
+      studentShowPage ? menuForStudentShowPage : menuForKlassShowPage
+    )
+
+    // if (!studentShowPage){
+    //   return (
+    //     <div className="klass-show-title">
+    //       <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
+    //       {editingStudents ? '' : this.renderStudentDropdownContainer()}
+    //       {editingStudents ? '' :
+    //       <>
+    //         <div className={`post-it-icon`} onClick={this.handleSubmittedClick}><p>{this.numberToBeGraded()}</p></div>
+    //         <div className="gear" onClick={this.handleSettingsClick} ref={this.myRefGearIcon}>
+    //           <img className={settings ? 'clock':'counterclock'} src="/gear.png" alt="gear icon" />
+    //         </div>
+    //       </>}
+    //     </div>
+    //   )
+    // } else {
+    //   return (
+    //     <div className="klass-show-title">
+    //       <NavLink to={`/classes/${klass.id}`}>{klass.name}</NavLink>
+    //       {this.renderStudentDropdownContainer()}
+    //       <Toggle
+    //         left={'Current Agenda'}
+    //         right={'All Progressions'}
+    //         handleToggleChange={this.handleToggleChange}
+    //         attribute={summaryPage}/>
+    //     </div>
+    //   )
+    // }
   }
 
   handleToggleChange = (e) => {

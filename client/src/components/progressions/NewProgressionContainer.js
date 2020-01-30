@@ -213,7 +213,10 @@ class NewProgressionContainer extends Component {
             onChange={this.onNameInputChange}/>
         </div>
         <div className="color-container">
-          <div className="select-color red-title" onClick={event => this.handleColorClick("red")}></div>
+          <div
+            className="select-color red-title"
+            onClick={event => this.handleColorClick("red")}>
+          </div>
           <div className="select-color orange-title" onClick={event => this.handleColorClick("orange")}></div>
           <div className="select-color green-title" onClick={event => this.handleColorClick("green")}></div>
           <div className="select-color blue-title" onClick={event => this.handleColorClick("blue")}></div>

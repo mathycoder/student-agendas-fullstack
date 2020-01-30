@@ -46,7 +46,9 @@ class KlassesIndex extends Component {
                   <button onClick={e => this.handleEditKlassClick(klass.id)}>Edit</button>
                 </div>
                 <div>
-                  <button onClick={e => this.handleDeleteKlassClick(klass.id)}>Delete</button>
+                  <button
+                    onClick={e => this.handleDeleteKlassClick(klass.id)}
+                  >Delete</button>
                 </div>
               </div>
             )
